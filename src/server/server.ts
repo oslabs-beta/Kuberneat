@@ -25,7 +25,7 @@ import express, {
 	const register = new Registry();
 	// collect these default metrics
 	collectDefaultMetrics({ register });
-  
+
 	// list all pods
 	const kc = new k8s.KubeConfig();
 	kc.loadFromDefault();
@@ -34,7 +34,7 @@ import express, {
 	k8sApi.listNamespacedPod('default').then((res : any) => {
 		console.log(res.body)
 	})
-
+	
   app.use(express.json() as RequestHandler);
   app.use(express.urlencoded({ extended: true }) as RequestHandler);
   
