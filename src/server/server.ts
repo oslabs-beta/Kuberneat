@@ -9,9 +9,9 @@ import express, {
   import { RequestHandler } from 'express-serve-static-core';
   import path from 'path';
 	const client = require('prom-client');
-	const k8s = require('@kubernetes/client-node')
+	const k8s = require('@kubernetes/client-node');
 
-  
+  // test
   dotenv.config();
   
   const app: Express = express();
