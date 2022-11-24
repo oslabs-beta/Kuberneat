@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: aimee/client:latest
+          image: zeus-mirco/client
 ---
 apiVersion: v1
 kind: Service
@@ -27,5 +27,5 @@ spec:
   ports:
     - name: client
       protocol: TCP
-      port: 3000
-      targetPort: 3000
+      port: 3002
+      targetPort: 3002

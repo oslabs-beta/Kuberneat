@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: viewer
-          image: aimee/viewer:latest
+          image: zeus-micro/viewer:latest
 ---
 apiVersion: v1
 kind: Service

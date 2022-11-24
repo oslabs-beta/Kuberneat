@@ -4,16 +4,27 @@ import express, {
 	Response,
 	NextFunction,
 	ErrorRequestHandler,
-  } from 'express';
+} from 'express';
   import dotenv from 'dotenv';
   import { RequestHandler } from 'express-serve-static-core';
   import path from 'path';
+	import client from 'prom-client';
   
   dotenv.config();
   
   const app: Express = express();
   const port: number = Number(process.env.PORT) || 3000;
+
+	// collecting our default metrics from Prometheus
+	// https://prometheus.io/docs/instrumenting/writing_clientlibs/#standard-and-runtime-collectors
+	const collectDefaultMetrics = client.collectDefaultMetrics;
+	// register our metrics to another registry
+	const Registry = client.Registry;
+	const register = new Registry();
+	// collect these default metrics
+	collectDefaultMetrics({ register });
   
+
   app.use(express.json() as RequestHandler);
   app.use(express.urlencoded({ extended: true }) as RequestHandler);
   
@@ -25,7 +36,6 @@ import express, {
   app.use('*', (req, res) => {
 	return res.status(404);
   });
-  
   app.use(
 	(
 	  err: ErrorRequestHandler,

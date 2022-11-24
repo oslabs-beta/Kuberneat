@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: event-bus
-          image: aimee/event-bus:latest
+          image: zeus-micro/event-bus:latest
 ---
 apiVersion: v1
 kind: Service
