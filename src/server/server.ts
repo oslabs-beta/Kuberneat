@@ -8,7 +8,9 @@ import express, {
   import dotenv from 'dotenv';
   import { RequestHandler } from 'express-serve-static-core';
   import path from 'path';
-	import client from 'prom-client';
+	const client = require('prom-client');
+	const k8s = require('@kubernetes/client-node')
+
   
   dotenv.config();
   
@@ -24,6 +26,14 @@ import express, {
 	// collect these default metrics
 	collectDefaultMetrics({ register });
   
+	// list all pods
+	const kc = new k8s.KubeConfig();
+	kc.loadFromDefault();
+
+	const k8sApi = kc.makeApiClient(k8s.CoreV1Api);
+	k8sApi.listNamespacedPod('default').then((res : any) => {
+		console.log(res.body)
+	})
 
   app.use(express.json() as RequestHandler);
   app.use(express.urlencoded({ extended: true }) as RequestHandler);
