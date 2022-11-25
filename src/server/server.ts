@@ -10,11 +10,20 @@ import { RequestHandler } from 'express-serve-static-core';
 import path from 'path';
 const client = require('prom-client');
 const k8s = require('@kubernetes/client-node');
+const helmet = require('helmet');
+const frameguard = require('frameguard'); 
 
 dotenv.config();
 
 const app: Express = express();
-const port: number = Number(process.env.PORT) || 3000;
+const port: number = 3030; // Number(process.env.PORT) || 
+
+app.use(express.json() as RequestHandler);
+app.use(express.urlencoded({ extended: true }) as RequestHandler);
+app.use(helmet());
+app.use(frameguard({ action: 'SAMEORIGIN' }))
+
+const middleware = require('./middleware.ts');
 
 // collecting our default metrics from Prometheus
 // https://prometheus.io/docs/instrumenting/writing_clientlibs/#standard-and-runtime-collectors
@@ -39,10 +48,9 @@ k8sApi.listNamespacedPod('default').then((res: any) => {
 	console.log(res.body);
 });
 
-app.use(express.json() as RequestHandler);
-app.use(express.urlencoded({ extended: true }) as RequestHandler);
 
-app.get('/', (req: Request, res: Response) => {
+
+app.get('/', async (req: Request, res: Response) => {
 	return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
 });
 
@@ -51,6 +59,11 @@ app.get('/metrics', async (req: Request, res: Response) => {
 	console.log('Getting metrics is working...')
 	res.setHeader('Content-type', register.contentType);
 	res.end(await register.metrics());
+});
+
+app.get('/dashboard', middleware.getDashboard, (req: Request, res: Response) => {
+	console.log('get request to dashboard is sent')
+	return res.send(200).json(res.locals.dashboard);
 });
 
 //Catch all
