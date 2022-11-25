@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: moderation
-          image: aimee/moderation:latest
+          image: zeus-micro/moderation:latest
 ---
 apiVersion: v1
 kind: Service

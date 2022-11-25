@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: posts
-          image: aimee/posts:latest
+          image: zeus-micro/posts:latest
 ---
 apiVersion: v1
 kind: Service
