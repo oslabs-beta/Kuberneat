@@ -12,6 +12,18 @@ module.exports = {
 			template: './src/client/index.html',
 		}),
 	],
+	devServer: {
+		host: 'localhost',
+		port: 8080,
+		historyApiFallback: true,
+		proxy: {
+			'/api/**': {
+				target: 'http://localhost:3030/',
+				secure: false,
+				changeOrigin: true
+			},
+		},
+	},
 	module: {
 		rules: [
 			{
@@ -40,4 +52,5 @@ module.exports = {
 		},
 	},
 }
+
 
