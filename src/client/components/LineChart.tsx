@@ -4,12 +4,13 @@ import { useTheme } from "@mui/material";
 import { tokens } from "../theme";
 import { mockLineData as data } from "../MockData/mockData";
 
-// interface Props {
-//     isCustomLineColors: boolean;
-//     isDashboard: boolean;
+// interface LineProps {
+//     isCustomLineColors?: any;
+//     isDashboard?: any;
 // }
+// orient was causing the errors: line 68 and 77
 
-const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
+const LineChart = ({isDashboard = false }: {isDashboard?: boolean} ) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
   
@@ -64,7 +65,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
         axisTop={null}
         axisRight={null}
         axisBottom={{
-          orient: "bottom",
+          // orient: "bottom",
           tickSize: 0,
           tickPadding: 5,
           tickRotation: 0,
@@ -73,7 +74,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
           legendPosition: "middle",
         }}
         axisLeft={{
-          orient: "left",
+          // orient: "left",
           tickValues: 5, // added
           tickSize: 3,
           tickPadding: 5,

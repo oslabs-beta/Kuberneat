@@ -8,11 +8,11 @@ import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import TrafficIcon from "@mui/icons-material/Traffic";
 import Header from "../../components/Header";
-// import LineChart from "../../components/LineChart";
-// import GeographyChart from "../../components/GeographyChart";
-// import BarChart from "../../components/BarChart";
-// import StatBox from "../../components/StatBox";
-// import ProgressCircle from "../../components/ProgressCircle";
+import LineChart from "../../components/LineChart";
+import GeographyChart from "../../components/GeographyChart";
+import BarChart from "../../components/BarChart";
+import StatBox from "../../components/StatBox";
+import ProgressCircle from "../../components/ProgressCircle";
 
 type Props = {}
 
@@ -24,12 +24,14 @@ function Dashboard({}: Props) {
 
     return (
         <Box m="20px">
+
           {/* HEADER */}
+
           <Box display="flex" justifyContent="space-between" alignItems="center">
             <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
     
             <Box>
-              <Button
+              <Button // button for download at top right
                 sx={{
                   backgroundColor: colors.blueAccent[700],
                   color: colors.grey[100],
@@ -45,32 +47,36 @@ function Dashboard({}: Props) {
           </Box>
     
           {/* GRID & CHARTS */}
+
           <Box
             display="grid"
-            gridTemplateColumns="repeat(12, 1fr)"
+            gridTemplateColumns="repeat(12, 1fr)" // CSS GRID 12 part grid system, use of span 
             gridAutoRows="140px"
             gap="20px"
           >
             {/* ROW 1 */}
             <Box
-              gridColumn="span 3"
+              gridColumn="span 3" // span of 3 out of 12, so BOX x 4 = 12
               bgcolor={colors.primary[400]}
               display="flex"
               alignItems="center"
               justifyContent="center"
             >
-           {/*    <StatBox
-                title="12,361"
-                subtitle="Emails Sent"
-                progress="0.75"
-                increase="+14%"
+
+              <StatBox // putting the statbox inside the Box - Div
+                title="12,361" // random numbers we assign
+                subtitle="Emails Sent" // rando
+                progress="0.75" // rando
+                increase="+14%" // rando
                 icon={
                   <EmailIcon
                     sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
                   />
                 }
-              /> */}
+              />
+
             </Box>
+
             <Box
               gridColumn="span 3"
               bgcolor={colors.primary[400]}
@@ -78,7 +84,7 @@ function Dashboard({}: Props) {
               alignItems="center"
               justifyContent="center"
             >
-             {/*  <StatBox
+              <StatBox
                 title="431,225"
                 subtitle="Sales Obtained"
                 progress="0.50"
@@ -88,8 +94,9 @@ function Dashboard({}: Props) {
                     sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
                   />
                 }
-              /> */}
+              />
             </Box>
+
             <Box
               gridColumn="span 3"
               bgcolor={colors.primary[400]}
@@ -97,7 +104,7 @@ function Dashboard({}: Props) {
               alignItems="center"
               justifyContent="center"
             >
-           {/*    <StatBox
+              <StatBox
                 title="32,441"
                 subtitle="New Clients"
                 progress="0.30"
@@ -107,8 +114,9 @@ function Dashboard({}: Props) {
                     sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
                   />
                 }
-              /> */}
+              />
             </Box>
+
             <Box
               gridColumn="span 3"
               bgcolor={colors.primary[400]}
@@ -116,7 +124,7 @@ function Dashboard({}: Props) {
               alignItems="center"
               justifyContent="center"
             >
-              {/* <StatBox
+              <StatBox
                 title="1,325,134"
                 subtitle="Traffic Received"
                 progress="0.80"
@@ -126,7 +134,7 @@ function Dashboard({}: Props) {
                     sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
                   />
                 }
-              /> */}
+              />
             </Box>
     
             {/* ROW 2 */}
@@ -143,7 +151,7 @@ function Dashboard({}: Props) {
                 alignItems="center"
               >
                 <Box>
-                  <Typography
+                  <Typography // -----> Typographycomponents are just used for labels, like an H1 tag?
                     variant="h5"
                     fontWeight="600"
                     color={colors.grey[100]}
@@ -166,10 +174,16 @@ function Dashboard({}: Props) {
                   </IconButton>
                 </Box>
               </Box>
+
+
               <Box height="250px" m="-20px 0 0 0">
-                {/* <LineChart isDashboard={true} /> */}
+                <LineChart isDashboard={true} />
               </Box>
+
+
             </Box>
+
+
             <Box
               gridColumn="span 4"
               gridRow="span 2"
@@ -184,9 +198,11 @@ function Dashboard({}: Props) {
                 color={colors.grey[100]}
                 p="15px"
               >
+
                 <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
                   Recent Transactions
                 </Typography>
+
               </Box>
               {mockTransactions.map((transaction, i) => (
                 <Box
@@ -220,6 +236,7 @@ function Dashboard({}: Props) {
                 </Box>
               ))}
             </Box>
+
     
             {/* ROW 3 */}
             <Box
@@ -237,7 +254,11 @@ function Dashboard({}: Props) {
                 alignItems="center"
                 mt="25px"
               >
-                {/* <ProgressCircle size="125" /> */}
+
+
+                <ProgressCircle size="125" />
+
+
                 <Typography
                   variant="h5"
                   color={colors.greenAccent[500]}
@@ -260,9 +281,13 @@ function Dashboard({}: Props) {
               >
                 Sales Quantity
               </Typography>
+
+
               <Box height="250px" mt="-20px">
-                {/* <BarChart isDashboard={true} /> */}
+                <BarChart isDashboard={true} />
               </Box>
+
+
             </Box>
             <Box
               gridColumn="span 4"
@@ -277,9 +302,13 @@ function Dashboard({}: Props) {
               >
                 Geography Based Traffic
               </Typography>
+
+
               <Box height="200px">
-                {/* <GeographyChart isDashboard={true} /> */}
+                <GeographyChart isDashboard={true} />
               </Box>
+
+
             </Box>
           </Box>
         </Box>

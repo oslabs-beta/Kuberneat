@@ -7,8 +7,13 @@ import { tokens } from "../theme";
 import { mockBarData as data } from "../MockData/mockData";
 import React from 'react'
 
+interface BarProps {
+  isCustomLineColors?: boolean;
+  isDashboard?: boolean;
+}
 
-const BarChart = ({ isDashboard = false }: { isDashboard: boolean }) => { // 
+
+const BarChart = ({ isDashboard = false }: BarProps/* { isDashboard: boolean } */) => { // 
 
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
