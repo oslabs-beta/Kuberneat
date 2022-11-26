@@ -86,7 +86,7 @@ function Dashboard({}: Props) {
             >
               <StatBox
                 title="431,225"
-                subtitle="Sales Obtained"
+                subtitle="Resources Remaining"
                 progress="0.50"
                 increase="+21%"
                 icon={
@@ -156,14 +156,14 @@ function Dashboard({}: Props) {
                     fontWeight="600"
                     color={colors.grey[100]}
                   >
-                    Revenue Generated
+                    Kookaburras
                   </Typography>
                   <Typography
                     variant="h3"
                     fontWeight="bold"
                     color={colors.greenAccent[500]}
                   >
-                    $59,342.32
+                    Project Zeus
                   </Typography>
                 </Box>
                 <Box>
@@ -200,7 +200,7 @@ function Dashboard({}: Props) {
               >
 
                 <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-                  Recent Transactions
+                  Recent Node Failures
                 </Typography>
 
               </Box>
@@ -246,7 +246,7 @@ function Dashboard({}: Props) {
               p="30px"
             >
               <Typography variant="h5" fontWeight="600">
-                Campaign
+                Kluster Capacity
               </Typography>
               <Box
                 display="flex"
@@ -264,9 +264,9 @@ function Dashboard({}: Props) {
                   color={colors.greenAccent[500]}
                   sx={{ mt: "15px" }}
                 >
-                  $48,352 revenue generated
+                  75% capacity threshold
                 </Typography>
-                <Typography>Includes extra misc expenditures and costs</Typography>
+                <Typography>Includes all related kubernetes resource allotments</Typography>
               </Box>
             </Box>
             <Box
@@ -279,7 +279,7 @@ function Dashboard({}: Props) {
                 fontWeight="600"
                 sx={{ padding: "30px 30px 0 30px" }}
               >
-                Sales Quantity
+                CPU Usage
               </Typography>
 
 

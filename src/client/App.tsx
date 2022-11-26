@@ -32,8 +32,7 @@ interface SidebarIF {
 function App({ aProp }: AppProps) {
 
 	const [theme, colorMode]: any[] = useMode();
-
-	const [isSidebar, setIsSidebar] = useState(true);
+	/* const [isSidebar, setIsSidebar] = useState(true); */
  
 	return (
 
@@ -54,7 +53,7 @@ function App({ aProp }: AppProps) {
 							<Route path='/form' element={<Form />} />
 							<Route path='/bar' element={<Bar />} />
 							<Route path='/pie' element={<Pie />} />
-							{/* <Route path='/line' element={<Line />} /> */}
+							<Route path='/line' element={<Line />} />
 							<Route path='/faq' element={<FAQ />} />
 							<Route path='/geography' element={<Geography />} />
 							<Route path='/calendar' element={<Calendar />} />

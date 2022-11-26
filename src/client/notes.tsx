@@ -13,14 +13,15 @@ export default function notes({}: Props) {
 
 BUGS TO FIX: 11/25
 
-1. SRC/INDEX.TSX ---> can't read imported CSS file
-2. SIDEBAR.TSX ---> can't load import 'react-pro-sidebar/dist/css/styles.css';
-3. LINECHART>TSX ---> orient propery on axis- causing component to break...? why??
-4. APP.TSX ---> Sidebar and Topbar component attributes cause errors but why??
-5. alignment of main landing page is off, currently sidebar and main page are stacked, should be side by side
+3. LINECHART>TSX ---> orient propery on axis- causing component to break...? why?? 
+
+Top 5 BUGS FIXED: 11/25 pm
+1. SRC/INDEX.TSX ---> can't read imported CSS file  Fixed
+2. SIDEBAR.TSX ---> can't load import 'react-pro-sidebar/dist/css/styles.css'; Fixed
+4. APP.TSX ---> Sidebar and Topbar component attributes cause errors but why?? <leaving out for now>
+5. alignment of main landing page is off, currently sidebar and main page are stacked, should be side by side. Fixed
 
 */
-//sidebar is stacked onto one page. side bar should be on far left side. main page should 
 
 /*  production level, enterprise level
 ---> react query installled, better than fetch, context, redux?

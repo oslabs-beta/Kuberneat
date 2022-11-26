@@ -65,7 +65,7 @@ const LineChart = ({isDashboard = false }: {isDashboard?: boolean} ) => {
         axisTop={null}
         axisRight={null}
         axisBottom={{
-          // orient: "bottom",
+          //orient: "bottom",
           tickSize: 0,
           tickPadding: 5,
           tickRotation: 0,
@@ -74,7 +74,7 @@ const LineChart = ({isDashboard = false }: {isDashboard?: boolean} ) => {
           legendPosition: "middle",
         }}
         axisLeft={{
-          // orient: "left",
+          //orient: "left",
           tickValues: 5, // added
           tickSize: 3,
           tickPadding: 5,

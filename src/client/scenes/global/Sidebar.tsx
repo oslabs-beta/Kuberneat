@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
 import { ProSidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import {Box, IconButton, Typography, useTheme } from '@mui/material';
-import { Link } from 'react-router-dom'
-//import 'react-pro-sidebar/dist/css/styles.css';
-/* 
-Module parse failed: Unexpected character '@' (1:0)
-You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
-> @keyframes swing {
-|   0%,
-|   30%,
-*/
+import { Link } from 'react-router-dom';
+
+import 'react-pro-sidebar/dist/css/styles.css';
+
 import { tokens } from '../../theme';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
 import PeopleOutlinedIcon from '@mui/icons-material/PeopleOutlined'
@@ -114,9 +109,9 @@ function Sidebar(/* {}: Props */) {
                  ml="15px"
                >
                  <Typography variant="h3" color={colors.grey[100]}>
-                   ADMINIS
+                   ADMINS
                  </Typography>
-                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
+                  <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                    <MenuOutlinedIcon />
                  </IconButton>
                </Box>
@@ -152,7 +147,7 @@ function Sidebar(/* {}: Props */) {
                  </Typography>
 
                  <Typography variant="h5" color={colors.greenAccent[500]}>
-                   VP Fancy Admin
+                   VP Lobster Admin
                  </Typography>
 
                </Box>
