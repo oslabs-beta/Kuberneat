@@ -10,7 +10,15 @@ export default function notes({}: Props) {
 }
 
 /* 
+1. fix that last bug   
+2. integrate more Typescript into codebase
+3. implement RTL + Jest - at least 3 tests for frontend
+4. start looking into Oauth - users...
+5. 
+*/
 
+
+/* 
 BUGS TO FIX: 11/25
 
 3. LINECHART>TSX ---> orient propery on axis- causing component to break...? why?? 
@@ -24,8 +32,11 @@ Top 5 BUGS FIXED: 11/25 pm
 */
 
 /*  production level, enterprise level
+
 ---> react query installled, better than fetch, context, redux?
+
 ---> MUI, Nivo charts, Formik, Yup, FullCalendar, Data Grid
+
 ---> React Pro Sidebar
 
 ---> added tsc to 'scripts' in package.json
