@@ -1,6 +1,6 @@
 FROM node 
-WORKDIR /zeus 
-COPY ./zeus /zeus
+WORKDIR / 
+COPY ./ /
 RUN npm install 
 CMD [ "npm", "run", "start" ]
 
