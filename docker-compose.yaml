@@ -3,8 +3,8 @@
 version: '3' 
 
 services: 
-  zeus: 
-    container_name: zeus-api
+  zeus-monitoring: 
+    container_name: zeus-monitoring
     build: 
     #Wherer yaml file can be found
       context: .
@@ -17,7 +17,7 @@ services:
     restart: 'on-failure'
 #cadvisor gethers metrics from containers
   cadvisor: 
-    image: gcr.io/cadvisor/cadvisor:lastest
+    image: gcr.io/cadvisor/cadvisor:latest
     # contianer_name: cadvisor
     restart: always
     volumes: 
@@ -29,7 +29,7 @@ services:
     devices: 
       - /dev/kmsg:dev/kmsg
     depends_on: 
-      - zeus-api
+      - zeus-monitoring
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
