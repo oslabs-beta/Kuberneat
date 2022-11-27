@@ -4,8 +4,8 @@ const path = require('path');
 module.exports = {
 	entry: './src/client/index.tsx',
 	output: {
-	  path: path.join(__dirname, '/dist'),
-	  filename: 'bundle.js',
+		path: path.join(__dirname, '/dist'),
+		filename: 'bundle.js',
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
@@ -14,14 +14,12 @@ module.exports = {
 	],
 	devServer: {
 		host: 'localhost',
+		//frontend
 		port: 8080,
 		historyApiFallback: true,
+		//backend
 		proxy: {
-			'/api/**': {
-				target: 'http://localhost:3030/',
-				secure: false,
-				changeOrigin: true
-			},
+			'/': 'http://localhost:3000/',
 		},
 	},
 	module: {
@@ -45,12 +43,10 @@ module.exports = {
 		],
 	},
 	resolve: {
-		// Enable importing JS / tSX files without specifying their extension
+		// Enable importing JS / TSX files without specifying their extension
 		extensions: ['*', '.ts', '.tsx', '.js', '.jsx', '.json'],
 		fallback: {
 			fs: false,
 		},
 	},
-}
-
-
+};

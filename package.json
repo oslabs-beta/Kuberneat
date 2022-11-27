@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "webpack-dev-server --mode development --open --hot",
 		"electron": "electron .",
-		"server": "nodemon server/server.ts --quiet server",
+		"server": "nodemon src/server/server.ts",
 		"dev": "concurrently \"npm run server\" \"npm start\"",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
@@ -40,13 +40,15 @@
 	},
 	"dependencies": {
 		"@kubernetes/client-node": "^0.17.1",
+		"@types/express": "^4.17.14",
 		"@types/react-dom": "^18.0.9",
 		"concurrently": "^7.6.0",
+		"cors": "^2.8.5",
+		"frameguard": "^4.0.0",
 		"helmet": "^6.0.0",
 		"nodemon": "^2.0.20",
 		"prom-client": "^14.1.0",
 		"react": "^18.2.0",
-		"react-iframe": "^1.8.5",
 		"react-router": "^6.4.3",
 		"react-router-dom": "^6.4.3"
 	},
