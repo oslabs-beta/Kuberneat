@@ -2,28 +2,23 @@ import express, {
 	Express,
 	Request,
 	Response,
-	NextFunction,
 	ErrorRequestHandler,
+	NextFunction,
 } from 'express';
-import dotenv from 'dotenv';
-import { RequestHandler } from 'express-serve-static-core';
 import path from 'path';
-const client = require('prom-client');
-const k8s = require('@kubernetes/client-node');
-const helmet = require('helmet');
-const frameguard = require('frameguard'); 
+import dotenv from 'dotenv';
+import { RequestHandler } from 'express';
 
-dotenv.config();
+import client from 'prom-client';
 
 const app: Express = express();
-const port: number = 3030; // Number(process.env.PORT) || 
+const cors = require('cors');
+const PORT: number = 3000; //Number(process.env.PORT) ||
 
 app.use(express.json() as RequestHandler);
 app.use(express.urlencoded({ extended: true }) as RequestHandler);
-app.use(helmet());
-app.use(frameguard({ action: 'SAMEORIGIN' }))
-
-const middleware = require('./middleware.ts');
+app.use(cors() as RequestHandler);
+dotenv.config();
 
 // collecting our default metrics from Prometheus
 // https://prometheus.io/docs/instrumenting/writing_clientlibs/#standard-and-runtime-collectors
@@ -39,39 +34,21 @@ register.setDefaultLabels({
 	app: 'zeus-api',
 });
 
-// list all pods
-const kc = new k8s.KubeConfig();
-kc.loadFromDefault();
-
-const k8sApi = kc.makeApiClient(k8s.CoreV1Api);
-k8sApi.listNamespacedPod('default').then((res: any) => {
-	console.log(res.body);
+app.get('/', (req: Request, res: Response) => {
+	console.log('Backend & Frontend speaking...');
+	res.sendFile(path.join(__dirname, '../client/index.html'));
 });
 
-
-
-app.get('/', async (req: Request, res: Response) => {
-	return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
-});
-
-// expose endpoint in '/metrics' path
 app.get('/metrics', async (req: Request, res: Response) => {
-	console.log('Getting metrics is working...')
+	console.log('Getting metrics is working...');
 	res.setHeader('Content-type', register.contentType);
 	res.end(await register.metrics());
 });
 
-app.get('/dashboard', middleware.getDashboard, (req: Request, res: Response) => {
-	console.log('get request to dashboard is sent')
-	return res.send(200).json(res.locals.dashboard);
-});
-
-//Catch all
 app.use('*', (req, res) => {
 	return res.status(404);
 });
 
-//Global route handler
 app.use(
 	(
 		err: ErrorRequestHandler,
@@ -90,6 +67,7 @@ app.use(
 	}
 );
 
-app.listen(port, () => {
-	console.log(`Express server listening on port: ${port}...`);
+app.listen(PORT, () => {
+	console.log(`EXPRESS server is listening on http://localhost:${PORT}/`);
+	console.log(`Frontend listening on  http://localhost:${8080}/`);
 });

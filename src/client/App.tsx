@@ -5,7 +5,6 @@ import { Dashboard } from './Dashboard';
 export const App: React.FC = () => {
 	return (
 		<div>
-			<h1>Zeus</h1>
 			<Dashboard></Dashboard>
 		</div>
 	);

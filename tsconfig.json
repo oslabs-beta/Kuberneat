@@ -4,12 +4,20 @@
 		"allowSyntheticDefaultImports": true,
 		"outDir": "./dist/",
 		"noImplicitAny": true,
-		"module": "ESNext",
+		"module": "commonjs",
 		"target": "es6",
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"jsx": "react",
 		"allowJs": true,
 		"moduleResolution": "node",
-		"resolveJsonModule": true
-	}
+		"resolveJsonModule": true,
+		"skipLibCheck": true
+	},
+// 	"paths": {
+// 		"*": [
+// 				"node_modules/*"
+// 		]
+// },
+	// "exclude": ["node_modules"],
 }
+//"ESNext" in module
