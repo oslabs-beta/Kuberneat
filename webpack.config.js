@@ -4,14 +4,24 @@ const path = require('path');
 module.exports = {
 	entry: './src/client/index.tsx',
 	output: {
-	  path: path.join(__dirname, '/dist'),
-	  filename: 'bundle.js',
+		path: path.join(__dirname, '/dist'),
+		filename: 'bundle.js',
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: './src/client/index.html',
 		}),
 	],
+	devServer: {
+		host: 'localhost',
+		//frontend
+		port: 8080,
+		historyApiFallback: true,
+		//backend
+		proxy: {
+			'/': 'http://localhost:3000/',
+		},
+	},
 	module: {
 		rules: [
 			{
@@ -37,11 +47,10 @@ module.exports = {
 		],
 	},
 	resolve: {
-		// Enable importing JS / tSX files without specifying their extension
+		// Enable importing JS / TSX files without specifying their extension
 		extensions: ['*', '.ts', '.tsx', '.js', '.jsx', '.json'],
 		fallback: {
 			fs: false,
 		},
 	},
-}
-
+};
