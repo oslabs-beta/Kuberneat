@@ -27,7 +27,7 @@ module.exports = {
 			{
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
-				 //loader: 'file-loader',
+				// loader: 'file-loader',
 				use: {
 					loader: 'babel-loader',
 					options: {
@@ -39,10 +39,6 @@ module.exports = {
 				test: /\.(ts|tsx)$/,
 				exclude: /node_modules/,
 				use: ['ts-loader'],
-			},
-			{
-				test: /\.(sass|less|css)$/,
-				use: ["style-loader", "css-loader", 'sass-loader'],
 			},
 		],
 	},
