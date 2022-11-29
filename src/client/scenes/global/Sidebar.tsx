@@ -1,6 +1,12 @@
-import React, { useState } from 'react';
+import { Google } from "@mui/icons-material";
+
+import React, { useState, useContext, useEffect } from 'react';
+
 import { ProSidebar, Menu, MenuItem } from 'react-pro-sidebar';
-import {Box, IconButton, Typography, useTheme } from '@mui/material';
+
+import { Context } from '../../Context'; 
+
+import {Box, IconButton, Typography, useTheme, Button } from '@mui/material'; // added Button
 import { Link } from 'react-router-dom';
 
 import 'react-pro-sidebar/dist/css/styles.css';
@@ -18,6 +24,8 @@ import PieChartOutlineOutlinedIcon from '@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined'
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined'
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined'
+import { SettingsSuggestRounded } from '@mui/icons-material';
+
 
 interface ItemProps {
     title: string;
@@ -52,18 +60,32 @@ const Item = ({ title, to, icon, selected, setSelected }: ItemProps): JSX.Elemen
     );
   };
 
-
 // type Props = {}
+interface userProps {
+  user?: null | any;
+  setUser?: null | any;
+}
 
-function Sidebar(/* {}: Props */) {
+function Sidebar() {
 
     const theme = useTheme();
-
     const colors = tokens(theme.palette.mode);
     const [isCollapsed, setIsCollapsed] = useState< boolean >(false);
     
+
     const [selected, setSelected] = useState< string >('Dashboard');
 
+    const { user, setUser } = useContext(Context);
+
+
+    // logout button --> gotta improve this later
+    function handleLogout() {
+      
+      setUser(null);
+      setTimeout(() => console.log(user), 5000);
+    }
+
+    console.log('User object:', user)
 
   return (
     <Box
@@ -78,10 +100,10 @@ function Sidebar(/* {}: Props */) {
         padding: "5px 35px 5px 20px !important",
       },
       "& .pro-inner-item:hover": {
-        color: "#868dfb !important",
+        color: `${colors.grey[100]} !important`, // the green accent color: was 6870fa, alt: 22A39F
       },
       "& .pro-menu-item.active": {
-        color: "#6870fa !important",
+        color: `${colors.grey[100]} !important`, // the green accent color: was 6870fa, alt: 22A39F
       },
     }}
   >
@@ -98,7 +120,7 @@ function Sidebar(/* {}: Props */) {
              icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
              style={{
                margin: "10px 0 20px 0",
-               color: colors.grey[100],
+               color: colors.grey[100], // for each menu item
              }}
            >
              {!isCollapsed && (
@@ -109,7 +131,7 @@ function Sidebar(/* {}: Props */) {
                  ml="15px"
                >
                  <Typography variant="h3" color={colors.grey[100]}>
-                   ADMINS
+                   Access Level
                  </Typography>
                   <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                    <MenuOutlinedIcon />
@@ -129,7 +151,8 @@ function Sidebar(/* {}: Props */) {
                    alt="profile-user"
                    width="100px"
                    height="100px"
-                   src={`../../assets/jarednom.png`}
+                   src={user.picture ? user.picture : `../../assets/jarednom.png`}// didn't work first time
+                   //  src={`../../assets/jarednom.png`}
                    style={{ cursor: "pointer", borderRadius: "50%" }}
                  />
 
@@ -143,11 +166,13 @@ function Sidebar(/* {}: Props */) {
                    fontWeight="bold"
                    sx={{ m: "10px 0 0 0" }}
                  >
-                   Jared Nom
+                   {/* Jared Nom */}
+                   {user.name}
                  </Typography>
-
-                 <Typography variant="h5" color={colors.greenAccent[500]}>
-                   VP Lobster Admin
+                                                
+                 <Typography variant="h5" color={colors.greenAccent[500]} // {colors.greenAccent[500]}, db4f4a , 4cceac , 22A39F
+                 >
+                   {user.email}
                  </Typography>
 
                </Box>
@@ -167,7 +192,7 @@ function Sidebar(/* {}: Props */) {
                setSelected={setSelected}
              />
  
-             <Typography
+             {/* <Typography
                variant="h6"
                color={colors.grey[300]}
                sx={{ m: "15px 0 5px 20px" }}
@@ -195,7 +220,7 @@ function Sidebar(/* {}: Props */) {
                icon={<ReceiptOutlinedIcon />}
                selected={selected}
                setSelected={setSelected}
-             />
+             /> */}
  
              <Typography
                variant="h6"
@@ -205,20 +230,20 @@ function Sidebar(/* {}: Props */) {
                Pages
              </Typography>
 
-             <Item
+             {/* <Item
                title="Profile Form"
                to="/form"
                icon={<PersonOutlinedIcon />}
                selected={selected}
                setSelected={setSelected}
-             />
-             <Item
+             /> */}
+             {/* <Item
                title="Calendar"
                to="/calendar"
                icon={<CalendarTodayOutlinedIcon />}
                selected={selected}
                setSelected={setSelected}
-             />
+             /> */}
              <Item
                title="FAQ Page"
                to="/faq"
@@ -227,7 +252,7 @@ function Sidebar(/* {}: Props */) {
                setSelected={setSelected}
              />
  
-             <Typography
+             {/* <Typography
                variant="h6"
                color={colors.grey[300]}
                sx={{ m: "15px 0 5px 20px" }}
@@ -262,16 +287,25 @@ function Sidebar(/* {}: Props */) {
                icon={<MapOutlinedIcon />}
                selected={selected}
                setSelected={setSelected}
-             />
-             
+             /> */}
+             <Button 
+                // change this to MUI button and set color ro redAccent 900: light: F7DAD9  , dark: 2C3639 
+                id="logout-button"
+                onClick={handleLogout}
+                // variant="outlined"
+                size="medium"
+                color="success"
+                // color="secondary"
+                // color={colors.greenAccent[400]}
+              >Logout</Button>
            </Box>
-
+            
          </Menu>
        </ProSidebar>
 
 
     {/* </ProSidebarProvider> */}
-
+    
     </Box>
   )
 }

@@ -16,9 +16,10 @@ import FAQ from './scenes/faq';
 import Geography from './scenes/geography';
 import Calendar from './scenes/calendar';
 
-// import * as React from 'react';
-// import { React.FC } from "react";
-// const App: React.FC = () => {
+import { useContext } from 'react';
+import { Context } from './Context';
+import Login from './Login/Login'
+
 
 interface AppProps {
 	aProp?: string;
@@ -29,24 +30,27 @@ interface SidebarIF {
 	setIsSidebar:any;
 };
 
-function App({ aProp }: AppProps) {
+function App() {
 
+	const { user } = useContext(Context);
 	const [theme, colorMode]: any[] = useMode();
-	/* const [isSidebar, setIsSidebar] = useState(true); */
- 
-	return (
 
+	return (
+		
  		<ColorModeContext.Provider value={colorMode} >
 			<ThemeProvider theme={theme}>
 				<CssBaseline />
-				<div className='app'>
 
-					<Sidebar /* isSidebar={isSidebar} */ />
+				{!user && <Login />}
+
+				{user && <div className='app'>
+
+					<Sidebar data-testid="the-sidebar" />
 
 					<main className='content'>
-						<Topbar /* setIsSidebar={setIsSidebar} *//>
+						<Topbar />
 						<Routes>
-							<Route path='/' element={<Dashboard/>} />
+							<Route path='/' element={<Dashboard />} />
 							<Route path='/team' element={<Team/>} />
 							<Route path='/contacts' element={<Contacts />} />
 							<Route path='/invoices' element={<Invoices />} />
@@ -60,7 +64,7 @@ function App({ aProp }: AppProps) {
 						</Routes>
 					</main>
 
-				</div>
+				</div>}
 			</ThemeProvider>
 		</ColorModeContext.Provider>
 

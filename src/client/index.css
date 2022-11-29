@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+/* google font link imported */
 
 html,
 body,
@@ -7,7 +8,7 @@ body,
 .content {
     height: 100%;
     width: 100%;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .app {
@@ -32,4 +33,29 @@ body,
 /* Handle on Hover */
 ::-webkit-scrollbar-track:hover {
     background: #555;
+}
+
+#logout-button {
+    margin-top: 275px;
+    margin-left: 35px; 
+    height: 35px;
+    width: 150px;
+    border-radius: 5px;
+    background-color: #2C3639;
+    color: white;
+    display: "flex";
+    justify-content: "center";
+    align-items: "center";
+}
+#logout-button2 {
+    margin-top: 275px;
+    margin-left: 35px; 
+    height: 35px;
+    width: 150px;
+    border-radius: 5px;
+    background-color: #F7DAD9;
+    color: white;
+    display: "flex";
+    justify-content: "center";
+    align-items: "center";
 }

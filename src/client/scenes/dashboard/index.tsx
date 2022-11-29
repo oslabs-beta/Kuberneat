@@ -25,12 +25,19 @@ function Dashboard({}: Props) {
     return (
         <Box m="20px">
 
-          {/* HEADER */}
+          {/* HEADER 
+          
+          Add in Grafana charts in this section
+          
+          */}
+          
+           <Box display="flex" justifyContent="space-between" alignItems="center">
 
-          <Box display="flex" justifyContent="space-between" alignItems="center">
-            <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
-    
+            <Header title="ZEUS" subtitle="Welcome to your dashboard" />
+            
+            {/*
             <Box>
+            
               <Button // button for download at top right
                 sx={{
                   backgroundColor: colors.blueAccent[700],
@@ -43,19 +50,19 @@ function Dashboard({}: Props) {
                 <DownloadOutlinedIcon sx={{ mr: "10px" }} />
                 Download Reports
               </Button>
-            </Box>
-          </Box>
+              </Box> */}
+          </Box> 
     
           {/* GRID & CHARTS */}
 
-          <Box
+          {/* <Box
             display="grid"
             gridTemplateColumns="repeat(12, 1fr)" // CSS GRID 12 part grid system, use of span 
             gridAutoRows="140px"
             gap="20px"
-          >
+          > */}
             {/* ROW 1 */}
-            <Box
+            {/* <Box
               gridColumn="span 3" // span of 3 out of 12, so BOX x 4 = 12
               bgcolor={colors.primary[400]}
               display="flex"
@@ -135,10 +142,10 @@ function Dashboard({}: Props) {
                   />
                 }
               />
-            </Box>
+            </Box> */}
     
             {/* ROW 2 */}
-            <Box
+            {/* <Box
               gridColumn="span 8"
               gridRow="span 2"
               bgcolor={colors.primary[400]}
@@ -181,10 +188,10 @@ function Dashboard({}: Props) {
               </Box>
 
 
-            </Box>
+            </Box> */}
 
 
-            <Box
+            {/* <Box
               gridColumn="span 4"
               gridRow="span 2"
               bgcolor={colors.primary[400]}
@@ -235,11 +242,11 @@ function Dashboard({}: Props) {
                   </Box>
                 </Box>
               ))}
-            </Box>
+            </Box> */}
 
     
             {/* ROW 3 */}
-            <Box
+            {/* <Box
               gridColumn="span 4"
               gridRow="span 2"
               bgcolor={colors.primary[400]}
@@ -268,8 +275,8 @@ function Dashboard({}: Props) {
                 </Typography>
                 <Typography>Includes all related kubernetes resource allotments</Typography>
               </Box>
-            </Box>
-            <Box
+            </Box> */}
+            {/* <Box
               gridColumn="span 4"
               gridRow="span 2"
               bgcolor={colors.primary[400]}
@@ -288,8 +295,8 @@ function Dashboard({}: Props) {
               </Box>
 
 
-            </Box>
-            <Box
+            </Box> */}
+            {/* <Box
               gridColumn="span 4"
               gridRow="span 2"
               bgcolor={colors.primary[400]}
@@ -309,9 +316,9 @@ function Dashboard({}: Props) {
               </Box>
 
 
-            </Box>
+            </Box> */}
           </Box>
-        </Box>
+        // </Box> 
       );
     };
 

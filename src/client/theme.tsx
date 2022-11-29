@@ -45,8 +45,8 @@ export const tokens = (mode: string ): ColorObject => ({
             100: "#d0d1d5",
             200: "#a1a4aa",
             300: "#727680",
-            400: "#1F2A40",
-            500: "#141b2b",
+            400: "#3F4E4F", // "#1F2A40" , 2C3333
+            500: "#2C3639", // "#141b2b" , 2C3639, 3F4E4F
             600: "#101622",
             700: "#0c101a",
             800: "#080b11",
@@ -56,8 +56,8 @@ export const tokens = (mode: string ): ColorObject => ({
             100: "#dbf5ee",
             200: "#b7ebde",
             300: "#94e2cd",
-            400: "#70d8bd",
-            500: "#4cceac",
+            400: "#22A39F",  // change here... 70d8bd
+            500: "#22A39F",  // change here... 4cceac
             600: "#3da58a",
             700: "#2e7c67",
             800: "#1e5245",
@@ -72,7 +72,7 @@ export const tokens = (mode: string ): ColorObject => ({
             600: "#af3f3b",
             700: "#832f2c",
             800: "#58201e",
-            900: "#2c100f"
+            900: "#2c100f" // manually chnage for button: 2c100f
         },
         blueAccent: {
             100: "#e1e2fe",
@@ -103,7 +103,7 @@ export const tokens = (mode: string ): ColorObject => ({
                 100: "#040509",
                 200: "#080b11",
                 300: "#0c101a",
-                400: "#f2f0f0", // manually changed this color
+                400: "#DCD7C9", // manually changed this color "#f2f0f0"
                 500: "#141b2b",
                 600: "#434955",
                 700: "#727680",
@@ -114,8 +114,8 @@ export const tokens = (mode: string ): ColorObject => ({
                 100: "#0f2922",
                 200: "#1e5245",
                 300: "#2e7c67",
-                400: "#3da58a",
-                500: "#4cceac",
+                400: "#968C83", // change here... 3da58a
+                500: "#968C83", // change here... 4cceac
                 600: "#70d8bd",
                 700: "#94e2cd",
                 800: "#b7ebde",
@@ -130,7 +130,7 @@ export const tokens = (mode: string ): ColorObject => ({
                 600: "#e2726e",
                 700: "#e99592",
                 800: "#f1b9b7",
-                900: "#f8dcdb",
+                900: "#f8dcdb", // manually chnage for button: f8dcdb
             },
             blueAccent: {
                 100: "#151632",
@@ -205,7 +205,7 @@ export const themeSettings = (mode: string): ThemeObject => {
                     main: colors.primary[500],
                 },
                 secondary: {
-                    main: colors.greenAccent[500],
+                    main: colors.greenAccent[500], // colors.greenAccent[500], 22A39F
                 },
                 neutral: {
                     dark: colors.grey[700],
@@ -220,7 +220,7 @@ export const themeSettings = (mode: string): ThemeObject => {
                     main: colors.primary[100],
                 },
                 secondary: {
-                    main: colors.greenAccent[500],
+                    main: colors.greenAccent[500], // colors.greenAccent[500], F7DAD9
                 },
                 neutral: {
                     dark: colors.grey[700],
@@ -228,7 +228,7 @@ export const themeSettings = (mode: string): ThemeObject => {
                     light: colors.grey[100],
                 },
                 background: {
-                    default: '#fcfcfc',
+                    default: '#FFF5EA', // try changing this '#fcfcfc'
                 },
             }),
 
@@ -285,9 +285,9 @@ export const useMode = () => {
         }),
     []);
 
-    const themeArg: any = themeSettings(mode)
+    const themeArg: any = themeSettings(mode)// this gets passed in below
 
     const theme: any = useMemo(() => createTheme(themeArg), [mode]) // passing in the mode to themeSettings on line 193
 
-    return [theme, colorMode]
+    return [theme, colorMode]; // this is what is getting exported to files
 }
