@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-// import { node } from 'webpack';
 import Pod from './Pod';
-// import iframe from 'react-iframe';
+
+import { ReactDOM } from 'react';
+// import Graph from 'react-graph-vis';
 
 export const Dashboard: React.FC = () => {
 	const [nodes, setNodes]: any = useState([]);
@@ -40,6 +41,10 @@ export const Dashboard: React.FC = () => {
 				key={i}
 			></Pod>
 		);
+
+		const webNode = {
+			// nodes: [{ id: i, label: podProps[info] }],
+		};
 	});
 	console.log('podprops: ', podProps);
 	return (

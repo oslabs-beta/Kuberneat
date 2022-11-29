@@ -22,23 +22,51 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Dashboard = void 0;
 const React = __importStar(require("react"));
 const react_1 = require("react");
-// import iframe from 'react-iframe';
+const Pod_1 = __importDefault(require("./Pod"));
+// import Graph from 'react-graph-vis';
 const Dashboard = () => {
+    const [nodes, setNodes] = (0, react_1.useState)([]);
     (0, react_1.useEffect)(() => {
-        fetch('http://localhost:3000/')
-            .then(res => res.json())
-            .then(data => {
-            console.log('this is fetching to backend', data);
+        fetch('/cluster', { headers: { 'Content-Type': 'application/json' } }) //{headers: { 'Content-Type': 'application/json' },}
+            .then((data) => data.json())
+            .then((data) => {
+            console.log('this is fetching from the  backend:', data);
+            for (let i = 0; i < data.Name.length; i++) {
+                setNodes((oldArray) => [
+                    ...oldArray,
+                    {
+                        Namespace: data.Namespace[i],
+                        Name: data.Name[i],
+                        CPU_Requests: data.CPU_Requests[i],
+                        CPU_Limits: data.CPU_Limits[i],
+                        Memory_Requests: data.Memory_Requests[i],
+                        Memory_Limits: data.Memory_Limits[i],
+                        Age: data.Age[i],
+                    },
+                ]);
+            }
         })
-            .catch(err => console.log(err));
+            .catch((err) => console.log(err));
+        ///create variable to store the values from the
     }, []);
+    console.log('nodes', nodes);
+    const podProps = [];
+    nodes.forEach((info = {}, i) => {
+        podProps.push(React.createElement(Pod_1.default, { info: info, key: i }));
+        const webNode = {
+        // nodes: [{ id: i, label: podProps[info] }],
+        };
+    });
+    console.log('podprops: ', podProps);
     return (React.createElement("div", null,
-        React.createElement("div", null,
-            React.createElement("iframe", { src: "http://localhost:3001/d-solo/bSUQyqO4z/zeus-monitoring-dashboard?orgId=1&refresh=10s&panelId=2", width: "1000", height: "500", frameBorder: "0" }))));
+        React.createElement("div", null, podProps)));
 };
 exports.Dashboard = Dashboard;
 ///private/var/folders/_y/vn2b15j12t161bb71w16rgn00000gn/T

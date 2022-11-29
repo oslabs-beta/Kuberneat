@@ -11,13 +11,16 @@
 		"allowJs": true,
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
-		"skipLibCheck": true
-	},
-// 	"paths": {
-// 		"*": [
-// 				"node_modules/*"
-// 		]
-// },
+		"skipLibCheck": true,
+		"paths": {
+			"@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
+		}
+	}
+	// 	"paths": {
+	// 		"*": [
+	// 				"node_modules/*"
+	// 		]
+	// },
 	// "exclude": ["node_modules"],
 }
 //"ESNext" in module

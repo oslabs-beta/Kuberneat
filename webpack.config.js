@@ -43,6 +43,9 @@ module.exports = {
 		],
 	},
 	resolve: {
+		alias: {
+			'@mui/styled-engine': '@mui/styled-engine-sc',
+		},
 		// Enable importing JS / TSX files without specifying their extension
 		extensions: ['*', '.ts', '.tsx', '.js', '.jsx', '.json'],
 		fallback: {
