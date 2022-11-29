@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+/* google font link imported */
+
+html,
+body,
+#root,
+.app,
+.content {
+    height: 100%;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.app {
+    display: flex;
+    position: relative;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #e0e0e0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on Hover */
+::-webkit-scrollbar-track:hover {
+    background: #555;
+}
+
+#logout-button {
+    margin-top: 275px;
+    margin-left: 35px; 
+    height: 35px;
+    width: 150px;
+    border-radius: 5px;
+    background-color: #2C3639;
+    color: white;
+    display: "flex";
+    justify-content: "center";
+    align-items: "center";
+}
+#logout-button2 {
+    margin-top: 275px;
+    margin-left: 35px; 
+    height: 35px;
+    width: 150px;
+    border-radius: 5px;
+    background-color: #F7DAD9;
+    color: white;
+    display: "flex";
+    justify-content: "center";
+    align-items: "center";
+}
