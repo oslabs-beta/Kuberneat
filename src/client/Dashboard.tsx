@@ -1,17 +1,47 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
+// import { node } from 'webpack';
+import Pod from './Pod';
 // import iframe from 'react-iframe';
 
 export const Dashboard: React.FC = () => {
-	// useEffect(() => {
-	// 	fetch('http://localhost:3000/')
-	// 	.then(res => res.json())
-	// 	.then(data => {
-	// 		console.log('this is fetching to backend', data)
-	// 	})
-	// 	.catch(err => console.log(err));
-	// },[]);
+	const [nodes, setNodes]: any = useState([]);
 
+	useEffect(() => {
+		fetch('/cluster', { headers: { 'Content-Type': 'application/json' } }) //{headers: { 'Content-Type': 'application/json' },}
+			.then((data) => data.json())
+			.then((data) => {
+				console.log('this is fetching from the  backend:', data);
+				for (let i = 0; i < data.Name.length; i++) {
+					setNodes((oldArray: any) => [
+						...oldArray,
+						{
+							Namespace: data.Namespace[i],
+							Name: data.Name[i],
+							CPU_Requests: data.CPU_Requests[i],
+							CPU_Limits: data.CPU_Limits[i],
+							Memory_Requests: data.Memory_Requests[i],
+							Memory_Limits: data.Memory_Limits[i],
+							Age: data.Age[i],
+						},
+					]);
+				}
+			})
+			.catch((err) => console.log(err));
+		///create variable to store the values from the
+	}, []);
+	console.log('nodes', nodes);
+
+	const podProps: any[] = [];
+	nodes.forEach((info: Object = {}, i: number) => {
+		podProps.push(
+			<Pod
+				info={info}
+				key={i}
+			></Pod>
+		);
+	});
+	console.log('podprops: ', podProps);
 	return (
 		<div>
 			<div>
@@ -21,7 +51,9 @@ export const Dashboard: React.FC = () => {
 					height="500"
 					frameBorder="0"
 				></iframe> */}
-				<iframe src="http://localhost:3001/d-solo/bSUQyqO4z/zeus-monitoring-dashboard?orgId=1&refresh=10s&panelId=2" width="1000" height="500" frameBorder="0"></iframe>
+				{/* <iframe src="http://localhost:3001/d-solo/bSUQyqO4z/zeus-monitoring-dashboard?orgId=1&refresh=10s&panelId=2" width="1000" height="500" frameBorder="0"></iframe> */}
+
+				{podProps}
 			</div>
 		</div>
 	);
