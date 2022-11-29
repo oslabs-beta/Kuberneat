@@ -53,8 +53,8 @@ app.get('/', (req: Request, res: Response) => {
 // });
 
 app.get('/cluster', middleware.getClusterInfo, (req: Request, res: Response) => {
-	console.log('Getting cluster is working...');
-	res.status(200).json(res.locals.clusterInfo);
+	console.log('Getting cluster is working...', res.locals.clusterInfo);
+	return res.status(200).json(res.locals.clusterInfo);
 });
 
 app.use('*', (req, res) => {
