@@ -30,7 +30,11 @@
 		"@mui/material": "^5.10.16",
 		"@mui/styled-engine": "^5.10.16",
 		"@mui/styled-engine-sc": "^5.10.16",
+
 		"@types/jwt-simple": "^0.5.33",
+
+
+
 		"@types/node": "^18.11.9",
 		"@types/react": "^18.0.25",
 		"babel-loader": "^9.1.0",
@@ -41,7 +45,12 @@
 		"html-webpack-plugin": "^5.5.0",
 		"mini-extract-plugin": "^1.4.3",
 		"react-graph-vis": "^1.0.7",
+<<<<<<< HEAD
 		"react-scripts": "^5.0.1",
+=======
+		"rect-scripts": "^5.0.1",
+
+>>>>>>> dev
 		"style-loader": "^3.3.1",
 		"styled-components": "^5.3.6",
 		"ts-loader": "^9.4.1",

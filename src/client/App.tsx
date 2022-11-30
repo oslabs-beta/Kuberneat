@@ -17,9 +17,9 @@ import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 // import css from './styles.css'
 
 const App: React.FC = () => {
-	//destructuring functions from Context object
+	//destructuring state variables from Context object
 	const { darkModeOn, toggleDarkMode, user } = useContext(Context);
-
+	//returns a method that routes any endpoint
 	const navigate = useNavigate()
 
 	function goToMain() {
@@ -41,6 +41,7 @@ const App: React.FC = () => {
 					/> */}
 					<p>user.name</p>
 					<p>user.email</p>
+					{/* dynamically rendering user information */}
 				</div>
 
 				<div id="logo" className={darkModeOn ? "darkMode" : "lightMode" }>Zeus</div>
