@@ -5,34 +5,6 @@
     margin: 0;
     padding: 0;
 }
-
-.log-all1 {
-    background-color: #3F4E4F;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 400px;
-}
-.log-all2 {
-    background-color: #FFF5EA;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 400px;
-}
-
-/* .login-box-dark{
-    background-color: #2C3639;
-
-}
-
-.login-box-light{
-    background-color: #968C83;
-
-} */
-
 #body-dark {
     height: 100vh;
     background-color: #3F4E4F;
@@ -55,31 +27,26 @@
     padding-top: 350px;
     margin-top: -435px;
 }
-
 .darkMode {
     font-size: 70px;
     text-shadow: 2px 2px 5px black;
     /* padding-bottom: 25px;
     padding-top: 25px; */
     text-align: center;
-    background-color: #2C3639;
-    color: #22A39F;
+    background-color: #2C3639; /* #2C3639 */
+    color: #4ECCA3; /* 22A39F 68B984 4E9F3D 346751 29C7AC 03C4A1 */
     margin: none;
 }
-
 .lightMode {
     font-size: 70px;
     text-shadow: 2px 2px 5px black;
     /* padding-bottom: 25px;
     padding-top: 25px; */
     text-align: center;
-    background-color: #968C83;
-    color: #F7DAD9;
+    background-color: #968C83; /* */
+    color: #EEEEEE; /* F7DAD9  DBCBBD */
     margin: none;
 }
-
-
-
 link1 {
     border-radius: 10px;
     background-color:#2C3639;
@@ -92,7 +59,6 @@ link1 {
     margin-right: 10px;
     font-size: 16px;
 }
-
 link2 {
     border-radius: 10px;
     background-color:#DCD7C9;
@@ -105,20 +71,6 @@ link2 {
     margin-right: 10px;
     font-size: 16px;
 }
-
-/* #login-bgcolor{
-    background-color: #3F4E4F;
-    height: 100vh;
-    width: 100%
-}
-
-#login-bgcolor2{
-    background-color: #D6D2C4;
-    height: 100vh;
-    width: 100%
-} */
-
-
 .login1 {
     display: flex;
     flex-direction: column;
@@ -167,7 +119,6 @@ link2 {
     color: floralwhite;
     margin-top: -900px;
 }
-
 #login-button1 {
     border-radius: 5px;
     background-color:#3F4E4F;
@@ -183,11 +134,9 @@ link2 {
     align-items: center;
     text-align: center;
 }
-
 #login-button1:focus{
     outline: none;
 }
-  
 #login-button1:active{
     box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
@@ -212,12 +161,26 @@ link2 {
 #login-button2:active{
     box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
-
 #logo {
     font-family: 'GFS Didot', serif;
     font-size: 50px;
 }
-
+.log-all1 {
+    background-color: #3F4E4F;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+.log-all2 {
+    background-color: #FFF5EA;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
 #navbar1 {
     height: 150px;
     background-color: #2C3639;
@@ -226,8 +189,6 @@ link2 {
     justify-content: space-between;
     align-items: center;
     padding-bottom: 35px;
-   /*  padding-top: 25px;
-    gap: 25px; */
 }
 #navbar2 {
     height: 150px;
@@ -237,18 +198,13 @@ link2 {
     justify-content: space-between;
     align-items: center;
     padding-bottom: 35px;
-   /*  padding-top: 25px; */
-/*     gap: 25px; */
 }
-
 .nav-links {
-    /* background-color: yellow; */
     width: 225px;
     margin-right: 50px;
     display: flex;
     justify-content: space-between;
 }
-
 .navlink-butt1{
     background-color: #3F4E4F;
     color: floralwhite;
@@ -256,7 +212,6 @@ link2 {
     width: 100px;
     border-radius: 5px;
 }
-
 .navlink-butt2{
     background-color: #D6D2C4;
     color: black;
@@ -264,7 +219,6 @@ link2 {
     width: 100px;
     border-radius: 5px;
 }
-
 #signInDiv{
     display: flex ;
     justify-content: center;
@@ -275,28 +229,32 @@ link2 {
     font-family: "Source Sans Pro, sans-serif";
     border-radius: 5px;
 }
-
 .user1 {
-    background-color:#2C3639;
+    /* background-color:#2C3639; */
     color: floralwhite;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* margin-left: 50px; */
     width: 210px;
+    font-size: 18px;
+    text-shadow: 2px 2px 5px black;
+}
+.user2 {
+    /* background-color:#DCD7C9; */
+    color: floralwhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 210px;
+    font-size: 18px;
+    text-shadow: 2px 2px 5px black;
 }
 
-.user2 {
-    background-color:#DCD7C9;
-    color: floralwhite;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* margin-left: 50px; */
-    width: 210px;
-}
+
+/* Containers still need to be styled */
+
 
 .Chart {
     height: 250px;
@@ -305,14 +263,12 @@ link2 {
     padding: 20px;
 
 }
-
 .main {
     display: flex;
     justify-content: space-evenly;
     
 
 }
-
 .GUI {
     margin-top: 10px;
     height: 700px;
