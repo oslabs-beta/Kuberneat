@@ -18,9 +18,9 @@ import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 // import Yaku from './Yaku.png'
 
 const App: React.FC = () => {
-	// destructuring state from Context object
+	//destructuring functions from Context object
 	const { darkModeOn, toggleDarkMode, user } = useContext(Context);
-
+	//returns a method that routes any endpoint
 	const navigate = useNavigate()
 
 	function goToMain() {
@@ -40,9 +40,9 @@ const App: React.FC = () => {
 					/* src={user.picture} */
 					src={"./Yaku.png"}
 					style={{ cursor: "pointer", borderRadius: "50%" }}
-					/>
-					<p>Yaku{/* user.name */}</p>
-					<p>Vp Admin{/* user.email */}</p>
+					/> */}
+					<p>user.name</p>
+					<p>user.email</p>
 				</div>
 
 				<div id="logo" className={darkModeOn ? "darkMode" : "lightMode" }>Zeus</div>
