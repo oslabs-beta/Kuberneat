@@ -2,6 +2,8 @@ import React, { useState, useContext, useEffect  } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {Context} from './Context';
 
+// import jwt_decode from 'jwt_decode';
+
 function Login(props) {
 
     const [ loginForm, setLoginForm ] = useState( { user: "", pass: "" } );
@@ -50,15 +52,12 @@ function Login(props) {
     return (
 
         <>
-            
-
-            <div /* className={darkModeOn ? "login-box-dark" : "login-box-light" } */></div>
-
-                
-                <div id={darkModeOn ? "body-dark" : "body-light"}>
-
+                <div className={darkModeOn ? "log-all1" : "log-all2"} >
                     <div id="signInDiv" ></div>
-
+                </div>
+                <div id={darkModeOn ? "body-dark" : "body-light"}>
+                {/* <div id="log-all"> */}
+                    {/* <div id="signInDiv" ></div> */}
                     <div className={darkModeOn ? 'login1' : 'login2'}>
 
                     <label htmlFor="user">Username: </label>
@@ -83,10 +82,8 @@ function Login(props) {
                         <div id={darkModeOn ? "login-button1" : "login-button2"} onClick={goToMain}>Login</div>
                         <div id={darkModeOn ? "login-button1" : "login-button2"} >Sign-up</div>
                     </div>
-
-
                 </div>
-
+            {/* </div> */}
             </div>
         </>
 

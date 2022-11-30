@@ -1,18 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap');
+
 * {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'GFS Didot', serif;
     margin: 0;
     padding: 0;
-    /* background-color: #3F4E4F; */
 }
 
-.login-box-dark{
+.log-all1 {
+    background-color: #3F4E4F;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+.log-all2 {
+    background-color: #FFF5EA;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+
+/* .login-box-dark{
     background-color: #2C3639;
 
 }
 
 .login-box-light{
     background-color: #968C83;
-}
+
+} */
 
 #body-dark {
     height: 100vh;
@@ -22,6 +41,8 @@
     justify-content: center;
     align-items: center;
     border-radius: none;
+    padding-top: 350px;
+    margin-top: -435px;
 }
 #body-light {
     height: 100vh;
@@ -31,13 +52,15 @@
     justify-content: center;
     align-items: center;
     border-radius: none;
+    padding-top: 350px;
+    margin-top: -435px;
 }
 
 .darkMode {
     font-size: 70px;
     text-shadow: 2px 2px 5px black;
-    padding-bottom: 25px;
-    padding-top: 25px;
+    /* padding-bottom: 25px;
+    padding-top: 25px; */
     text-align: center;
     background-color: #2C3639;
     color: #22A39F;
@@ -47,8 +70,8 @@
 .lightMode {
     font-size: 70px;
     text-shadow: 2px 2px 5px black;
-    padding-bottom: 25px;
-    padding-top: 25px;
+    /* padding-bottom: 25px;
+    padding-top: 25px; */
     text-align: center;
     background-color: #968C83;
     color: #F7DAD9;
@@ -83,7 +106,7 @@ link2 {
     font-size: 16px;
 }
 
-#login-bgcolor{
+/* #login-bgcolor{
     background-color: #3F4E4F;
     height: 100vh;
     width: 100%
@@ -93,7 +116,7 @@ link2 {
     background-color: #D6D2C4;
     height: 100vh;
     width: 100%
-}
+} */
 
 
 .login1 {
@@ -101,8 +124,8 @@ link2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 250px;
-    width: 250px;
+    height: 300px;
+    width: 300px;
     padding: 10px;
     border-radius: 5px;
     font-weight: 500;
@@ -112,14 +135,29 @@ link2 {
     color: floralwhite;
     margin-top: -900px;
 }
-
+.login1 > input {
+    height: 35px;
+    width: 200px;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.login2 > input {
+    height: 35px;
+    width: 200px;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+}
 .login2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 250px;
-    width: 250px;
+    height:300px;
+    width: 300px;
     padding: 10px;
     border-radius: 5px;
     font-weight: 500;
@@ -131,7 +169,7 @@ link2 {
 }
 
 #login-button1 {
-    border-radius: 10px;
+    border-radius: 5px;
     background-color:#3F4E4F;
     color: #DCD7C9;
     cursor: pointer;
@@ -154,7 +192,7 @@ link2 {
     box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
 #login-button2 {
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #DCD7C9;
     color: black; /* can chnage button text color here */
     cursor: pointer;
@@ -175,28 +213,32 @@ link2 {
     box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
 
-/* #logo {
-} */
+#logo {
+    font-family: 'GFS Didot', serif;
+    font-size: 50px;
+}
 
 #navbar1 {
+    height: 150px;
     background-color: #2C3639;
     color: #3F4E4F;
-    margin: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 25px;
-    gap: 25px;
+    padding-bottom: 35px;
+   /*  padding-top: 25px;
+    gap: 25px; */
 }
 #navbar2 {
+    height: 150px;
     background-color: #968C83;
     color: #F7DAD9;
-    margin: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 25px;
-    gap: 25px;
+    padding-bottom: 35px;
+   /*  padding-top: 25px; */
+/*     gap: 25px; */
 }
 
 .nav-links {
@@ -213,8 +255,6 @@ link2 {
     height: 25px;
     width: 100px;
     border-radius: 5px;
-    
-
 }
 
 .navlink-butt2{
@@ -223,8 +263,6 @@ link2 {
     height: 25px;
     width: 100px;
     border-radius: 5px;
-    
-
 }
 
 #signInDiv{
@@ -233,7 +271,7 @@ link2 {
     align-items: center;
     background-color: #2C3639;
     height: 100px;
-    width: 250px;
+    width: 300px;
     font-family: "Source Sans Pro, sans-serif";
     border-radius: 5px;
 }
@@ -245,7 +283,7 @@ link2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 50px;
+    /* margin-left: 50px; */
     width: 210px;
 }
 
@@ -256,7 +294,7 @@ link2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 50px;
+    /* margin-left: 50px; */
     width: 210px;
 }
 
