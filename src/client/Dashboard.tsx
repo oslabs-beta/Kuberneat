@@ -2,7 +2,9 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import Pod from './Pod';
 import * as d3 from 'd3-force';
-import { ResponsiveNetwork } from '@nivo/network';
+// import { ResponsiveNetwork } from '@nivo/network';
+import { ResponsiveBar } from '@nivo/bar';
+// import { Air } from '@mui/icons-material';
 
 //import {ForceGraph} from "@d3/force-directed-graph"
 
@@ -59,31 +61,168 @@ export const Dashboard: React.FC = () => {
 		tag?: keyof JSX.IntrinsicElements;
 	}
 
-	//pass in the nodesArray to render in graph
-	const netowrkOfNodes: React.FunctionComponent<
-		ResponsiveNetwork & React.HTMLAttributes<HTMLOrSVGElement>
-	> = (nodeArray) => (
-		<ResponsiveNetwork
-			data={
+	const barChart = ({ nodesArray }: any) => (
+		<ResponsiveBar
+			data={nodesArray}
+			keys={[
+				'Namespace',
+				'Name',
+				'CPU_Requests',
+				'CPU_Limits',
+				'Memory_Requests',
+				'Memory_Limits',
+				'Age',
+			]}
+			indexBy="Name"
+			margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+			padding={0.3}
+			valueScale={{ type: 'linear' }}
+			indexScale={{ type: 'band', round: true }}
+			colors={{ scheme: 'nivo' }}
+			defs={[
 				{
-					nodes: [],
-					links: [],
-				} // 	nodeData = { nodeData }
-				// 	margin = ({top: 0, right: 0, bottom: 0, left: 0})
-				// 	linkDistance = { (e) => {return e.distance} }
-				// 	centerStrength = { 0.5 }
-				// 	replusivity = {6}
-				// 	nodeSize = {(n) => {return n.size}}
-				// 	activeNodeSize = {(activeNode) => {return (1.5)*activeNode.size}}
-				// 	nodeColor ={(n) => {retun namespace.color}}
-				// 	nodeBorderWidth = { 1 }
-				// 	nodeBorderColor = {{ from: 'color', modifiers: [['darker', 0.8]] }}
-				// 	linkThinkness = {{(n){return 2+2*n.target.data.height}}
-				// 	linkBlendMode =  'multiply'
-				// 	montionConfig = 'wobbly'
-			}
-		/>
+					id: 'dots',
+					type: 'patternDots',
+					background: 'inherit',
+					color: '#38bcb2',
+					size: 4,
+					padding: 1,
+					stagger: true,
+				},
+				{
+					id: 'lines',
+					type: 'patternLines',
+					background: 'inherit',
+					color: '#eed312',
+					rotation: -45,
+					lineWidth: 6,
+					spacing: 10,
+				},
+			]}
+			fill={[
+				{
+					match: {
+						id: 'Namespace',
+					},
+					id: 'dots',
+				},
+
+				{
+					match: {
+						id: 'Name',
+					},
+					id: 'dots',
+				},
+				{
+					match: {
+						id: 'CPU_Requests',
+					},
+					id: 'dots',
+				},
+				{
+					match: {
+						id: 'CPU_Limits',
+					},
+					id: 'dots',
+				},
+				{
+					match: {
+						id: 'Memory_Requests',
+					},
+					id: 'dots',
+				},
+				{
+					match: {
+						id: 'Memory_Limits',
+					},
+					id: 'dots',
+				},
+				{
+					match: {
+						id: 'Age',
+					},
+					id: 'dots',
+				},
+			]}
+			borderColor={{ from: 'color', modifiers: [['darker', 1.6]] }}
+			axisTop={null}
+			axisRight={null}
+			axisBottom={{
+				tickSize: 5,
+				tickPadding: 5,
+				tickRotation: 0,
+				legend: 'Name',
+				legendPosition: 'middle',
+				legendOffset: 32,
+			}}
+			axisLeft={{
+				tickSize: 5,
+				tickPadding: 5,
+				tickRotation: 0,
+				legend: 'Resources',
+				legendPosition: 'middle',
+				legendOffset: -40,
+			}}
+			labelSkipWidth={12}
+			labelSkipHeight={12}
+			labelTextColor={{ from: 'color', modifiers: [['darker', 1.6]] }}
+			legends={[
+				{
+					dataFrom: 'keys',
+					anchor: 'bottom-right',
+					direction: 'column',
+					justify: false,
+					translateX: 120,
+					translateY: 0,
+					itemsSpacing: 2,
+					itemWidth: 100,
+					itemHeight: 20,
+					itemDirection: 'left-to-right',
+					itemOpacity: 0.85,
+					symbolSize: 20,
+					effects: [
+						{
+							on: 'hover',
+							style: {
+								itemOpacity: 1,
+							},
+						},
+					],
+				},
+			]}
+			role="application"
+			ariaLabel="Kubernetes Nodes"
+			barAriaLabel={(e) => {
+				return `${e.data.Name} ${e.data.Namespace} ${e.data.CPU_Requests} ${e.data.CPU_Limits} ${e.data.Memory_Requests} ${e.data.Memory_Limits} ${e.data.Age}`;
+			}}
+		></ResponsiveBar>
 	);
+
+	//pass in the nodesArray to render in graph
+	// const netowrkOfNodes: React.FunctionComponent<
+	// 	ResponsiveNetwork & React.HTMLAttributes<HTMLOrSVGElement>
+	// > = (nodeArray) => (
+	// 	<ResponsiveNetwork
+	// 		data={
+	// 			{
+	// 				nodes: [],
+	// 				links: [],
+	// 			} // 	nodeData = { nodeData }
+	// 			// 	margin = ({top: 0, right: 0, bottom: 0, left: 0})
+	// 			// 	linkDistance = { (e) => {return e.distance} }
+	// 			// 	centerStrength = { 0.5 }
+	// 			// 	replusivity = {6}
+	// 			// 	nodeSize = {(n) => {return n.size}}
+	// 			// 	activeNodeSize = {(activeNode) => {return (1.5)*activeNode.size}}
+	// 			// 	nodeColor ={(n) => {retun namespace.color}}
+	// 			// 	nodeBorderWidth = { 1 }
+	// 			// 	nodeBorderColor = {{ from: 'color', modifiers: [['darker', 0.8]] }}
+	// 			// 	linkThinkness = {{(n){return 2+2*n.target.data.height}}
+	// 			// 	linkBlendMode =  'multiply'
+	// 			// 	montionConfig = 'wobbly'
+	// 		}
+	// 	/>
+	// );
 	// const visualizer = ({ nodesArray: [], links }: any, {} = {}) => {
 	// 	// Constructing forces
 	// 	const forceNode = d3.forceManyBody().strength(-100);
@@ -107,6 +246,7 @@ export const Dashboard: React.FC = () => {
 	return (
 		<div>
 			<div>{podProps}</div>
+			<div>{barChart(nodesArray)}</div>
 		</div>
 	);
 };

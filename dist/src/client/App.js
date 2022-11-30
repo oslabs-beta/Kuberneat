@@ -33,7 +33,6 @@ const Context_1 = require("./Context");
 require("./styles.css");
 const Login_1 = __importDefault(require("./Login"));
 const Main_1 = __importDefault(require("./components/Main"));
-const Dashboard_1 = __importDefault(require("./Dashboard"));
 const material_1 = require("@mui/material");
 const BarChartTwoTone_1 = __importDefault(require("@mui/icons-material/BarChartTwoTone"));
 const Hub_1 = __importDefault(require("@mui/icons-material/Hub"));
@@ -81,7 +80,6 @@ const App = () => {
         React.createElement(react_router_dom_1.Routes, null,
             React.createElement(react_router_dom_1.Route, { path: "/", element: React.createElement(Login_1.default, { onClick: goToMain }) }),
             React.createElement(react_router_dom_1.Route, { path: "/about", element: React.createElement(Main_1.default, null) }),
-            React.createElement(react_router_dom_1.Route, { path: "/main", element: React.createElement(Main_1.default, null) }),
-            React.createElement(react_router_dom_1.Route, { path: "/Dashboard", element: React.createElement(Dashboard_1.default, null) }))));
+            React.createElement(react_router_dom_1.Route, { path: "/main", element: React.createElement(Main_1.default, null) }))));
 };
 exports.default = App;

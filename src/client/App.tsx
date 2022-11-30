@@ -5,7 +5,8 @@ import { Context } from './Context';
 import './styles.css';
 
 import Login from './Login';
-import Main from './components/Main';
+// import Main from './components/Main';
+import Dashboard from './Dashboard';
 
 import { Box, IconButton } from '@mui/material';
 import BarChartTwoToneIcon from '@mui/icons-material/BarChartTwoTone';
@@ -114,13 +115,13 @@ const App: React.FC = () => {
 					path="/"
 					element={<Login onClick={goToMain} />}
 				/>
-				<Route
+				{/* <Route
 					path="/about"
 					element={<Main />}
-				/>
+				/> */}
 				<Route
-					path="/main"
-					element={<Main />}
+					path="/Dashboard"
+					element={<Dashboard />}
 				/>
 			</Routes>
 		</>
