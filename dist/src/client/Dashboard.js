@@ -30,7 +30,6 @@ exports.Dashboard = void 0;
 const React = __importStar(require("react"));
 const react_1 = require("react");
 const Pod_1 = __importDefault(require("./Pod"));
-// import Graph from 'react-graph-vis';
 const Dashboard = () => {
     const [nodes, setNodes] = (0, react_1.useState)([]);
     (0, react_1.useEffect)(() => {
@@ -60,9 +59,6 @@ const Dashboard = () => {
     const podProps = [];
     nodes.forEach((info = {}, i) => {
         podProps.push(React.createElement(Pod_1.default, { info: info, key: i }));
-        const webNode = {
-        // nodes: [{ id: i, label: podProps[info] }],
-        };
     });
     console.log('podprops: ', podProps);
     return (React.createElement("div", null,
@@ -70,3 +66,4 @@ const Dashboard = () => {
 };
 exports.Dashboard = Dashboard;
 ///private/var/folders/_y/vn2b15j12t161bb71w16rgn00000gn/T
+exports.default = exports.Dashboard;
