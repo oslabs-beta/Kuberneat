@@ -6,7 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const path_1 = __importDefault(require("path"));
 const dotenv_1 = __importDefault(require("dotenv"));
-const middleware_1 = require("./middleware");
+// import { middleware } from './middleware';
+const middleware = require('./middleware');
 const prom_client_1 = __importDefault(require("prom-client"));
 // import cluster from 'cluster';
 const app = (0, express_1.default)();
@@ -39,9 +40,9 @@ app.get('/', (req, res) => {
 // 	res.setHeader('Content-type', register.contentType);
 // 	res.end(await register.metrics());
 // });
-app.get('/cluster', middleware_1.middleware.getClusterInfo, (req, res) => {
-    console.log('Getting cluster is working...');
-    res.status(200).json(res.locals.clusterInfo);
+app.get('/cluster', middleware.getClusterInfo, (req, res) => {
+    console.log('Getting cluster is working...', res.locals.clusterInfo);
+    return res.status(200).json(res.locals.clusterInfo);
 });
 app.use('*', (req, res) => {
     return res.status(404);
