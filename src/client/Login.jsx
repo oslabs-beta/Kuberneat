@@ -59,7 +59,6 @@ function Login(props) {
                 {/* <div id="log-all"> */}
                     {/* <div id="signInDiv" ></div> */}
                     <div className={darkModeOn ? 'login1' : 'login2'}>
-
                     <label htmlFor="user">Username: </label>
                     <input
                         id="user"
