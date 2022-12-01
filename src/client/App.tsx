@@ -5,7 +5,6 @@ import { Context } from './Context';
 import './styles.css';
 
 import Login from './Login';
-import Main from './components/Main';
 
 import { Box, IconButton } from '@mui/material';
 import BarChartTwoToneIcon from '@mui/icons-material/BarChartTwoTone';
@@ -15,7 +14,11 @@ import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
 import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 
 // import css from './styles.css'
-// import Yaku from './Yaku.png'
+//import Yaku from './Yaku.png';
+import Yaku from './Yaku.png';
+
+import Visualizer from './components/Visualizer';
+import Dashboard from './Dashboard';
 
 const App: React.FC = () => {
 	//destructuring functions from Context object
@@ -24,7 +27,7 @@ const App: React.FC = () => {
 	const navigate = useNavigate();
 
 	function goToMain() {
-		navigate('./main');
+		navigate('/dashboard');
 	}
 
 	return (
@@ -33,15 +36,15 @@ const App: React.FC = () => {
 				<div className={darkModeOn ? 'user1' : 'user2'}>
 					{/* <p>user.picture</p> */}
 					<img
-						alt="user-pic"
-						width="75px"
-						height="75px"
+						alt="user"
+						width="50px"
+						height="50px"
 						/* src={user.picture} */
-						src={'./Yaku.png'}
+						src= {Yaku}
 						style={{ cursor: 'pointer', borderRadius: '50%' }}
 					/>
-					<p>user.name</p>
-					<p>user.email</p>
+					<p>Yaku</p>
+					<p>Admin</p>
 				</div>
 
 				<div
@@ -68,7 +71,7 @@ const App: React.FC = () => {
 						{darkModeOn ? <DarkModeTwoToneIcon /> : <LightModeTwoToneIcon />}
 					</IconButton>
 
-					<Link to="/charts">
+					<Link to="/dashboard">
 						<IconButton
 							sx={
 								darkModeOn
@@ -81,7 +84,7 @@ const App: React.FC = () => {
 						</IconButton>
 					</Link>
 
-					<Link to="/nodes">
+					<Link to="/visualizer">
 						<IconButton
 							sx={
 								darkModeOn
@@ -115,12 +118,12 @@ const App: React.FC = () => {
 					element={<Login onClick={goToMain} />}
 				/>
 				<Route
-					path="/about"
-					element={<Main />}
+					path="/dashboard"
+					element={<Dashboard />}
 				/>
 				<Route
-					path="/main"
-					element={<Main />}
+					path="/visualizer"
+					// element={<Visualizer />}
 				/>
 			</Routes>
 		</>
@@ -129,4 +132,4 @@ const App: React.FC = () => {
 
 export default App;
 
-export default App;
+
