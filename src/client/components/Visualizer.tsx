@@ -9,7 +9,8 @@ const Visualizer: React.FC = () => {
 	//fetching to the backend
 	useEffect(() => {
 		console.log('use effect launched')
-		fetch('/cluster', { headers: { 'Content-Type': 'application/json' } }) //{headers: { 'Content-Type': 'application/json' },}
+		//{headers: { 'Content-Type': 'application/json' },}
+		fetch('/cluster', { headers: { 'Content-Type': 'application/json' } })
 			.then((data) => data.json())
 			.then((data) => {
 				console.log('this is fetching from the backend:', data)
@@ -29,10 +30,10 @@ const Visualizer: React.FC = () => {
 					])
 				}
 			})
-			.catch((err) => console.log(err));
-		///create variable to store the values from the
+			.catch((err) => console.log('Error in Fetch request: ', err));
+		// create variable to store the values from the
 	}, []);
-
+	console.log('nodes: ', nodes)
 	//Rendering/passing props to Pod component
 	const podProps: any[] = [];
 	nodes.forEach((info: Object = {}, i: number) => {

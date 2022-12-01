@@ -82,7 +82,7 @@ app.use(
 
 app.listen(PORT, () => {
 	console.log(`EXPRESS server is listening on http://localhost:${PORT}/`);
-	console.log(`Frontend listening on  http://localhost:${PORT}/`);
+	console.log(`Frontend listening on  http://localhost:${8080}/`);
 });
 
 
