@@ -14,24 +14,14 @@ import LightModeTwoToneIcon from '@mui/icons-material/LightModeTwoTone';
 import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
 import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 
-<<<<<<< HEAD
-//  import Yaku from './Yaku.png'
-// const Yaku =  require("./Yaku.png")
-import Yaku from './assets/Yaku.png';
-=======
 // import css from './styles.css'
 // import Yaku from './Yaku.png'
->>>>>>> origin/dev
 
 const App: React.FC = () => {
-	//destructuring state variables from Context object
+	//destructuring functions from Context object
 	const { darkModeOn, toggleDarkMode, user } = useContext(Context);
 	//returns a method that routes any endpoint
-<<<<<<< HEAD
-	const navigate = useNavigate()
-=======
 	const navigate = useNavigate();
->>>>>>> origin/dev
 
 	function goToMain() {
 		navigate('./main');
@@ -39,22 +29,6 @@ const App: React.FC = () => {
 
 	return (
 		<>
-<<<<<<< HEAD
-			<nav id={darkModeOn ? 'navbar1' : 'navbar2'} >
-
-				<div className={ darkModeOn ? 'user1' : 'user2' }>
-					<img
-					alt="user"
-					width="50px"
-					height="50px"
-					/* src={user.picture} */
-					 src={Yaku}
-					 style={{ cursor: "pointer", borderRadius: "50%" }}
-					/>
-					<p>Yaku</p>
-					<p>Admin</p>
-					{/* dynamically rendering user information */}
-=======
 			<nav id={darkModeOn ? 'navbar1' : 'navbar2'}>
 				<div className={darkModeOn ? 'user1' : 'user2'}>
 					{/* <p>user.picture</p> */}
@@ -68,7 +42,6 @@ const App: React.FC = () => {
 					/>
 					<p>user.name</p>
 					<p>user.email</p>
->>>>>>> origin/dev
 				</div>
 
 				<div
@@ -121,14 +94,6 @@ const App: React.FC = () => {
 						</IconButton>
 					</Link>
 
-<<<<<<< HEAD
-					<Link 
-						to="/"><IconButton 
-						sx={darkModeOn ? { "&:hover": { color: "green" } } : { "&:hover": { color: "floralwhite" } }} 
-						size="large"><LogoutTwoToneIcon></LogoutTwoToneIcon></IconButton>
-					</Link>
-
-=======
 					<Link to="/">
 						<IconButton
 							sx={
@@ -141,7 +106,6 @@ const App: React.FC = () => {
 							<LogoutTwoToneIcon></LogoutTwoToneIcon>
 						</IconButton>
 					</Link>
->>>>>>> origin/dev
 				</Box>
 			</nav>
 
@@ -162,5 +126,7 @@ const App: React.FC = () => {
 		</>
 	);
 };
+
+export default App;
 
 export default App;
