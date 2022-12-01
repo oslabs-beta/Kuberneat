@@ -6,7 +6,8 @@ import './styles.css';
 
 import Login from './Login';
 // import Main from './components/Main';
-import Dashboard from './Dashboard';
+import Dashboard from './components/Dashboard';
+import Visualizer from './components/Visualizer';
 
 import { Box, IconButton } from '@mui/material';
 import BarChartTwoToneIcon from '@mui/icons-material/BarChartTwoTone';
@@ -38,7 +39,7 @@ const App: React.FC = () => {
 						width="75px"
 						height="75px"
 						/* src={user.picture} */
-						src={'./Yaku.png'}
+						// src={'./Yaku.png'}
 						style={{ cursor: 'pointer', borderRadius: '50%' }}
 					/>
 					<p>user.name</p>
@@ -69,7 +70,7 @@ const App: React.FC = () => {
 						{darkModeOn ? <DarkModeTwoToneIcon /> : <LightModeTwoToneIcon />}
 					</IconButton>
 
-					<Link to="/charts">
+					<Link to="/dashboard">
 						<IconButton
 							sx={
 								darkModeOn
@@ -78,11 +79,12 @@ const App: React.FC = () => {
 							}
 							size="large"
 						>
+							{/* render dashboard */}
 							<BarChartTwoToneIcon></BarChartTwoToneIcon>
 						</IconButton>
 					</Link>
 
-					<Link to="/nodes">
+					<Link to="/visualizer">
 						<IconButton
 							sx={
 								darkModeOn
@@ -91,6 +93,8 @@ const App: React.FC = () => {
 							}
 							size="large"
 						>
+							{/* render visualizer */}
+							<Visualizer></Visualizer>
 							<HubIcon></HubIcon>
 						</IconButton>
 					</Link>
@@ -119,10 +123,6 @@ const App: React.FC = () => {
 					path="/about"
 					element={<Main />}
 				/> */}
-				<Route
-					path="/Dashboard"
-					element={<Dashboard />}
-				/>
 			</Routes>
 		</>
 	);

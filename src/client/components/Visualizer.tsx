@@ -1,14 +1,9 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import Pod from './Pod';
-import * as d3 from 'd3-force';
-// import { ResponsiveNetwork } from '@nivo/network';
 import { ResponsiveBar } from '@nivo/bar';
-// import { Air } from '@mui/icons-material';
+import Pod from './Pod';
 
-//import {ForceGraph} from "@d3/force-directed-graph"
-
-export const Dashboard: React.FC = () => {
+export const Visualizer: React.FC = () => {
 	const [nodes, setNodes]: any = useState([]);
 
 	//fetching to the backend
@@ -37,8 +32,6 @@ export const Dashboard: React.FC = () => {
 		///create variable to store the values from the
 	}, []);
 
-	// console.log('nodes', nodes);
-
 	//Rendering/passing props to Pod component
 	const podProps: any[] = [];
 	nodes.forEach((info: Object = {}, i: number) => {
@@ -50,17 +43,6 @@ export const Dashboard: React.FC = () => {
 		);
 	});
 	console.log('pod', podProps);
-
-	//creating visualizer with d3
-	const nodesArray: any[] = [];
-	podProps.forEach((p, i) => {
-		// node resources
-		nodesArray.push(p.props.info);
-	});
-	interface ResponsiveNetwork {
-		tag?: keyof JSX.IntrinsicElements;
-	}
-
 	const barChart = ({ nodesArray }: any) => (
 		<ResponsiveBar
 			data={nodesArray}
@@ -198,82 +180,8 @@ export const Dashboard: React.FC = () => {
 		></ResponsiveBar>
 	);
 
-	//pass in the nodesArray to render in graph
-	// const netowrkOfNodes: React.FunctionComponent<
-	// 	ResponsiveNetwork & React.HTMLAttributes<HTMLOrSVGElement>
-	// > = (nodeArray) => (
-	// 	<ResponsiveNetwork
-	// 		data={
-	// 			{
-	// 				nodes: [],
-	// 				links: [],
-	// 			} // 	nodeData = { nodeData }
-	// 			// 	margin = ({top: 0, right: 0, bottom: 0, left: 0})
-	// 			// 	linkDistance = { (e) => {return e.distance} }
-	// 			// 	centerStrength = { 0.5 }
-	// 			// 	replusivity = {6}
-	// 			// 	nodeSize = {(n) => {return n.size}}
-	// 			// 	activeNodeSize = {(activeNode) => {return (1.5)*activeNode.size}}
-	// 			// 	nodeColor ={(n) => {retun namespace.color}}
-	// 			// 	nodeBorderWidth = { 1 }
-	// 			// 	nodeBorderColor = {{ from: 'color', modifiers: [['darker', 0.8]] }}
-	// 			// 	linkThinkness = {{(n){return 2+2*n.target.data.height}}
-	// 			// 	linkBlendMode =  'multiply'
-	// 			// 	montionConfig = 'wobbly'
-	// 		}
-	// 	/>
-	// );
-	// const visualizer = ({ nodesArray: [], links }: any, {} = {}) => {
-	// 	// Constructing forces
-	// 	const forceNode = d3.forceManyBody().strength(-100);
-	// 	//Linkage of nodes (each node has unique id)
-	// 	const forceLink = d3.forceLink();
-	// 	//creating stimulation: By default the nodes should be in an array to work
-	// 	//nodes is an array passed from line 39
-	// 	const simulation = d3
-	// 		.forceSimulation(nodes)
-	// 		//makes each node repel each other
-	// 		.force('charge', d3.forceManyBody())
-	// 		//size of node
-	// 		.force('center', d3.forceCenter(400, 400))
-	// 		//to start stimulator -updates position of each tick (node)
-	// 		.on('tick', () => {});
-	// 	console.log('simulation', simulation);
-	// };
-
-	// visualizer({});
-
-	return (
-		<div>
-			<div>{podProps}</div>
-			<div>{barChart(nodesArray)}</div>
-		</div>
-	);
+	return <div>{podProps}</div>;
 };
-
-export default Dashboard;
-///private/var/folders/_y/vn2b15j12t161bb71w16rgn00000gn/T
-{
-	/* <iframe
-	src="http://localhost:3001/d-solo/bSUQyqO4z/zeus-monitoring-dashboard?orgId=1&from=1669661032419&to=1669662832419&panelId=2"
-	width="1000"
-	height="500"
-	frameBorder="0"
-></iframe> */
-}
-{
-	/* <iframe src="http://localhost:3001/d-solo/bSUQyqO4z/zeus-monitoring-dashboard?orgId=1&refresh=10s&panelId=2" width="1000" height="500" frameBorder="0"></iframe> */
-}
-
-// export default Dashboard;
-// function runForceGraph(
-// 	current: any,
-// 	linksInfo: any,
-// 	nodeInfo: any,
-// 	nodeHoverTooltip: any
-// ) {
-// 	throw new Error('Function not implemented.');
-// }
 
 /*
 	const visualization = () => {
