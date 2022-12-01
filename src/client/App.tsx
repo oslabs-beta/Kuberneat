@@ -30,27 +30,38 @@ const App: React.FC = () => {
 	}
 
 	return (
-		<div>
+		<>
 			
-			<div>
-			 <nav id={darkModeOn ? 'navbar1' : 'navbar2'}>
-				
-				<div className={darkModeOn ? 'user1' : 'user2'}>
-					<p>Admin</p>
-				</div>
+		<div id={darkModeOn ? 'navbar1' : 'navbar2'}>
+			<div className={darkModeOn ? 'user1' : 'user2'}>
+				<p>Admin</p>
+			</div>
 
-				<div
-					id="logo"
-					className={darkModeOn ? 'darkMode' : 'lightMode'}
-				>
-					Zeus
-				</div>
+			<div
+				id="logo"
+				className={darkModeOn ? 'darkMode' : 'lightMode'}
+			>
+				Zeus
+			</div>
 
-				<Box
-					display="flex"
-					justifyContent="space-between"
-					marginRight={5}
+			<Box
+				display="flex"
+				justifyContent="space-between"
+				marginRight={5}
+			>
+				<IconButton
+					sx={
+						darkModeOn
+							? { '&:hover': { color: 'green' } }
+							: { '&:hover': { color: 'floralwhite' } }
+					}
+					size="large"
+					onClick={toggleDarkMode}
 				>
+					{darkModeOn ? <DarkModeTwoToneIcon /> : <LightModeTwoToneIcon />}
+				</IconButton>
+
+				<Link to="/dashboard">
 					<IconButton
 						sx={
 							darkModeOn
@@ -58,69 +69,56 @@ const App: React.FC = () => {
 								: { '&:hover': { color: 'floralwhite' } }
 						}
 						size="large"
-						onClick={toggleDarkMode}
 					>
-						{darkModeOn ? <DarkModeTwoToneIcon /> : <LightModeTwoToneIcon />}
+						<BarChartTwoToneIcon></BarChartTwoToneIcon>
 					</IconButton>
+				</Link>
 
-					<Link to="/dashboard">
-						<IconButton
-							sx={
-								darkModeOn
-									? { '&:hover': { color: 'green' } }
-									: { '&:hover': { color: 'floralwhite' } }
-							}
-							size="large"
-						>
-							<BarChartTwoToneIcon></BarChartTwoToneIcon>
-						</IconButton>
-					</Link>
+				<Link to="/visualizer">
+					<IconButton
+						sx={
+							darkModeOn
+								? { '&:hover': { color: 'green' } }
+								: { '&:hover': { color: 'floralwhite' } }
+						}
+						size="large"
+					>
+						<HubIcon></HubIcon>
+					</IconButton>
+				</Link>
 
-					<Link to="/visualizer">
-						<IconButton
-							sx={
-								darkModeOn
-									? { '&:hover': { color: 'green' } }
-									: { '&:hover': { color: 'floralwhite' } }
-							}
-							size="large"
-						>
-							<HubIcon></HubIcon>
-						</IconButton>
-					</Link>
-
-					<Link to="/">
-						<IconButton
-							sx={
-								darkModeOn
-									? { '&:hover': { color: 'green' } }
-									: { '&:hover': { color: 'floralwhite' } }
-							}
-							size="large"
-						>
-							<LogoutTwoToneIcon></LogoutTwoToneIcon>
-						</IconButton>
-					</Link>
-				</Box>
-			</nav>
-			</div>
-			
-
-			<Routes>
-				<Route
-					path="/"
-					element={<Login onClick={goToMain} />}
-				/>
-				<Route
-					path="/dashboard"
-					element={<Dashboard />}
-				/>
-				<Route
-					path="/visualizer"
-					element={<Visualizer />}
-				/>
-			</Routes>
+				<Link to="/">
+					<IconButton
+						sx={
+							darkModeOn
+								? { '&:hover': { color: 'green' } }
+								: { '&:hover': { color: 'floralwhite' } }
+						}
+						size="large"
+					>
+						<LogoutTwoToneIcon></LogoutTwoToneIcon>
+					</IconButton>
+				</Link>
+			</Box>
 		</div>
+	
+
+		<Routes>
+			<Route
+				path="/"
+				element={<Login onClick={goToMain} />}
+			/>
+			<Route
+				path="/dashboard"
+				element={<Dashboard />}
+			/>
+			<Route
+				path="/visualizer"
+				element={<Visualizer />}
+			/>
+		</Routes>
+	</>
+	
 	)
 };
 

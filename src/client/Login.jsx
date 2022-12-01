@@ -52,6 +52,8 @@ function Login(props) {
             document.getElementById("signInDiv"),
             { them: "outline", size: "large" }
         );
+
+        // { darkModeOn ? }
       
         google.accounts.id.prompt(); 
       
@@ -61,11 +63,11 @@ function Login(props) {
     return (
 
         <>
-                <div className={darkModeOn ? "log-all1" : "log-all2"} >
+                <div className={darkModeOn ? "auth-1" : "auth-2"} >
                     <div id="signInDiv" ></div>
                 </div>
-
-                <div id={darkModeOn ? "body-dark" : "body-light"}>
+                {/* <div id="signInDiv" ></div> */}
+                <div id={darkModeOn ? "log-dark" : "log-light"}>
 
                     <div className={darkModeOn ? 'login1' : 'login2'}>
                     <label htmlFor="user">Username: </label>
