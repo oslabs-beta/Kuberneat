@@ -182,17 +182,3 @@ export const Visualizer: React.FC = () => {
 
 	return <div>{podProps}</div>;
 };
-
-/*
-	const visualization = () => {
-		const chart = ForceGraph(nodes, {
-			nodeName: (name: { Name: any }) => name.Name,
-			nodeCPU_Request: (val: { CPU_Requests: any }) => val.CPU_Requests,
-			nodeCPU_Limit: (val: { CPU_Limits: any }) => val.CPU_Limits,
-			nodeMemory_Request: (val: { Memory_Requests: any }) =>
-				val.Memory_Requests,
-			nodeMemory_Limit: (val: { Memory_Limits: any }) => val.Memory_Limits,
-			nodeAge: (val: { Age: any }) => val.Age,
-		});
-		console.log('this is ForceGraph object:', chart);
-	};*/
