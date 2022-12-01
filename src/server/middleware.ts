@@ -55,7 +55,7 @@ const middleware: Object = {};
 				obj.Age.push(newArr[i][11]);
 			}
 			res.locals.clusterInfo = obj;
-			// console.log('middleware: ', res.locals.clusterInfo)
+			console.log('middleware: ', res.locals.clusterInfo)
 			// console.log('Your cluster info: ', obj)
 			return next();
 		});

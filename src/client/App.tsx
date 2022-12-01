@@ -13,16 +13,13 @@ import LightModeTwoToneIcon from '@mui/icons-material/LightModeTwoTone';
 import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
 import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 
-// import css from './styles.css'
-//import Yaku from './Yaku.png';
-import Yaku from './Yaku.png';
-
-import Visualizer from './components/Visualizer';
 import Dashboard from './Dashboard';
+import Visualizer from './components/Visualizer';
 
 const App: React.FC = () => {
 	//destructuring functions from Context object
 	const { darkModeOn, toggleDarkMode, user } = useContext(Context);
+
 	//returns a method that routes any endpoint
 	const navigate = useNavigate();
 
@@ -32,18 +29,9 @@ const App: React.FC = () => {
 
 	return (
 		<>
+		<div>
 			<nav id={darkModeOn ? 'navbar1' : 'navbar2'}>
 				<div className={darkModeOn ? 'user1' : 'user2'}>
-					{/* <p>user.picture</p> */}
-					<img
-						alt="user"
-						width="50px"
-						height="50px"
-						/* src={user.picture} */
-						src= {Yaku}
-						style={{ cursor: 'pointer', borderRadius: '50%' }}
-					/>
-					<p>Yaku</p>
 					<p>Admin</p>
 				</div>
 
@@ -111,6 +99,8 @@ const App: React.FC = () => {
 					</Link>
 				</Box>
 			</nav>
+			</div>
+		
 
 			<Routes>
 				<Route
@@ -123,7 +113,7 @@ const App: React.FC = () => {
 				/>
 				<Route
 					path="/visualizer"
-					// element={<Visualizer />}
+					element={<Visualizer />}
 				/>
 			</Routes>
 		</>

@@ -3,10 +3,9 @@ import { Google } from "@mui/icons-material";
 import React from "react";
 import {useState, useEffect} from 'react';
 
-// import jwt_decode from 'jwt_decode'; // ---> WHY ISN'T THIS WORKING!
 // import * as jwtJsDecode from 'jwt-js-decode';
 // import { jwtDecode } from 'jwt-js-decode';
-import * as JWT from 'jwt-decode';
+// import * as JWT from 'jwt-decode';
 
 const Context = React.createContext();
 
@@ -17,10 +16,10 @@ function ContextProvider({children}) {
     const [ darkModeOn, setDarkModeOn ] = useState(true);
 
     function handleCallbackResponse(response) {
-        console.log('Encoded JWT ID token: ' + response.credential);
-        const userObject= JWT(response.credential);
-        console.log(userObject);
-        setUser(userObject);
+        // console.log('Encoded JWT ID token: ' + response.credential);
+        // const userObject= JWT(response.credential);
+        // console.log(userObject);
+        // setUser(userObject);
     };
 
     function toggleDarkMode () {
