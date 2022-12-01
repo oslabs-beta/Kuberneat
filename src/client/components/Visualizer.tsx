@@ -54,10 +54,8 @@ export const Visualizer: React.FC = () => {
 	console.log('pod', podProps);
 
 	return (	
-	<div className={darkModeOn ? "vis-dark" : "vis-light"}>
-		<div style={{fontSize: 50 , textAlign: 'center' }}>Visualizer</div>
-		<div id='pods'>{podProps}</div>
-
-
-	</div>)
+		<div id={darkModeOn ? "vis-dark" : "vis-light"}>
+			{podProps}
+		</div>
+)
 };

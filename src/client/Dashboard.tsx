@@ -17,12 +17,9 @@ export const Dashboard: React.FC = () => {
 		loading="eager"
 		title="Grafana Chart"
 		className={darkModeOn ? "iframe-dark" : "iframe-light"}
-		width="500" 
-		height="500" 
 		></iframe>
 	</div>
 	)
-
 };
 
 export default Dashboard;
