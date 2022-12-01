@@ -4,6 +4,7 @@ import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 
 const Pod = ({ info }: { info: any }): JSX.Element => {
+
 	// popover
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	// popover open
