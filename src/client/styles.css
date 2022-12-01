@@ -266,13 +266,38 @@ link2 {
     font-size: 18px;
     text-shadow: 2px 2px 5px black;
 }
-.vis-dark{
+#vis-dark{
     height: 100vh;
     background-color:#3F4E4F;
     width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 250px 250px 250px 250px;
+    grid-gap: 10px;
+    position: absolute;
+    color: white;
 }
-.vis-light{
+#vis-light{
     height: 100vh;
     background-color:#FFF5EA;
     width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 250px 250px 250px 250px;
+    grid-gap: 10px;
+    position: absolute;
+    color: black;
+}
+.pod-box{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#pod0, #pod1, #pod2, #pod3, #pod4, #pod5, #pod6, #pod7, #pod8, #pod9, #pod10, #pod11, #pod12{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    font-size: 8px;
+    text-align: center;
 }

@@ -4,7 +4,7 @@ import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 const k8sPod = require('./Kubernetes_Pod.jpg');
 
-const Pod = ({ info, key }: { info: any, key: number }): JSX.Element => {
+const Pod = ({ info, nodeNum }: { info: any, nodeNum: number }): JSX.Element => {
 
 	// popover
 	const [anchorEl, setAnchorEl] = React.useState(null);
@@ -34,8 +34,13 @@ const Pod = ({ info, key }: { info: any, key: number }): JSX.Element => {
 	// 	);
 	// };
 	return (
-		<div id={`pod#${key}`}>
-			<img src={"https://banner2.cleanpng.com/20180329/qjq/kisspng-google-cloud-platform-google-compute-engine-kubern-container-5abc828e10c6a8.2707130315223036300687.jpg"} id={`pod#${key}_image`} width="35" height="35">
+		<div id={`pod${nodeNum}`}>
+			<img 
+				src={"https://banner2.cleanpng.com/20180329/qjq/kisspng-google-cloud-platform-google-compute-engine-kubern-container-5abc828e10c6a8.2707130315223036300687.jpg"} 
+				id={`pod${nodeNum}_image`} 
+				width="100px" 
+				height="100px"
+				>
 
 			</img>
 			<Typography
@@ -44,7 +49,7 @@ const Pod = ({ info, key }: { info: any, key: number }): JSX.Element => {
 				onMouseEnter={handlePopoverOpen}
 				onMouseLeave={handlePopoverClose}
 			>
-				<div id={`pod#${key}_text`}>
+				<div id={`pod${nodeNum}_text`}>
 				{info.Name}
 				</div>
 				
