@@ -8,7 +8,8 @@
 		"electron": "electron .",
 		"server": "nodemon src/server/server.ts",
 		"dev": "concurrently \"npm run server\" \"npm start\"",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "webpack"
 	},
 	"repository": {
 		"type": "git",
@@ -30,6 +31,7 @@
 		"@mui/material": "^5.10.16",
 		"@mui/styled-engine": "^5.10.16",
 		"@mui/styled-engine-sc": "^5.10.16",
+		"@nivo/bar": "^0.80.0",
 		"@nivo/network": "^0.80.0",
 		"@types/d3-force": "^3.0.3",
 		"@types/node": "^18.11.9",
@@ -65,6 +67,7 @@
 		"concurrently": "^7.6.0",
 		"cors": "^2.8.5",
 		"css-loader": "^6.7.2",
+		"jsonwebtoken": "^8.5.1",
 		"jwt-decode": "^3.1.2",
 		"jwt-js-decode": "^1.5.1",
 		"jwt-simple": "^0.5.6",
@@ -75,7 +78,8 @@
 		"react-router": "^6.4.3",
 		"react-router-dom": "^6.4.3",
 		"react-vis": "^1.11.7",
-		"react-vis-force": "^0.3.1"
+		"react-vis-force": "^0.3.1",
+		"ts-node": "^10.9.1"
 	},
 	"resolutions": {
 		"react-error-overlay": "6.0.9"

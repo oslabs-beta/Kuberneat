@@ -4,7 +4,7 @@ import {Context} from './Context';
 
 // import { Google } from "@mui/icons-material"
 // import jwt_decode from 'jwt_decode';
-
+// import * as JWT from 'jwt-decode';
 
 function Login(props) {
 
@@ -30,10 +30,18 @@ function Login(props) {
     const navigate = useNavigate();
 
     function goToMain() {
-        navigate('./main')
+        navigate('/dashboard')
       }
       /* global google object coming from html script*/
       useEffect(() => {
+
+        // function handleCallbackResponse(response) {
+        //     console.log('Encoded JWT ID token: ' + response.credential);
+        //     const userObject = JWT(response.credential);
+        //     console.log(userObject);
+        //     setUser(userObject);
+        // };
+
         /* global google */  
         google.accounts.id.initialize({ 
              client_id: "833474983530-c13t85njtalij2aqacd17slt6tr8te5j.apps.googleusercontent.com",
@@ -60,7 +68,6 @@ function Login(props) {
                 <div id={darkModeOn ? "body-dark" : "body-light"}>
 
                     <div className={darkModeOn ? 'login1' : 'login2'}>
-
                     <label htmlFor="user">Username: </label>
                     <input
                         id="user"
@@ -88,11 +95,7 @@ function Login(props) {
             </div>
         </>
 
-
     )
-
-
-
 }
 
 export default Login;

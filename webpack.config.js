@@ -1,5 +1,5 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: './src/client/index.tsx',
@@ -15,11 +15,11 @@ module.exports = {
 	devServer: {
 		host: 'localhost',
 		//frontend
-		port: 8080,
+		port: 8080 ,
 		historyApiFallback: true,
 		//backend
 		proxy: {
-			'/': 'http://localhost:3000/',
+			'/api/**': 'http://localhost:3000/',
 		},
 	},
 	module: {
@@ -42,13 +42,13 @@ module.exports = {
 			},
 
 			{
-                test: /\.css$/i,
+        test: /\.css$/i,
 				exclude: /node_modules/,
-                use: [
-                  "style-loader",
-                  "css-loader",
-                ],
-            },
+        use: [
+          "style-loader",
+          "css-loader",
+        ],
+      },
 			{
                 test: /\.(png|jpg|gif)$/i,
 				exclude: /node_modules/,
@@ -70,4 +70,9 @@ module.exports = {
 			fs: false,
 		},
 	},
+
 };
+
+
+
+

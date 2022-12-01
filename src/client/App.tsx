@@ -5,9 +5,6 @@ import { Context } from './Context';
 import './styles.css';
 
 import Login from './Login';
-// import Main from './components/Main';
-import Dashboard from './components/Dashboard';
-import Visualizer from './components/Visualizer';
 
 import { Box, IconButton } from '@mui/material';
 import BarChartTwoToneIcon from '@mui/icons-material/BarChartTwoTone';
@@ -16,34 +13,26 @@ import LightModeTwoToneIcon from '@mui/icons-material/LightModeTwoTone';
 import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
 import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 
-// import css from './styles.css'
-// import Yaku from './Yaku.png'
+import Dashboard from './Dashboard';
+import Visualizer from './components/Visualizer';
 
 const App: React.FC = () => {
 	//destructuring functions from Context object
 	const { darkModeOn, toggleDarkMode, user } = useContext(Context);
+
 	//returns a method that routes any endpoint
 	const navigate = useNavigate();
 
 	function goToMain() {
-		navigate('./main');
+		navigate('/dashboard');
 	}
 
 	return (
 		<>
+		<div>
 			<nav id={darkModeOn ? 'navbar1' : 'navbar2'}>
 				<div className={darkModeOn ? 'user1' : 'user2'}>
-					{/* <p>user.picture</p> */}
-					<img
-						alt="user-pic"
-						width="75px"
-						height="75px"
-						/* src={user.picture} */
-						// src={'./Yaku.png'}
-						style={{ cursor: 'pointer', borderRadius: '50%' }}
-					/>
-					<p>user.name</p>
-					<p>user.email</p>
+					<p>Admin</p>
 				</div>
 
 				<div
@@ -113,19 +102,27 @@ const App: React.FC = () => {
 					</Link>
 				</Box>
 			</nav>
+			</div>
+		
 
 			<Routes>
 				<Route
 					path="/"
 					element={<Login onClick={goToMain} />}
 				/>
-				{/* <Route
-					path="/about"
-					element={<Main />}
-				/> */}
+				<Route
+					path="/dashboard"
+					element={<Dashboard />}
+				/>
+				<Route
+					path="/visualizer"
+					element={<Visualizer />}
+				/>
 			</Routes>
 		</>
 	);
 };
 
 export default App;
+
+
