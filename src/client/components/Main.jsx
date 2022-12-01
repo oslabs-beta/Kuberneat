@@ -8,6 +8,8 @@ const Main = () => {
       <div className = 'main'>
         <GUI/> 
 
+
+
       </div>
     </>
   )

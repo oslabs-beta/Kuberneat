@@ -14,7 +14,9 @@ import LightModeTwoToneIcon from '@mui/icons-material/LightModeTwoTone';
 import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
 import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 
-// import css from './styles.css'
+//  import Yaku from './Yaku.png'
+// const Yaku =  require("./Yaku.png")
+import Yaku from './assets/Yaku.png';
 
 const App: React.FC = () => {
 	//destructuring state variables from Context object
@@ -31,16 +33,16 @@ const App: React.FC = () => {
 			<nav id={darkModeOn ? 'navbar1' : 'navbar2'} >
 
 				<div className={ darkModeOn ? 'user1' : 'user2' }>
-					{/* <img
-					alt="profile-user"
-					width="100px"
-					height="100px"
-					src={user.picture}// didn't work first time
-					//  src={`../../assets/jarednom.png`}
-					style={{ cursor: "pointer", borderRadius: "50%" }}
-					/> */}
-					<p>user.name</p>
-					<p>user.email</p>
+					<img
+					alt="user"
+					width="50px"
+					height="50px"
+					/* src={user.picture} */
+					 src={Yaku}
+					 style={{ cursor: "pointer", borderRadius: "50%" }}
+					/>
+					<p>Yaku</p>
+					<p>Admin</p>
 					{/* dynamically rendering user information */}
 				</div>
 
@@ -71,9 +73,9 @@ const App: React.FC = () => {
 					<Link 
 						to="/"><IconButton 
 						sx={darkModeOn ? { "&:hover": { color: "green" } } : { "&:hover": { color: "floralwhite" } }} 
-						size="large"><LogoutTwoToneIcon></LogoutTwoToneIcon></IconButton></Link>
-					{/* <button className={ darkModeOn ? 'navlink-butt1' : 'navlink-butt2'} onClick={toggleDarkMode} >{darkModeOn ? 'Light Mode' : 'Dark Mode'}</button>
-					<Link to="/charts"><button className={ darkModeOn ? 'navlink-butt1' : 'navlink-butt2'}>Charts</button></Link> */}
+						size="large"><LogoutTwoToneIcon></LogoutTwoToneIcon></IconButton>
+					</Link>
+
 				</Box>
 
 			</nav>

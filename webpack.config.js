@@ -48,7 +48,21 @@ module.exports = {
                   "style-loader",
                   "css-loader",
                 ],
-              }
+            },
+			{
+                test: /\.(png|jp(e*)g|svg|gif)$/i,
+				exclude: /node_modules/,
+                use: [
+				  "file-loader",
+                  "url-loader",
+                ],
+            },
+
+
+
+
+
+
 		],
 	},
 	resolve: {

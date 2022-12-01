@@ -2,7 +2,9 @@ import React, { useState, useContext, useEffect  } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {Context} from './Context';
 
+// import { Google } from "@mui/icons-material"
 // import jwt_decode from 'jwt_decode';
+
 
 function Login(props) {
 
@@ -30,10 +32,9 @@ function Login(props) {
     function goToMain() {
         navigate('./main')
       }
-
-
+      /* global google object coming from html script*/
       useEffect(() => {
-  
+        /* global google */  
         google.accounts.id.initialize({ 
              client_id: "833474983530-c13t85njtalij2aqacd17slt6tr8te5j.apps.googleusercontent.com",
              callback: handleCallbackResponse,
@@ -82,7 +83,7 @@ function Login(props) {
                         <div id={darkModeOn ? "login-button1" : "login-button2"} >Sign-up</div>
                     </div>
                 </div>
-            {/* </div> */}
+
             </div>
         </>
 
