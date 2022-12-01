@@ -29,8 +29,8 @@ const App: React.FC = () => {
 
 	return (
 		<>
-		<div>
-			<nav id={darkModeOn ? 'navbar1' : 'navbar2'}>
+			
+			<div id={darkModeOn ? 'navbar1' : 'navbar2'}>
 				<div className={darkModeOn ? 'user1' : 'user2'}>
 					<p>Admin</p>
 				</div>
@@ -98,7 +98,6 @@ const App: React.FC = () => {
 						</IconButton>
 					</Link>
 				</Box>
-			</nav>
 			</div>
 		
 

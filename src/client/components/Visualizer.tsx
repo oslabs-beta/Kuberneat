@@ -1,10 +1,15 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { ResponsiveBar } from '@nivo/bar';
 import Pod from './Pod';
 
+import {Context} from '../Context';
+
 const Visualizer: React.FC = () => {
+
 	const [nodes, setNodes]: any = useState([]);
+
+	const { darkModeOn } = useContext(Context);
 
 	//fetching to the backend
 	useEffect(() => {
@@ -185,9 +190,12 @@ const Visualizer: React.FC = () => {
 
 
 	return (	
-	<div>
-	<div>test</div>
+	<div className={darkModeOn ? "vis-dark" : "vis-light"}>
+
+		<div style={{fontSize: 50 , textAlign: 'center' }}>Visualizer</div>
+
 		{podProps}
+
 	</div>)
 };
 
