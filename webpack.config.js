@@ -50,6 +50,7 @@ module.exports = {
                 ],
             },
 			{
+<<<<<<< HEAD
                 test: /\.(png|jp(e*)g|svg|gif)$/i,
 				exclude: /node_modules/,
                 use: [
@@ -63,6 +64,16 @@ module.exports = {
 
 
 
+=======
+                test: /\.(png|jpg|gif)$/i,
+				exclude: /node_modules/,
+                use: [
+                  "url-loader",
+				  "file-loader",
+                ],
+            },
+
+>>>>>>> origin/dev
 		],
 	},
 	resolve: {

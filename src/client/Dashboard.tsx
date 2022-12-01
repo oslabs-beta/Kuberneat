@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import Pod from './Pod';
+
 // import * as d3 from 'd3-force';
+// import { ResponsiveNetwork } from '@nivo/network';
 
 //import {ForceGraph} from "@d3/force-directed-graph"
 
@@ -49,30 +51,58 @@ export const Dashboard: React.FC = () => {
 	console.log('pod', podProps);
 
 	//creating visualizer with d3
-/* 	const nodesArray: any[] = [];
+	const nodesArray: any[] = [];
 	podProps.forEach((p, i) => {
 		// node resources
 		nodesArray.push(p.props.info);
 	});
-	console.log('nodesArray', nodesArray);
 
-	const visualizer = ({ nodesArray: [], links }: any, {} = {}) => {
-		// Constructing forces
-		const forceNode = d3.forceManyBody().strength(-100);
-		//Linkage of nodes (each node has unique id)
-		const forceLink = d3.forceLink();
-		//creating stimulation: By default the nodes should be in an array to work
-		//nodes is an array passed from line 39
-		const simulation = d3
-			.forceSimulation(nodes)
-			//makes each node repel each other
-			.force('charge', d3.forceManyBody())
-			//size of node
-			.force('center', d3.forceCenter(400, 400))
-			//to start stimulator -updates position of each tick (node)
-			.on('tick', () => {});
-		console.log('simulation', simulation);
-	}; */
+	interface ResponsiveNetwork {
+		tag?: keyof JSX.IntrinsicElements;
+	}
+
+	//pass in the nodesArray to render in graph
+	// const netowrkOfNodes: React.FunctionComponent<
+	// 	ResponsiveNetwork & React.HTMLAttributes<HTMLOrSVGElement>
+	// > = (nodeArray) => (
+	// 	<ResponsiveNetwork
+	// 		data={
+				// {
+				// 	nodes: [],
+				// 	links: [],
+				// } // 	nodeData = { nodeData }
+				// 	margin = ({top: 0, right: 0, bottom: 0, left: 0})
+				// 	linkDistance = { (e) => {return e.distance} }
+				// 	centerStrength = { 0.5 }
+				// 	replusivity = {6}
+				// 	nodeSize = {(n) => {return n.size}}
+				// 	activeNodeSize = {(activeNode) => {return (1.5)*activeNode.size}}
+				// 	nodeColor ={(n) => {retun namespace.color}}
+				// 	nodeBorderWidth = { 1 }
+				// 	nodeBorderColor = {{ from: 'color', modifiers: [['darker', 0.8]] }}
+				// 	linkThinkness = {{(n){return 2+2*n.target.data.height}}
+				// 	linkBlendMode =  'multiply'
+				// 	montionConfig = 'wobbly'
+			// }
+		// />
+	// );
+	// const visualizer = ({ nodesArray: [], links }: any, {} = {}) => {
+	// 	// Constructing forces
+	// 	const forceNode = d3.forceManyBody().strength(-100);
+	// 	//Linkage of nodes (each node has unique id)
+	// 	const forceLink = d3.forceLink();
+	// 	//creating stimulation: By default the nodes should be in an array to work
+	// 	//nodes is an array passed from line 39
+	// 	const simulation = d3
+	// 		.forceSimulation(nodes)
+	// 		//makes each node repel each other
+	// 		.force('charge', d3.forceManyBody())
+	// 		//size of node
+	// 		.force('center', d3.forceCenter(400, 400))
+	// 		//to start stimulator -updates position of each tick (node)
+	// 		.on('tick', () => {});
+	// 	console.log('simulation', simulation);
+	// };
 
 	// visualizer({});
 
@@ -83,6 +113,7 @@ export const Dashboard: React.FC = () => {
 	);
 };
 
+export default Dashboard;
 ///private/var/folders/_y/vn2b15j12t161bb71w16rgn00000gn/T
 {
 	/* <iframe

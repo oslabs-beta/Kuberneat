@@ -22,12 +22,18 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __importStar(require("react"));
 const client_1 = require("react-dom/client");
 const react_router_dom_1 = require("react-router-dom");
-const App_1 = require("./App");
+const App_1 = __importDefault(require("./App"));
+const Context_1 = require("./Context");
+require("./styles.css");
 const container = document.getElementById('root');
 let root = (0, client_1.createRoot)(container);
-root.render(React.createElement(react_router_dom_1.BrowserRouter, null,
-    React.createElement(App_1.App, null)));
+root.render(React.createElement(Context_1.ContextProvider, null,
+    React.createElement(react_router_dom_1.BrowserRouter, null,
+        React.createElement(App_1.default, null))));
