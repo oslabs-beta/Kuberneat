@@ -14,7 +14,9 @@ import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
 import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 
 import Dashboard from './Dashboard';
-import Visualizer from './components/Visualizer';
+import {Visualizer} from './components/Visualizer';
+// import Pod from './components/Pod';
+import { useState, useEffect } from 'react';
 
 const App: React.FC = () => {
 	//destructuring functions from Context object
@@ -28,9 +30,11 @@ const App: React.FC = () => {
 	}
 
 	return (
-		<>
 		<div>
-			<nav id={darkModeOn ? 'navbar1' : 'navbar2'}>
+			
+			<div>
+			 <nav id={darkModeOn ? 'navbar1' : 'navbar2'}>
+				
 				<div className={darkModeOn ? 'user1' : 'user2'}>
 					<p>Admin</p>
 				</div>
@@ -100,7 +104,7 @@ const App: React.FC = () => {
 				</Box>
 			</nav>
 			</div>
-		
+			
 
 			<Routes>
 				<Route
@@ -116,8 +120,8 @@ const App: React.FC = () => {
 					element={<Visualizer />}
 				/>
 			</Routes>
-		</>
-	);
+		</div>
+	)
 };
 
 export default App;
