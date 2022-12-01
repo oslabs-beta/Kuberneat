@@ -57,5 +57,5 @@ export const Visualizer: React.FC = () => {
 		<div id={darkModeOn ? "vis-dark" : "vis-light"}>
 			{podProps}
 		</div>
-)
+	)
 };
