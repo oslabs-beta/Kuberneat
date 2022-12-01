@@ -19,7 +19,7 @@ module.exports = {
 		historyApiFallback: true,
 		//backend
 		proxy: {
-			'/api/**': 'http://localhost:3000/',
+			'/': 'http://localhost:3000/',
 		},
 	},
 	module: {
@@ -52,6 +52,7 @@ module.exports = {
 			{
                 test: /\.(png|jpg|gif)$/i,
 				exclude: /node_modules/,
+
                 use: [
                   "url-loader",
 				  "file-loader",
