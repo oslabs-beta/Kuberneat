@@ -60,7 +60,6 @@ function Login(props) {
                 <div id={darkModeOn ? "body-dark" : "body-light"}>
 
                     <div className={darkModeOn ? 'login1' : 'login2'}>
-
                     <label htmlFor="user">Username: </label>
                     <input
                         id="user"

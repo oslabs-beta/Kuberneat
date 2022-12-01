@@ -30,7 +30,10 @@ exports.Dashboard = void 0;
 const React = __importStar(require("react"));
 const react_1 = require("react");
 const Pod_1 = __importDefault(require("./Pod"));
+<<<<<<< HEAD
+=======
 //import {ForceGraph} from "@d3/force-directed-graph"
+>>>>>>> origin/dev
 const Dashboard = () => {
     const [nodes, setNodes] = (0, react_1.useState)([]);
     //fetching to the backend
@@ -112,6 +115,9 @@ const Dashboard = () => {
 exports.Dashboard = Dashboard;
 exports.default = exports.Dashboard;
 ///private/var/folders/_y/vn2b15j12t161bb71w16rgn00000gn/T
+<<<<<<< HEAD
+exports.default = exports.Dashboard;
+=======
 {
     /* <iframe
     src="http://localhost:3001/d-solo/bSUQyqO4z/zeus-monitoring-dashboard?orgId=1&from=1669661032419&to=1669662832419&panelId=2"
@@ -145,3 +151,4 @@ exports.default = exports.Dashboard;
         });
         console.log('this is ForceGraph object:', chart);
     };*/
+>>>>>>> origin/dev

@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import Pod from './Pod';
-import * as d3 from 'd3-force';
-import { ResponsiveNetwork } from '@nivo/network';
+
+// import * as d3 from 'd3-force';
+// import { ResponsiveNetwork } from '@nivo/network';
 
 //import {ForceGraph} from "@d3/force-directed-graph"
 
@@ -55,20 +56,21 @@ export const Dashboard: React.FC = () => {
 		// node resources
 		nodesArray.push(p.props.info);
 	});
+
 	interface ResponsiveNetwork {
 		tag?: keyof JSX.IntrinsicElements;
 	}
 
 	//pass in the nodesArray to render in graph
-	const netowrkOfNodes: React.FunctionComponent<
-		ResponsiveNetwork & React.HTMLAttributes<HTMLOrSVGElement>
-	> = (nodeArray) => (
-		<ResponsiveNetwork
-			data={
-				{
-					nodes: [],
-					links: [],
-				} // 	nodeData = { nodeData }
+	// const netowrkOfNodes: React.FunctionComponent<
+	// 	ResponsiveNetwork & React.HTMLAttributes<HTMLOrSVGElement>
+	// > = (nodeArray) => (
+	// 	<ResponsiveNetwork
+	// 		data={
+				// {
+				// 	nodes: [],
+				// 	links: [],
+				// } // 	nodeData = { nodeData }
 				// 	margin = ({top: 0, right: 0, bottom: 0, left: 0})
 				// 	linkDistance = { (e) => {return e.distance} }
 				// 	centerStrength = { 0.5 }
@@ -81,9 +83,9 @@ export const Dashboard: React.FC = () => {
 				// 	linkThinkness = {{(n){return 2+2*n.target.data.height}}
 				// 	linkBlendMode =  'multiply'
 				// 	montionConfig = 'wobbly'
-			}
-		/>
-	);
+			// }
+		// />
+	// );
 	// const visualizer = ({ nodesArray: [], links }: any, {} = {}) => {
 	// 	// Constructing forces
 	// 	const forceNode = d3.forceManyBody().strength(-100);
