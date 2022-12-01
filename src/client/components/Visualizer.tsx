@@ -56,7 +56,7 @@ export const Visualizer: React.FC = () => {
 	<div className={darkModeOn ? "vis-dark" : "vis-light"}>
 
 		<div style={{fontSize: 50 , textAlign: 'center' }}>Visualizer</div>
-		{podProps}
+		<div id='pods'>{podProps}</div>
 
 	</div>)
 };
