@@ -8,7 +8,8 @@
 		"electron": "electron .",
 		"server": "nodemon src/server/server.ts",
 		"dev": "concurrently \"npm run server\" \"npm start\"",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "webpack"
 	},
 	"repository": {
 		"type": "git",
@@ -76,7 +77,8 @@
 		"react-router": "^6.4.3",
 		"react-router-dom": "^6.4.3",
 		"react-vis": "^1.11.7",
-		"react-vis-force": "^0.3.1"
+		"react-vis-force": "^0.3.1",
+		"ts-node": "^10.9.1"
 	},
 	"resolutions": {
 		"react-error-overlay": "6.0.9"
