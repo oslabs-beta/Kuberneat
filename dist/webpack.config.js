@@ -39,9 +39,28 @@ module.exports = {
                 exclude: /node_modules/,
                 use: ['ts-loader'],
             },
+            {
+                test: /\.css$/i,
+                exclude: /node_modules/,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                ],
+            },
+            {
+                test: /\.(png|jpg|gif)$/i,
+                exclude: /node_modules/,
+                use: [
+                    "url-loader",
+                    "file-loader",
+                ],
+            },
         ],
     },
     resolve: {
+        alias: {
+            '@mui/styled-engine': '@mui/styled-engine-sc',
+        },
         // Enable importing JS / TSX files without specifying their extension
         extensions: ['*', '.ts', '.tsx', '.js', '.jsx', '.json'],
         fallback: {
