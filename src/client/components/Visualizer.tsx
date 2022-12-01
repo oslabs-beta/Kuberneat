@@ -41,14 +41,15 @@ export const Visualizer: React.FC = () => {
 	console.log('visualizer 12/1 nodes', nodes);
 
 	const podProps: any[] = [];
-	nodes.forEach((info: Object = {}, i: number) => {
+	for (let i = 0; i < nodes.length; i++) {
 		podProps.push(
 			<Pod
-				info={info}
+				info={nodes[i]}
 				key={i}
+				nodeNum={i}
 			></Pod>
 		);
-	});
+	};
 	
 	console.log('pod', podProps);
 

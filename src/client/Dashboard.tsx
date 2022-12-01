@@ -11,16 +11,15 @@ export const Dashboard: React.FC = () => {
 
 	return (
 	<div className={darkModeOn ? "dash-dark" : "dash-light"}>
-		<div style={{fontSize: 50 , textAlign: 'center' }}>Dashboard</div>
-		<iframe src='http://localhost:3001/d/v3fgrNKVz/osp-zeus?orgId=1&refresh=5s&kiosk=&from=1669854243495&to=1669875843495&viewPanel=2' 
+		<div style={{fontSize: 35 , textAlign: 'center' }}>Dashboard</div>
+		<iframe src="http://localhost:3001/d/0dsovdF4z/zeus?orgId=1&refresh=5s&kiosk=&from=1669924943773&to=1669925243773"
 		frameBorder="0"
 		loading="eager"
 		title="Grafana Chart"
 		className={darkModeOn ? "iframe-dark" : "iframe-light"}
+		width="500" 
+		height="500" 
 		></iframe>
-
-		<iframe src="http://localhost:3001/d-solo/bSUQyqO4z/zeus-monitoring-dashboard?orgId=1&refresh=10s&kiosk=tv&panelId=10" width="450" height="200" frameBorder="0"></iframe>
-
 	</div>
 	)
 
