@@ -49,14 +49,14 @@ export const Visualizer: React.FC = () => {
 			></Pod>
 		);
 	});
-
+	
 	console.log('pod', podProps);
 
 	return (	
 	<div className={darkModeOn ? "vis-dark" : "vis-light"}>
-
 		<div style={{fontSize: 50 , textAlign: 'center' }}>Visualizer</div>
-		{podProps}
+		<div id='pods'>{podProps}</div>
+
 
 	</div>)
 };

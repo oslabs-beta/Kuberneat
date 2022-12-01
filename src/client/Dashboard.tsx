@@ -18,6 +18,9 @@ export const Dashboard: React.FC = () => {
 		title="Grafana Chart"
 		className={darkModeOn ? "iframe-dark" : "iframe-light"}
 		></iframe>
+
+		<iframe src="http://localhost:3001/d-solo/bSUQyqO4z/zeus-monitoring-dashboard?orgId=1&refresh=10s&kiosk=tv&panelId=10" width="450" height="200" frameBorder="0"></iframe>
+
 	</div>
 	)
 
