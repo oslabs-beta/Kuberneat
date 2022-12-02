@@ -12,8 +12,6 @@ const Context = React.createContext();
 function ContextProvider({ children }) {
 	const [user, setUser] = useState(null);
 
-	const [user, setUser] = useState(null);
-
 	const [darkModeOn, setDarkModeOn] = useState(true);
 
 	function handleCallbackResponse(response) {
