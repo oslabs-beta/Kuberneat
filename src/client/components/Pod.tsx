@@ -57,7 +57,7 @@ const Pod = ({ info, nodeNum }: { info: any, nodeNum: any }): JSX.Element => {
 				disableRestoreFocus
 			>
 				<Typography sx={{ p: 1 }}>
-					<div>
+					<div className='pod-popOver'>
 						<ul>
 							<li>CPU Requests: {info.CPU_Requests} </li>
 							<li>CPU Limits: {info.CPU_Limits} </li>

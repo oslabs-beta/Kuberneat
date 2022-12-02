@@ -1,14 +1,16 @@
-// import { arrayBuffer } from "stream/consumers";
-
 const child_process = require('child_process');
+//created middleware called middleware
 const middleware: Object = {};
-// // import dashboard from '../../grafana/provisioning/dashboards/dashboard.json';
 
+//applying getClusterInfo method
 (middleware as any).getClusterInfo = async (req: any, res: any, next: any) => {
 	try {
+		//declared a function
 		function system(cmd: string, callback: any) {
+			//Handle the terminal output
 			child_process.exec(
 				cmd,
+				//function created to handle errors
 				function (error: string, stdout: any, stderr: any) {
 					//You should handle error or pass it to the callback
 					callback(stdout);
@@ -16,11 +18,17 @@ const middleware: Object = {};
 			);
 		}
 
+		//resource components that exist in each node
 		system('kubectl describe nodes', function (output: string) {
+			//splitting the output into an array
 			let arr = output.split('\n');
+			//declaring an array index variable to iterate through the array
 			let firstIndex;
 			let lastIndex;
+			//declare a variable to store the wanted output lines (node info)
 			const newArr: any = [];
+			//declared an object to store the specific information of the node from
+			//within the  cluster
 			const obj: any = {
 				Namespace: [],
 				Name: [],
@@ -44,7 +52,6 @@ const middleware: Object = {};
 				newArr[i] = newArr[i].split(/[ ,]+/);
 			}
 			// populate our object
-
 			for (let i = 2; i < newArr.length; i++) {
 				obj.Namespace.push(newArr[i][1]);
 				obj.Name.push(newArr[i][2]);
@@ -55,7 +62,7 @@ const middleware: Object = {};
 				obj.Age.push(newArr[i][11]);
 			}
 			res.locals.clusterInfo = obj;
-			console.log('middleware: ', res.locals.clusterInfo)
+			console.log('middleware: ', res.locals.clusterInfo);
 			// console.log('Your cluster info: ', obj)
 			return next();
 		});
@@ -66,6 +73,5 @@ const middleware: Object = {};
 	}
 };
 
-// (middleware as any).postDashboard = async (req: any, res: any, next: any) => {};
-
+//exporting middleware object to be used globally
 module.exports = middleware;
