@@ -15,15 +15,15 @@ import client from 'prom-client';
 // import cluster from 'cluster';
 
 const app: Express = express();
-// const cors = require('cors');
+const cors = require('cors');
 const PORT: number = 3000; //Number(process.env.PORT) ||
-//  const fetch = require('node-fetch');
+ const fetch = require('node-fetch');
 
 // const child_process = require('child_process');
 
 app.use(express.json() as RequestHandler);
 app.use(express.urlencoded({ extended: true }) as RequestHandler);
-// app.use(cors() as RequestHandler);
+app.use(cors() as RequestHandler);
 dotenv.config();
 
 // collecting our default metrics from Prometheus
