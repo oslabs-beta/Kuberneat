@@ -4,8 +4,8 @@ import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 const k8sPod = require('./Kubernetes_Pod.jpg');
 
-const Pod = ({ info, nodeNum }: { info: any, nodeNum: number }): JSX.Element => {
-
+const Pod = ({ info, nodeNum }: { info: any, nodeNum: any }): JSX.Element => {
+	console.log('nodeNum', nodeNum)
 	// popover
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	// popover open
@@ -18,29 +18,13 @@ const Pod = ({ info, nodeNum }: { info: any, nodeNum: number }): JSX.Element => 
 	};
 	const open = Boolean(anchorEl);
 
-	//React.ChangeEvent<HTMLInputElement>
-	// const openModal = (e: any) => {
-	// 	// determining where to place modal
-	// 	const top = e.pageY;
-	// 	const left = e.pageX;
-	// 	modalDetail = (
-	// 		<ul className="modalList">
-	// 			<li className="modalDetail">CPU Requests: {info.CPU_Requests}</li>
-	// 			<li className="modalDetail">CPU Limits: {info.CPU_Limits}</li>
-	// 			<li className="modalDetail">Memory Requests: {info.Memory_Requests}</li>
-	// 			<li className="modalDetail">Memory Limits: {info.Memory_Limits}</li>
-	// 			<li className="modalDetail">Age: {info.Age}</li>
-	// 		</ul>
-	// 	);
-	// };
 	return (
 		<div id={`pod${nodeNum}`}>
-			<img 
-				src={"https://banner2.cleanpng.com/20180329/qjq/kisspng-google-cloud-platform-google-compute-engine-kubern-container-5abc828e10c6a8.2707130315223036300687.jpg"} 
-				id={`pod${nodeNum}_image`} 
-				width="100px" 
-				height="100px"
-				>
+			<img src={"https://banner2.cleanpng.com/20180329/qjq/kisspng-google-cloud-platform-google-compute-engine-kubern-container-5abc828e10c6a8.2707130315223036300687.jpg"} 
+			id={`pod${nodeNum}_image`} 
+			width="100px" 
+			height="100px"
+			>
 
 			</img>
 			<Typography
@@ -73,7 +57,7 @@ const Pod = ({ info, nodeNum }: { info: any, nodeNum: number }): JSX.Element => 
 				disableRestoreFocus
 			>
 				<Typography sx={{ p: 1 }}>
-					<div>
+					<div className='pod-popOver'>
 						<ul>
 							<li>CPU Requests: {info.CPU_Requests} </li>
 							<li>CPU Limits: {info.CPU_Limits} </li>

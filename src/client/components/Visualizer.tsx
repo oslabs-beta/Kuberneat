@@ -39,7 +39,6 @@ export const Visualizer: React.FC = () => {
 	for (let i = 0; i < nodes.length; i++) {
 		podProps.push(
 			<Pod
-				/* id='pods' */
 				info={nodes[i]}
 				key={i}
 				nodeNum={i}
@@ -50,11 +49,8 @@ export const Visualizer: React.FC = () => {
 	console.log('pod', podProps);
 
 	return (	
-	<div id={darkModeOn ? "vis-dark" : "vis-light"}>
-
-		{/* <div style={{fontSize: 50 , textAlign: 'center' }}>Visualizer</div> */}
-		{/* <div id='pods'> */}{podProps}{/* </div> */}
-
-
-	</div>)
+		<div id={darkModeOn ? "vis-dark" : "vis-light"}>
+			{podProps}
+		</div>
+	)
 };
