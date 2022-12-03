@@ -82,7 +82,7 @@ function Login(props) {
                     <label htmlFor="pass">Password: </label>
                     <input
                         id="pass"
-                        type="text"
+                        type="password"
                         placeholder="password"
                         onChange={handleChange}
                         name="pass"
