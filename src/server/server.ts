@@ -8,22 +8,23 @@ import express, {
 import path from 'path';
 import dotenv from 'dotenv';
 import { RequestHandler } from 'express';
-// import { middleware } from './middleware';
+
 const middleware = require('./middleware');
+//const userController = require('./userController');
 
 import client from 'prom-client';
 // import cluster from 'cluster';
 
 const app: Express = express();
-// const cors = require('cors');
-const PORT: number = 3000; //Number(process.env.PORT) ||
+const cors = require('cors');
+const PORT: number = 3000;
 //  const fetch = require('node-fetch');
 
 // const child_process = require('child_process');
 
 app.use(express.json() as RequestHandler);
 app.use(express.urlencoded({ extended: true }) as RequestHandler);
-// app.use(cors() as RequestHandler);
+app.use(cors() as RequestHandler);
 dotenv.config();
 
 // collecting our default metrics from Prometheus
@@ -55,6 +56,10 @@ app.get('/', (req: Request, res: Response) => {
 app.get('/cluster', middleware.getClusterInfo, (req: Request, res: Response) => {
 	console.log('Getting cluster is working...', res.locals.clusterInfo);
 	return res.status(200).json(res.locals.clusterInfo);
+});
+
+app.get('/user' /*userController.getUser*/, (req: Request, res: Response) => {
+	return res.status(200).json('this is user'); 
 });
 
 app.use('*', (req, res) => {
