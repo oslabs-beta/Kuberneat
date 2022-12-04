@@ -10,7 +10,7 @@ import dotenv from 'dotenv';
 import { RequestHandler } from 'express';
 
 const middleware = require('./middleware');
-//const userController = require('./userController');
+const userController = require('./controllers/userController');
 
 import client from 'prom-client';
 // import cluster from 'cluster';
@@ -41,7 +41,6 @@ register.setDefaultLabels({
 	app: 'zeus-api',
 });
 
-
 app.get('/', (req: Request, res: Response) => {
 	console.log('Backend & Frontend speaking...');
 	res.sendFile(path.join(__dirname, '../client/index.html'));
@@ -53,13 +52,21 @@ app.get('/', (req: Request, res: Response) => {
 // 	res.end(await register.metrics());
 // });
 
-app.get('/cluster', middleware.getClusterInfo, (req: Request, res: Response) => {
-	console.log('Getting cluster is working...', res.locals.clusterInfo);
-	return res.status(200).json(res.locals.clusterInfo);
+app.get(
+	'/cluster',
+	middleware.getClusterInfo,
+	(req: Request, res: Response) => {
+		console.log('Getting cluster is working...', res.locals.clusterInfo);
+		return res.status(200).json(res.locals.clusterInfo);
+	}
+);
+app.get('/user', userController.getUser, (req: Request, res: Response) => {
+	console.log('Getting user is working...', res.locals.foundUser);
+	return res.status(200).json(res.locals.foundUser);
 });
 
-app.get('/user' /*userController.getUser*/, (req: Request, res: Response) => {
-	return res.status(200).json('this is user'); 
+app.post('/user', userController.createUser, (req: Request, res: Response) => {
+	return res.status(200).json(res.locals.newUser);
 });
 
 app.use('*', (req, res) => {
@@ -84,11 +91,11 @@ app.use(
 	}
 );
 
-
 app.listen(PORT, () => {
-	console.log(`EXPRESS server is listening on http://localhost:${PORT}/`);
-	console.log(`Frontend listening on  http://localhost:${8080}/`);
+	console.log(
+		`************************* EXPRESS server is listening on http://localhost:${PORT}/`
+	);
+	console.log(
+		`************************* Frontend listening on  http://localhost:${8080}/`
+	);
 });
-
-
-
