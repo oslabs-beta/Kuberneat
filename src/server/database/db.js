@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 // import { ConnectOptions } from 'mongodb';
 
 //storing db -preventing public to see this information on client side 
-const myURI = 'mongodb+srv://jwrog782:3r0NcsRV8RVaBwIk@cluster0.qijg05f.mongodb.net/?retryWrites=true&w=majority';
+//const myURI;
 
 
 // require("dotenv").config({
