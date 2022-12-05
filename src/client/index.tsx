@@ -12,9 +12,9 @@ let root = createRoot(container);
 
 root.render(
   <ContextProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
   </ContextProvider>
 );
 

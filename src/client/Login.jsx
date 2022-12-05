@@ -11,7 +11,7 @@ import * as JWT from 'jwt-decode';
 
 function Login(props) {
 
-    const { darkModeOn, toggleDarkMode, user, handleCallbackResponse } = useContext(Context);
+    const { darkModeOn, toggleDarkMode, user, setUser, handleCallbackResponse } = useContext(Context);
 
     // const navigate = useNavigate();
     // function goToMain() {
@@ -25,7 +25,10 @@ function Login(props) {
         // console.log(actions);
 
         // below is just a mock API call for testing, add logic for AUTH here later...
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        await new Promise((resolve) => {
+            setTimeout(resolve, 1000);
+            setUser('logged in') // mock login by assiging a string to user from null
+        });
         actions.resetForm(); // resets form fields 
     };
 
@@ -119,7 +122,7 @@ function Login(props) {
                             value={values.confirmPassword}
                             onChange={handleChange}
                             id="confirmPassword"
-                            type="confirmPassword"
+                            type="password"
                             placeholder="Confirm your password"
                             onBlur={handleBlur}
                             className={errors.confirmPassword && touched.confirmPassword ? "input-error" : ""}

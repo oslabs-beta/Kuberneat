@@ -17,9 +17,11 @@ function ContextProvider({ children }) {
 
 	function handleCallbackResponse(response) {
 		console.log('Encoded JWT ID token: ' + response.credential);
-		const userObject= JWT(response.credential);
-		console.log(userObject);
-		setUser(userObject);
+		setUser(response)
+		console.log('User:', user)
+		// const userObject= JWT(response.credential);
+		// console.log('UserObject:', userObject); 
+		// setUser(userObject); // later set it to the userObject
 	}
 
 	function toggleDarkMode() {
