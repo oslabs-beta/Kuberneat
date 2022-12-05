@@ -9,11 +9,14 @@ type HeaderProps = {
     subtitle: string
 }
 
-
+// this component is reuseable for all containers, and can pass in desired props
+// for title and subtitle
 function Header({title, subtitle}: HeaderProps) {
 
     const { darkModeOn } = useContext(Context);
-    const fontColor = darkModeOn ? "#fab700 !important" : "black !important" // alt light color 344966 fab700
+    const fontColor = darkModeOn ? "#fab700 !important" : "black !important" 
+    // sets the font color of the header -> changes here get reflected throughout
+    // alt light color 344966 fab700
 
     return (
 

@@ -34,7 +34,8 @@ const App: React.FC = () => {
 
 	return (
 		<>
-			{/* <CssBaseline /> */}
+			{/* <CssBaseline /> */} 
+			{/* from MUI let's us reset our CSS to default automatically */}
 
 			{/* Admin & User Profile Info -> with JWT decoding can dynamically render user info*/}
 			<div
@@ -138,7 +139,7 @@ const App: React.FC = () => {
 					<Routes>
 						<Route
 							path="/faq"
-							element={<Faq />} // set this to main for now
+							element={<Faq />} // set this to FAQ for now
 						/>
 						<Route
 							path="/dashboard"

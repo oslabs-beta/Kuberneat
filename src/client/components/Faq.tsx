@@ -6,6 +6,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails"
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 import React, { useContext } from 'react'
 import {Context} from "../Context";
 
@@ -14,12 +15,15 @@ const FAQ = () => {
 
     const { darkModeOn } = useContext(Context);
     const accordianColor = darkModeOn ? "#2c3639 !important" : "#344966 !important"
+    // sets the color of the FAQ containers, chnages here get reflected to all
 
   return (
     <div className={darkModeOn ? "faq-dark" : "faq-light"}>
         <Box m="20px">
+            {/* Header passing down props for title and subtitle */}
         <Header title="FAQ" subtitle="Frequently Asked Questions Page" />
 
+        {/* Can replace placeholder questions with real ones later */}
         <Accordion defaultExpanded sx={{ bgcolor: accordianColor}}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography variant="h5">
