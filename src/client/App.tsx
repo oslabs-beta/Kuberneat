@@ -10,7 +10,9 @@ import HubIcon from '@mui/icons-material/Hub';
 import LightModeTwoToneIcon from '@mui/icons-material/LightModeTwoTone';
 import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
 import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
+import LiveHelpTwoToneIcon from '@mui/icons-material/LiveHelpTwoTone';
 
+import Faq from './components/Faq'
 import Sidebar from './Sidebar';
 import Login from './Login';
 import Dashboard from './Dashboard';
@@ -32,7 +34,7 @@ const App: React.FC = () => {
 
 	return (
 		<>
-			<CssBaseline />
+			{/* <CssBaseline /> */}
 
 			{/* Admin & User Profile Info -> with JWT decoding can dynamically render user info*/}
 			<div
@@ -98,6 +100,20 @@ const App: React.FC = () => {
 						</IconButton>
 					</Link>
 
+					<Link to="/faq">
+						<IconButton
+							sx={
+								darkModeOn
+									? { color: { color: '#DAA520' } }
+									: // ? { '&hover': { color: '#DAA520' }  }
+									  { '&:hover': { color: '#22A39F' } }
+							}
+							size="large"
+						>
+							<LiveHelpTwoToneIcon></LiveHelpTwoToneIcon>
+						</IconButton>
+					</Link>
+
 					<Link to="/">
 						<IconButton
 						onClick={() => setUser(null)}
@@ -124,8 +140,8 @@ const App: React.FC = () => {
 				<main className="content">
 					<Routes>
 						<Route
-							path="/"
-							element={<Dashboard />} // set this to main for now
+							path="/faq"
+							element={<Faq />} // set this to main for now
 						/>
 						<Route
 							path="/dashboard"

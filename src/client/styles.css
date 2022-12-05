@@ -84,7 +84,17 @@
  select.input-error{
 	 border-color: #fc8181;
  }
- 
+ .faq-dark{
+	height: 100vh;
+	background-color: #161414;
+	width: 100%; 
+ }
+ .faq-light{
+	height: 100vh;
+	background-color: #a6b6c9;
+	/* color: #344966; */
+	width: 100%; 
+ }
  link1 {
 	 border-radius: 10px;
 	 background-color: #2c3639;
@@ -384,7 +394,7 @@
  }
 
  .sidebar-dark{
-	background-color: green;
+	background-color: black;
 	color: white;
 	font-size: 25px;
 	width: 300px;
