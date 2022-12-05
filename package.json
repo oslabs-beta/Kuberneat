@@ -89,7 +89,7 @@
 		"react-vis-force": "^0.3.1",
 		"ts-mongoose": "^0.0.24",
 		"ts-node": "^10.9.1",
-		"yup": "^0.32.11"
+		"yup": "^0.28.5"
 	},
 	"resolutions": {
 		"react-error-overlay": "6.0.9"
