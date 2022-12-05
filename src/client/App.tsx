@@ -60,12 +60,10 @@ const App: React.FC = () => {
 					marginRight={5}
 				>
 					<IconButton
-						sx={
-							darkModeOn
-								? { color: { color: '#DAA520' } }
-								: // ? { '&hover': { color: '#DAA520' }  }
-								  { '&:hover': { color: '#22A39F' } }
-						}
+						sx={{ // refactored ICON hover effect, applied to all
+							color: '#DAA520', 
+							"&:hover": { backgroundColor: '#22A39F' } 
+						}}
 						size="large"
 						onClick={toggleDarkMode}
 					>
@@ -74,12 +72,10 @@ const App: React.FC = () => {
 
 					<Link to="/dashboard">
 						<IconButton
-							sx={
-								darkModeOn
-									? { color: { color: '#DAA520' } }
-									: // ? { '&hover': { color: '#DAA520' }  } // #22A39F
-									  { '&:hover': { color: '#22A39F' } }
-							}
+							sx={{ 
+								color: '#DAA520', 
+								"&:hover": { backgroundColor: '#22A39F' } 
+							}}
 							size="large"
 						>
 							<BarChartTwoToneIcon></BarChartTwoToneIcon>
@@ -88,12 +84,10 @@ const App: React.FC = () => {
 
 					<Link to="/visualizer">
 						<IconButton
-							sx={
-								darkModeOn
-									? { color: { color: '#DAA520' } }
-									: // ? { '&hover': { color: '#DAA520' }  }
-									  { '&:hover': { color: '#22A39F' } }
-							}
+							sx={{ 
+								color: '#DAA520', 
+								"&:hover": { backgroundColor: '#22A39F' } 
+							}}
 							size="large"
 						>
 							<HubIcon></HubIcon>
@@ -102,12 +96,10 @@ const App: React.FC = () => {
 
 					<Link to="/faq">
 						<IconButton
-							sx={
-								darkModeOn
-									? { color: { color: '#DAA520' } }
-									: // ? { '&hover': { color: '#DAA520' }  }
-									  { '&:hover': { color: '#22A39F' } }
-							}
+							sx={{ 
+								color: '#DAA520', 
+								"&:hover": { backgroundColor: '#22A39F' } 
+							}}
 							size="large"
 						>
 							<LiveHelpTwoToneIcon></LiveHelpTwoToneIcon>
@@ -117,12 +109,10 @@ const App: React.FC = () => {
 					<Link to="/">
 						<IconButton
 						onClick={() => setUser(null)}
-							sx={
-								darkModeOn
-									? { color: { color: '#DAA520' } }
-									: // ? { '&hover': { color: '#DAA520' }  }
-									  { '&:hover': { color: 'floralwhite' } }
-							}
+						sx={{ 
+							color: '#DAA520', 
+							"&:hover": { backgroundColor: '#22A39F' } 
+						}}
 							size="large"
 						>
 							<LogoutTwoToneIcon></LogoutTwoToneIcon>
