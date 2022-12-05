@@ -275,7 +275,7 @@
  }
  /* Nav bar dark mode */
  #navbar1 {
-	 height: 150px;
+	 height: 175px;
 	 background-color: #0a090c;
 	 color: #2c3639;
 	 display: flex;
@@ -284,7 +284,7 @@
  }
  /* Nav bar light mode */
  #navbar2 {
-	 height: 150px;
+	 height: 175px;
 	 background-color: #344966;
 	 color: #968c83;
 	 display: flex;
@@ -410,4 +410,18 @@
     width: 100%;
 	display: flex;
 	flex-direction: column;
+ }
+
+ .user-pic{
+	border-radius: 50%;
+	border: 2px solid #22A39F;
+	height: 65px;
+	width:65px;
+	color: #22A39F;
+	font-size: 42px;
+	background-color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
  }

@@ -41,10 +41,17 @@ const App: React.FC = () => {
 				className="loginPage"
 				id={darkModeOn ? 'navbar1' : 'navbar2'}
 			>
-				<div className={darkModeOn ? 'user1' : 'user2'}>
-					{/* <img src={} alt="" /> */}
+				{/* profile render conditional on user state */}
+				{!user && <div className={darkModeOn ? 'user1' : 'user2'}>
+					<div className="user-pic">?</div>
+					<p>Please Login</p>
+				</div>}
+
+				{user && <div className={darkModeOn ? 'user1' : 'user2'}>
+					<div className="user-pic">E</div> {/* can add photo later */}
+					<p>Ed</p> {/* can dynamically render user info later with JWT */}
 					<p>Admin</p>
-				</div>
+				</div>}
 
 				{/* OSP Name */}
 				<div
