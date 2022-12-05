@@ -71,6 +71,7 @@
 		"cors": "^2.8.5",
 		"css-loader": "^6.7.2",
 		"express": "^4.18.2",
+		"formik": "^2.2.9",
 		"jsonwebtoken": "^8.5.1",
 		"jwt-decode": "^3.1.2",
 		"jwt-js-decode": "^1.5.1",
@@ -80,12 +81,15 @@
 		"nodemon": "^2.0.20",
 		"prom-client": "^14.1.0",
 		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-pro-sidebar": "^0.7.1",
 		"react-router": "^6.4.3",
 		"react-router-dom": "^6.4.3",
 		"react-vis": "^1.11.7",
 		"react-vis-force": "^0.3.1",
 		"ts-mongoose": "^0.0.24",
-		"ts-node": "^10.9.1"
+		"ts-node": "^10.9.1",
+		"yup": "^0.32.11"
 	},
 	"resolutions": {
 		"react-error-overlay": "6.0.9"
