@@ -7,8 +7,13 @@ const mongoURI =
 	'mongodb+srv://zeus:zeus@cluster0.1i7iws7.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.connect(
-	mongoURI,
-	{ useNewUrlParser: true, useUnifiedTopology: true },
+	'mongoURI',
+	{
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+		autoReconnect: true,
+		dbName: 'zeus',
+	},
 	() => console.log('🦆🦆🦆🦆🦆🦆🦆🦆  Mongoose is connected')
 );
 

@@ -46,11 +46,16 @@ app.get('/', (req: Request, res: Response) => {
 	res.sendFile(path.join(__dirname, '../client/index.html'));
 });
 
-// app.get('/metrics', async (req: Request, res: Response) => {
-// 	console.log('Getting metrics is working...');
-// 	res.setHeader('Content-type', register.contentType);
-// 	res.end(await register.metrics());
-// });
+app.get('/metrics', async (req: Request, res: Response) => {
+	console.log('Getting metrics is working...');
+	res.setHeader('Content-type', register.contentType);
+	res.end(await register.metrics());
+});
+
+app.get('/apis/metrics.k8s.io/v1beta1', async (req: Request, res: Response) => {
+	console.log('Getting metrics resources is working...');
+	res.sendStatus(200);
+})
 
 app.get(
 	'/cluster',
@@ -60,6 +65,7 @@ app.get(
 		return res.status(200).json(res.locals.clusterInfo);
 	}
 );
+
 app.get('/user', userController.getUser, (req: Request, res: Response) => {
 	console.log('Getting user is working...', res.locals.foundUser);
 	return res.status(200).json(res.locals.foundUser);
