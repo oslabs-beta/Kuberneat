@@ -153,7 +153,7 @@ function ForceGraph({
   if (T) node.append("title").text(({index: i}) => T[i]);
   if (invalidation != null) invalidation.then(() => simulation.stop());
 
-  function intern(value : (void | {})) {
+  function intern(value : any) {
     return value !== null && typeof value === "object" ? value.valueOf() : value;
   }
 
@@ -169,7 +169,7 @@ function ForceGraph({
       .attr("cy", (d : { y : any } ) => d.y);
   }
 
-  function drag(simulation : { alphaTarget( (a : number) => a) { restart : Function} }) {    
+  function drag(simulation : { alphaTarget : Function }) {    
     function dragstarted(event : {active: any, subject: { x : any, y : any, fx: any, fy : any} }) {
       if (!event.active) simulation.alphaTarget(0.3).restart();
       event.subject.fx = event.subject.x;
