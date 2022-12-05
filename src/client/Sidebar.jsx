@@ -7,8 +7,9 @@ export default function Sidebar() {
     return (
         <div className='sidebar-dark'>
             <ProSidebar>
+
                 <SidebarHeader>
-                User Profile
+                User Profile Info
                 </SidebarHeader>
                 <SidebarContent>
                     <Menu>
