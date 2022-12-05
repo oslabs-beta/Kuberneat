@@ -5,7 +5,8 @@ import { useState, useEffect } from 'react';
 
 // import * as jwtJsDecode from 'jwt-js-decode';
 // import { jwtDecode } from 'jwt-js-decode';
-// import * as JWT from 'jwt-decode';
+// import jwt_decode from 'jwt_decode';
+import * as JWT from 'jwt-decode';
 
 const Context = React.createContext();
 
@@ -15,10 +16,10 @@ function ContextProvider({ children }) {
 	const [darkModeOn, setDarkModeOn] = useState(true);
 
 	function handleCallbackResponse(response) {
-		// console.log('Encoded JWT ID token: ' + response.credential);
-		// const userObject= JWT(response.credential);
-		// console.log(userObject);
-		// setUser(userObject);
+		console.log('Encoded JWT ID token: ' + response.credential);
+		const userObject= JWT(response.credential);
+		console.log(userObject);
+		setUser(userObject);
 	}
 
 	function toggleDarkMode() {

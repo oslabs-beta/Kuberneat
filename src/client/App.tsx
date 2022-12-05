@@ -4,8 +4,6 @@ import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 import { Context } from './Context';
 import './styles.css';
 
-import Login from './Login';
-
 import { Box, IconButton } from '@mui/material';
 import BarChartTwoToneIcon from '@mui/icons-material/BarChartTwoTone';
 import HubIcon from '@mui/icons-material/Hub';
@@ -13,10 +11,11 @@ import LightModeTwoToneIcon from '@mui/icons-material/LightModeTwoTone';
 import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
 import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 
+import Login from './Login';
 import Dashboard from './Dashboard';
 import { Visualizer } from './components/Visualizer';
 // import Pod from './components/Pod';
-import { useState, useEffect } from 'react';
+
 
 const App: React.FC = () => {
 	//destructuring functions from Context object
@@ -25,18 +24,19 @@ const App: React.FC = () => {
 	//returns a method that routes any endpoint
 	const navigate = useNavigate();
 
-	function goToMain() {
-		navigate('/dashboard');
+	function goToMain() { // for now, this mocks logout from logout icon on far right of top navbar
+		navigate('/');
 	}
 
 	return (
 		<>
-			{/* Admin */}
+			{/* Admin & User Profile Info -> with JWT decoding can dynamically render user info*/}
 			<div
 				className="loginPage"
 				id={darkModeOn ? 'navbar1' : 'navbar2'}
 			>
 				<div className={darkModeOn ? 'user1' : 'user2'}>
+					{/* <img src={} alt="" /> */}
 					<p>Admin</p>
 				</div>
 
@@ -58,7 +58,7 @@ const App: React.FC = () => {
 							darkModeOn
 								? { color: { color: '#DAA520' } }
 								: // ? { '&hover': { color: '#DAA520' }  }
-								  { '&:hover': { color: 'floralwhite' } }
+								  { '&:hover': { color: '#22A39F' } }
 						}
 						size="large"
 						onClick={toggleDarkMode}
@@ -71,8 +71,8 @@ const App: React.FC = () => {
 							sx={
 								darkModeOn
 									? { color: { color: '#DAA520' } }
-									: // ? { '&hover': { color: '#DAA520' }  }
-									  { '&:hover': { color: 'floralwhite' } }
+									: // ? { '&hover': { color: '#DAA520' }  } // #22A39F
+									  { '&:hover': { color: '#22A39F' } }
 							}
 							size="large"
 						>
@@ -86,7 +86,7 @@ const App: React.FC = () => {
 								darkModeOn
 									? { color: { color: '#DAA520' } }
 									: // ? { '&hover': { color: '#DAA520' }  }
-									  { '&:hover': { color: 'floralwhite' } }
+									  { '&:hover': { color: '#22A39F' } }
 							}
 							size="large"
 						>
