@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 //storing db -preventing public to see this information on client side
-// const myURI = 'mongodb+srv://jwrog782:3r0NcsRV8RVaBwIk@cluster0.qijg05f.mongodb.net/?retryWrites=true&w=majority';
+
 const mongoURI =
 	'mongodb+srv://zeus:zeus@cluster0.1i7iws7.mongodb.net/?retryWrites=true&w=majority';
 

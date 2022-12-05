@@ -10,7 +10,9 @@ import HubIcon from '@mui/icons-material/Hub';
 import LightModeTwoToneIcon from '@mui/icons-material/LightModeTwoTone';
 import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
 import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
+import LiveHelpTwoToneIcon from '@mui/icons-material/LiveHelpTwoTone';
 
+import Faq from './components/Faq'
 import Sidebar from './Sidebar';
 import Login from './Login';
 import Dashboard from './Dashboard';
@@ -32,17 +34,25 @@ const App: React.FC = () => {
 
 	return (
 		<>
-			<CssBaseline />
+			{/* <CssBaseline /> */} 
+			{/* from MUI let's us reset our CSS to default automatically */}
 
 			{/* Admin & User Profile Info -> with JWT decoding can dynamically render user info*/}
 			<div
 				className="loginPage"
 				id={darkModeOn ? 'navbar1' : 'navbar2'}
 			>
-				<div className={darkModeOn ? 'user1' : 'user2'}>
-					{/* <img src={} alt="" /> */}
+				{/* profile render conditional on user state */}
+				{!user && <div className={darkModeOn ? 'user1' : 'user2'}>
+					<div className="user-pic">?</div>
+					<p>Please Login</p>
+				</div>}
+
+				{user && <div className={darkModeOn ? 'user1' : 'user2'}>
+					<div className="user-pic">E</div> {/* can add photo later */}
+					<p>Ed</p> {/* can dynamically render user info later with JWT */}
 					<p>Admin</p>
-				</div>
+				</div>}
 
 				{/* OSP Name */}
 				<div
@@ -58,12 +68,10 @@ const App: React.FC = () => {
 					marginRight={5}
 				>
 					<IconButton
-						sx={
-							darkModeOn
-								? { color: { color: '#DAA520' } }
-								: // ? { '&hover': { color: '#DAA520' }  }
-								  { '&:hover': { color: '#22A39F' } }
-						}
+						sx={{ // refactored ICON hover effect, applied to all
+							color: '#DAA520', 
+							"&:hover": { backgroundColor: '#22A39F' } 
+						}}
 						size="large"
 						onClick={toggleDarkMode}
 					>
@@ -72,12 +80,10 @@ const App: React.FC = () => {
 
 					<Link to="/dashboard">
 						<IconButton
-							sx={
-								darkModeOn
-									? { color: { color: '#DAA520' } }
-									: // ? { '&hover': { color: '#DAA520' }  } // #22A39F
-									  { '&:hover': { color: '#22A39F' } }
-							}
+							sx={{ 
+								color: '#DAA520', 
+								"&:hover": { backgroundColor: '#22A39F' } 
+							}}
 							size="large"
 						>
 							<BarChartTwoToneIcon></BarChartTwoToneIcon>
@@ -86,27 +92,35 @@ const App: React.FC = () => {
 
 					<Link to="/visualizer">
 						<IconButton
-							sx={
-								darkModeOn
-									? { color: { color: '#DAA520' } }
-									: // ? { '&hover': { color: '#DAA520' }  }
-									  { '&:hover': { color: '#22A39F' } }
-							}
+							sx={{ 
+								color: '#DAA520', 
+								"&:hover": { backgroundColor: '#22A39F' } 
+							}}
 							size="large"
 						>
 							<HubIcon></HubIcon>
 						</IconButton>
 					</Link>
 
+					<Link to="/faq">
+						<IconButton
+							sx={{ 
+								color: '#DAA520', 
+								"&:hover": { backgroundColor: '#22A39F' } 
+							}}
+							size="large"
+						>
+							<LiveHelpTwoToneIcon></LiveHelpTwoToneIcon>
+						</IconButton>
+					</Link>
+
 					<Link to="/">
 						<IconButton
 						onClick={() => setUser(null)}
-							sx={
-								darkModeOn
-									? { color: { color: '#DAA520' } }
-									: // ? { '&hover': { color: '#DAA520' }  }
-									  { '&:hover': { color: 'floralwhite' } }
-							}
+						sx={{ 
+							color: '#DAA520', 
+							"&:hover": { backgroundColor: '#22A39F' } 
+						}}
 							size="large"
 						>
 							<LogoutTwoToneIcon></LogoutTwoToneIcon>
@@ -124,8 +138,8 @@ const App: React.FC = () => {
 				<main className="content">
 					<Routes>
 						<Route
-							path="/"
-							element={<Dashboard />} // set this to main for now
+							path="/faq"
+							element={<Faq />} // set this to FAQ for now
 						/>
 						<Route
 							path="/dashboard"
