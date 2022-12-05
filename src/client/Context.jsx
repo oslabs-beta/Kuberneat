@@ -11,7 +11,7 @@ import * as JWT from 'jwt-decode';
 const Context = React.createContext();
 
 function ContextProvider({ children }) {
-	const [user, setUser] = useState(null);
+	const [user, setUser] = useState({}); // set to defined for testing, default is null
 
 	const [darkModeOn, setDarkModeOn] = useState(true);
 
