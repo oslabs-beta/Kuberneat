@@ -7,7 +7,6 @@ const userController: object = {
 	//create User
 	createUser(req: Request, res: Response, next: NextFunction) {
 		const { username, password } = req.body;
-		//if user does not exist
 		Users.create({ username: username, password: password })
 			.then((existingUser: object) => {
 				res.locals.foundUser = existingUser;
@@ -20,9 +19,9 @@ const userController: object = {
 				});
 			});
 	},
+	//get User
 	getUser(req: Request, res: Response, next: any): void {
 		const { email, username, password } = req.body;
-		//check if the if the user does not exist
 		Users.find({ email: email, username: username, password: password })
 			.then((createdUser: object) => {
 				if (!username || !password) {

@@ -1,7 +1,14 @@
 //acquiring mongoose framework
 const mongoose = require('mongoose');
 
-//storing db -preventing public to see this information on client side
+export interface UserData { 
+	email: string;
+	username: string;
+	password: string;
+}
+
+//this line below is used to suppress deprecation warnings
+mongoose.set('strictQuery', true);
 
 const mongoURI =
 	'mongodb+srv://zeus:zeus@cluster0.1i7iws7.mongodb.net/?retryWrites=true&w=majority';
