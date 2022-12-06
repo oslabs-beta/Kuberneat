@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 import { Context } from './Context';
 import './styles.css';
@@ -17,12 +17,16 @@ import Sidebar from './Sidebar';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import { Visualizer } from './components/Visualizer';
+import { flexbox } from '@mui/system';
 // import Pod from './components/Pod';
+
 
 
 const App: React.FC = () => {
 	//destructuring functions from Context object
 	const { darkModeOn, toggleDarkMode, setUser, user } = useContext(Context);
+
+	// const [ isSidebarOpen, setIsSidebarOpen ] = useState<boolean>(true);
 
 	//returns a method that routes any endpoint
 	const navigate = useNavigate();
@@ -42,17 +46,18 @@ const App: React.FC = () => {
 				className="loginPage"
 				id={darkModeOn ? 'navbar1' : 'navbar2'}
 			>
-				{/* profile render conditional on user state */}
-				{!user && <div className={darkModeOn ? 'user1' : 'user2'}>
-					<div className="user-pic">?</div>
-					<p>Please Login</p>
-				</div>}
+				
+			{/* on login page when no user is signed in */}	
+			{!user && <div style={{width: '200px', marginLeft: '25px' }}></div>}
 
-				{user && <div className={darkModeOn ? 'user1' : 'user2'}>
-					<div className="user-pic">E</div> {/* can add photo later */}
-					<p>Ed</p> {/* can dynamically render user info later with JWT */}
+			{/* once user is logged in display profile data */}
+			{user && <div className={darkModeOn ? 'user-dark' : 'user-light'}> {/* profile renders user data from JWT */}
+				<div className="user-pic">Y</div> {/* can add photo later */}
+				<div className="user-info">
+					<p>Yaku</p> {/* can dynamically render user info later with JWT */}
 					<p>Admin</p>
-				</div>}
+				</div>
+			</div>}
 
 				{/* OSP Name */}
 				<div
@@ -131,10 +136,13 @@ const App: React.FC = () => {
 
 			{!user && <Login onClick={logout} />} {/* renders login page when user is undefined */}
 
-			{user && <div className="app"> {/* will render depending on routes when user is defined aka logged in */}
+			{user && 
 
-				<Sidebar />
-				
+			<div className={darkModeOn ? "app-dark" : "app-light"}> 
+			{/* will render depending on routes when user is defined aka logged in */}
+
+				<div><Sidebar/></div>
+
 				<main className="content">
 					<Routes>
 						<Route
@@ -151,7 +159,10 @@ const App: React.FC = () => {
 						/>
 					</Routes>
 				</main>
-			</div>}
+
+			</div>
+			
+			}
 
 		</>
 	);
