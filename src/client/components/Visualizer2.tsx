@@ -5,8 +5,12 @@ import Pod from './Pod';
 
 import { Context } from '../Context';
 
-import LightModeTwoToneIcon from '@mui/icons-material/LightModeTwoTone';
-import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
+import Header from './Header'
+
+import { Box } from "@mui/material";
+
+// import LightModeTwoToneIcon from '@mui/icons-material/LightModeTwoTone';
+// import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
 
 
 const Visualizer2: React.FC = () => {
@@ -50,9 +54,14 @@ const Visualizer2: React.FC = () => {
 	console.log('pod', podProps);
 
 	return (	
-		<div id={darkModeOn ? "vis-dark" : "vis-light"}>
-			{podProps}
-		</div>
+		<Box m="20px">
+			<div id={darkModeOn ? "vis-dark" : "vis-light"}>
+				<Header title="Visualizer 2" subtitle="Just one of the many ways to visualize your cluster" />
+
+				{podProps}
+				
+			</div>
+		</Box>
 	)
 };
 
