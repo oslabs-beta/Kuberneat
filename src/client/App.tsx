@@ -21,7 +21,6 @@ import { flexbox } from '@mui/system';
 // import Pod from './components/Pod';
 
 
-
 const App: React.FC = () => {
 	//destructuring functions from Context object
 	const { darkModeOn, toggleDarkMode, setUser, user } = useContext(Context);
@@ -52,7 +51,7 @@ const App: React.FC = () => {
 
 			{/* once user is logged in display profile data */}
 			{user && <div className={darkModeOn ? 'user-dark' : 'user-light'}> {/* profile renders user data from JWT */}
-				<div className="user-pic">Y</div> {/* can add photo later */}
+				<div className={darkModeOn ? "user-pic-dark" : "user-pic-light"}>Y</div> {/* can add photo later */}
 				<div className="user-info">
 					<p>Yaku</p> {/* can dynamically render user info later with JWT */}
 					<p>Admin</p>

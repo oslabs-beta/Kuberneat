@@ -2,6 +2,8 @@ import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from './Context'
 
+import { Box, IconButton, Typography} from '@mui/material';
+
 import BarChartTwoToneIcon from '@mui/icons-material/BarChartTwoTone';
 import HubIcon from '@mui/icons-material/Hub';
 import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
@@ -20,13 +22,16 @@ export default function Sidebar() {
 
     return (
 
-        <div className={ active ? "sidebar-reg" : "sidebar-mobile" }>
+        <div className={ active ? "sidebar-reg" : "sidebar-mobile" } id={darkModeOn ? 'sidebar-dark' : 'sidebar-light'}>
 
             <div className='menu-icon' onClick={activateSidebar} >
                 {!active 
-                ? <MenuTwoToneIcon className='menu'></MenuTwoToneIcon> 
-                : <CloseFullscreenTwoToneIcon className="close-icon">
-                  </CloseFullscreenTwoToneIcon> 
+                ? <IconButton><MenuTwoToneIcon className='menu'>
+                    </MenuTwoToneIcon>
+                  </IconButton> 
+                : <IconButton>
+                    <CloseFullscreenTwoToneIcon className="close-icon"></CloseFullscreenTwoToneIcon>
+                  </IconButton> 
                 }
             </div>
 
@@ -40,39 +45,109 @@ export default function Sidebar() {
 
             <nav>
                 <ul className={ active ? "ul-item" : "ul-item-icon"}>
+
                     <li>
-                    <BarChartTwoToneIcon className="icon"></BarChartTwoToneIcon>
-                    <Link to="/dashboard">Dashboard</Link>
+                    <IconButton
+                    className="icon" 
+                    size='large'
+                    sx={{ "&:hover": { backgroundColor: '#22A39F' } }}
+                    >
+                        <BarChartTwoToneIcon></BarChartTwoToneIcon>
+                    </IconButton>
+                        <Link to="/dashboard"><Typography>Dashboard</Typography></Link>
                     </li>
+
                     <li>
-                    <HubIcon className="icon"></HubIcon>
-                    <Link to="/visualizer">Visualizer</Link>
+                    <IconButton
+                    className="icon" 
+                    size='large'
+                    sx={{ "&:hover": { backgroundColor: '#22A39F' } }}
+                    >
+                        <HubIcon></HubIcon>
+                    </IconButton>
+                        <Link to="/visualizer"><Typography>Visualizer</Typography></Link>
                     </li>
+
                     <li>
-                    <BarChartTwoToneIcon className="icon"></BarChartTwoToneIcon>
-                    <Link to="/dashboard">Dashboard</Link>
+                    <IconButton
+                    className="icon" 
+                    size='large'
+                    sx={{ "&:hover": { backgroundColor: '#22A39F' } }}
+                    >
+                        <BarChartTwoToneIcon></BarChartTwoToneIcon>
+                    </IconButton>
+                    <Link to="/dashboard"><Typography>Dashboard</Typography></Link>
                     </li>
+
                     <li>
-                    <HubIcon className="icon"></HubIcon>
-                    <Link to="/visualizer">Visualizer</Link>
+                    <IconButton
+                    className="icon" 
+                    size='large'
+                    sx={{ "&:hover": { backgroundColor: '#22A39F' } }}
+                    >
+                        <HubIcon></HubIcon>
+                    </IconButton>
+                        <Link to="/visualizer"><Typography>Visualizer</Typography></Link>
                     </li>
+
                     <li>
-                    <BarChartTwoToneIcon className="icon"></BarChartTwoToneIcon>
-                    <Link to="/charts">Charts</Link>
+                    <IconButton
+                    className="icon" 
+                    size='large'
+                    sx={{ "&:hover": { backgroundColor: '#22A39F' } }}
+                    >
+                        <BarChartTwoToneIcon></BarChartTwoToneIcon>
+                    </IconButton>
+                        <Link to="/charts"><Typography>Charts</Typography></Link>
                     </li>
+
                     <li>
-                    <HubIcon className="icon"></HubIcon>
-                    <Link to="/visualizer">Visualizer</Link>
+                    <IconButton
+                    className="icon" 
+                    size='large'
+                    sx={{ "&:hover": { backgroundColor: '#22A39F' } }}
+                    >
+                        <HubIcon></HubIcon>
+                    </IconButton>
+                        <Link to="/visualizer"><Typography>Visualizer</Typography></Link>
                     </li>
+
                     <li>
-                    <LiveHelpTwoToneIcon className="icon"></LiveHelpTwoToneIcon>
-                    <Link to="/faq">FAQ</Link>
+                    <IconButton
+                    className="icon" 
+                    size='large'
+                    sx={{ "&:hover": { backgroundColor: '#22A39F' } }}
+                    >
+                        <LiveHelpTwoToneIcon></LiveHelpTwoToneIcon>
+                    </IconButton>
+                        <Link to="/faq"><Typography>FAQ</Typography></Link>
                     </li>
-                    <li>
-                    <LogoutTwoToneIcon className="icon" id="logout"></LogoutTwoToneIcon>
-                    <Link to="/">Logout</Link>
-                    </li>
+
+                   {/*  <div id="logout-icon">
+                        <li>
+                            <LogoutTwoToneIcon className="icon" id="logout"></LogoutTwoToneIcon>
+                            <Link to="/">Logout</Link>
+                        </li>
+                    </div> */}
+
                 </ul>
+
+                <div id={active && "logout-icon"}> {/* just for conditional hover effect of logout icon */}
+                <ul className={ active ? "ul-item" : "ul-item-icon"}>
+                
+                        <li>
+                        <IconButton
+                        className="icon" 
+                        size='large'
+                        sx={{ "&:hover": { backgroundColor: '#fc8181' } }}
+                        >
+                            <LogoutTwoToneIcon id="logout"></LogoutTwoToneIcon>
+                        </IconButton>
+                            <Link to="/"><Typography>Logout</Typography></Link>
+                        </li>
+                
+                </ul>
+                </div>
 
             </nav>
         </div>
