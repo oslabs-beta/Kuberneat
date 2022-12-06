@@ -1,5 +1,5 @@
 Name:               alertmanager-prometheus-kube-prometheus-alertmanager
-Namespace:          default
+Namespace:          zeus-monitoring
 CreationTimestamp:  Sun, 27 Nov 2022 00:02:29 -0600
 Selector:           alertmanager=prometheus-kube-prometheus-alertmanager,app.kubernetes.io/instance=prometheus-kube-prometheus-alertmanager,app.kubernetes.io/managed-by=prometheus-operator,app.kubernetes.io/name=alertmanager
 Labels:             app=kube-prometheus-stack-alertmanager
@@ -11,7 +11,7 @@ Labels:             app=kube-prometheus-stack-alertmanager
                     heritage=Helm
                     release=prometheus
 Annotations:        meta.helm.sh/release-name: prometheus
-                    meta.helm.sh/release-namespace: default
+                    meta.helm.sh/release-namespace: zeus-monitoring
                     prometheus-operator-input-hash: 7315968802058904962
 Replicas:           1 desired | 1 total
 Update Strategy:    RollingUpdate
