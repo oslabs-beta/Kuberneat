@@ -80,14 +80,14 @@ button:disabled{ /* styling for a disabled login button state */
 	 color: #eeeeee; /* F7DAD9  DBCBBD */
 	 /* margin-right: auto; */
 }
-.dash-dark {
+.dash-dark { /* container class */
 	 height: 100vh;
-	 background-color: #0a090c;
+	 background-color: #161414;
 	 width: 100%;
 }
-.dash-light {
+.dash-light { /* container class */
 	 height: 100vh;
-	 background-color: #fff5ea;
+	 background-color: #a6b6c9;
 	 width: 100%;
 }
 .iframe-dark {
@@ -515,7 +515,7 @@ nav .ul-item li a {
 	text-transform: uppercase;
 	text-decoration: none;
 	color:#fab700;
-	border-left: 1px solid #fab700;
+	border-left: 1px solid #fab700;/* fab700  */
 	padding-left: 2rem;
 }
 .menu-icon {

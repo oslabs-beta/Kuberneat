@@ -11,12 +11,18 @@ import LightModeTwoToneIcon from '@mui/icons-material/LightModeTwoTone';
 import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
 import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 import LiveHelpTwoToneIcon from '@mui/icons-material/LiveHelpTwoTone';
+import ElectricBoltTwoToneIcon from '@mui/icons-material/ElectricBoltTwoTone';
 
 import Faq from './components/Faq'
 import Sidebar from './Sidebar';
 import Login from './Login';
 import Dashboard from './Dashboard';
+import Dashboard2 from './components/Dashboard2';
+import Chart from './components/Chart';
+import Chart2 from './components/Chart2';
 import { Visualizer } from './components/Visualizer';
+import Visualizer2 from './components/Visualizer2';
+
 import { flexbox } from '@mui/system';
 // import Pod from './components/Pod';
 
@@ -82,7 +88,7 @@ const App: React.FC = () => {
 						{darkModeOn ? <DarkModeTwoToneIcon /> : <LightModeTwoToneIcon />}
 					</IconButton>
 
-					<Link to="/dashboard">
+					{/* <Link to="/dashboard">
 						<IconButton
 							sx={{ 
 								color: '#DAA520', 
@@ -93,8 +99,8 @@ const App: React.FC = () => {
 							<BarChartTwoToneIcon></BarChartTwoToneIcon>
 						</IconButton>
 					</Link>
-
-					<Link to="/visualizer">
+ */}
+					<Link to="/">
 						<IconButton
 							sx={{ 
 								color: '#DAA520', 
@@ -102,7 +108,7 @@ const App: React.FC = () => {
 							}}
 							size="large"
 						>
-							<HubIcon></HubIcon>
+							<ElectricBoltTwoToneIcon></ElectricBoltTwoToneIcon>
 						</IconButton>
 					</Link>
 
@@ -123,7 +129,7 @@ const App: React.FC = () => {
 						onClick={() => setUser(null)}
 						sx={{ 
 							color: '#DAA520', 
-							"&:hover": { backgroundColor: '#22A39F' } 
+							"&:hover": { backgroundColor: '#fc8181' } 
 						}}
 							size="large"
 						>
@@ -153,8 +159,24 @@ const App: React.FC = () => {
 							element={<Dashboard />}
 						/>
 						<Route
+							path="/dashboard2"
+							element={<Dashboard2 />}
+						/>
+						<Route
 							path="/visualizer"
 							element={<Visualizer />}
+						/>
+						<Route
+							path="/visualizer2"
+							element={<Visualizer2 />}
+						/>
+						<Route
+							path="/chart"
+							element={<Chart />}
+						/>
+						<Route
+							path="/chart2"
+							element={<Chart2 />}
 						/>
 					</Routes>
 				</main>
