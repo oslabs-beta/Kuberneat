@@ -24,7 +24,7 @@ const FAQ = () => {
         <Header title="FAQ" subtitle="Frequently Asked Questions Page" />
 
         {/* Can replace placeholder questions with real ones later */}
-        <Accordion defaultExpanded sx={{ bgcolor: accordianColor}}>
+        <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important'}}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography variant="h5">
                 What is Zeus?
@@ -37,7 +37,7 @@ const FAQ = () => {
             </AccordionDetails>
         </Accordion>
         
-        <Accordion defaultExpanded sx={{ bgcolor: accordianColor}}>
+        <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important'}}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography variant="h5">
                 What kinds of queries can I make?
@@ -50,7 +50,7 @@ const FAQ = () => {
             </AccordionDetails>
         </Accordion>
 
-        <Accordion defaultExpanded sx={{ bgcolor: accordianColor}}>
+        <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important'}}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography variant="h5">
                 What is minikube and kubectl?
@@ -63,7 +63,7 @@ const FAQ = () => {
             </AccordionDetails>
         </Accordion>
 
-        <Accordion defaultExpanded sx={{ bgcolor: accordianColor}}>
+        <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important'}}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography variant="h5">
                 Can there be more than 1 administrator?
@@ -76,7 +76,7 @@ const FAQ = () => {
             </AccordionDetails>
         </Accordion>
 
-        <Accordion defaultExpanded sx={{ bgcolor: accordianColor}}>
+        <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important'}}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography variant="h5">
                 What's next for Zeus?

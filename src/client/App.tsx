@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 import { Context } from './Context';
 import './styles.css';
@@ -11,18 +11,27 @@ import LightModeTwoToneIcon from '@mui/icons-material/LightModeTwoTone';
 import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
 import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 import LiveHelpTwoToneIcon from '@mui/icons-material/LiveHelpTwoTone';
+import ElectricBoltTwoToneIcon from '@mui/icons-material/ElectricBoltTwoTone';
 
 import Faq from './components/Faq'
 import Sidebar from './Sidebar';
 import Login from './Login';
 import Dashboard from './Dashboard';
+import Dashboard2 from './components/Dashboard2';
+import Chart from './components/Chart';
+import Chart2 from './components/Chart2';
 import { Visualizer } from './components/Visualizer';
+import Visualizer2 from './components/Visualizer2';
+
+import { flexbox } from '@mui/system';
 // import Pod from './components/Pod';
 
 
 const App: React.FC = () => {
 	//destructuring functions from Context object
 	const { darkModeOn, toggleDarkMode, setUser, user } = useContext(Context);
+
+	// const [ isSidebarOpen, setIsSidebarOpen ] = useState<boolean>(true);
 
 	//returns a method that routes any endpoint
 	const navigate = useNavigate();
@@ -42,17 +51,18 @@ const App: React.FC = () => {
 				className="loginPage"
 				id={darkModeOn ? 'navbar1' : 'navbar2'}
 			>
-				{/* profile render conditional on user state */}
-				{!user && <div className={darkModeOn ? 'user1' : 'user2'}>
-					<div className="user-pic">?</div>
-					<p>Please Login</p>
-				</div>}
+				
+			{/* on login page when no user is signed in */}	
+			{!user && <div style={{width: '200px', marginLeft: '25px' }}></div>}
 
-				{user && <div className={darkModeOn ? 'user1' : 'user2'}>
-					<div className="user-pic">E</div> {/* can add photo later */}
-					<p>Ed</p> {/* can dynamically render user info later with JWT */}
+			{/* once user is logged in display profile data */}
+			{user && <div className={darkModeOn ? 'user-dark' : 'user-light'}> {/* profile renders user data from JWT */}
+				<div className={darkModeOn ? "user-pic-dark" : "user-pic-light"}>Y</div> {/* can add photo later */}
+				<div className="user-info">
+					<p>Yaku</p> {/* can dynamically render user info later with JWT */}
 					<p>Admin</p>
-				</div>}
+				</div>
+			</div>}
 
 				{/* OSP Name */}
 				<div
@@ -78,7 +88,7 @@ const App: React.FC = () => {
 						{darkModeOn ? <DarkModeTwoToneIcon /> : <LightModeTwoToneIcon />}
 					</IconButton>
 
-					<Link to="/dashboard">
+					{/* <Link to="/dashboard">
 						<IconButton
 							sx={{ 
 								color: '#DAA520', 
@@ -89,8 +99,8 @@ const App: React.FC = () => {
 							<BarChartTwoToneIcon></BarChartTwoToneIcon>
 						</IconButton>
 					</Link>
-
-					<Link to="/visualizer">
+ */}
+					<Link to="/">
 						<IconButton
 							sx={{ 
 								color: '#DAA520', 
@@ -98,7 +108,7 @@ const App: React.FC = () => {
 							}}
 							size="large"
 						>
-							<HubIcon></HubIcon>
+							<ElectricBoltTwoToneIcon></ElectricBoltTwoToneIcon>
 						</IconButton>
 					</Link>
 
@@ -119,7 +129,7 @@ const App: React.FC = () => {
 						onClick={() => setUser(null)}
 						sx={{ 
 							color: '#DAA520', 
-							"&:hover": { backgroundColor: '#22A39F' } 
+							"&:hover": { backgroundColor: '#fc8181' } 
 						}}
 							size="large"
 						>
@@ -131,10 +141,13 @@ const App: React.FC = () => {
 
 			{!user && <Login onClick={logout} />} {/* renders login page when user is undefined */}
 
-			{user && <div className="app"> {/* will render depending on routes when user is defined aka logged in */}
+			{user && 
 
-				<Sidebar />
-				
+			<div className={darkModeOn ? "app-dark" : "app-light"}> 
+			{/* will render depending on routes when user is defined aka logged in */}
+
+				<div><Sidebar/></div>
+
 				<main className="content">
 					<Routes>
 						<Route
@@ -146,12 +159,31 @@ const App: React.FC = () => {
 							element={<Dashboard />}
 						/>
 						<Route
+							path="/dashboard2"
+							element={<Dashboard2 />}
+						/>
+						<Route
 							path="/visualizer"
 							element={<Visualizer />}
 						/>
+						<Route
+							path="/visualizer2"
+							element={<Visualizer2 />}
+						/>
+						<Route
+							path="/chart"
+							element={<Chart />}
+						/>
+						<Route
+							path="/chart2"
+							element={<Chart2 />}
+						/>
 					</Routes>
 				</main>
-			</div>}
+
+			</div>
+			
+			}
 
 		</>
 	);

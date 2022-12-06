@@ -5,7 +5,7 @@ import Header from './Header'
 
 import { Box } from "@mui/material";
 
-const Chart = () => {
+const Chart2 = () => {
 
 	const { darkModeOn } = useContext(Context);
 
@@ -13,7 +13,7 @@ const Chart = () => {
 		<Box m="20px"> {/* removed className chart from div, replaced it below, not sure what it was for? */}
 			<div className={darkModeOn ? 'dash-dark' : 'dash-light'}>
 
-				<Header title="Charts" subtitle="Just one of the many ways to visualize your cluster" />
+				<Header title="Charts 2" subtitle="Just one of the many ways to visualize your cluster" />
 
 				<div>charts go here...</div>
 
@@ -22,4 +22,4 @@ const Chart = () => {
 	);
 };
 
-export default Chart;
+export default Chart2;
