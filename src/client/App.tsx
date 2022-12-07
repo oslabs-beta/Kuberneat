@@ -13,14 +13,14 @@ import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 import LiveHelpTwoToneIcon from '@mui/icons-material/LiveHelpTwoTone';
 import ElectricBoltTwoToneIcon from '@mui/icons-material/ElectricBoltTwoTone';
 
-import Faq from './components/Faq'
 import Sidebar from './Sidebar';
 import Login from './Login';
-import Dashboard from './Dashboard';
+import Faq from './components/Faq'
+import Dashboard from './components/Dashboard';
 import Dashboard2 from './components/Dashboard2';
 import Chart from './components/Chart';
 import Chart2 from './components/Chart2';
-import { Visualizer } from './components/Visualizer';
+import Visualizer from './components/Visualizer';
 import Visualizer2 from './components/Visualizer2';
 
 import { flexbox } from '@mui/system';
@@ -33,12 +33,7 @@ function App(): ReactElement {
 	//destructuring functions from Context object
 	const { darkModeOn, toggleDarkMode, setUser, user } = useContext< AppProps >(Context);
 
-	// const [ isSidebarOpen, setIsSidebarOpen ] = useState<boolean>(true);
-
-	//returns a method that routes any endpoint
-	const navigate = useNavigate();
-
-	const logout = () => { // for now, this mocks logout from logout icon on far right of top navbar
+	function logout(): void { // for now, this mocks logout from logout icon on far right of top navbar
 		// navigate('/');
 		setUser(null)
 	}
@@ -90,18 +85,6 @@ function App(): ReactElement {
 						{darkModeOn ? <DarkModeTwoToneIcon /> : <LightModeTwoToneIcon />}
 					</IconButton>
 
-					{/* <Link to="/dashboard">
-						<IconButton
-							sx={{ 
-								color: '#DAA520', 
-								"&:hover": { backgroundColor: '#22A39F' } 
-							}}
-							size="large"
-						>
-							<BarChartTwoToneIcon></BarChartTwoToneIcon>
-						</IconButton>
-					</Link>
- */}
 					<Link to="/">
 						<IconButton
 							sx={{ 

@@ -8,7 +8,7 @@ import { Box } from "@mui/material";
 import { AppProps } from '../interfaces';
 import { ReactNode, ReactElement } from 'react';
 
-const Chart2 = () => {
+function Chart2(): ReactElement {
 
 	const { darkModeOn } = useContext < AppProps> (Context);
 

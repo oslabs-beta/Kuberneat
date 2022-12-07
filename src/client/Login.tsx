@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import {Context} from './Context';
 import { useFormik } from "formik"; // need formik to use yup for form validation
 import { loginSchema } from "./schemas"; // import validation schema
+import { valProps, InitVals, FormProps, LoginProps } from './interfaces';
 
 // import * as jwtJsDecode from 'jwt-js-decode';
 // import { jwtDecode } from 'jwt-js-decode';
@@ -12,7 +13,9 @@ import { loginSchema } from "./schemas"; // import validation schema
 import { AppProps } from './interfaces';
 import { ReactElement, ReactNode } from 'react';
 
-function Login(): ReactElement {
+
+
+function Login({ onClick }: { onClick: () => void }): any {
 
     const { darkModeOn, toggleDarkMode, user, setUser, handleCallbackResponse } = useContext< AppProps >(Context);
 
@@ -27,7 +30,6 @@ function Login(): ReactElement {
         console.log('login submitted');
         // console.log(values);
         // console.log(actions);
-
         // below is just a mock API call for testing, add logic for AUTH here later...
         await new Promise((resolve) => {
             setTimeout(resolve, 1000);
@@ -35,32 +37,9 @@ function Login(): ReactElement {
         });
         actions.resetForm(); // resets form fields 
     };
-
     // console.log(errors)
     // console.log(loginSchema)
     /* console.log(formik) */
-
-    interface valProps {
-        values: any;
-        errors: any;
-        touched: any;
-        isSubmitting: any;
-        handleBlur: any;
-        handleChange: any;
-        handleSubmit: any; 
-    }
-
-    interface InitVals {
-        email: string;
-        password: string;
-        confirmPassword: string;
-    }
-
-    interface FormProps {
-        initialValues?: InitVals;
-        validationSchema?: any;
-        onSubmit?: any;
-    }
 
     const { // destructured props from the object returned from useFormik hook
         values, // value inside input fields

@@ -14,12 +14,13 @@ import CloseFullscreenTwoToneIcon from '@mui/icons-material/CloseFullscreenTwoTo
 import { AppProps } from './interfaces';
 import { ReactElement } from 'react';
 
-function Sidebar(): ReactElement | null {
+function Sidebar(): ReactElement {
 
-    const  [ active, setActive ] = useState<boolean>(false);
+    const  [ active, setActive ] = useState<boolean>(false);// state used to toggle sidebar collapse feature
+
     const { darkModeOn, setUser, user } = useContext< AppProps >(Context);
 
-    const activateSidebar = () => {
+    function activateSidebar(): void {
         setActive(old => !old)
     }
 
@@ -142,7 +143,7 @@ function Sidebar(): ReactElement | null {
                         <li>
                             
                             <IconButton
-                                onClick={() => setUser(null)}
+                                /* onClick={() => setUser(null)} */
                                 className="icon" 
                                 size='large'
                                 sx={{ "&:hover": { backgroundColor: '#fc8181' } }}
@@ -153,8 +154,8 @@ function Sidebar(): ReactElement | null {
                             </IconButton>
                             
                             <Link to="/"> {/* must set this to login page directly, req'd type for link component, set to /login */}
-                                <Typography>Logout</Typography>
-                                {/* React doesn't like the onClick being here placed in iconButton for now */}
+                                <Typography onClick={() => setUser(null)} >Logout</Typography>
+                                {/* React doesn't like the onClick being here but has to be here for full bar onClick */}
                             </Link>
                             
                             

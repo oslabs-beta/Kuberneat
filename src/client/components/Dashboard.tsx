@@ -1,18 +1,19 @@
 import * as React from 'react';
 import { useState, useEffect, useContext } from 'react';
-import { Context } from './Context';
-import Header from './components/Header';
-
-import Pod from './components/Pod';
-import * as d3 from 'd3-force';
+import { Context } from '../Context';
+import Header from './Header';
 
 import { Box } from "@mui/material";
 
+import { AppProps } from '../interfaces';
+import { ReactNode, ReactElement } from 'react';
 
+import Pod from './Pod';
+import * as d3 from 'd3-force';
 
-const Dashboard: React.FC = () => {
+function Dashboard(): ReactElement {
 
-	const { darkModeOn } = useContext(Context);
+	const { darkModeOn } = useContext <AppProps> (Context);
 
 	return (
 		<Box m="20px">

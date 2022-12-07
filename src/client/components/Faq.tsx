@@ -13,9 +13,10 @@ import {Context} from "../Context";
 import { AppProps } from '../interfaces';
 import { ReactNode, ReactElement } from 'react';
 
-const FAQ = () => {
+function FAQ(): ReactElement {
 
-    const { darkModeOn } = useContext < AppProps > (Context);
+    const { darkModeOn } = useContext <AppProps> (Context);
+
     const accordianColor: string = darkModeOn ? "#2c3639 !important" : "#344966 !important"
     // sets the color of the FAQ containers, chnages here get reflected to all
 
@@ -34,7 +35,7 @@ const FAQ = () => {
             </AccordionSummary>
             <AccordionDetails>
             <Typography>
-                What are kubernetes?
+                Zeus is an intuitive and interactive visualiztion tool for monitoring a Kubernetes cluster.
             </Typography>
             </AccordionDetails>
         </Accordion>
@@ -42,12 +43,12 @@ const FAQ = () => {
         <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important'}}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography variant="h5">
-                What kinds of queries can I make?
+            What is Kubernetes used for?
             </Typography>
             </AccordionSummary>
             <AccordionDetails>
             <Typography>
-                How do I use the command line interface feature?
+            Kubernetes make it easier to manage applciations. They automate operational tasks of container management and include built-in commands for deploying applications, rolling out changes to your applications, scaling your applications up and down to fit evolving needs, monitoring your applications, and more.
             </Typography>
             </AccordionDetails>
         </Accordion>
@@ -55,12 +56,12 @@ const FAQ = () => {
         <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important'}}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography variant="h5">
-                What is minikube and kubectl?
+                How many users can Zeus have?
             </Typography>
             </AccordionSummary>
             <AccordionDetails>
             <Typography>
-                How many users can Zeus have?
+                There is no limit.
             </Typography>
             </AccordionDetails>
         </Accordion>
@@ -73,7 +74,7 @@ const FAQ = () => {
             </AccordionSummary>
             <AccordionDetails>
             <Typography>
-                Can I add my own charts?
+                Yes, there is no limit unless the administrator chooses to set a limit manually.
             </Typography>
             </AccordionDetails>
         </Accordion>
@@ -86,7 +87,7 @@ const FAQ = () => {
             </AccordionSummary>
             <AccordionDetails>
             <Typography>
-                Where can i get more info?
+                Zeus is an open source platform and welcomes collaboraton from the developer community.
             </Typography>
             </AccordionDetails>
         </Accordion>

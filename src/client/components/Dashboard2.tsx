@@ -9,9 +9,9 @@ import { AppProps } from '../interfaces';
 import { ReactNode, ReactElement } from 'react';
 
 
-const Dashboard2: React.FC = () => {
+function Dashboard2(): ReactElement {
 
-	const { darkModeOn } = useContext < AppProps > (Context);
+	const { darkModeOn } = useContext <AppProps> (Context);
 
 	return (
 		<Box m="20px">

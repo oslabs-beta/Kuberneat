@@ -6,16 +6,24 @@ import { useState, useEffect } from 'react';
 // import * as jwtJsDecode from 'jwt-js-decode';
 // import { jwtDecode } from 'jwt-js-decode';
 // import jwt_decode from 'jwt_decode';
-import * as JWT from 'jwt-decode';
+// import * as JWT from 'jwt-decode';
 
 import { ReactNode, ReactElement } from 'react';
 
-const Context: any = React.createContext();
+const Context: any = React.createContext<null>(null);
+
+// const google: any;
 
 function ContextProvider({ children }: { children: ReactNode }): ReactElement {
+
 	const [user, setUser] = useState<string | null>("signed in"); // set to defined for testing, default is null
 
 	const [darkModeOn, setDarkModeOn] = useState<boolean>(true);
+
+	function toggleDarkMode() {
+		setDarkModeOn((old) => !old);
+		console.log('dark mode toggled');
+	}
 
 	// function handleCallbackResponse(response: any) {
 	// 	console.log('Encoded JWT ID token: ' + response.credential);
@@ -25,11 +33,6 @@ function ContextProvider({ children }: { children: ReactNode }): ReactElement {
 		// console.log('UserObject:', userObject); 
 		// setUser(userObject); // later set it to the userObject
 	// }
-
-	function toggleDarkMode() {
-		setDarkModeOn((old) => !old);
-		console.log('dark mode toggled');
-	}
 	/* global google object coming from html script*/
 	// useEffect(() => {
 	// 	/* global google */
@@ -48,7 +51,7 @@ function ContextProvider({ children }: { children: ReactNode }): ReactElement {
 				darkModeOn,
 				setDarkModeOn,
 				toggleDarkMode,
-				handleCallbackResponse,
+				/* handleCallbackResponse, */
 			}}
 		>
 			{children} {/* {props.children} */}

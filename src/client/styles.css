@@ -613,6 +613,7 @@ nav .ul-item li:hover{
 }
 
 /* mobile settings */
+/* Not complete: may not be feasible bc of charts and visualizer, TBD... */
  @media (max-width: 900px) {
 	.sidebar-mobile{
 		inset: 0 90% 0 0;
