@@ -7,19 +7,23 @@ import { loginSchema } from "./schemas"; // import validation schema
 // import * as jwtJsDecode from 'jwt-js-decode';
 // import { jwtDecode } from 'jwt-js-decode';
 // import jwt_decode from 'jwt_decode';
-import * as JWT from 'jwt-decode';
+// import * as JWT from 'jwt-decode';
 
-function Login(props) {
+import { AppProps } from './interfaces';
+import { ReactElement, ReactNode } from 'react';
 
-    const { darkModeOn, toggleDarkMode, user, setUser, handleCallbackResponse } = useContext(Context);
+function Login(): ReactElement {
 
-    // const navigate = useNavigate();
-    // function goToMain() {
-    //     navigate('/dashboard')
-    //   }
+    const { darkModeOn, toggleDarkMode, user, setUser, handleCallbackResponse } = useContext< AppProps >(Context);
+
+    const navigate = useNavigate();
+
+    function goToMain() {
+        navigate('/dashboard')
+      }
 
     // onSubmit or Login handler function -> add Authentication logic here
-    const onSubmit = async (values, actions) => {
+    const onSubmit = async (values: any, actions: any): Promise<void> => {
         console.log('login submitted');
         // console.log(values);
         // console.log(actions);
@@ -36,6 +40,28 @@ function Login(props) {
     // console.log(loginSchema)
     /* console.log(formik) */
 
+    interface valProps {
+        values: any;
+        errors: any;
+        touched: any;
+        isSubmitting: any;
+        handleBlur: any;
+        handleChange: any;
+        handleSubmit: any; 
+    }
+
+    interface InitVals {
+        email: string;
+        password: string;
+        confirmPassword: string;
+    }
+
+    interface FormProps {
+        initialValues?: InitVals;
+        validationSchema?: any;
+        onSubmit?: any;
+    }
+
     const { // destructured props from the object returned from useFormik hook
         values, // value inside input fields
         errors, // object that holds all form validation logic
@@ -44,7 +70,7 @@ function Login(props) {
         handleBlur, // validates the form when clicking off the input
         handleChange, // sets formik state whenever state chnages
         handleSubmit // handles form submitting
-     } = useFormik( // using the useFormik hook to return an object...
+     }: valProps = useFormik( // using the useFormik hook to return an object...
         { 
         initialValues: {
             email: "",
@@ -53,33 +79,33 @@ function Login(props) {
         },
         validationSchema: loginSchema, // setting the schema for form validation, imported from schemas dir
         onSubmit: onSubmit,
-    });
+        });
 
       /* global google object coming from html script*/
-      useEffect(() => {
-        function handleCallbackResponse(response) {
-            console.log('Encoded JWT ID token: ' + response.credential);
-            const userObject = JWT(response.credential);
-            console.log(userObject);
-            setUser(userObject);
+    //   useEffect(() => {
+    //     function handleCallbackResponse(response: any) {
+    //         console.log('Encoded JWT ID token: ' + response.credential);
+            // const userObject = JWT(response.credential);
+            // console.log(userObject);
+            // setUser(userObject);
         };
         /* global google */  
-        google.accounts.id.initialize({ 
-             client_id: "833474983530-c13t85njtalij2aqacd17slt6tr8te5j.apps.googleusercontent.com",
-             callback: handleCallbackResponse,
-        });
-        google.accounts.id.renderButton( 
-            document.getElementById("signInDiv"),
-            { them: "outline", size: "large" }
-        );
-        google.accounts.id.prompt(); 
-      }, [user]); 
+    //     google.accounts.id.initialize({ 
+    //          client_id: "833474983530-c13t85njtalij2aqacd17slt6tr8te5j.apps.googleusercontent.com",
+    //          callback: handleCallbackResponse,
+    //     });
+    //     google.accounts.id.renderButton( 
+    //         document.getElementById("signInDiv"),
+    //         { them: "outline", size: "large" }
+    //     );
+    //     google.accounts.id.prompt(); 
+    //   }, [user]); 
 
     return (
             <>
-                <div className={darkModeOn ? "auth-1" : "auth-2"} >
+                {/* <div className={darkModeOn ? "auth-1" : "auth-2"} >
                     <div id="signInDiv" ></div>
-                </div>
+                </div> */}
                 {/* <div id="signInDiv" ></div> */}
                 <div id={darkModeOn ? "log-dark" : "log-light"}>
 
@@ -152,6 +178,6 @@ function Login(props) {
             </>
 
     )
-}
+};
 
 export default Login;

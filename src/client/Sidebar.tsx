@@ -11,10 +11,13 @@ import LiveHelpTwoToneIcon from '@mui/icons-material/LiveHelpTwoTone';
 import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
 import CloseFullscreenTwoToneIcon from '@mui/icons-material/CloseFullscreenTwoTone';
 
-export default function Sidebar() {
+import { AppProps } from './interfaces';
+import { ReactElement } from 'react';
 
-    const  [ active, setActive ] = useState(false);
-    const { darkModeOn, setUser, user } = useContext(Context);
+function Sidebar(): ReactElement | null {
+
+    const  [ active, setActive ] = useState<boolean>(false);
+    const { darkModeOn, setUser, user } = useContext< AppProps >(Context);
 
     const activateSidebar = () => {
         setActive(old => !old)
@@ -139,17 +142,19 @@ export default function Sidebar() {
                         <li>
                             
                             <IconButton
+                                onClick={() => setUser(null)}
                                 className="icon" 
                                 size='large'
                                 sx={{ "&:hover": { backgroundColor: '#fc8181' } }}
+                            
                             >
                             <LogoutTwoToneIcon id="logout" onClick={() => setUser(null)}>
                             </LogoutTwoToneIcon>
                             </IconButton>
                             
-                            <Link>
-                                <Typography onClick={() => setUser(null)}>Logout</Typography>
-                                {/* the above could possible cause errors later */}
+                            <Link to="/"> {/* must set this to login page directly, req'd type for link component, set to /login */}
+                                <Typography>Logout</Typography>
+                                {/* React doesn't like the onClick being here placed in iconButton for now */}
                             </Link>
                             
                             
@@ -162,3 +167,5 @@ export default function Sidebar() {
         </div>
     );
 };
+
+export default  Sidebar;

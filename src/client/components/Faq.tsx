@@ -10,11 +10,13 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import React, { useContext } from 'react'
 import {Context} from "../Context";
 
+import { AppProps } from '../interfaces';
+import { ReactNode, ReactElement } from 'react';
 
 const FAQ = () => {
 
-    const { darkModeOn } = useContext(Context);
-    const accordianColor = darkModeOn ? "#2c3639 !important" : "#344966 !important"
+    const { darkModeOn } = useContext < AppProps > (Context);
+    const accordianColor: string = darkModeOn ? "#2c3639 !important" : "#344966 !important"
     // sets the color of the FAQ containers, chnages here get reflected to all
 
   return (

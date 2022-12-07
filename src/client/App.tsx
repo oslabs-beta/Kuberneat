@@ -26,17 +26,19 @@ import Visualizer2 from './components/Visualizer2';
 import { flexbox } from '@mui/system';
 // import Pod from './components/Pod';
 
+import { AppProps } from './interfaces';
+import { ReactElement, ReactNode } from 'react';
 
-const App: React.FC = () => {
+function App(): ReactElement {
 	//destructuring functions from Context object
-	const { darkModeOn, toggleDarkMode, setUser, user } = useContext(Context);
+	const { darkModeOn, toggleDarkMode, setUser, user } = useContext< AppProps >(Context);
 
 	// const [ isSidebarOpen, setIsSidebarOpen ] = useState<boolean>(true);
 
 	//returns a method that routes any endpoint
 	const navigate = useNavigate();
 
-	function logout() { // for now, this mocks logout from logout icon on far right of top navbar
+	const logout = () => { // for now, this mocks logout from logout icon on far right of top navbar
 		// navigate('/');
 		setUser(null)
 	}

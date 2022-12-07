@@ -5,10 +5,13 @@ import Header from './Header'
 
 import { Box } from "@mui/material";
 
+import { AppProps } from '../interfaces';
+import { ReactNode, ReactElement } from 'react';
+
 
 const Dashboard2: React.FC = () => {
 
-	const { darkModeOn } = useContext(Context);
+	const { darkModeOn } = useContext < AppProps > (Context);
 
 	return (
 		<Box m="20px">
