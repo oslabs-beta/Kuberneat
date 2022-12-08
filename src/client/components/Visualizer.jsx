@@ -1,22 +1,13 @@
 import * as React from 'react';
-import { useState, useEffect, useContext, useRef } from 'react';
-import { ResponsiveBar } from '@nivo/bar';
-import Pod from './Pod';
-
-import { Context } from '../Context';
 import * as d3 from "d3"
+import { useState, useEffect, useRef } from 'react';
+import Pod from './VisualizerPod';
 
-import LightModeTwoToneIcon from '@mui/icons-material/LightModeTwoTone';
-import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
 
- 
+
 export const Visualizer = () => {
-	const [nodes, setNodes] = useState([]);
-  const [chart, setChart] = useState([])
-
-	const { darkModeOn } = useContext(Context);
-
-	//fetching to the backend
+  const [d3Chart, setChart] = useState([]);
+  const [nodes, setNodes] = useState([]);
 
 	// Copyright 2021 Observable, Inc.
 // Released under the ISC license.
@@ -28,12 +19,12 @@ function ForceGraph({
   nodeId = d => d.id, // given d in nodes, returns a unique identifier (string)
   nodeGroup, // given d in nodes, returns an (ordinal) value for color
   nodeGroups, // an array of ordinal values representing the node groups
-  nodeTitle, // given d in nodes, a title string
+  // nodeTitle, // given d in nodes, a title string
   nodeFill = "currentColor", // node stroke fill (if not using a group color encoding)
   nodeStroke = "#fff", // node stroke color
   nodeStrokeWidth = 1.5, // node stroke width, in pixels
-  nodeStrokeOpacity = 1, // node stroke opacity
-  nodeRadius = 5, // node radius, in pixels
+  nodeStrokeOpacity = 5, // node stroke opacity
+  nodeRadius = 12, // node radius, in pixels
   nodeStrength,
   linkSource = ({source}) => source, // given d in links, returns a node identifier string
   linkTarget = ({target}) => target, // given d in links, returns a node identifier string
@@ -51,8 +42,8 @@ function ForceGraph({
   const N = d3.map(nodes, nodeId).map(intern);
   const LS = d3.map(links, linkSource).map(intern);
   const LT = d3.map(links, linkTarget).map(intern);
-  if (nodeTitle === undefined) nodeTitle = (_, i) => N[i];
-  const T = nodeTitle == null ? null : d3.map(nodes, nodeTitle);
+  // if (nodeTitle === undefined) nodeTitle = (_, i) => N[i];
+  // const T = nodeTitle == null ? null : d3.map(nodes, nodeTitle);
   const G = nodeGroup == null ? null : d3.map(nodes, nodeGroup).map(intern);
   const W = typeof linkStrokeWidth !== "function" ? null : d3.map(links, linkStrokeWidth);
   const L = typeof linkStroke !== "function" ? null : d3.map(links, linkStroke);
@@ -80,12 +71,12 @@ function ForceGraph({
       .on("tick", ticked);
 
   const svg = d3.create("svg")
-      // .attr("id", "D3Graph")
+      .attr("id", "D3Graph")
       .attr("width", width)
       .attr("height", height)
       .attr("viewBox", [-width / 2, -height / 2, width, height])
-      .attr("style", "max-width: 100%")
-      .attr("style", "max-width: 100%; height: auto;");
+      .attr("style", "max-width: 200%")
+      .attr("style", "max-width: 200%; height: auto;");
       // .attr("style", {maxWidth: "100%", height: "auto", height: "intrinsic"});
     
 
@@ -109,10 +100,22 @@ function ForceGraph({
       .attr("r", nodeRadius)
       .call(drag(simulation));
 
+    var texts = svg.selectAll("text.label")
+      .data(nodes)
+      .enter().append("text")
+      .attr("class", function(d) {return d.id})
+      // .attr("id", d.id)
+      .attr("fill", "black")
+      .attr('x', -20)
+      .attr('y', 30)
+      .attr('font-size', '15px')
+      .attr('color', '#ffffff')
+      .text(function(d) {  return d.id;  })
+
   if (W) link.attr("stroke-width", ({index: i}) => W[i]);
   if (L) link.attr("stroke", ({index: i}) => L[i]);
   if (G) node.attr("fill", ({index: i}) => color(G[i]));
-  if (T) node.append("title").text(({index: i}) => T[i]);
+  // if (T) node.append("title").text(({index: i}) => T[i]);
   if (invalidation != null) invalidation.then(() => simulation.stop());
 
   function intern(value) {
@@ -129,6 +132,10 @@ function ForceGraph({
     node
       .attr("cx", d => d.x)
       .attr("cy", d => d.y);
+
+    texts.attr("transform", function(d) {
+      return "translate(" + d.x + "," + d.y + ")";
+    })
   }
 
   function drag(simulation) {    
@@ -158,26 +165,113 @@ function ForceGraph({
 }
 
 const svg = useRef(null);
+// console.log('svg', svg.current)
 useEffect(() => {
-  const miserables = {nodes: [{id: 'alpha', group: 1}, {id: 'a', group: 1}, {id: 'b', group: 1}, {id: 'c', group: 1}], links: [{source: 'a', target: 'alpha', value: 1}, {source: 'b', target: 'alpha', value: 1}, {source: 'c', target: 'alpha', value: 1}]}
-const charts = ForceGraph(miserables, {
+
+  // fetch('/cluster', { headers: { 'Content-Type': 'application/json' } }) //{headers: { 'Content-Type': 'application/json' },}
+  // .then((data) => data.json())
+  // .then((data) => {
+  //   console.log('this is fetching from the  backend:', data);
+  //   for (let i = 0; i < data.Name.length; i++) {
+  //     setNodes((oldArray: any) => [
+  //       ...oldArray,
+  //       {
+  //         Namespace: data.Namespace[i],
+  //         Name: data.Name[i],
+  //         CPU_Requests: data.CPU_Requests[i],
+  //         CPU_Limits: data.CPU_Limits[i],
+  //         Memory_Requests: data.Memory_Requests[i],
+  //         Memory_Limits: data.Memory_Limits[i],
+  //         Age: data.Age[i],
+  //       },
+  //     ]);
+  //   }
+  // })
+  // .catch((err) => console.log('Fetch Error: ', err));
+
+  	const nodes = [
+			{Namespace: 'default', Name: 'alertmanager-prometheus', CPU_Requests: '200m(5%)', CPU_Limits: '200m(5%)', Memory_Requests: '250Mi(6%)'},
+			{Namespace: 'default', Name: 'prometheus-grafana', CPU_Requests: '0(0%)', CPU_Limits: '0(0%)', Memory_Requests: '0(0%)'},
+			{Namespace: 'default', Name: 'prometheus-operator', CPU_Requests: '0(0%)', CPU_Limits: '0(0%)', Memory_Requests: '0(0%)'},
+			{Namespace: 'default', Name: 'prometheus-kube-state-metrics', CPU_Requests: '0(0%)', CPU_Limits: '0(0%)', Memory_Requests: '0(0%)'},
+			{Namespace: 'default', Name: 'prometheus-kube', CPU_Requests: '200m(5%)', CPU_Limits: '200m(5%)', Memory_Requests: '50Mi(1%)'},
+			{Namespace: 'default', Name: 'prometheus-node-exporter', CPU_Requests: '0(0%)', CPU_Limits: '0(0%)', Memory_Requests: '0(0%)'},
+			{Namespace: 'kube-system', Name: 'coredns', CPU_Requests: '100m(2%)', CPU_Limits: '0(0%)', Memory_Requests: '70Mi(1%)'},
+			{Namespace: 'kube-system', Name: 'etcd', CPU_Requests: '100m(2%)', CPU_Limits: '0(0%)', Memory_Requests: '100Mi(2%)'},
+			{Namespace: 'kube-system', Name: 'kube-apiserver', CPU_Requests: '250m(6%)', CPU_Limits: '0(0%)', Memory_Requests: '0(0%)'},
+			{Namespace: 'kube-system', Name: 'kube-controller-manager', CPU_Requests: '200m(5%)', CPU_Limits: '0(0%)', Memory_Requests: '0(0%)'},
+			{Namespace: 'kube-system', Name: 'kube-proxy', CPU_Requests: '0(0%)', CPU_Limits: '0(0%)', Memory_Requests: '0(0%)'},
+			{Namespace: 'kube-system', Name: 'kube-scheduler', CPU_Requests: '100m(2%)', CPU_Limits: '0(0%)', Memory_Requests: '0(0%)'},
+			{Namespace: 'kube-system', Name: 'storage-provisioner', CPU_Requests: '0(0%)', CPU_Limits: '0(0%)', Memory_Requests: '0(0%)'}]
+  setNodes(nodes)
+  let miserables = {nodes: [{id: 'alpha', group: 1}], links: []}
+console.log(nodes)
+let namespaces = [];
+let groups = {};
+// find namespaces
+for (let i = 0; i < nodes.length; i++) {
+  if (!namespaces.includes(nodes[i].Namespace)) namespaces.push(nodes[i].Namespace)
+}
+// add namespaces
+for (let i = 0; i < namespaces.length; i++){
+  miserables.nodes.push({id: `${namespaces[i]}`,
+    group: i + 2
+    } 
+  )
+  groups[namespaces[i]] = i + 2
+  miserables.links.push(
+    {source: `${namespaces[i]}`, 
+      target: 'alpha', 
+      value: 24
+    },
+  )
+}
+for (let i = 0; i < nodes.length; i++){
+  miserables.nodes.push({id: `${nodes[i].Name}`,
+    group: groups[nodes[i].Namespace]
+  } 
+  )
+  miserables.links.push(
+    {source: `${nodes[i].Name}`, 
+      target: nodes[i].Namespace, 
+      value: 24
+    },
+  )
+}
+const chart = ForceGraph(miserables, {
       nodeId: (d)=> d.id,
       nodeGroup: (d) => d.group,
-      nodeTitle: (d) => `${d.id}\n${d.group}`,
+      // nodeTitle: (d) => `${d.id}\n${d.group}`,
       linkStrokeWidth: (l) => Math.sqrt(l.value),
-      width: 500,
+      // colors: ['red', 'blue', 'green'],
+      linkStrength: 0.1,
+      width: 800,
       height: 600
     })
-    setChart(charts)
+    setChart(chart)
+    console.log('svg', svg.current)
+    console.log('svg', chart)
     if (svg.current){
       svg.current.appendChild(chart)
     }
 }, []);
-  if (chart.simulation && chart.simulation.restart) {chart.simulation.restart();}
+
+const podProps = [];
+for (let i = 0; i < nodes.length; i++) {
+  podProps.push(
+    <Pod
+      info={nodes[i]}
+      key={i}
+      nodeNum={i}
+    ></Pod>
+  );
+};
+  // if (d3Chart.simulation && d3Chart.simulation.restart) {d3Chart.simulation.restart();}
 	return (	
-		<div id={darkModeOn ? "vis-dark" : "vis-light"}>
-			{/* {podProps} */}
+		<div>
+      <div>hi</div>
       <div ref={svg}></div>
+      <div>{podProps}</div>
 		</div>
 	)
 };
