@@ -55,7 +55,24 @@ app.get('/metrics', async (req: Request, res: Response) => {
 app.get('/apis/metrics.k8s.io/v1beta1', async (req: Request, res: Response) => {
 	console.log('Getting metrics resources is working...');
 	res.sendStatus(200);
-})
+});
+
+// app.get(
+// 	'/apis/metrics.k8s.io/v1beta1/nodes',
+// 	async (req: Request, res: Response) => {
+// 		try {
+// 			const kubeMetrics = await fetch('http://localhost:8085/metrics');
+// 			console.log(kubeMetrics);
+// 			res.sendStatus(200).send(JSON.stringify({metrics:kubeMetrics}));
+// 		} catch (err) {
+// 			console.log(err);
+// 		}
+// 	}
+// );
+app.get('/apis/metrics.k8s.io/v1beta1/nodes/zeus ', async (req: Request, res: Response) => {
+	console.log('Getting metrics resources is working...');
+	res.sendStatus(200);
+});
 
 app.get(
 	'/cluster',
