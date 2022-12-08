@@ -27,9 +27,9 @@ function FAQ(): ReactElement {
         <Header title="FAQ" subtitle="Frequently Asked Questions Page" />
 
         {/* Can replace placeholder questions with real ones later */}
-        <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important', marginBottom: '10px'}}>
+        <Accordion defaultExpanded={false} sx={{ bgcolor: accordianColor, borderRadius: '10px !important', marginBottom: '10px'}}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography variant="h5">
+            <Typography variant="h5" color = "#22A39F !important">
                 What is Zeus?
             </Typography>
             </AccordionSummary>
@@ -40,9 +40,9 @@ function FAQ(): ReactElement {
             </AccordionDetails>
         </Accordion>
         
-        <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important', marginBottom: '10px'}}>
+        <Accordion defaultExpanded={false} sx={{ bgcolor: accordianColor, borderRadius: '10px !important', marginBottom: '10px'}}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography variant="h5">
+            <Typography variant="h5" color = "#22A39F !important">
             What is Kubernetes used for?
             </Typography>
             </AccordionSummary>
@@ -53,9 +53,9 @@ function FAQ(): ReactElement {
             </AccordionDetails>
         </Accordion>
 
-        <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important', marginBottom: '10px'}}>
+        <Accordion defaultExpanded={false} sx={{ bgcolor: accordianColor, borderRadius: '10px !important', marginBottom: '10px'}}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography variant="h5">
+            <Typography variant="h5" color = "#22A39F !important">
                 How many users can Zeus have?
             </Typography>
             </AccordionSummary>
@@ -66,9 +66,9 @@ function FAQ(): ReactElement {
             </AccordionDetails>
         </Accordion>
 
-        <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important', marginBottom: '10px'}}>
+        <Accordion defaultExpanded={false} sx={{ bgcolor: accordianColor, borderRadius: '10px !important', marginBottom: '10px'}}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography variant="h5">
+            <Typography variant="h5" color = "#22A39F !important">
                 Can there be more than 1 administrator?
             </Typography>
             </AccordionSummary>
@@ -79,9 +79,9 @@ function FAQ(): ReactElement {
             </AccordionDetails>
         </Accordion>
 
-        <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important', marginBottom: '10px'}}>
+        <Accordion defaultExpanded={false} sx={{ bgcolor: accordianColor, borderRadius: '10px !important', marginBottom: '10px'}}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography variant="h5">
+            <Typography variant="h5" color = "#22A39F !important">
                 What's next for Zeus?
             </Typography>
             </AccordionSummary>

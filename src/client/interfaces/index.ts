@@ -36,3 +36,10 @@ export interface FormProps {
 export interface LoginProps {
     onClick: () => void;
 };
+
+export interface Pod2Props {
+    id: number;
+    info: any; 
+    nodeNum: any; 
+    key: number; 
+};

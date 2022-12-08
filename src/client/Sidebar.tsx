@@ -91,7 +91,7 @@ function Sidebar(): ReactElement {
                     >
                         <HubIcon></HubIcon>
                     </IconButton>
-                        <Link to="/visualizer2"><Typography>Visualizer 2</Typography></Link>
+                        <Link to="/pods"><Typography>Kluster</Typography></Link>
                     </li>
 
                     <li>
@@ -126,13 +126,6 @@ function Sidebar(): ReactElement {
                     </IconButton>
                         <Link to="/faq"><Typography>FAQ</Typography></Link>
                     </li>
-
-                   {/*  <div id="logout-icon">
-                        <li>
-                            <LogoutTwoToneIcon className="icon" id="logout"></LogoutTwoToneIcon>
-                            <Link to="/">Logout</Link>
-                        </li>
-                    </div> */}
 
                 </ul>
 

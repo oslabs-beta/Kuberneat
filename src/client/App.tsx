@@ -21,6 +21,7 @@ import Dashboard2 from './components/Dashboard2';
 import Dashboard3 from './components/Dashboard3';
 import Dashboard4 from './components/Dashboard4';
 import Dashboard5 from './components/Dashboard5';
+import Dashboard6 from './components/Dashboard4';
 import Chart from './components/Chart';
 import Chart2 from './components/Chart2';
 import Visualizer from './components/Visualizer';
@@ -144,34 +145,43 @@ function App(): ReactElement {
 
 				<main className="content">
 					<Routes>
+		
 						<Route
-							path="/faq"
-							element={<Faq />} // set this to FAQ for now
+							path="/"
+							element={<Dashboard3 />} // Dashboard 2, 3, 4 ,5 vacant...
 						/>
+					
+
+					
 						<Route
 							path="/dashboard"
 							element={<Dashboard />}
-						/>
-						<Route
-							path="/dashboard2"
-							element={<Dashboard3 />} // Dashboard 2, 3, 4 ,5 vacant...
 						/>
 						<Route
 							path="/visualizer"
 							element={<Visualizer />}
 						/>
 						<Route
-							path="/visualizer2"
-							element={<Visualizer2 />}
+							path="/dashboard2"
+							element={<Dashboard3 />}
 						/>
 						<Route
-							path="/" /* './chart */
-							element={<Dashboard4 />} // Chart1, 
+							path="/pods"
+							element={<Dashboard4 />}
+						/>
+						<Route
+							path="/chart" 
+							element={<Chart />} 
 						/>
 						<Route
 							path="/chart2"
 							element={<Chart2 />}
 						/>
+						<Route
+							path="/faq"
+							element={<Faq />} // set this to FAQ for now
+						/>
+
 					</Routes>
 				</main>
 
