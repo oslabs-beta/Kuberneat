@@ -58,6 +58,12 @@
 button:disabled{ /* styling for a disabled login button state */
 	 opacity:0.35;
 }
+.custom-chart{ /* custom dash container */
+	margin: 20px;
+	height: 100vh;
+	overflow-x: auto; /* hidden gives scroll bar */
+	overflow-y: auto;
+}
 .darkMode {
 	 font-size: 70px;
 	 text-shadow: 2px 2px 5px black;
@@ -122,6 +128,7 @@ select.input-error{
 	overflow-x: hidden; /* gives scroll bar vertically */
 	overflow-y: auto;
 }
+
 /* pods container? */
 /* .pods{
 	height: 100%;
@@ -558,7 +565,7 @@ nav .ul-item li:hover{
 	height: 100px;
 	color: #22A39F;
 	font-size: 24px;
-	background-color: black;
+	background-color: none;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -625,19 +632,42 @@ nav .ul-item li:hover{
 }
 
 /* mobile settings */
-/* Not complete: may not be feasible bc of charts and visualizer, TBD... */
- @media (max-width: 900px) {
+/* Not complete: 100% may not be feasible bc of charts and visualizer, etc... */
+/* almost there just need to find a way to deactivate sidebar when below 750px */
+ @media (max-width: 750px) {
 	.sidebar-mobile{
 		inset: 0 90% 0 0;
-		justify-content: center;
+		/* justify-content: center; */
 	}
-	nav .ul-item{
+	/* .sidbar-reg{
 		display: none;
-	}
+	} */
+	/* nav .ul-item{
+		display: none;
+	} */
 	nav .ul-item-icon{
 		display: flex;
-	}
+		flex-direction: column;
+		justify-content: flex-start;
+	} 
 	menu-icon {
 		display: none;
+	}
+	/* .user-info{
+		display: none;
+	} */
+	#icons-header{
+		display: none;
+	}
+	/* #avatar-id{
+		display: none;
+		background: none;
+	} */
+	#logo{
+		display: none;
+		background: none;
+		justify-content: center;
+		align-items: center;
+		font-size: 48px;
 	}
  }

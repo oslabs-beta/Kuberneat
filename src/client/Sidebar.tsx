@@ -17,13 +17,23 @@ import { ReactElement } from 'react';
 
 function Sidebar(): ReactElement {
 
-    const  [ active, setActive ] = useState<boolean>(false);// state used to toggle sidebar collapse feature
+    const  [ active, setActive ] = useState<boolean | null>(false);// state used to toggle sidebar collapse feature
 
     const { darkModeOn, setUser, user } = useContext< AppProps >(Context);
 
     function activateSidebar(): void {
         setActive(old => !old)
     }
+
+       /* Media Query in JS: set active state of sidebar to false if goes below 750px */
+    //    const result: any = window.matchMedia("(max-width: 750px)");
+    //    if(result.matches) {
+    //        setActive(null)
+    //    }
+    //    const result1: any = window.matchMedia("(min-width: 755px)");
+    //    if(result.matches) {
+    //        setActive(true)
+    //    }
 
     return (
 

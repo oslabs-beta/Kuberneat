@@ -67,7 +67,7 @@ function App(): ReactElement {
 
 				{/* 3 diff ways to show Avatar */}
 
-				<div className={darkModeOn ? "user-pic-dark" : "user-pic-light"}>Y</div> {/* can add photo later */}
+				<div id="avatar-id" className={darkModeOn ? "user-pic-dark" : "user-pic-light"}>Y</div> {/* can add photo later */}
 
 				{/* <img src={user.picture} alt="profile" style={{ borderRadius: '50px', height: '70px', width: '70px'}}></img> */}
 
@@ -94,6 +94,7 @@ function App(): ReactElement {
 				</div>
 
 				<Box
+					id="icons-header"
 					display="flex"
 					justifyContent="space-between"
 					marginRight={5}
