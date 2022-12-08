@@ -111,22 +111,26 @@ select.input-error{
 	height: 100vh;
 	background-color: #161414;
 	width: 100%; 
+	overflow-x: hidden; /* gives scroll bar vertically */
+	overflow-y: auto;
 }
 .faq-light{
 	height: 100vh;
 	background-color: #a6b6c9;
 	/* color: #344966; */
 	width: 100%; 
+	overflow-x: hidden; /* gives scroll bar vertically */
+	overflow-y: auto;
 }
 /* pods container? */
-.pods{
+/* .pods{
 	height: 100%;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
-}
+} */
 
 
 link1 {
@@ -383,8 +387,10 @@ link2 {
 	 grid-template-columns: repeat(4, 1fr);
 	 grid-template-rows: 250px 250px 250px 250px;
 	 grid-gap: 10px;
-	 position: absolute;
+	 /* position: absolute; */
 	 color: white;
+	 /* overflow-x: auto; */ /* gives scroll bar vertically */
+	 /* overflow-y: hidden; */
 }
 #vis-light {
 	 height: 100vh;
@@ -395,7 +401,7 @@ link2 {
 	 grid-template-columns: repeat(4, 1fr);
 	 grid-template-rows: 250px 250px 250px 250px;
 	 grid-gap: 10px;
-	 position: absolute;
+	 /* position: absolute; */
 	 color: black;
 }
 .pod-box {
@@ -599,10 +605,10 @@ nav .ul-item li:hover{
 }
 .user-pic-light{
 	border-radius: 50%;
-	border: 3px solid #22A39F;
+	border: 3px solid white;
 	height: 80px; /* default 65px */
 	width:80px; /* default 65px */
-	color: #22A39F;
+	color: white;
 	font-size: 48px;
 	background-color: #344966;
 	display: flex;

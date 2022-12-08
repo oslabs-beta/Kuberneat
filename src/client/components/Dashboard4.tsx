@@ -58,14 +58,14 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 
-function FAQ(): ReactElement {
+function Dashboard4(): ReactElement {
 
     const { darkModeOn } = useContext <AppProps> (Context);
 
     const PodColor: string = darkModeOn ? "#2c3639 !important" : "#344966 !important"
-    const subTextColor: string = darkModeOn ? "white !important" : "#344966 !important"
-    const textColor: string = darkModeOn ? "white !important" : "#344966 !important"
-    const expBgColor: string = darkModeOn ? "purple !important" : "#344966 !important"
+    const subTextColor: string = darkModeOn ? "#fab700 !important" : "#fab700 !important"
+    const textColor: string = darkModeOn ? "#22A39F !important" : "white !important"
+    const expBgColor: string = darkModeOn ? "#1E2022 !important" : "#5F6F94 !important"
  
     const podDisplayWidth: number = 1; 
     const podWidth: string = "25%";
@@ -86,514 +86,524 @@ function FAQ(): ReactElement {
 
         <Box m="20px">
             {/* Header passing down props for title and subtitle */}
-        <Header title="All Ze Pods" subtitle="Cluster Data" />
+            <Header title="All Ze Pods" subtitle="Cluster Data" />
 
 
-    <Container sx={{ display: 'flex', gap: 2, flexDirection: 'column',   }}>
-        <Accordion sx={{ 
-            bgcolor: PodColor, 
-            marginBottom: 2,
-            borderRadius: '10px !important', 
-            width: podDisplayWidth,
+            {/* <Container sx={{ display: 'flex', gap: 2, flexDirection: 'column',   }}> */}
+            <Accordion sx={{ 
+                bgcolor: PodColor, 
+                marginBottom: 2,
+                borderRadius: '10px !important', 
+                width: podDisplayWidth,
 
-            }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography sx={{ 
-            width: podWidth, 
-            flexShrink: 0, 
-            color: textColor, 
-            fontSize: 24, 
-            fontWeight: 'bold' }}>
-                Pod 1
+                }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+            <Typography sx={{ 
+                width: podWidth, 
+                flexShrink: 0, 
+                color: textColor, 
+                fontSize: 24, 
+                fontWeight: 'bold' }}>
+                    Pod 1
+                </Typography>
+            <Typography sx={{ color: subTextColor, fontSize: 18, 
+                fontWeight: 'bold' }}>
+                alertmanager-prometheus-kube-prometheus-alertmanager-0
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails sx={{ bgcolor: expBgColor }}>
+            <Typography>
+            CPU Requests:
             </Typography>
-          <Typography sx={{ color: subTextColor }}>
-            alertmanager-prometheus-kube-prometheus-alertmanager-0
+            <Typography>
+            CPU Limits:
             </Typography>
-        </AccordionSummary>
-        <AccordionDetails sx={{ bgcolor: expBgColor }}>
-          <Typography>
-          CPU Requests:
-          </Typography>
-          <Typography>
-          CPU Limits:
-          </Typography>
-          <Typography>
-          Memory Requests:
-          </Typography>
-          <Typography>
-          Memory Limits:
-          </Typography>
-          <Typography>
-          Age:
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-        <Accordion sx={{ 
-            bgcolor: PodColor, 
-            marginBottom: 2,
-            borderRadius: '10px !important', 
-            width: podDisplayWidth,
+            <Typography>
+            Memory Requests:
+            </Typography>
+            <Typography>
+            Memory Limits:
+            </Typography>
+            <Typography>
+            Age:
+            </Typography>
+            </AccordionDetails>
+        </Accordion>
+            <Accordion sx={{ 
+                bgcolor: PodColor, 
+                marginBottom: 2,
+                borderRadius: '10px !important', 
+                width: podDisplayWidth,
 
-            }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography sx={{ 
-            width: podWidth, 
-            flexShrink: 0, 
-            color: textColor, 
-            fontSize: 24, 
-            fontWeight: 'bold' }}>
-                Pod 2
+                }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+            <Typography sx={{ 
+                width: podWidth, 
+                flexShrink: 0, 
+                color: textColor, 
+                fontSize: 24, 
+                fontWeight: 'bold' }}>
+                    Pod 2
+                </Typography>
+            <Typography sx={{ color: subTextColor, fontSize: 18, 
+                fontWeight: 'bold' }}>
+            prometheus-grafana-6fdd6868b4-bc5s6
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails sx={{ bgcolor: expBgColor }}>
+            <Typography>
+            CPU Requests:
             </Typography>
-          <Typography sx={{ color: subTextColor }}>
-          prometheus-grafana-6fdd6868b4-bc5s6
+            <Typography>
+            CPU Limits:
             </Typography>
-        </AccordionSummary>
-        <AccordionDetails sx={{ bgcolor: expBgColor }}>
-          <Typography>
-          CPU Requests:
-          </Typography>
-          <Typography>
-          CPU Limits:
-          </Typography>
-          <Typography>
-          Memory Requests:
-          </Typography>
-          <Typography>
-          Memory Limits:
-          </Typography>
-          <Typography>
-          Age:
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-        <Accordion sx={{ 
-            bgcolor: PodColor, 
-            marginBottom: 2,
-            borderRadius: '10px !important', 
-            width: podDisplayWidth,
+            <Typography>
+            Memory Requests:
+            </Typography>
+            <Typography>
+            Memory Limits:
+            </Typography>
+            <Typography>
+            Age:
+            </Typography>
+            </AccordionDetails>
+        </Accordion>
+            <Accordion sx={{ 
+                bgcolor: PodColor, 
+                marginBottom: 2,
+                borderRadius: '10px !important', 
+                width: podDisplayWidth,
 
-            }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography sx={{ 
-            width: podWidth, 
-            flexShrink: 0, 
-            color: textColor, 
-            fontSize: 24, 
-            fontWeight: 'bold' }}>
-                Pod 3
+                }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+            <Typography sx={{ 
+                width: podWidth, 
+                flexShrink: 0, 
+                color: textColor, 
+                fontSize: 24, 
+                fontWeight: 'bold' }}>
+                    Pod 3
+                </Typography>
+            <Typography sx={{ color: subTextColor, fontSize: 18, 
+                fontWeight: 'bold' }}>
+            prometheus-kube-prometheus-operator-6ffc69cf67-lrvng
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails sx={{ bgcolor: expBgColor }}>
+            <Typography>
+            CPU Requests:
             </Typography>
-          <Typography sx={{ color: subTextColor }}>
-          prometheus-kube-prometheus-operator-6ffc69cf67-lrvng
+            <Typography>
+            CPU Limits:
             </Typography>
-        </AccordionSummary>
-        <AccordionDetails sx={{ bgcolor: expBgColor }}>
-          <Typography>
-          CPU Requests:
-          </Typography>
-          <Typography>
-          CPU Limits:
-          </Typography>
-          <Typography>
-          Memory Requests:
-          </Typography>
-          <Typography>
-          Memory Limits:
-          </Typography>
-          <Typography>
-          Age:
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-        <Accordion sx={{ 
-            bgcolor: PodColor, 
-            marginBottom: 2,
-            borderRadius: '10px !important', 
-            width: podDisplayWidth,
+            <Typography>
+            Memory Requests:
+            </Typography>
+            <Typography>
+            Memory Limits:
+            </Typography>
+            <Typography>
+            Age:
+            </Typography>
+            </AccordionDetails>
+        </Accordion>
+            <Accordion sx={{ 
+                bgcolor: PodColor, 
+                marginBottom: 2,
+                borderRadius: '10px !important', 
+                width: podDisplayWidth,
 
-            }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography sx={{ 
-            width: podWidth, 
-            flexShrink: 0, 
-            color: textColor, 
-            fontSize: 24, 
-            fontWeight: 'bold' }}>
-                Pod 4
+                }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+            <Typography sx={{ 
+                width: podWidth, 
+                flexShrink: 0, 
+                color: textColor, 
+                fontSize: 24, 
+                fontWeight: 'bold' }}>
+                    Pod 4
+                </Typography>
+            <Typography sx={{ color: subTextColor, fontSize: 18, 
+                fontWeight: 'bold' }}>
+            prometheus-kube-state-metrics-6cfd96f4c8-lfgr6
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails sx={{ bgcolor: expBgColor }}>
+            <Typography>
+            CPU Requests:
             </Typography>
-          <Typography sx={{ color: subTextColor }}>
-          prometheus-kube-state-metrics-6cfd96f4c8-lfgr6
+            <Typography>
+            CPU Limits:
             </Typography>
-        </AccordionSummary>
-        <AccordionDetails sx={{ bgcolor: expBgColor }}>
-          <Typography>
-          CPU Requests:
-          </Typography>
-          <Typography>
-          CPU Limits:
-          </Typography>
-          <Typography>
-          Memory Requests:
-          </Typography>
-          <Typography>
-          Memory Limits:
-          </Typography>
-          <Typography>
-          Age:
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+            <Typography>
+            Memory Requests:
+            </Typography>
+            <Typography>
+            Memory Limits:
+            </Typography>
+            <Typography>
+            Age:
+            </Typography>
+            </AccordionDetails>
+        </Accordion>
 
-        <Accordion sx={{ 
-            bgcolor: PodColor, 
-            marginBottom: 2,
-            borderRadius: '10px !important', 
-            width: podDisplayWidth,
+            <Accordion sx={{ 
+                bgcolor: PodColor, 
+                marginBottom: 2,
+                borderRadius: '10px !important', 
+                width: podDisplayWidth,
 
-            }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography sx={{ 
-            width: podWidth, 
-            flexShrink: 0, 
-            color: textColor, 
-            fontSize: 24, 
-            fontWeight: 'bold' }}>
-                Pod 5
+                }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+            <Typography sx={{ 
+                width: podWidth, 
+                flexShrink: 0, 
+                color: textColor, 
+                fontSize: 24, 
+                fontWeight: 'bold' }}>
+                    Pod 5
+                </Typography>
+            <Typography sx={{ color: subTextColor, fontSize: 18, 
+                fontWeight: 'bold' }}>
+            prometheus-prometheus-kube-prometheus-prometheus-0
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails sx={{ bgcolor: expBgColor }}>
+            <Typography>
+            CPU Requests:
             </Typography>
-          <Typography sx={{ color: subTextColor }}>
-          prometheus-prometheus-kube-prometheus-prometheus-0
+            <Typography>
+            CPU Limits:
             </Typography>
-        </AccordionSummary>
-        <AccordionDetails sx={{ bgcolor: expBgColor }}>
-          <Typography>
-          CPU Requests:
-          </Typography>
-          <Typography>
-          CPU Limits:
-          </Typography>
-          <Typography>
-          Memory Requests:
-          </Typography>
-          <Typography>
-          Memory Limits:
-          </Typography>
-          <Typography>
-          Age:
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+            <Typography>
+            Memory Requests:
+            </Typography>
+            <Typography>
+            Memory Limits:
+            </Typography>
+            <Typography>
+            Age:
+            </Typography>
+            </AccordionDetails>
+        </Accordion>
 
-        <Accordion sx={{ 
-            bgcolor: PodColor, 
-            marginBottom: 2,
-            borderRadius: '10px !important', 
-            width: podDisplayWidth,
+            <Accordion sx={{ 
+                bgcolor: PodColor, 
+                marginBottom: 2,
+                borderRadius: '10px !important', 
+                width: podDisplayWidth,
 
-            }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography sx={{ 
-            width: podWidth, 
-            flexShrink: 0, 
-            color: textColor, 
-            fontSize: 24, 
-            fontWeight: 'bold' }}>
-                Pod 6
+                }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+            <Typography sx={{ 
+                width: podWidth, 
+                flexShrink: 0, 
+                color: textColor, 
+                fontSize: 24, 
+                fontWeight: 'bold' }}>
+                    Pod 6
+                </Typography>
+            <Typography sx={{ color: subTextColor, fontSize: 18, 
+                fontWeight: 'bold' }}>
+            coredns-565d847f94-l5z28
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails sx={{ bgcolor: expBgColor }}>
+            <Typography>
+            CPU Requests:
             </Typography>
-          <Typography sx={{ color: subTextColor }}>
-          coredns-565d847f94-l5z28
+            <Typography>
+            CPU Limits:
             </Typography>
-        </AccordionSummary>
-        <AccordionDetails sx={{ bgcolor: expBgColor }}>
-          <Typography>
-          CPU Requests:
-          </Typography>
-          <Typography>
-          CPU Limits:
-          </Typography>
-          <Typography>
-          Memory Requests:
-          </Typography>
-          <Typography>
-          Memory Limits:
-          </Typography>
-          <Typography>
-          Age:
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-        <Accordion sx={{ 
-            bgcolor: PodColor, 
-            marginBottom: 2,
-            borderRadius: '10px !important', 
-            width: podDisplayWidth,
+            <Typography>
+            Memory Requests:
+            </Typography>
+            <Typography>
+            Memory Limits:
+            </Typography>
+            <Typography>
+            Age:
+            </Typography>
+            </AccordionDetails>
+        </Accordion>
+            <Accordion sx={{ 
+                bgcolor: PodColor, 
+                marginBottom: 2,
+                borderRadius: '10px !important', 
+                width: podDisplayWidth,
 
-            }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography sx={{ 
-            width: podWidth, 
-            flexShrink: 0, 
-            color: textColor, 
-            fontSize: 24, 
-            fontWeight: 'bold' }}>
-                Pod 6
+                }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+            <Typography sx={{ 
+                width: podWidth, 
+                flexShrink: 0, 
+                color: textColor, 
+                fontSize: 24, 
+                fontWeight: 'bold' }}>
+                    Pod 6
+                </Typography>
+            <Typography sx={{ color: subTextColor, fontSize: 18, 
+                fontWeight: 'bold' }}>
+            coredns-565d847f94-l5z28
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails sx={{ bgcolor: expBgColor }}>
+            <Typography>
+            CPU Requests:
             </Typography>
-          <Typography sx={{ color: subTextColor }}>
-          coredns-565d847f94-l5z28
+            <Typography>
+            CPU Limits:
             </Typography>
-        </AccordionSummary>
-        <AccordionDetails sx={{ bgcolor: expBgColor }}>
-          <Typography>
-          CPU Requests:
-          </Typography>
-          <Typography>
-          CPU Limits:
-          </Typography>
-          <Typography>
-          Memory Requests:
-          </Typography>
-          <Typography>
-          Memory Limits:
-          </Typography>
-          <Typography>
-          Age:
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-        <Accordion sx={{ 
-            bgcolor: PodColor, 
-            marginBottom: 2,
-            borderRadius: '10px !important', 
-            width: podDisplayWidth,
+            <Typography>
+            Memory Requests:
+            </Typography>
+            <Typography>
+            Memory Limits:
+            </Typography>
+            <Typography>
+            Age:
+            </Typography>
+            </AccordionDetails>
+        </Accordion>
+            <Accordion sx={{ 
+                bgcolor: PodColor, 
+                marginBottom: 2,
+                borderRadius: '10px !important', 
+                width: podDisplayWidth,
 
-            }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography sx={{ 
-            width: podWidth, 
-            flexShrink: 0, 
-            color: textColor, 
-            fontSize: 24, 
-            fontWeight: 'bold' }}>
-                Pod 6
+                }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+            <Typography sx={{ 
+                width: podWidth, 
+                flexShrink: 0, 
+                color: textColor, 
+                fontSize: 24, 
+                fontWeight: 'bold' }}>
+                    Pod 6
+                </Typography>
+            <Typography sx={{ color: subTextColor, fontSize: 18, 
+                fontWeight: 'bold' }}>
+            coredns-565d847f94-l5z28
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails sx={{ bgcolor: expBgColor }}>
+            <Typography>
+            CPU Requests:
             </Typography>
-          <Typography sx={{ color: subTextColor }}>
-          coredns-565d847f94-l5z28
+            <Typography>
+            CPU Limits:
             </Typography>
-        </AccordionSummary>
-        <AccordionDetails sx={{ bgcolor: expBgColor }}>
-          <Typography>
-          CPU Requests:
-          </Typography>
-          <Typography>
-          CPU Limits:
-          </Typography>
-          <Typography>
-          Memory Requests:
-          </Typography>
-          <Typography>
-          Memory Limits:
-          </Typography>
-          <Typography>
-          Age:
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-        <Accordion sx={{ 
-            bgcolor: PodColor, 
-            marginBottom: 2,
-            borderRadius: '10px !important', 
-            width: podDisplayWidth,
+            <Typography>
+            Memory Requests:
+            </Typography>
+            <Typography>
+            Memory Limits:
+            </Typography>
+            <Typography>
+            Age:
+            </Typography>
+            </AccordionDetails>
+        </Accordion>
+            <Accordion sx={{ 
+                bgcolor: PodColor, 
+                marginBottom: 2,
+                borderRadius: '10px !important', 
+                width: podDisplayWidth,
 
-            }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography sx={{ 
-            width: podWidth, 
-            flexShrink: 0, 
-            color: textColor, 
-            fontSize: 24, 
-            fontWeight: 'bold' }}>
-                Pod 6
+                }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+            <Typography sx={{ 
+                width: podWidth, 
+                flexShrink: 0, 
+                color: textColor, 
+                fontSize: 24, 
+                fontWeight: 'bold' }}>
+                    Pod 6
+                </Typography>
+            <Typography sx={{ color: subTextColor, fontSize: 18, 
+                fontWeight: 'bold' }}>
+            coredns-565d847f94-l5z28
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails sx={{ bgcolor: expBgColor }}>
+            <Typography>
+            CPU Requests:
             </Typography>
-          <Typography sx={{ color: subTextColor }}>
-          coredns-565d847f94-l5z28
+            <Typography>
+            CPU Limits:
             </Typography>
-        </AccordionSummary>
-        <AccordionDetails sx={{ bgcolor: expBgColor }}>
-          <Typography>
-          CPU Requests:
-          </Typography>
-          <Typography>
-          CPU Limits:
-          </Typography>
-          <Typography>
-          Memory Requests:
-          </Typography>
-          <Typography>
-          Memory Limits:
-          </Typography>
-          <Typography>
-          Age:
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-        <Accordion sx={{ 
-            bgcolor: PodColor, 
-            marginBottom: 2,
-            borderRadius: '10px !important', 
-            width: podDisplayWidth,
+            <Typography>
+            Memory Requests:
+            </Typography>
+            <Typography>
+            Memory Limits:
+            </Typography>
+            <Typography>
+            Age:
+            </Typography>
+            </AccordionDetails>
+        </Accordion>
+            <Accordion sx={{ 
+                bgcolor: PodColor, 
+                marginBottom: 2,
+                borderRadius: '10px !important', 
+                width: podDisplayWidth,
 
-            }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography sx={{ 
-            width: podWidth, 
-            flexShrink: 0, 
-            color: textColor, 
-            fontSize: 24, 
-            fontWeight: 'bold' }}>
-                Pod 6
+                }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+            <Typography sx={{ 
+                width: podWidth, 
+                flexShrink: 0, 
+                color: textColor, 
+                fontSize: 24, 
+                fontWeight: 'bold' }}>
+                    Pod 6
+                </Typography>
+            <Typography sx={{ color: subTextColor, fontSize: 18, 
+                fontWeight: 'bold' }}>
+            coredns-565d847f94-l5z28
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails sx={{ bgcolor: expBgColor }}>
+            <Typography>
+            CPU Requests:
             </Typography>
-          <Typography sx={{ color: subTextColor }}>
-          coredns-565d847f94-l5z28
+            <Typography>
+            CPU Limits:
             </Typography>
-        </AccordionSummary>
-        <AccordionDetails sx={{ bgcolor: expBgColor }}>
-          <Typography>
-          CPU Requests:
-          </Typography>
-          <Typography>
-          CPU Limits:
-          </Typography>
-          <Typography>
-          Memory Requests:
-          </Typography>
-          <Typography>
-          Memory Limits:
-          </Typography>
-          <Typography>
-          Age:
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-        <Accordion sx={{ 
-            bgcolor: PodColor, 
-            marginBottom: 2,
-            borderRadius: '10px !important', 
-            width: podDisplayWidth,
+            <Typography>
+            Memory Requests:
+            </Typography>
+            <Typography>
+            Memory Limits:
+            </Typography>
+            <Typography>
+            Age:
+            </Typography>
+            </AccordionDetails>
+        </Accordion>
+            <Accordion sx={{ 
+                bgcolor: PodColor, 
+                marginBottom: 2,
+                borderRadius: '10px !important', 
+                width: podDisplayWidth,
 
-            }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography sx={{ 
-            width: podWidth, 
-            flexShrink: 0, 
-            color: textColor, 
-            fontSize: 24, 
-            fontWeight: 'bold' }}>
-                Pod 6
+                }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+            <Typography sx={{ 
+                width: podWidth, 
+                flexShrink: 0, 
+                color: textColor, 
+                fontSize: 24, 
+                fontWeight: 'bold' }}>
+                    Pod 6
+                </Typography>
+            <Typography sx={{ color: subTextColor, fontSize: 18, 
+                fontWeight: 'bold' }}>
+            coredns-565d847f94-l5z28
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails sx={{ bgcolor: expBgColor }}>
+            <Typography>
+            CPU Requests:
             </Typography>
-          <Typography sx={{ color: subTextColor }}>
-          coredns-565d847f94-l5z28
+            <Typography>
+            CPU Limits:
             </Typography>
-        </AccordionSummary>
-        <AccordionDetails sx={{ bgcolor: expBgColor }}>
-          <Typography>
-          CPU Requests:
-          </Typography>
-          <Typography>
-          CPU Limits:
-          </Typography>
-          <Typography>
-          Memory Requests:
-          </Typography>
-          <Typography>
-          Memory Limits:
-          </Typography>
-          <Typography>
-          Age:
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-        <Accordion sx={{ 
-            bgcolor: PodColor, 
-            marginBottom: 2,
-            borderRadius: '10px !important', 
-            width: podDisplayWidth,
+            <Typography>
+            Memory Requests:
+            </Typography>
+            <Typography>
+            Memory Limits:
+            </Typography>
+            <Typography>
+            Age:
+            </Typography>
+            </AccordionDetails>
+        </Accordion>
+            <Accordion sx={{ 
+                bgcolor: PodColor, 
+                marginBottom: 2,
+                borderRadius: '10px !important', 
+                width: podDisplayWidth,
 
-            }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography sx={{ 
-            width: podWidth, 
-            flexShrink: 0, 
-            color: textColor, 
-            fontSize: 24, 
-            fontWeight: 'bold' }}>
-                Pod 6
+                }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+            <Typography sx={{ 
+                width: podWidth, 
+                flexShrink: 0, 
+                color: textColor, 
+                fontSize: 24, 
+                fontWeight: 'bold' }}>
+                    Pod 6
+                </Typography>
+            <Typography sx={{ color: subTextColor, fontSize: 18, 
+                fontWeight: 'bold' }}>
+            coredns-565d847f94-l5z28
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails sx={{ bgcolor: expBgColor }}>
+            <Typography>
+            CPU Requests:
             </Typography>
-          <Typography sx={{ color: subTextColor }}>
-          coredns-565d847f94-l5z28
+            <Typography>
+            CPU Limits:
             </Typography>
-        </AccordionSummary>
-        <AccordionDetails sx={{ bgcolor: expBgColor }}>
-          <Typography>
-          CPU Requests:
-          </Typography>
-          <Typography>
-          CPU Limits:
-          </Typography>
-          <Typography>
-          Memory Requests:
-          </Typography>
-          <Typography>
-          Memory Limits:
-          </Typography>
-          <Typography>
-          Age:
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-        <Accordion sx={{ 
-            bgcolor: PodColor, 
-            marginBottom: 2,
-            borderRadius: '10px !important', 
-            width: podDisplayWidth,
+            <Typography>
+            Memory Requests:
+            </Typography>
+            <Typography>
+            Memory Limits:
+            </Typography>
+            <Typography>
+            Age:
+            </Typography>
+            </AccordionDetails>
+        </Accordion>
+            <Accordion sx={{ 
+                bgcolor: PodColor, 
+                marginBottom: 2,
+                borderRadius: '10px !important', 
+                width: podDisplayWidth,
 
-            }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography sx={{ 
-            width: podWidth, 
-            flexShrink: 0, 
-            color: textColor, 
-            fontSize: 24, 
-            fontWeight: 'bold' }}>
-                Pod 6
+                }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+            <Typography sx={{ 
+                width: podWidth, 
+                flexShrink: 0, 
+                color: textColor, 
+                fontSize: 24, 
+                fontWeight: 'bold' }}>
+                    Pod 6
+                </Typography>
+            <Typography sx={{ color: subTextColor, fontSize: 18, 
+                fontWeight: 'bold' }}>
+            coredns-565d847f94-l5z28
+                </Typography>
+            </AccordionSummary>
+            <AccordionDetails sx={{ bgcolor: expBgColor }}>
+            <Typography>
+            CPU Requests:
             </Typography>
-          <Typography sx={{ color: subTextColor }}>
-          coredns-565d847f94-l5z28
+            <Typography>
+            CPU Limits:
             </Typography>
-        </AccordionSummary>
-        <AccordionDetails sx={{ bgcolor: expBgColor }}>
-          <Typography>
-          CPU Requests:
-          </Typography>
-          <Typography>
-          CPU Limits:
-          </Typography>
-          <Typography>
-          Memory Requests:
-          </Typography>
-          <Typography>
-          Memory Limits:
-          </Typography>
-          <Typography>
-          Age:
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+            <Typography>
+            Memory Requests:
+            </Typography>
+            <Typography>
+            Memory Limits:
+            </Typography>
+            <Typography>
+            Age:
+            </Typography>
+            </AccordionDetails>
+            </Accordion>
 
-    
-
-      </Container>
         </Box>
 
     </div>
   );
 };
 
-export default FAQ;
+export default Dashboard4;

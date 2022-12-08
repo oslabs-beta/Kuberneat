@@ -11,7 +11,7 @@ import { ReactNode, ReactElement } from 'react';
 function Header({title, subtitle}: HeaderProps): ReactElement {
 
     const { darkModeOn } = useContext <AppProps>(Context);
-    const fontColor: string = darkModeOn ? "#fab700 !important" : "black !important" 
+    const fontColor: string = darkModeOn ? "#fab700 !important" : "#293462 !important" 
     // sets the font color of the header -> changes here get reflected throughout
     // alt light color 344966 fab700
 
