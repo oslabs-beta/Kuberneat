@@ -1,6 +1,6 @@
 
 //aquiring mongoose framework
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 //const dotenv = require('dotenv');
 // import { ConnectOptions } from 'mongodb';
 
@@ -16,13 +16,13 @@ const mongoose = require('mongoose');
 
 
 //connecting to mongo db, displaying message if connected. 
-mongoose.connect(myURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    dbName: 'Users'
-})
-.then(() => console.log('Connected to Mongo DB.'))
-.catch((err) => console.log(err));
+// mongoose.connect(myURI, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//     dbName: 'Users'
+// })
+// .then(() => console.log('Connected to Mongo DB.'))
+// .catch((err) => console.log(err));
 
 
 // mongoose.connection.once('db open', () => console.log('Connected to Mongo'));
