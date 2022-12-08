@@ -99,7 +99,8 @@ function ForceGraph({
     .join("circle")
       .attr("r", nodeRadius)
       .call(drag(simulation));
-
+    
+    // displays text in svg element for the name of the pods
     var texts = svg.selectAll("text.label")
       .data(nodes)
       .enter().append("text")
