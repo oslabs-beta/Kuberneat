@@ -18,6 +18,9 @@ import Login from './Login';
 import Faq from './components/Faq'
 import Dashboard from './components/Dashboard';
 import Dashboard2 from './components/Dashboard2';
+import Dashboard3 from './components/Dashboard3';
+import Dashboard4 from './components/Dashboard4';
+import Dashboard5 from './components/Dashboard5';
 import Chart from './components/Chart';
 import Chart2 from './components/Chart2';
 import Visualizer from './components/Visualizer';
@@ -151,7 +154,7 @@ function App(): ReactElement {
 						/>
 						<Route
 							path="/dashboard2"
-							element={<Dashboard2 />}
+							element={<Dashboard3 />} // Dashboard 2, 3, 4 ,5 vacant...
 						/>
 						<Route
 							path="/visualizer"
@@ -162,8 +165,8 @@ function App(): ReactElement {
 							element={<Visualizer2 />}
 						/>
 						<Route
-							path="/chart"
-							element={<Chart />}
+							path="/" /* './chart */
+							element={<Dashboard4 />} // Chart1, 
 						/>
 						<Route
 							path="/chart2"

@@ -118,6 +118,15 @@ select.input-error{
 	/* color: #344966; */
 	width: 100%; 
 }
+/* pods container? */
+.pods{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+
 link1 {
 	 border-radius: 10px;
 	 background-color: #2c3639;
