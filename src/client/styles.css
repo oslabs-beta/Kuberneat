@@ -43,19 +43,17 @@
 	 /* This is first half of background */
 	 background-color: #161414;
 	 display: flex;
-	 flex-direction: column;
 	 justify-content: center;
 	 align-items: center;
-	 height: 400px;
+	 margin-bottom: 50px;
 }
  /* First 1/2 of lightmode background color */
 .auth-2 {
 	 background-color: #a6b6c9;
 	 display: flex;
-	 flex-direction: column;
 	 justify-content: center;
 	 align-items: center;
-	 height: 400px;
+	 margin-bottom: 50px;
 }
 button:disabled{ /* styling for a disabled login button state */
 	 opacity:0.35;
@@ -161,7 +159,7 @@ link2 {
 	 border: 1px solid black;
 	 background-color: #0a090c;
 	 color: floralwhite;
-	 margin-top: -900px;
+	 margin-bottom: 150px;
 }
 .login1 > label{
 	 width:60%;
@@ -211,7 +209,7 @@ link2 {
 	 border: 1px solid black;
 	 background-color: #344966; /* #f4f5f5 => #344966 */
 	 color: floralwhite;
-	 margin-top: -900px;
+	 margin-bottom: 150px;
 }
  /* Dark Mode Login Box */
 #login-button1 {
@@ -276,30 +274,27 @@ link2 {
 	 font-size: 75px;/* 120 => 75 */
 	 background: none;
 }
-#log-dark {
-	 height: 100vh;
-	 /* This is second half of background */
-	 background-color: #161414;
-	 display: flex;
-	 flex-direction: column;
-	 justify-content: center;
-	 align-items: center;
-	 border-radius: none;
-}
 .loginPage p {
 	color: '#DAA520';
 }
- /* 2nd 1/2 Light mode backgound color */
-#log-light {
-	 height: 100vh;
-	 background-color: #a6b6c9;
-	 display: flex;
-	 flex-direction: column;
-	 justify-content: center;
-	 align-items: center;
-	 border-radius: none;
+.login-page-dark{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #161414;
+	height: 100vh;
+	width: 100%;
 }
-
+.login-page-light{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #a6b6c9;
+	height: 100vh;
+	width: 100%;
+}
  /* NAVBAR Stying */
  /* Nav bar dark mode */
 #navbar1 {

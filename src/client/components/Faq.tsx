@@ -27,7 +27,7 @@ function FAQ(): ReactElement {
         <Header title="FAQ" subtitle="Frequently Asked Questions Page" />
 
         {/* Can replace placeholder questions with real ones later */}
-        <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important'}}>
+        <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important', marginBottom: '10px'}}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography variant="h5">
                 What is Zeus?
@@ -40,7 +40,7 @@ function FAQ(): ReactElement {
             </AccordionDetails>
         </Accordion>
         
-        <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important'}}>
+        <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important', marginBottom: '10px'}}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography variant="h5">
             What is Kubernetes used for?
@@ -53,7 +53,7 @@ function FAQ(): ReactElement {
             </AccordionDetails>
         </Accordion>
 
-        <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important'}}>
+        <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important', marginBottom: '10px'}}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography variant="h5">
                 How many users can Zeus have?
@@ -66,7 +66,7 @@ function FAQ(): ReactElement {
             </AccordionDetails>
         </Accordion>
 
-        <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important'}}>
+        <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important', marginBottom: '10px'}}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography variant="h5">
                 Can there be more than 1 administrator?
@@ -79,7 +79,7 @@ function FAQ(): ReactElement {
             </AccordionDetails>
         </Accordion>
 
-        <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important'}}>
+        <Accordion defaultExpanded sx={{ bgcolor: accordianColor, borderRadius: '10px !important', marginBottom: '10px'}}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography variant="h5">
                 What's next for Zeus?

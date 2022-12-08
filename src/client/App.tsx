@@ -54,11 +54,16 @@ function App(): ReactElement {
 
 			{/* once user is logged in display profile data */}
 			{user && <div className={darkModeOn ? 'user-dark' : 'user-light'}> {/* profile renders user data from JWT */}
+
 				<div className={darkModeOn ? "user-pic-dark" : "user-pic-light"}>Y</div> {/* can add photo later */}
+				{/* <img src={user.picture} alt="profile" style={{ borderRadius: '50px', height: '70px', width: '70px'}}></img> */}
+
 				<div className="user-info">
+					{/* <p>{user.given_name}</p> */} {/* can dynamically render user info later with JWT */}
 					<p>Yaku</p> {/* can dynamically render user info later with JWT */}
 					<p>Admin</p>
 				</div>
+
 			</div>}
 
 				{/* OSP Name */}
@@ -89,7 +94,7 @@ function App(): ReactElement {
 						<IconButton
 							sx={{ 
 								color: '#DAA520', 
-								"&:hover": { backgroundColor: '#22A39F' } 
+								"&:hover": { backgroundColor: '#FFE15D' } 
 							}}
 							size="large"
 						>
@@ -109,7 +114,7 @@ function App(): ReactElement {
 						</IconButton>
 					</Link>
 
-					<Link to="/">
+					<Link to="/">{/* may remove path later if ok */}
 						<IconButton
 						onClick={() => setUser(null)}
 						sx={{ 
@@ -124,7 +129,8 @@ function App(): ReactElement {
 				</Box>
 			</div>
 
-			{!user && <Login onClick={logout} />} {/* renders login page when user is undefined */}
+			{!user &&
+				<Login onClick={logout} />} {/* renders login page when user is undefined */}
 
 			{user && 
 

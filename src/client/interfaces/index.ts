@@ -2,7 +2,7 @@ export interface AppProps {
 	darkModeOn?: boolean;
 	toggleDarkMode?: React.FC;
 	setUser?: React.FC;
-	user?: string | null;
+	user?: any | null; // can't find type to use
 	handleCallbackResponse?: React.FC;
 };
 

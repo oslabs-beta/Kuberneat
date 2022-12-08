@@ -18,7 +18,7 @@ function Chart(): ReactElement {
 
 				<Header title="Charts" subtitle="Just one of the many ways to visualize your cluster" />
 
-				<div>charts go here...</div>
+				<div style={{ color: 'purple'}}>charts go here...</div>
 
 			</div>
 		</Box>
