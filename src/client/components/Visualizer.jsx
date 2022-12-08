@@ -5,7 +5,7 @@ import Pod from './VisualizerPod';
 
 
 
-export const Visualizer = () => {
+export default Visualizer = () => {
   const [d3Chart, setChart] = useState([]);
   const [nodes, setNodes] = useState([]);
 
