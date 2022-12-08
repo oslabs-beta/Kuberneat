@@ -1,4 +1,4 @@
-//export interface IAlert {
+// export interface IAlert {
 //     name: any;
 //     expression: any;
 //     duration: any;

@@ -6,14 +6,19 @@ import Pod from './Pod';
 import { Context } from '../Context';
 import * as d3 from "d3"
 
-import LightModeTwoToneIcon from '@mui/icons-material/LightModeTwoTone';
-import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
+import Header from './Header'
+
+import { Box } from "@mui/material";
+
+import { AppProps } from '../interfaces';
+import { ReactNode, ReactElement } from 'react';
 
 
-export const Visualizer: React.FC = () => {
-	const [nodes, setNodes]: any = useState([]);
+function Visualizer(): ReactElement {
+    
+	const [nodes, setNodes]: any[] = useState([]);
 
-	const { darkModeOn } = useContext(Context);
+	const { darkModeOn } = useContext <AppProps>(Context);
 
 	//fetching to the backend
 	useEffect(() => {
@@ -210,8 +215,15 @@ function ForceGraph({
 	console.log('pod', podProps);
 
 	return (	
-		<div id={darkModeOn ? "vis-dark" : "vis-light"}>
-			{podProps}
-		</div>
+		<Box m="20px">
+			<div id={darkModeOn ? "vis-dark" : "vis-light"}>
+				<Header title="Visualizer" subtitle="Just one of the many ways to visualize your cluster" />
+
+				{podProps}
+				
+			</div>
+		</Box>
 	)
 };
+
+export default Visualizer;

@@ -1,5 +1,5 @@
 Name:               prometheus-prometheus-kube-prometheus-prometheus
-Namespace:          default
+Namespace:          zeus-monitoring
 CreationTimestamp:  Sun, 27 Nov 2022 00:02:29 -0600
 Selector:           app.kubernetes.io/instance=prometheus-kube-prometheus-prometheus,app.kubernetes.io/managed-by=prometheus-operator,app.kubernetes.io/name=prometheus,operator.prometheus.io/name=prometheus-kube-prometheus-prometheus,operator.prometheus.io/shard=0,prometheus=prometheus-kube-prometheus-prometheus
 Labels:             app=kube-prometheus-stack-prometheus
