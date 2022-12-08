@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import Header from "./Header";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -17,6 +17,7 @@ import MuiAccordionSummary, {
   AccordionSummaryProps,
 } from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
+import { CenterFocusStrong } from "@mui/icons-material";
 
 
 
@@ -66,8 +67,8 @@ function FAQ(): ReactElement {
     const textColor: string = darkModeOn ? "white !important" : "#344966 !important"
     const expBgColor: string = darkModeOn ? "purple !important" : "#344966 !important"
  
-    const podDisplayWidth: number = 1 
-    const podWidth: string = "25%" 
+    const podDisplayWidth: number = 1; 
+    const podWidth: string = "25%";
 
     const accordianColor: string = darkModeOn ? "#2c3639 !important" : "#344966 !important"
     // sets the color of the FAQ containers, chnages here get reflected to all
@@ -82,10 +83,13 @@ function FAQ(): ReactElement {
 
   return (
     <div className={darkModeOn ? "faq-dark" : "faq-light"}>
+
         <Box m="20px">
             {/* Header passing down props for title and subtitle */}
         <Header title="All Ze Pods" subtitle="Cluster Data" />
-    <div className='pods'>
+
+
+    <Container sx={{ display: 'flex', gap: 2, flexDirection: 'column',   }}>
         <Accordion sx={{ 
             bgcolor: PodColor, 
             marginBottom: 2,
@@ -585,7 +589,7 @@ function FAQ(): ReactElement {
 
     
 
-      </div>
+      </Container>
         </Box>
 
     </div>
