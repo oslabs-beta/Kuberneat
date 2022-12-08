@@ -1,24 +1,34 @@
 import React, {useContext} from 'react'
-import { Typography, Box} from '@mui/material';
+import { Typography, Box, IconButton } from '@mui/material';
+
+import { Link } from 'react-router-dom'; // for refresh button
 
 import {Context} from "../Context";
 
 import { AppProps, HeaderProps } from '../interfaces';
 import { ReactNode, ReactElement } from 'react';
 
+import SyncIcon from '@mui/icons-material/Sync'; // refresh icon
+import Tooltip from '@mui/material/Tooltip';
+
 // this component is reuseable for all containers, and can pass in desired props
 // for title and subtitle
-function Header({title, subtitle}: HeaderProps): ReactElement {
+function Header({title, subtitle, pathName }: HeaderProps): ReactElement {
 
     const { darkModeOn } = useContext <AppProps>(Context);
     const fontColor: string = darkModeOn ? "#fab700 !important" : "#293462 !important" 
     // sets the font color of the header -> changes here get reflected throughout
     // alt light color 344966 fab700
 
+    function refreshPage(): void { /* not allowing use this for refresh */
+      window.location.reload();
+    };
+
     return (
 
       <Box mb="30px">
 
+        <Box sx={{display: 'flex', justifyContent: "space-between", margin: 2}}>
         <Typography
           variant="h4"
           fontWeight="bold"
@@ -27,9 +37,27 @@ function Header({title, subtitle}: HeaderProps): ReactElement {
           {title}
         </Typography>
 
+        {/* <Link to={pathName && `./${pathName}`}> */}
+        <Tooltip title="Refresh" arrow >
+          <IconButton
+            
+            className="icon" 
+            size='large'
+            sx={{ "&:hover": { backgroundColor: 'green' } }} 
+            // onclick={refreshPage} // TS won't allow use
+          >
+            <SyncIcon
+            ></SyncIcon>
+            
+          </IconButton>
+        </Tooltip>
+        {/* </Link> */}
+
+        </Box>
+
         <Typography 
             variant="h6" 
-            sx={{ textAlign: "left", color: fontColor }}
+            sx={{ textAlign: "left", color: fontColor, margin: 2 }}
         >
           {subtitle}
         </Typography>

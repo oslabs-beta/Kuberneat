@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Context } from './Context'
 
 import { Box, IconButton, Typography} from '@mui/material';
+import Tooltip from '@mui/material/Tooltip';
 
 import BarChartTwoToneIcon from '@mui/icons-material/BarChartTwoTone';
 import HubIcon from '@mui/icons-material/Hub';
@@ -30,12 +31,18 @@ function Sidebar(): ReactElement {
 
             <div className='menu-icon' onClick={activateSidebar} >
                 {!active 
-                ? <IconButton><MenuTwoToneIcon className='menu'>
-                    </MenuTwoToneIcon>
-                  </IconButton> 
-                : <IconButton>
-                    <CloseFullscreenTwoToneIcon className="close-icon"></CloseFullscreenTwoToneIcon>
-                  </IconButton> 
+                ? <Tooltip title="Expand" arrow>
+                    <IconButton>
+                        <MenuTwoToneIcon className='menu'>
+                        </MenuTwoToneIcon>
+                    </IconButton>
+                  </Tooltip> 
+                : <Tooltip title="Collapse" arrow>
+                    <IconButton>
+                        <CloseFullscreenTwoToneIcon className="close-icon">
+                        </CloseFullscreenTwoToneIcon>
+                    </IconButton>
+                  </Tooltip>
                 }
             </div>
 
@@ -51,6 +58,7 @@ function Sidebar(): ReactElement {
                 <ul className={ active ? "ul-item" : "ul-item-icon"}>
 
                     <li>
+                    <Tooltip title="Dashboard" arrow placement="right-start">
                     <IconButton
                     className="icon" 
                     size='large'
@@ -58,10 +66,12 @@ function Sidebar(): ReactElement {
                     >
                         <BarChartTwoToneIcon></BarChartTwoToneIcon>
                     </IconButton>
+                    </Tooltip>
                         <Link to="/dashboard"><Typography>Dashboard</Typography></Link>
                     </li>
 
                     <li>
+                    <Tooltip title="Visualizer" arrow placement="right-start">
                     <IconButton
                     className="icon" 
                     size='large'
@@ -69,10 +79,12 @@ function Sidebar(): ReactElement {
                     >
                         <HubIcon></HubIcon>
                     </IconButton>
+                    </Tooltip>
                         <Link to="/visualizer"><Typography>Visualizer</Typography></Link>
                     </li>
 
                     <li>
+                    <Tooltip title="Dashboard2" arrow placement="right-start">
                     <IconButton
                     className="icon" 
                     size='large'
@@ -80,10 +92,12 @@ function Sidebar(): ReactElement {
                     >
                         <BarChartTwoToneIcon></BarChartTwoToneIcon>
                     </IconButton>
+                    </Tooltip>
                     <Link to="/dashboard2"><Typography>Dashboard 2</Typography></Link>
                     </li>
 
                     <li>
+                    <Tooltip title="Kluster" arrow placement="right-start">
                     <IconButton
                     className="icon" 
                     size='large'
@@ -91,10 +105,12 @@ function Sidebar(): ReactElement {
                     >
                         <HubIcon></HubIcon>
                     </IconButton>
+                    </Tooltip>
                         <Link to="/pods"><Typography>Kluster</Typography></Link>
                     </li>
 
                     <li>
+                    <Tooltip title="Chart" arrow placement="right-start">
                     <IconButton
                     className="icon" 
                     size='large'
@@ -102,10 +118,12 @@ function Sidebar(): ReactElement {
                     >
                         <BarChartTwoToneIcon></BarChartTwoToneIcon>
                     </IconButton>
+                    </Tooltip>
                         <Link to="/chart"><Typography>Chart</Typography></Link>
                     </li>
 
                     <li>
+                    <Tooltip title="Chart2" arrow placement="right-start">
                     <IconButton
                     className="icon" 
                     size='large'
@@ -113,10 +131,12 @@ function Sidebar(): ReactElement {
                     >
                         <HubIcon></HubIcon>
                     </IconButton>
+                    </Tooltip>
                         <Link to="/chart2"><Typography>Chart 2</Typography></Link>
                     </li>
 
                     <li>
+                    <Tooltip title="FAQ" arrow placement="right-start">
                     <IconButton
                     className="icon" 
                     size='large'
@@ -124,6 +144,7 @@ function Sidebar(): ReactElement {
                     >
                         <LiveHelpTwoToneIcon></LiveHelpTwoToneIcon>
                     </IconButton>
+                    </Tooltip>
                         <Link to="/faq"><Typography>FAQ</Typography></Link>
                     </li>
 
@@ -131,10 +152,9 @@ function Sidebar(): ReactElement {
 
                 <div id={active && "logout-icon"}> {/* just for conditional hover effect of logout icon */}
                 <ul className={ active ? "ul-item" : "ul-item-icon"}>
-                
                         {/* Logout button, sets user state to null */}
                         <li>
-                            
+                            <Tooltip title="Logout" arrow placement="right-start">
                             <IconButton
                                 /* onClick={() => setUser(null)} */
                                 className="icon" 
@@ -145,6 +165,7 @@ function Sidebar(): ReactElement {
                             <LogoutTwoToneIcon id="logout" onClick={() => setUser(null)}>
                             </LogoutTwoToneIcon>
                             </IconButton>
+                            </Tooltip>
                             
                             <Link to="/"> {/* must set this to login page directly, req'd type for link component, set to /login */}
                                 <Typography onClick={() => setUser(null)} >Logout</Typography>
@@ -152,7 +173,7 @@ function Sidebar(): ReactElement {
                             </Link>
                             
                             
-                        </li>
+                        </li>  
                 
                 </ul>
                 </div>

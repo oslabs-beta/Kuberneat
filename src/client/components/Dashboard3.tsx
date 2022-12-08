@@ -16,11 +16,6 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import TrafficIcon from "@mui/icons-material/Traffic";
 
 
-
-import SyncIcon from '@mui/icons-material/Sync'; // refresh icon
-
-
-
 function Dashboard3(): ReactElement {
 
 	const { darkModeOn } = useContext <AppProps> (Context);

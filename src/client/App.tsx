@@ -13,6 +13,12 @@ import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 import LiveHelpTwoToneIcon from '@mui/icons-material/LiveHelpTwoTone';
 import ElectricBoltTwoToneIcon from '@mui/icons-material/ElectricBoltTwoTone';
 
+import Tooltip from '@mui/material/Tooltip';
+
+/* For avatar if we decide to render dynamically */
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+
 import Sidebar from './Sidebar';
 import Login from './Login';
 import Faq from './components/Faq'
@@ -59,8 +65,17 @@ function App(): ReactElement {
 			{/* once user is logged in display profile data */}
 			{user && <div className={darkModeOn ? 'user-dark' : 'user-light'}> {/* profile renders user data from JWT */}
 
+				{/* 3 diff ways to show Avatar */}
+
 				<div className={darkModeOn ? "user-pic-dark" : "user-pic-light"}>Y</div> {/* can add photo later */}
+
 				{/* <img src={user.picture} alt="profile" style={{ borderRadius: '50px', height: '70px', width: '70px'}}></img> */}
+
+				{/* MUI Avatar solution - don't need stack for single avatar*/}
+				{/* <Stack direction="row" spacing={2}>
+      				<Avatar alt="Yaku" src="source.png" sx={{ width: 56, height: 56 }}/>
+    			</Stack> */}
+
 
 				<div className="user-info">
 					{/* <p>{user.given_name}</p> */} {/* can dynamically render user info later with JWT */}
@@ -83,18 +98,21 @@ function App(): ReactElement {
 					justifyContent="space-between"
 					marginRight={5}
 				>
+					<Tooltip title={darkModeOn ? "Light Mode" : "Dark Mode"} arrow>
 					<IconButton
 						sx={{ // refactored ICON hover effect, applied to all
 							color: '#DAA520', 
-							"&:hover": { backgroundColor: '#22A39F' } 
+							"&:hover": { backgroundColor: '#22A39F' },
 						}}
 						size="large"
 						onClick={toggleDarkMode}
 					>
-						{darkModeOn ? <DarkModeTwoToneIcon /> : <LightModeTwoToneIcon />}
+						{darkModeOn ? <LightModeTwoToneIcon /> : <DarkModeTwoToneIcon />}
 					</IconButton>
+					</Tooltip>
 
 					<Link to="/">
+						<Tooltip title="Zeus" arrow>
 						<IconButton
 							sx={{ 
 								color: '#DAA520', 
@@ -104,9 +122,11 @@ function App(): ReactElement {
 						>
 							<ElectricBoltTwoToneIcon></ElectricBoltTwoToneIcon>
 						</IconButton>
+						</Tooltip>
 					</Link>
 
 					<Link to="/faq">
+						<Tooltip title="FAQ" arrow>
 						<IconButton
 							sx={{ 
 								color: '#DAA520', 
@@ -116,9 +136,11 @@ function App(): ReactElement {
 						>
 							<LiveHelpTwoToneIcon></LiveHelpTwoToneIcon>
 						</IconButton>
+						</Tooltip>
 					</Link>
 
 					<Link to="/">{/* may remove path later if ok */}
+					<Tooltip title="Logout" arrow>
 						<IconButton
 						onClick={() => setUser(null)}
 						sx={{ 
@@ -129,6 +151,7 @@ function App(): ReactElement {
 						>
 							<LogoutTwoToneIcon></LogoutTwoToneIcon>
 						</IconButton>
+						</Tooltip>
 					</Link>
 				</Box>
 			</div>
@@ -159,7 +182,7 @@ function App(): ReactElement {
 						/>
 						<Route
 							path="/visualizer"
-							element={<Visualizer />}
+							element={<Dashboard />}
 						/>
 						<Route
 							path="/dashboard2"
