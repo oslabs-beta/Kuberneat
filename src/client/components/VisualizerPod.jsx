@@ -16,9 +16,11 @@ const Pod = ({ info, nodeNum }) => {
 	};
 	const open = Boolean(anchorEl);
 	const nodeName = document.querySelector(`.${info.Name}`)
+  // listen for mouseover svg text
 	nodeName.addEventListener("mouseover", function (event) {
 		handlePopoverOpen(event)
 	})
+  // listen for mouse out of svg text
 	nodeName.addEventListener("mouseout", function (event) {
 		handlePopoverClose()
 	})
