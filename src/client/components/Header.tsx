@@ -3,18 +3,15 @@ import { Typography, Box} from '@mui/material';
 
 import {Context} from "../Context";
 
-
-type HeaderProps = {
-    title: string;
-    subtitle: string
-}
+import { AppProps, HeaderProps } from '../interfaces';
+import { ReactNode, ReactElement } from 'react';
 
 // this component is reuseable for all containers, and can pass in desired props
 // for title and subtitle
-function Header({title, subtitle}: HeaderProps) {
+function Header({title, subtitle}: HeaderProps): ReactElement {
 
-    const { darkModeOn } = useContext(Context);
-    const fontColor = darkModeOn ? "#fab700 !important" : "black !important" 
+    const { darkModeOn } = useContext <AppProps>(Context);
+    const fontColor: string = darkModeOn ? "#fab700 !important" : "#293462 !important" 
     // sets the font color of the header -> changes here get reflected throughout
     // alt light color 344966 fab700
 

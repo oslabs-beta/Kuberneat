@@ -13,7 +13,7 @@ import { AppProps } from '../interfaces';
 import { ReactNode, ReactElement } from 'react';
 
 
-function Visualizer(): ReactElement {
+function Visualizer2(): ReactElement {
     
 	const [nodes, setNodes]: any[] = useState([]);
 
@@ -56,7 +56,7 @@ function Visualizer(): ReactElement {
 	return (	
 		<Box m="20px">
 			<div id={darkModeOn ? "vis-dark" : "vis-light"}>
-				<Header title="Visualizer" subtitle="Just one of the many ways to visualize your cluster" />
+				<Header title="Visualizer 2" subtitle="Just one of the many ways to visualize your cluster" />
 
 				{podProps}
 				
@@ -65,4 +65,4 @@ function Visualizer(): ReactElement {
 	)
 };
 
-export default Visualizer;
+export default Visualizer2;

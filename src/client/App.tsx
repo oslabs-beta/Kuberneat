@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 import { Context } from './Context';
 import './styles.css';
@@ -11,23 +11,33 @@ import LightModeTwoToneIcon from '@mui/icons-material/LightModeTwoTone';
 import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
 import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 import LiveHelpTwoToneIcon from '@mui/icons-material/LiveHelpTwoTone';
+import ElectricBoltTwoToneIcon from '@mui/icons-material/ElectricBoltTwoTone';
 
-import Faq from './components/Faq'
 import Sidebar from './Sidebar';
 import Login from './Login';
-import Dashboard from './Dashboard';
-import { Visualizer } from './components/Visualizer';
+import Faq from './components/Faq'
+import Dashboard from './components/Dashboard';
+import Dashboard2 from './components/Dashboard2';
+import Dashboard3 from './components/Dashboard3';
+import Dashboard4 from './components/Dashboard4';
+import Dashboard5 from './components/Dashboard5';
+import Dashboard6 from './components/Dashboard4';
+import Chart from './components/Chart';
+import Chart2 from './components/Chart2';
+import Visualizer from './components/Visualizer';
+import Visualizer2 from './components/Visualizer2';
+
+import { flexbox } from '@mui/system';
 // import Pod from './components/Pod';
 
+import { AppProps } from './interfaces';
+import { ReactElement, ReactNode } from 'react';
 
-const App: React.FC = () => {
+function App(): ReactElement {
 	//destructuring functions from Context object
-	const { darkModeOn, toggleDarkMode, setUser, user } = useContext(Context);
+	const { darkModeOn, toggleDarkMode, setUser, user } = useContext< AppProps >(Context);
 
-	//returns a method that routes any endpoint
-	const navigate = useNavigate();
-
-	function logout() { // for now, this mocks logout from logout icon on far right of top navbar
+	function logout(): void { // for now, this mocks logout from logout icon on far right of top navbar
 		// navigate('/');
 		setUser(null)
 	}
@@ -42,17 +52,23 @@ const App: React.FC = () => {
 				className="loginPage"
 				id={darkModeOn ? 'navbar1' : 'navbar2'}
 			>
-				{/* profile render conditional on user state */}
-				{!user && <div className={darkModeOn ? 'user1' : 'user2'}>
-					<div className="user-pic">?</div>
-					<p>Please Login</p>
-				</div>}
+				
+			{/* on login page when no user is signed in */}	
+			{!user && <div style={{width: '200px', marginLeft: '25px' }}></div>}
 
-				{user && <div className={darkModeOn ? 'user1' : 'user2'}>
-					<div className="user-pic">E</div> {/* can add photo later */}
-					<p>Ed</p> {/* can dynamically render user info later with JWT */}
+			{/* once user is logged in display profile data */}
+			{user && <div className={darkModeOn ? 'user-dark' : 'user-light'}> {/* profile renders user data from JWT */}
+
+				<div className={darkModeOn ? "user-pic-dark" : "user-pic-light"}>Y</div> {/* can add photo later */}
+				{/* <img src={user.picture} alt="profile" style={{ borderRadius: '50px', height: '70px', width: '70px'}}></img> */}
+
+				<div className="user-info">
+					{/* <p>{user.given_name}</p> */} {/* can dynamically render user info later with JWT */}
+					<p>Yaku</p> {/* can dynamically render user info later with JWT */}
 					<p>Admin</p>
-				</div>}
+				</div>
+
+			</div>}
 
 				{/* OSP Name */}
 				<div
@@ -78,27 +94,15 @@ const App: React.FC = () => {
 						{darkModeOn ? <DarkModeTwoToneIcon /> : <LightModeTwoToneIcon />}
 					</IconButton>
 
-					<Link to="/dashboard">
+					<Link to="/">
 						<IconButton
 							sx={{ 
 								color: '#DAA520', 
-								"&:hover": { backgroundColor: '#22A39F' } 
+								"&:hover": { backgroundColor: '#FFE15D' } 
 							}}
 							size="large"
 						>
-							<BarChartTwoToneIcon></BarChartTwoToneIcon>
-						</IconButton>
-					</Link>
-
-					<Link to="/visualizer">
-						<IconButton
-							sx={{ 
-								color: '#DAA520', 
-								"&:hover": { backgroundColor: '#22A39F' } 
-							}}
-							size="large"
-						>
-							<HubIcon></HubIcon>
+							<ElectricBoltTwoToneIcon></ElectricBoltTwoToneIcon>
 						</IconButton>
 					</Link>
 
@@ -114,12 +118,12 @@ const App: React.FC = () => {
 						</IconButton>
 					</Link>
 
-					<Link to="/">
+					<Link to="/">{/* may remove path later if ok */}
 						<IconButton
 						onClick={() => setUser(null)}
 						sx={{ 
 							color: '#DAA520', 
-							"&:hover": { backgroundColor: '#22A39F' } 
+							"&:hover": { backgroundColor: '#fc8181' } 
 						}}
 							size="large"
 						>
@@ -129,18 +133,26 @@ const App: React.FC = () => {
 				</Box>
 			</div>
 
-			{!user && <Login onClick={logout} />} {/* renders login page when user is undefined */}
+			{!user &&
+				<Login onClick={logout} />} {/* renders login page when user is undefined */}
 
-			{user && <div className="app"> {/* will render depending on routes when user is defined aka logged in */}
+			{user && 
 
-				<Sidebar />
-				
+			<div className={darkModeOn ? "app-dark" : "app-light"}> 
+			{/* will render depending on routes when user is defined aka logged in */}
+
+				<div><Sidebar/></div>
+
 				<main className="content">
 					<Routes>
+		
 						<Route
-							path="/faq"
-							element={<Faq />} // set this to FAQ for now
+							path="/"
+							element={<Dashboard3 />} // Dashboard 2, 3, 4 ,5 vacant...
 						/>
+					
+
+					
 						<Route
 							path="/dashboard"
 							element={<Dashboard />}
@@ -149,9 +161,33 @@ const App: React.FC = () => {
 							path="/visualizer"
 							element={<Visualizer />}
 						/>
+						<Route
+							path="/dashboard2"
+							element={<Dashboard3 />}
+						/>
+						<Route
+							path="/pods"
+							element={<Dashboard4 />}
+						/>
+						<Route
+							path="/chart" 
+							element={<Chart />} 
+						/>
+						<Route
+							path="/chart2"
+							element={<Chart2 />}
+						/>
+						<Route
+							path="/faq"
+							element={<Faq />} // set this to FAQ for now
+						/>
+
 					</Routes>
 				</main>
-			</div>}
+
+			</div>
+			
+			}
 
 		</>
 	);
