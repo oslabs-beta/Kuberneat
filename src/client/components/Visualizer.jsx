@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Pod from './VisualizerPod';
 
 
-
+// To create our D3 Visualizer
 export default Visualizer = () => {
   const [d3Chart, setChart] = useState([]);
   const [nodes, setNodes] = useState([]);
@@ -162,18 +162,21 @@ function ForceGraph({
       .on("drag", dragged)
       .on("end", dragended);
   }
+  // returns an SVG element containing the visualizer
   return Object.assign(svg.node(), {scales: {color}});
 }
 
 const svg = useRef(null);
 // console.log('svg', svg.current)
 useEffect(() => {
-
+  // fetch our cluster info from the backend through http request
   // fetch('/cluster', { headers: { 'Content-Type': 'application/json' } }) //{headers: { 'Content-Type': 'application/json' },}
   // .then((data) => data.json())
   // .then((data) => {
   //   console.log('this is fetching from the  backend:', data);
+  //   // iterate through our array response from the server
   //   for (let i = 0; i < data.Name.length; i++) {
+  //   // setting state containing our array of objects containing our cluster info
   //     setNodes((oldArray: any) => [
   //       ...oldArray,
   //       {
@@ -205,11 +208,12 @@ useEffect(() => {
 			{Namespace: 'kube-system', Name: 'kube-scheduler', CPU_Requests: '100m(2%)', CPU_Limits: '0(0%)', Memory_Requests: '0(0%)'},
 			{Namespace: 'kube-system', Name: 'storage-provisioner', CPU_Requests: '0(0%)', CPU_Limits: '0(0%)', Memory_Requests: '0(0%)'}]
   setNodes(nodes)
+  // arguments that will be passed into the D3 visualizer functions
   let miserables = {nodes: [{id: 'alpha', group: 1}], links: []}
 console.log(nodes)
 let namespaces = [];
 let groups = {};
-// find namespaces
+// find namespaces in data obtained
 for (let i = 0; i < nodes.length; i++) {
   if (!namespaces.includes(nodes[i].Namespace)) namespaces.push(nodes[i].Namespace)
 }
@@ -239,6 +243,8 @@ for (let i = 0; i < nodes.length; i++){
     },
   )
 }
+
+// invoke the D3 visualizer function with the arguments passed in
 const chart = ForceGraph(miserables, {
       nodeId: (d)=> d.id,
       nodeGroup: (d) => d.group,
@@ -250,13 +256,12 @@ const chart = ForceGraph(miserables, {
       height: 600
     })
     setChart(chart)
-    console.log('svg', svg.current)
-    console.log('svg', chart)
     if (svg.current){
       svg.current.appendChild(chart)
     }
 }, []);
 
+// compile our array containing pod elements to display our popover on the svg
 const podProps = [];
 for (let i = 0; i < nodes.length; i++) {
   podProps.push(

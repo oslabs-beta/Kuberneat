@@ -4,9 +4,11 @@ import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 
 const Pod = ({ info, nodeNum }) => {
+	// Pod component for creating hovering popovers for the node names in the svg (D3 visualizer)
+
 	// popover
 	const [anchorEl, setAnchorEl] = React.useState(null);
-	// popover open
+	// popover open at event's location
 	const handlePopoverOpen = (event) => {
 		setAnchorEl(event.currentTarget);
 	};
