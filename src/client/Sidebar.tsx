@@ -11,12 +11,16 @@ import LiveHelpTwoToneIcon from '@mui/icons-material/LiveHelpTwoTone';
 import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
 import CloseFullscreenTwoToneIcon from '@mui/icons-material/CloseFullscreenTwoTone';
 
-export default function Sidebar() {
+import { AppProps } from './interfaces';
+import { ReactElement } from 'react';
 
-    const  [ active, setActive ] = useState(false);
-    const { darkModeOn, setUser, user } = useContext(Context);
+function Sidebar(): ReactElement {
 
-    const activateSidebar = () => {
+    const  [ active, setActive ] = useState<boolean>(false);// state used to toggle sidebar collapse feature
+
+    const { darkModeOn, setUser, user } = useContext< AppProps >(Context);
+
+    function activateSidebar(): void {
         setActive(old => !old)
     }
 
@@ -87,7 +91,7 @@ export default function Sidebar() {
                     >
                         <HubIcon></HubIcon>
                     </IconButton>
-                        <Link to="/visualizer2"><Typography>Visualizer 2</Typography></Link>
+                        <Link to="/pods"><Typography>Kluster</Typography></Link>
                     </li>
 
                     <li>
@@ -123,13 +127,6 @@ export default function Sidebar() {
                         <Link to="/faq"><Typography>FAQ</Typography></Link>
                     </li>
 
-                   {/*  <div id="logout-icon">
-                        <li>
-                            <LogoutTwoToneIcon className="icon" id="logout"></LogoutTwoToneIcon>
-                            <Link to="/">Logout</Link>
-                        </li>
-                    </div> */}
-
                 </ul>
 
                 <div id={active && "logout-icon"}> {/* just for conditional hover effect of logout icon */}
@@ -139,17 +136,19 @@ export default function Sidebar() {
                         <li>
                             
                             <IconButton
+                                /* onClick={() => setUser(null)} */
                                 className="icon" 
                                 size='large'
                                 sx={{ "&:hover": { backgroundColor: '#fc8181' } }}
+                            
                             >
                             <LogoutTwoToneIcon id="logout" onClick={() => setUser(null)}>
                             </LogoutTwoToneIcon>
                             </IconButton>
                             
-                            <Link>
-                                <Typography onClick={() => setUser(null)}>Logout</Typography>
-                                {/* the above could possible cause errors later */}
+                            <Link to="/"> {/* must set this to login page directly, req'd type for link component, set to /login */}
+                                <Typography onClick={() => setUser(null)} >Logout</Typography>
+                                {/* React doesn't like the onClick being here but has to be here for full bar onClick */}
                             </Link>
                             
                             
@@ -162,3 +161,5 @@ export default function Sidebar() {
         </div>
     );
 };
+
+export default  Sidebar;

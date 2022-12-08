@@ -9,15 +9,15 @@ import Header from './Header'
 
 import { Box } from "@mui/material";
 
-// import LightModeTwoToneIcon from '@mui/icons-material/LightModeTwoTone';
-// import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
+import { AppProps } from '../interfaces';
+import { ReactNode, ReactElement } from 'react';
 
 
-const Visualizer2: React.FC = () => {
+function Visualizer2(): ReactElement {
     
-	const [nodes, setNodes]: any = useState([]);
+	const [nodes, setNodes]: any[] = useState([]);
 
-	const { darkModeOn } = useContext(Context);
+	const { darkModeOn } = useContext <AppProps>(Context);
 
 	//fetching to the backend
 	useEffect(() => {

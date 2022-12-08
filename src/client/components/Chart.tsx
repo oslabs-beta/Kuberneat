@@ -5,21 +5,24 @@ import Header from './Header'
 
 import { Box } from "@mui/material";
 
-const Chart2 = () => {
+import { AppProps } from '../interfaces';
+import { ReactNode, ReactElement } from 'react';
 
-	const { darkModeOn } = useContext(Context);
+function Chart(): ReactElement {
+
+	const { darkModeOn } = useContext < AppProps> (Context);
 
 	return (
 		<Box m="20px"> {/* removed className chart from div, replaced it below, not sure what it was for? */}
 			<div className={darkModeOn ? 'dash-dark' : 'dash-light'}>
 
-				<Header title="Charts 2" subtitle="Just one of the many ways to visualize your cluster" />
+				<Header title="Charts" subtitle="Just one of the many ways to visualize your cluster" />
 
-				<div>charts go here...</div>
+				<div style={{ color: 'purple'}}>charts go here...</div>
 
 			</div>
 		</Box>
 	);
 };
 
-export default Chart2;
+export default Chart;
