@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 import { Typography, Box, IconButton } from '@mui/material';
 
-import { Link } from 'react-router-dom'; // for refresh button
+import { Link, useNavigate } from 'react-router-dom'; // for refresh button
 
 import {Context} from "../Context";
 
@@ -20,8 +20,10 @@ function Header({title, subtitle, pathName }: HeaderProps): ReactElement {
     // sets the font color of the header -> changes here get reflected throughout
     // alt light color 344966 fab700
 
-    function refreshPage(): void { /* not allowing use this for refresh */
+    const navigate: any = useNavigate()
+    function refreshPage(): void { /* TS not allowing use for refresh */
       window.location.reload();
+      // navigate() /* this won't work either */
     };
 
     return (
@@ -44,7 +46,7 @@ function Header({title, subtitle, pathName }: HeaderProps): ReactElement {
             className="icon" 
             size='large'
             sx={{ "&:hover": { backgroundColor: 'green' } }} 
-            // onclick={refreshPage} // TS won't allow use
+           /*  onclick={refreshPage} */ // TS won't allow use
           >
             <SyncIcon
             ></SyncIcon>

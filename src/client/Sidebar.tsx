@@ -25,7 +25,7 @@ function Sidebar(): ReactElement {
         setActive(old => !old)
     }
 
-       /* Media Query in JS: set active state of sidebar to false if goes below 750px */
+       /* Media Query in JS: set active state of to false if goes below 750px */
     //    const result: any = window.matchMedia("(max-width: 750px)");
     //    if(result.matches) {
     //        setActive(null)

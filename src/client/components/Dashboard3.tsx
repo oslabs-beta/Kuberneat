@@ -44,7 +44,7 @@ function Dashboard3(): ReactElement {
 				<Box 
 				display="grid" // style
 				gridTemplateColumns="repeat(6, 1fr)" // configs # of columns
-				gridTemplateRows="repeat(6, 1fr)"
+				gridTemplateRows="repeat(8, 1fr)"
 				// gridAutoRows="100px" // configs row gaps
 				gap={3}
 				
@@ -52,7 +52,7 @@ function Dashboard3(): ReactElement {
 
 					{/* display="flex" alignItems="center" justifyContent="center" */}
 
-					<Box gridColumn="span 2" gridRow="span 2" >
+					<Box gridColumn="span 2" gridRow="span 2" sx={{}}>
 						<Item>Chart</Item>
 					</Box>
 					<Box gridColumn="span 2" gridRow="span 2" >
@@ -75,6 +75,16 @@ function Dashboard3(): ReactElement {
 						<Item>Chart</Item>
 					</Box>
 					<Box gridColumn="span 3" gridRow="span 2">
+						<Item>Chart</Item>
+					</Box>
+
+					<Box gridColumn="span 2" gridRow="span 2" sx={{}}>
+						<Item>Chart</Item>
+					</Box>
+					<Box gridColumn="span 2" gridRow="span 2" >
+						<Item>Chart</Item>
+					</Box>
+					<Box gridColumn="span 2" gridRow="span 2" >
 						<Item>Chart</Item>
 					</Box>
 					
