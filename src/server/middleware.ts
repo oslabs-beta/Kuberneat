@@ -2,32 +2,32 @@ const child_process = require('child_process');
 //created middleware called middleware
 const middleware: Object = {};
 
-//applying getClusterInfo method
+// applying getClusterInfo method
 (middleware as any).getClusterInfo = async (req: any, res: any, next: any) => {
 	try {
-		//declared a function
+		// declared a function
 		function system(cmd: string, callback: any) {
-			//Handle the terminal output
+			// Handle the terminal output
 			child_process.exec(
 				cmd,
-				//function created to handle errors
+				// function created to handle errors
 				function (error: string, stdout: any, stderr: any) {
-					//You should handle error or pass it to the callback
+					// You should handle error or pass it to the callback
 					callback(stdout);
 				}
 			);
 		}
-		//resource components that exist in each node
+
 		system('kubectl describe nodes', function (output: string) {
-			//splitting the output into an array
+			// splitting the output into an array
 			let arr = output.split('\n');
-			//declaring an array index variable to iterate through the array
+			// declaring an array index variable to iterate through the array
 			let firstIndex;
 			let lastIndex;
-			//declare a variable to store the wanted output lines (node info)
+			// declare a variable to store the wanted output lines (node info)
 			const newArr: any = [];
-			//declared an object to store the specific information of the node from
-			//within the  cluster
+			// declared an object to store the specific information of the node from
+			// within the  cluster
 			const obj: any = {
 				Namespace: [],
 				Name: [],
@@ -60,6 +60,7 @@ const middleware: Object = {};
 				obj.Memory_Limits.push(newArr[i][9].concat(newArr[i][10]));
 				obj.Age.push(newArr[i][11]);
 			}
+			// store our cluster info in res.locals object
 			res.locals.clusterInfo = obj;
 			console.log('middleware: ', res.locals.clusterInfo);
 			// console.log('Your cluster info: ', obj)

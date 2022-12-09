@@ -4,13 +4,13 @@ export interface AppProps {
 	setUser?: React.FC;
 	user?: any | null; // can't find type to use
 	handleCallbackResponse?: React.FC;
-};
+}
 
 export interface HeaderProps {
-    title: string;
-    subtitle: string;
+	title: string;
+	subtitle: string;
 	pathName?: string;
-};
+}
 
 export interface valProps {
 	values: any;
@@ -19,28 +19,28 @@ export interface valProps {
 	isSubmitting: any;
 	handleBlur: any;
 	handleChange: any;
-	handleSubmit: any; 
-};
+	handleSubmit: any;
+}
 
 export interface InitVals {
 	email: string;
 	password: string;
 	confirmPassword: string;
-};
+}
 
 export interface FormProps {
 	initialValues?: InitVals;
 	validationSchema?: any;
 	onSubmit?: any;
-};
+}
 
 export interface LoginProps {
-    onClick: () => void;
-};
+	onClick: () => void;
+}
 
 export interface Pod2Props {
-    id: number;
-    info: any; 
-    nodeNum: any; 
-    key: number; 
-};
+	id: number;
+	info: any;
+	nodeNum: any;
+	key: number;
+}
