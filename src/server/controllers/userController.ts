@@ -6,8 +6,8 @@ const Users = require('../database/db');
 const userController: object = {
 	//create User
 	createUser(req: Request, res: Response, next: NextFunction) {
-		const { email, username, password } = req.body;
-		Users.create({ email: email, username: username, password: password })
+		const { email, password } = req.body;
+		Users.create({ email: email, password: password })
 			.then((newUser: object) => {
 				res.locals.newUser = newUser;
 				next();
@@ -21,14 +21,15 @@ const userController: object = {
 	},
 	//get User
 	getUser(req: Request, res: Response, next: any): void {
-		const { username, password } = req.params;
-		Users.find({ username: username, password: password })
+		const { email, password } = req.params;
+		Users.find({ email: email, password: password })
 			.then((existingUser: object) => {
 				res.locals.foundUser = existingUser;
+				console.log('this is found user:', res.locals.foundUser);
 				next();
 			})
 			.catch((err: any) => {
-				return next({
+				next({
 					log: `Error in userController.createUser: ${err}`,
 					message: {
 						err: 'Error in createUser middleware',

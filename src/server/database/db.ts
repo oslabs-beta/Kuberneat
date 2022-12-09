@@ -1,7 +1,4 @@
-import {
-	ErrorRequestHandler,
-  } from 'express';
-  
+import { ErrorRequestHandler } from 'express';
 
 //acquiring mongoose framework
 const mongoose = require('mongoose');
@@ -18,21 +15,20 @@ mongoose.set('strictQuery', true);
 const mongoURI =
 	'mongodb+srv://zeus:123@cluster0.ntr77xf.mongodb.net/?retryWrites=true&w=majority';
 
-	mongoose
+mongoose
 	.connect(mongoURI, {
-	  useNewUrlParser: true,
-	  useUnifiedTopology: true,
-	  dbName: 'zeus',
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+		dbName: 'zeus',
 	})
-	.then(() =>  console.log('🦆🦆🦆🦆🦆🦆🦆🦆  Mongoose is connected'))
+	.then(() => console.log('🦆🦆🦆🦆🦆🦆🦆🦆  Mongoose is connected'))
 	.catch((err: ErrorRequestHandler) => {
-	  console.log(`Error connecting to Mongo DB: ${err}`)
+		console.log(`Error connecting to Mongo DB: ${err}`);
 	});
 
 //user schema
 const userSchema = new mongoose.Schema({
 	email: { type: String, required: true },
-	username: { type: String, required: true },
 	password: { type: String, required: true },
 });
 
