@@ -14,7 +14,7 @@ const mongoURI =
 	'mongodb+srv://zeus:zeus@cluster0.1i7iws7.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.connect(
-	'mongoURI',
+  mongoURI,
 	{
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
