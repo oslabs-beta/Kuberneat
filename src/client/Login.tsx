@@ -26,13 +26,7 @@ function Login({ onClick }: { onClick: () => void }): any { // won't take type R
         console.log('login submitted');
           console.log({values});
         //   console.log({actions});
-        fetch('/user', {
-            
-
-
-        })
-
-
+        
         // below is just a mock API call for testing, add logic for AUTH here later...
         await new Promise((resolve) => {
             setTimeout(resolve, 1000);

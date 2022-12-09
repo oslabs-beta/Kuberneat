@@ -20,41 +20,12 @@ mongoose
     .catch((err) => {
     console.log(`Error connecting to Mongo DB: ${err}`);
 });
-// const connectMongoose = async () => {
-// 	try {
-// 		await mongoose.connect(
-// 			mongoURI,
-// 			{
-// 				useNewUrlParser: true,
-// 				useUnifiedTopology: true,
-// 				autoReconnect: true,
-// 				dbName: 'zeus',
-// 			},
-// 			() => console.log('🦆🦆🦆🦆🦆🦆🦆🦆  Mongoose is connected')
-// 		);
-// 	} catch (err) {
-// 		console.error('Error connecting to Mongoose:', err);
-// 	}
-// };
-// connectMongoose();
-// mongoose.connect(
-// 	mongoURI,
-// 	{
-// 		useNewUrlParser: true,
-// 		useUnifiedTopology: true,
-// 		autoReconnect: true,
-// 		dbName: 'zeus',
-// 	},
-// 	() => console.log('🦆🦆🦆🦆🦆🦆🦆🦆  Mongoose is connected')
-// );
-const Schema = mongoose.Schema;
 //user schema
 const userSchema = new mongoose.Schema({
     email: { type: String, required: true },
-    username: { type: String, required: true },
     password: { type: String, required: true },
 });
 //Collection name is Users
-const User = mongoose.model('Users', userSchema);
+const Users = mongoose.model('Users', userSchema);
 // Export db
-module.exports = User;
+module.exports = Users;
