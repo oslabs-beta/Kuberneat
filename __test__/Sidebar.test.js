@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import Sidebar from '../Sidebar';
+import Sidebar from '../src/client/Sidebar';
 
 // can use DESCRIBE BLOCKS to nest mulitple tests that are similar 
 // ie: all are for a component and some functionality for it

@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import Login from '../Login';
+import Login from '../src/client/Login';
 
 // can use DESCRIBE BLOCKS to nest mulitple tests that are similar 
 // ie: all are for a component and some functionality for it
