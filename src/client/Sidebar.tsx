@@ -105,21 +105,6 @@ function Sidebar(): ReactElement {
 					</li>
 
 					<li>
-						<Tooltip title='Kluster' arrow placement='right-start'>
-							<IconButton
-								className='icon'
-								size='large'
-								sx={{ '&:hover': { backgroundColor: '#22A39F' } }}
-							>
-								<HubIcon onClick={() => navigate('/kluster')}></HubIcon>
-							</IconButton>
-						</Tooltip>
-						<Link to='/kluster'>
-							<Typography>Kluster</Typography>
-						</Link>
-					</li>
-
-					<li>
 						<Tooltip title='Visualizer' arrow placement='right-start'>
 							<IconButton
 								className='icon'
@@ -133,6 +118,21 @@ function Sidebar(): ReactElement {
 						</Tooltip>
 						<Link to='/visualizer'>
 							<Typography>Visualizer</Typography>
+						</Link>
+					</li>
+
+					<li>
+						<Tooltip title='Kluster' arrow placement='right-start'>
+							<IconButton
+								className='icon'
+								size='large'
+								sx={{ '&:hover': { backgroundColor: '#22A39F' } }}
+							>
+								<HubIcon onClick={() => navigate('/kluster')}></HubIcon>
+							</IconButton>
+						</Tooltip>
+						<Link to='/kluster'>
+							<Typography>Kluster</Typography>
 						</Link>
 					</li>
 
