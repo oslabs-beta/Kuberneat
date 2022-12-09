@@ -7,6 +7,7 @@ import { Box } from '@mui/material';
 
 import { AppProps } from '../interfaces';
 import { ReactNode, ReactElement } from 'react';
+import Visualizer from './Visualizer';
 
 function VisD3(): ReactElement {
 	const { darkModeOn } = useContext<AppProps>(Context);
@@ -20,7 +21,7 @@ function VisD3(): ReactElement {
 					title='D3 Visualizer goes here'
 					subtitle='Just another way to visualize your cluster'
 				/>
-
+				<Visualizer></Visualizer>
 				<div style={{ color: 'purple' }}>charts go here...</div>
 			</div>
 		</Box>

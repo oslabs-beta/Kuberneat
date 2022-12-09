@@ -115,7 +115,7 @@ export const Visualizer = () => {
 				return d.id;
 			})
 			// .attr("id", d.id)
-			.attr('fill', 'black')
+			.attr('fill', 'white')
 			.attr('x', -20)
 			.attr('y', 30)
 			.attr('font-size', '15px')
@@ -338,7 +338,6 @@ export const Visualizer = () => {
 	// if (d3Chart.simulation && d3Chart.simulation.restart) {d3Chart.simulation.restart();}
 	return (
 		<div>
-			<div>hi</div>
 			<div ref={svg}></div>
 			<div>{podProps}</div>
 		</div>

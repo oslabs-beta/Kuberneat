@@ -29,14 +29,6 @@ const Pod = ({ info, nodeNum }) => {
 
 	return (
 		<div id={`pod${nodeNum}`}>
-			{/* <Typography
-				aria-owns={open ? 'mouse-over-popover' : undefined}
-				aria-haspopup="true"
-				onMouseEnter={handlePopoverOpen}
-				onMouseLeave={handlePopoverClose}
-			>
-				{info.Name}
-			</Typography> */}
 			<Popover
 				id='mouse-over-popover'
 				sx={{
