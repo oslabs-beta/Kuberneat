@@ -1,26 +1,14 @@
-import { Google } from '@mui/icons-material';
-
 import React, { useState, useContext, useEffect  } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import {Context} from './Context';
 import { useFormik } from "formik"; // need formik to use yup for form validation
 import { loginSchema } from "./schemas"; // import validation schema
 import { valProps, InitVals, FormProps, LoginProps } from './interfaces';
-
-import jwt_decode, { JwtPayload } from 'jwt-decode';
-
 import { AppProps } from './interfaces';
 import { ReactElement, ReactNode } from 'react';
 
-function Login({ onClick }: { onClick: () => void }): any { // won't take type ReactElement ??
+function Signup({ onClick }: { onClick: () => void }): any { // won't take type ReactElement ??
 
     const { darkModeOn, toggleDarkMode, user, setUser, handleCallbackResponse } = useContext< AppProps >(Context);
-
-    const navigate = useNavigate();
-    /* routes user to signup page */
-    function goToSignup() {
-        navigate('/signup')
-      }
 
     // onSubmit or Login handler function -> add Authentication logic here
     const onSubmit = async (values: any, actions: any): Promise<void> => {
@@ -55,28 +43,6 @@ function Login({ onClick }: { onClick: () => void }): any { // won't take type R
         validationSchema: loginSchema, // setting the schema for form validation, imported from schemas dir
         onSubmit: onSubmit,
         });
-
-
-      /* global google object coming from html script*/
-      useEffect(() => {
-        function handleCallbackResponse(response: any) {
-            console.log('Encoded JWT ID token: ' + response.credential);
-            const userObject: any = jwt_decode<JwtPayload>(response.credential);
-            console.log(userObject);
-            setUser(userObject);
-        };
-        /* global google */  
-        /* can use ( window as any ) to access google object instead of using unofficial type libraries */
-        (window as any).google.accounts.id.initialize({ 
-             client_id: "833474983530-c13t85njtalij2aqacd17slt6tr8te5j.apps.googleusercontent.com",
-             callback: handleCallbackResponse,
-        });
-        (window as any).google.accounts.id.renderButton( 
-            document.getElementById("signInDiv"),
-            { them: "outline", size: "large" }
-        );
-        (window as any).google.accounts.id.prompt(); 
-      }, [user]); 
 
     return (
             
@@ -136,18 +102,14 @@ function Login({ onClick }: { onClick: () => void }): any { // won't take type R
                             {errors.confirmPassword && touched.confirmPassword && <p className='error'>{errors.confirmPassword}</p>}
 
                             <div className="login-box">
-                            {/* Login button */}
-                                <button 
+
+                             {/* Signup button */}
+                             <button 
                                 id={darkModeOn ? "login-button1" : "login-button2"} 
-                                // onClick={logout} // disabled for now, waiting to implement actual AUTH
                                 type="submit"
-                                disabled={isSubmitting} // login button disabled when submitting
-                                >Login
-                                </button>
-                            {/* Signup button */}
-                                <button 
-                                onClick={goToSignup}/* routes to /signup */
-                                id={darkModeOn ? "login-button1" : "login-button2"} >
+                                disabled={isSubmitting} // signup button disabled when submitting
+                               /* make sure to route back to login page in server router logic  */
+                                >
                                 Sign-up
                                 </button>
 
@@ -159,4 +121,4 @@ function Login({ onClick }: { onClick: () => void }): any { // won't take type R
             )
 };
 
-export default Login;
+export default Signup;

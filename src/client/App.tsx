@@ -21,6 +21,7 @@ import Stack from '@mui/material/Stack';
 
 import Sidebar from './Sidebar';
 import Login from './Login';
+import Signup from './Signup';
 import Faq from './components/Faq'
 import Dashboard from './components/Dashboard';
 import Dashboard2 from './components/Dashboard2';
@@ -45,6 +46,11 @@ function App(): ReactElement {
 
 	function logout(): void { // for now, this mocks logout from logout icon on far right of top navbar
 		// navigate('/');
+		setUser(null)
+	};
+
+	function signup(): void {
+		// write logic for signup, reroute to login page
 		setUser(null)
 	}
 
@@ -158,7 +164,20 @@ function App(): ReactElement {
 			</div>
 
 			{!user &&
-				<Login onClick={logout} />} {/* renders login page when user is undefined */}
+
+				<Routes>
+
+					<Route
+					path="/"
+					element={<Login onClick={logout} />}
+					/>
+
+					<Route
+					path="/signup"
+					element={<Signup onClick={signup} />}
+					/>
+
+				</Routes>}
 
 			{user && 
 

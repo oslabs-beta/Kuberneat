@@ -23,7 +23,7 @@ function Header({title, subtitle, pathName }: HeaderProps): ReactElement {
     const navigate: any = useNavigate()
     function refreshPage(): void { /* TS not allowing use for refresh */
       window.location.reload();
-      // navigate() /* this won't work either */
+      // navigate('/') /* this won't work either */
     };
 
     return (
