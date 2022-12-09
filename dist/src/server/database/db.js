@@ -1,34 +1,53 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 //acquiring mongoose framework
 const mongoose = require('mongoose');
-//storing db -preventing public to see this information on client side
-// const myURI = 'mongodb+srv://jwrog782:3r0NcsRV8RVaBwIk@cluster0.qijg05f.mongodb.net/?retryWrites=true&w=majority';
-const mongoURI = 'mongodb+srv://zeus:zeus@cluster0.1i7iws7.mongodb.net/?retryWrites=true&w=majority';
-const mongoDbConnection = () => __awaiter(this, void 0, void 0, function* () {
-    try {
-        const db = yield mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
-        console.log('MongoDB connected...');
-        return db;
-    }
-    catch (err) {
-        console.log('Error connecting to MongoDB', err);
-    }
+// export interface UserData {
+// 	email: string;
+// 	username: string;
+// 	password: string;
+// }
+//this line below is used to suppress deprecation warnings
+mongoose.set('strictQuery', true);
+const mongoURI = 'mongodb+srv://zeus:123@cluster0.ntr77xf.mongodb.net/?retryWrites=true&w=majority';
+mongoose
+    .connect(mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    dbName: 'zeus',
+})
+    .then(() => console.log('🦆🦆🦆🦆🦆🦆🦆🦆  Mongoose is connected'))
+    .catch((err) => {
+    console.log(`Error connecting to Mongo DB: ${err}`);
 });
-// mongoose.connection.once(mongoURI, (err: any) => {
-// 	if (err) {
-// 		console.log('Error connecting to mongoDB', err);
-// 	} else {
-// 		console.log('Connected to MongoDB');
+// const connectMongoose = async () => {
+// 	try {
+// 		await mongoose.connect(
+// 			mongoURI,
+// 			{
+// 				useNewUrlParser: true,
+// 				useUnifiedTopology: true,
+// 				autoReconnect: true,
+// 				dbName: 'zeus',
+// 			},
+// 			() => console.log('🦆🦆🦆🦆🦆🦆🦆🦆  Mongoose is connected')
+// 		);
+// 	} catch (err) {
+// 		console.error('Error connecting to Mongoose:', err);
 // 	}
-// });
+// };
+// connectMongoose();
+// mongoose.connect(
+// 	mongoURI,
+// 	{
+// 		useNewUrlParser: true,
+// 		useUnifiedTopology: true,
+// 		autoReconnect: true,
+// 		dbName: 'zeus',
+// 	},
+// 	() => console.log('🦆🦆🦆🦆🦆🦆🦆🦆  Mongoose is connected')
+// );
+const Schema = mongoose.Schema;
 //user schema
 const userSchema = new mongoose.Schema({
     email: { type: String, required: true },
@@ -36,6 +55,6 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true },
 });
 //Collection name is Users
-const Users = mongoose.model('Users', userSchema); //const User =
+const User = mongoose.model('Users', userSchema);
 // Export db
-module.exports = Users;
+module.exports = User;

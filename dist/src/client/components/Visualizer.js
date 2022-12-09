@@ -26,12 +26,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Visualizer = void 0;
 const React = __importStar(require("react"));
 const react_1 = require("react");
 const Pod_1 = __importDefault(require("./Pod"));
 const Context_1 = require("../Context");
-const Visualizer = () => {
+const Header_1 = __importDefault(require("./Header"));
+const material_1 = require("@mui/material");
+function Visualizer() {
     const [nodes, setNodes] = (0, react_1.useState)([]);
     const { darkModeOn } = (0, react_1.useContext)(Context_1.Context);
     //fetching to the backend
@@ -60,6 +61,10 @@ const Visualizer = () => {
     }
     ;
     console.log('pod', podProps);
-    return (React.createElement("div", { id: darkModeOn ? "vis-dark" : "vis-light" }, podProps));
-};
-exports.Visualizer = Visualizer;
+    return (React.createElement(material_1.Box, { m: "20px" },
+        React.createElement("div", { id: darkModeOn ? "vis-dark" : "vis-light" },
+            React.createElement(Header_1.default, { title: "Visualizer", subtitle: "Just one of the many ways to visualize your cluster" }),
+            podProps)));
+}
+;
+exports.default = Visualizer;
