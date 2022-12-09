@@ -44,26 +44,49 @@ app.get('/', (req, res) => {
     console.log('Backend & Frontend speaking...');
     res.sendFile(path_1.default.join(__dirname, '../client/index.html'));
 });
-app.get('/metrics', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log('Getting metrics is working...');
-    res.setHeader('Content-type', register.contentType);
-    res.end(yield register.metrics());
-}));
-app.get('/apis/metrics.k8s.io/v1beta1', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log('Getting metrics resources is working...');
-    res.sendStatus(200);
-}));
-app.get('/cluster', middleware.getClusterInfo, (req, res) => {
-    console.log('Getting cluster is working...', res.locals.clusterInfo);
-    return res.status(200).json(res.locals.clusterInfo);
-});
 app.get('/user', userController.getUser, (req, res) => {
     console.log('Getting user is working...', res.locals.foundUser);
-    return res.status(200).json(res.locals.foundUser);
+    return res.sendStatus(200).json(res.locals.foundUser);
 });
 app.post('/user', userController.createUser, (req, res) => {
     return res.status(200).json(res.locals.newUser);
 });
+// app.get('/metrics', async (req: Request, res: Response) => {
+// 	console.log('Getting metrics is working...');
+// 	res.setHeader('Content-type', register.contentType);
+// 	res.end(await register.metrics());
+// });
+// app.get('/apis/metrics.k8s.io/v1beta1', async (req: Request, res: Response) => {
+// 	console.log('Getting metrics resources is working...');
+// 	res.sendStatus(200);
+// });
+// app.get(
+// 	'/apis/metrics.k8s.io/v1beta1/nodes',
+// 	async (req: Request, res: Response) => {
+// 		try {
+// 			const kubeMetrics = await fetch('http://localhost:8085/metrics');
+// 			console.log(kubeMetrics);
+// 			res.sendStatus(200).send(JSON.stringify({metrics:kubeMetrics}));
+// 		} catch (err) {
+// 			console.log(err);
+// 		}
+// 	}
+// );
+// app.get(
+// 	'/apis/metrics.k8s.io/v1beta1/nodes/zeus ',
+// 	async (req: Request, res: Response) => {
+// 		console.log('Getting metrics resources is working...');
+// 		res.sendStatus(200);
+// 	}
+// );
+// app.get(
+// 	'/cluster',
+// 	middleware.getClusterInfo,
+// 	(req: Request, res: Response) => {
+// 		console.log('Getting cluster is working...', res.locals.clusterInfo);
+// 		return res.status(200).json(res.locals.clusterInfo);
+// 	}
+// );
 app.use('*', (req, res) => {
     return res.status(404);
 });

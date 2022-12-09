@@ -37,6 +37,7 @@ const DarkModeTwoTone_1 = __importDefault(require("@mui/icons-material/DarkModeT
 const LogoutTwoTone_1 = __importDefault(require("@mui/icons-material/LogoutTwoTone"));
 const LiveHelpTwoTone_1 = __importDefault(require("@mui/icons-material/LiveHelpTwoTone"));
 const ElectricBoltTwoTone_1 = __importDefault(require("@mui/icons-material/ElectricBoltTwoTone"));
+const Tooltip_1 = __importDefault(require("@mui/material/Tooltip"));
 const Sidebar_1 = __importDefault(require("./Sidebar"));
 const Login_1 = __importDefault(require("./Login"));
 const Faq_1 = __importDefault(require("./components/Faq"));
@@ -45,7 +46,6 @@ const Dashboard3_1 = __importDefault(require("./components/Dashboard3"));
 const Dashboard4_1 = __importDefault(require("./components/Dashboard4"));
 const Chart_1 = __importDefault(require("./components/Chart"));
 const Chart2_1 = __importDefault(require("./components/Chart2"));
-const Visualizer_1 = __importDefault(require("./components/Visualizer"));
 function App() {
     //destructuring functions from Context object
     const { darkModeOn, toggleDarkMode, setUser, user } = (0, react_1.useContext)(Context_1.Context);
@@ -58,7 +58,7 @@ function App() {
             !user && React.createElement("div", { style: { width: '200px', marginLeft: '25px' } }),
             user && React.createElement("div", { className: darkModeOn ? 'user-dark' : 'user-light' },
                 " ",
-                React.createElement("div", { className: darkModeOn ? "user-pic-dark" : "user-pic-light" }, "Y"),
+                React.createElement("div", { id: "avatar-id", className: darkModeOn ? "user-pic-dark" : "user-pic-light" }, "Y"),
                 " ",
                 React.createElement("div", { className: "user-info" },
                     " ",
@@ -66,29 +66,33 @@ function App() {
                     " ",
                     React.createElement("p", null, "Admin"))),
             React.createElement("div", { id: "logo", className: darkModeOn ? 'darkMode' : 'lightMode' }, "Zeus"),
-            React.createElement(material_1.Box, { display: "flex", justifyContent: "space-between", marginRight: 5 },
-                React.createElement(material_1.IconButton, { sx: {
-                        color: '#DAA520',
-                        "&:hover": { backgroundColor: '#22A39F' }
-                    }, size: "large", onClick: toggleDarkMode }, darkModeOn ? React.createElement(DarkModeTwoTone_1.default, null) : React.createElement(LightModeTwoTone_1.default, null)),
-                React.createElement(react_router_dom_1.Link, { to: "/" },
+            React.createElement(material_1.Box, { id: "icons-header", display: "flex", justifyContent: "space-between", marginRight: 5 },
+                React.createElement(Tooltip_1.default, { title: darkModeOn ? "Light Mode" : "Dark Mode", arrow: true },
                     React.createElement(material_1.IconButton, { sx: {
                             color: '#DAA520',
-                            "&:hover": { backgroundColor: '#FFE15D' }
-                        }, size: "large" },
-                        React.createElement(ElectricBoltTwoTone_1.default, null))),
+                            "&:hover": { backgroundColor: '#22A39F' },
+                        }, size: "large", onClick: toggleDarkMode }, darkModeOn ? React.createElement(LightModeTwoTone_1.default, null) : React.createElement(DarkModeTwoTone_1.default, null))),
+                React.createElement(react_router_dom_1.Link, { to: "/" },
+                    React.createElement(Tooltip_1.default, { title: "Zeus", arrow: true },
+                        React.createElement(material_1.IconButton, { sx: {
+                                color: '#DAA520',
+                                "&:hover": { backgroundColor: '#FFE15D' }
+                            }, size: "large" },
+                            React.createElement(ElectricBoltTwoTone_1.default, null)))),
                 React.createElement(react_router_dom_1.Link, { to: "/faq" },
-                    React.createElement(material_1.IconButton, { sx: {
-                            color: '#DAA520',
-                            "&:hover": { backgroundColor: '#22A39F' }
-                        }, size: "large" },
-                        React.createElement(LiveHelpTwoTone_1.default, null))),
+                    React.createElement(Tooltip_1.default, { title: "FAQ", arrow: true },
+                        React.createElement(material_1.IconButton, { sx: {
+                                color: '#DAA520',
+                                "&:hover": { backgroundColor: '#22A39F' }
+                            }, size: "large" },
+                            React.createElement(LiveHelpTwoTone_1.default, null)))),
                 React.createElement(react_router_dom_1.Link, { to: "/" },
-                    React.createElement(material_1.IconButton, { onClick: () => setUser(null), sx: {
-                            color: '#DAA520',
-                            "&:hover": { backgroundColor: '#fc8181' }
-                        }, size: "large" },
-                        React.createElement(LogoutTwoTone_1.default, null))))),
+                    React.createElement(Tooltip_1.default, { title: "Logout", arrow: true },
+                        React.createElement(material_1.IconButton, { onClick: () => setUser(null), sx: {
+                                color: '#DAA520',
+                                "&:hover": { backgroundColor: '#fc8181' }
+                            }, size: "large" },
+                            React.createElement(LogoutTwoTone_1.default, null)))))),
         !user &&
             React.createElement(Login_1.default, { onClick: logout }),
         " ",
@@ -100,7 +104,7 @@ function App() {
                     React.createElement(react_router_dom_1.Routes, null,
                         React.createElement(react_router_dom_1.Route, { path: "/", element: React.createElement(Dashboard3_1.default, null) }),
                         React.createElement(react_router_dom_1.Route, { path: "/dashboard", element: React.createElement(Dashboard_1.default, null) }),
-                        React.createElement(react_router_dom_1.Route, { path: "/visualizer", element: React.createElement(Visualizer_1.default, null) }),
+                        React.createElement(react_router_dom_1.Route, { path: "/visualizer", element: React.createElement(Dashboard_1.default, null) }),
                         React.createElement(react_router_dom_1.Route, { path: "/dashboard2", element: React.createElement(Dashboard3_1.default, null) }),
                         React.createElement(react_router_dom_1.Route, { path: "/pods", element: React.createElement(Dashboard4_1.default, null) }),
                         React.createElement(react_router_dom_1.Route, { path: "/chart", element: React.createElement(Chart_1.default, null) }),

@@ -49,9 +49,8 @@ function Login({ onClick }) {
     // onSubmit or Login handler function -> add Authentication logic here
     const onSubmit = (values, actions) => __awaiter(this, void 0, void 0, function* () {
         console.log('login submitted');
-        console.log({ values });
-        //   console.log({actions});
-        fetch('/user', {});
+        // console.log(values);
+        // console.log(actions);
         // below is just a mock API call for testing, add logic for AUTH here later...
         yield new Promise((resolve) => {
             setTimeout(resolve, 1000);

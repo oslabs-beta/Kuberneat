@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: metrics-server
+  namespace: zeus-monitoring
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: zeus
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 1
+  template:
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchLabels:
+                  k8s-app: metrics-server
+              namespaces:
+                - zeus-monitoring
+              topologyKey: kubernetes.io/hostname

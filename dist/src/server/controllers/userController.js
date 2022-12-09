@@ -5,31 +5,25 @@ const Users = require('../database/db');
 const userController = {
     //create User
     createUser(req, res, next) {
-        const { username, password } = req.body;
-        //const username = email;
-        //console.log(req.body)
-        console.log('in create user');
-        if (!username || !password)
-            return next('Missing username or password in createUser');
-        Users.create({ email: username, username: username, password: password })
-            .then((newUser) => {
-            console.log(newUser);
-            res.locals.foundUser = newUser;
-            return next();
+        const { email, username, password } = req.body;
+        User.create({ email: email, username: username, password: password })
+            .then((existingUser) => {
+            res.locals.foundUser = existingUser;
+            next();
         })
             .catch((err) => {
-            return next({
+            next({
                 log: `ERROR: ${err}`,
-                message: { err: 'An error occurred in createUser middleware' },
+                message: { err: 'An error occurred in create user middleware' },
             });
         });
     },
     //get User
     getUser(req, res, next) {
         const { email, username, password } = req.body;
-        Users.find({ email: email, username: email, password: password })
+        User.find({ email: email, username: username, password: password })
             .then((createdUser) => {
-            if (!username || !password) {
+            if (!username || !password || !email) {
                 res.locals.newUser = createdUser;
                 return next();
             }
@@ -37,9 +31,9 @@ const userController = {
         })
             .catch((err) => {
             return next({
-                log: `Error in userController.getUser: ${err}`,
+                log: `Error in userController.createUser: ${err}`,
                 message: {
-                    err: 'Error in getUser middleware',
+                    err: 'Error in createUser middleware',
                 },
             });
         });
