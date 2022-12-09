@@ -8,7 +8,7 @@ import { ReactElement, ReactNode } from 'react';
 
 function Signup({ onClick }: { onClick: () => void }): any { // won't take type ReactElement ??
 
-    const { darkModeOn, toggleDarkMode, user, setUser, handleCallbackResponse } = useContext< AppProps >(Context);
+    const { darkModeOn } = useContext< AppProps >(Context);
 
     // onSubmit or Login handler function -> add Authentication logic here
     const onSubmit = async (values: any, actions: any): Promise<void> => {

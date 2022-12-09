@@ -17,7 +17,7 @@ function ContextProvider({ children }: { children: ReactNode }): ReactElement {
 
 	const [darkModeOn, setDarkModeOn] = useState<boolean>(true);
 
-	function toggleDarkMode() {
+	function toggleDarkMode(): void {
 		setDarkModeOn((old) => !old);
 		console.log('dark mode toggled');
 	};

@@ -22,20 +22,12 @@ import Stack from '@mui/material/Stack';
 import Sidebar from './Sidebar';
 import Login from './Login';
 import Signup from './Signup';
-import Faq from './components/Faq'
-import Dashboard from './components/Dashboard';
-import Dashboard2 from './components/Dashboard2';
-import Dashboard3 from './components/Dashboard3';
-import Dashboard4 from './components/Dashboard4';
-import Dashboard5 from './components/Dashboard5';
-import Dashboard6 from './components/Dashboard4';
-import Chart from './components/Chart';
-import Chart2 from './components/Chart2';
-import Visualizer from './components/Visualizer';
-import Visualizer2 from './components/Visualizer2';
 
-import { flexbox } from '@mui/system';
-// import Pod from './components/Pod';
+import CustomDash from './components/CustomDash';
+import GrafanaDash from './components/GrafanaDash';
+import Kluster from './components/Kluster';
+import VisD3 from './components/VisD3';
+import Faq from './components/Faq'
 
 import { AppProps } from './interfaces';
 import { ReactElement, ReactNode } from 'react';
@@ -75,7 +67,7 @@ function App(): ReactElement {
 
 				<div id="avatar-id" className={darkModeOn ? "user-pic-dark" : "user-pic-light"}>Y</div> {/* can add photo later */}
 
-				{/* <img src={user.picture} alt="profile" style={{ borderRadius: '50px', height: '70px', width: '70px'}}></img> */}
+				{/* <img src={user ? user.picture : user.name[0]} alt="profile" style={{ borderRadius: '50px', height: '70px', width: '70px'}}></img> */}
 
 				{/* MUI Avatar solution - don't need stack for single avatar*/}
 				{/* <Stack direction="row" spacing={2}>
@@ -86,7 +78,7 @@ function App(): ReactElement {
 				<div className="user-info">
 					{/* <p>{user.given_name}</p> */} {/* can dynamically render user info later with JWT */}
 					<p>Yaku</p> {/* can dynamically render user info later with JWT */}
-					<p>Admin</p>
+					{/* <p>{user ? user.name : "user email in DB"}</p> */} {/* probably best to use email, since that's how we store username */}
 				</div>
 
 			</div>}
@@ -169,7 +161,7 @@ function App(): ReactElement {
 
 					<Route
 					path="/"
-					element={<Login onClick={logout} />}
+					element={<Login />}
 					/>
 
 					<Route
@@ -191,38 +183,23 @@ function App(): ReactElement {
 		
 						<Route
 							path="/"
-							element={<Dashboard3 />} // Dashboard 2, 3, 4 ,5 vacant...
-						/>
-					
-
-					
-						<Route
-							path="/dashboard"
-							element={<Dashboard />}
+							element={<CustomDash />}
 						/>
 						<Route
-							path="/visualizer"
-							element={<Dashboard />}
+							path="/grafanadash"
+							element={<GrafanaDash />}
 						/>
 						<Route
-							path="/dashboard2"
-							element={<Dashboard3 />}
+							path="/kluster"
+							element={<Kluster />}
 						/>
 						<Route
-							path="/pods"
-							element={<Dashboard4 />}
-						/>
-						<Route
-							path="/chart" 
-							element={<Chart />} 
-						/>
-						<Route
-							path="/chart2"
-							element={<Chart2 />}
+							path="/visualizer" 
+							element={<VisD3 />} 
 						/>
 						<Route
 							path="/faq"
-							element={<Faq />} // set this to FAQ for now
+							element={<Faq />}
 						/>
 
 					</Routes>

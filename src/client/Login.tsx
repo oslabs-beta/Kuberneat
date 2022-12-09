@@ -12,9 +12,9 @@ import jwt_decode, { JwtPayload } from 'jwt-decode';
 import { AppProps } from './interfaces';
 import { ReactElement, ReactNode } from 'react';
 
-function Login({ onClick }: { onClick: () => void }): any { // won't take type ReactElement ??
+function Login(): ReactElement { // won't take type ReactElement ??
 
-    const { darkModeOn, toggleDarkMode, user, setUser, handleCallbackResponse } = useContext< AppProps >(Context);
+    const { darkModeOn, user, setUser } = useContext< AppProps >(Context);
 
     const navigate = useNavigate();
     /* routes user to signup page */
@@ -81,7 +81,7 @@ function Login({ onClick }: { onClick: () => void }): any { // won't take type R
     return (
             
             <>
-                <div className={darkModeOn ? 'login-page-dark' : 'login-page-light'}>
+                <div role="login" className={darkModeOn ? 'login-page-dark' : 'login-page-light'}>
 
                         <div className={darkModeOn ? "auth-1" : "auth-2"} >
                             <div id="signInDiv" ></div>
