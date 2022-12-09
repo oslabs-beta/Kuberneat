@@ -1,0 +1,28 @@
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: nginx-ingress-app-protect
+rules:
+  - apiGroups:
+      - appprotect.f5.com
+    resources:
+      - appolicies
+      - aplogconfs
+      - apusersigs
+    verbs:
+      - 'get'
+      - 'watch'
+      - 'list'
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: nginx-ingress-app-protect
+subjects:
+  - kind: ServiceAccount
+    name: nginx-ingress
+    namespace: zeus-monitoring
+roleRef:
+  kind: ClusterRole
+  name: nginx-ingress-app-protect
+  apiGroup: rbac.authorization.k8s.io
