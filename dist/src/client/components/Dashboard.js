@@ -22,11 +22,21 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Dashboard = void 0;
-const React = __importStar(require("react"));
-const Dashboard = () => {
-    return React.createElement("div", null, "Dashboard");
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.Dashboard = Dashboard;
-exports.default = exports.Dashboard;
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __importStar(require("react"));
+const react_1 = require("react");
+const Context_1 = require("../Context");
+const Header_1 = __importDefault(require("./Header"));
+const material_1 = require("@mui/material");
+function Dashboard() {
+    const { darkModeOn } = (0, react_1.useContext)(Context_1.Context);
+    return (React.createElement(material_1.Box, { m: "20px" },
+        React.createElement("div", { className: darkModeOn ? 'dash-dark' : 'dash-light' },
+            React.createElement(Header_1.default, { title: "Dashboard", subtitle: "Just one of the many ways to visualize your cluster" }),
+            React.createElement("iframe", { src: "http://localhost:3001/d/0dsovdF4z/zeus?orgId=1&refresh=5s&kiosk=&from=1669924943773&to=1669925243773", frameBorder: "0", loading: "eager", title: "Grafana Chart", className: darkModeOn ? 'iframe-dark' : 'iframe-light' }))));
+}
+;
+exports.default = Dashboard;

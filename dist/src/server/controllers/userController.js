@@ -1,39 +1,46 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const User = require('../database/db');
+const Users = require('../database/db');
 //User object middleware
 const userController = {
     //create User
     createUser(req, res, next) {
         const { username, password } = req.body;
-        //check if the if the user does not exist
-        Users.findOne({ username, password })
-            .then((createdUser) => {
-            if (!username || !password) {
-                res.locals.newUser = createdUser;
-            }
-        })
-            .catch((err) => {
-            return next({
-                log: `Error in userController.createUser: ${err}`,
-                message: {
-                    err: 'Error in createUser middleware',
-                },
-            });
-        });
-    },
-    getUser(req, res, next) {
-        const { username } = req.body;
-        //if user does not exist
-        Users.findOne({ username: username })
-            .then((existingUser) => {
-            res.locals.foundUser = existingUser;
+        //const username = email;
+        //console.log(req.body)
+        console.log('in create user');
+        if (!username || !password)
+            return next('Missing username or password in createUser');
+        Users.create({ email: username, username: username, password: password })
+            .then((newUser) => {
+            console.log(newUser);
+            res.locals.foundUser = newUser;
             return next();
         })
             .catch((err) => {
             return next({
                 log: `ERROR: ${err}`,
-                message: { err: 'An error occurred in get user controller' },
+                message: { err: 'An error occurred in createUser middleware' },
+            });
+        });
+    },
+    //get User
+    getUser(req, res, next) {
+        const { email, username, password } = req.body;
+        Users.find({ email: email, username: email, password: password })
+            .then((createdUser) => {
+            if (!username || !password) {
+                res.locals.newUser = createdUser;
+                return next();
+            }
+            console.log('this user already exists');
+        })
+            .catch((err) => {
+            return next({
+                log: `Error in userController.getUser: ${err}`,
+                message: {
+                    err: 'Error in getUser middleware',
+                },
             });
         });
     },
@@ -41,3 +48,14 @@ const userController = {
     deleteUser(req, res, next) { },
 };
 module.exports = userController;
+// .then((existingUser: object) => {
+// 	console.log(existingUser)
+// 	res.locals.foundUser = existingUser;
+// 	return next();
+// })
+// .catch((err: any) => {
+// 	return next({
+// 		log: `ERROR: ${err}`,
+// 		message: { err: 'An error occurred in createUser middleware' },
+// 	});
+// });

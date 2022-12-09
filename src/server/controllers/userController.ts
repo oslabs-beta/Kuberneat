@@ -7,22 +7,28 @@ const userController: object = {
 	//create User
 	createUser(req: Request, res: Response, next: NextFunction) {
 		const { username, password } = req.body;
-		Users.create({ username: username, password: password })
-			.then((existingUser: object) => {
-				res.locals.foundUser = existingUser;
-				return next();
-			})
+		//const username = email;
+		//console.log(req.body)
+		console.log('in create user')
+	if (!username || !password ) return next('Missing username or password in createUser');
+		Users.create({ email: username, username: username, password: password })
+			.then((newUser: object) => {
+			console.log(newUser)
+			res.locals.foundUser = newUser;
+			return next()})
 			.catch((err: any) => {
-				return next({
-					log: `ERROR: ${err}`,
-					message: { err: 'An error occurred in getUser middleware' },
-				});
+			return next({
+				log: `ERROR: ${err}`,
+				message: { err: 'An error occurred in createUser middleware' },
 			});
-	},
+		});
+	}
+			
+	,
 	//get User
 	getUser(req: Request, res: Response, next: any): void {
 		const { email, username, password } = req.body;
-		Users.find({ email: email, username: username, password: password })
+		Users.find({ email: email, username: email, password: password })
 			.then((createdUser: object) => {
 				if (!username || !password) {
 					res.locals.newUser = createdUser;
@@ -32,9 +38,9 @@ const userController: object = {
 			})
 			.catch((err: any) => {
 				return next({
-					log: `Error in userController.createUser: ${err}`,
+					log: `Error in userController.getUser: ${err}`,
 					message: {
-						err: 'Error in createUser middleware',
+						err: 'Error in getUser middleware',
 					},
 				});
 			});
@@ -43,3 +49,17 @@ const userController: object = {
 	deleteUser(req: Request, res: Response, next: any) {},
 };
 module.exports = userController;
+
+
+
+// .then((existingUser: object) => {
+// 	console.log(existingUser)
+// 	res.locals.foundUser = existingUser;
+// 	return next();
+// })
+// .catch((err: any) => {
+// 	return next({
+// 		log: `ERROR: ${err}`,
+// 		message: { err: 'An error occurred in createUser middleware' },
+// 	});
+// });
