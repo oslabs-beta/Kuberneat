@@ -8,7 +8,7 @@ import { Box } from "@mui/material";
 import { AppProps } from '../interfaces';
 import { ReactNode, ReactElement } from 'react';
 
-function Chart2(): ReactElement {
+function VisD3(): ReactElement {
 
 	const { darkModeOn } = useContext < AppProps> (Context);
 
@@ -16,7 +16,7 @@ function Chart2(): ReactElement {
 		<Box m="20px"> {/* removed className chart from div, replaced it below, not sure what it was for? */}
 			<div className={darkModeOn ? 'dash-dark' : 'dash-light'}>
 
-				<Header title="Charts 2" subtitle="Just one of the many ways to visualize your cluster" />
+				<Header title="D3 Visualizer goes here" subtitle="Just another way to visualize your cluster" />
 
 				<div style={{ color: 'purple'}}>charts go here...</div>
 
@@ -25,4 +25,4 @@ function Chart2(): ReactElement {
 	);
 };
 
-export default Chart2;
+export default VisD3;

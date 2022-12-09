@@ -20,7 +20,7 @@ import TrafficIcon from "@mui/icons-material/Traffic";
 
 
 
-function Dashboard3(): ReactElement {
+function CustomDash(): ReactElement {
 
 	const { darkModeOn } = useContext <AppProps> (Context);
 
@@ -39,7 +39,7 @@ function Dashboard3(): ReactElement {
 
 	return (
 			<div className="custom-chart">
-				<Header title="Custom Dashboard" subtitle="Welcome to your custom dashboard" />
+				<Header title="Custom Dashboard goes here" subtitle="Welcome to your custom dashboard" />
 
 				<Box 
 				display="grid" // style
@@ -95,6 +95,6 @@ function Dashboard3(): ReactElement {
 	);
 };
 
-export default Dashboard3;
+export default CustomDash;
 
 				
