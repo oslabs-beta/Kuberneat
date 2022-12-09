@@ -5,7 +5,7 @@ import Pod from './VisualizerPod';
 
 
 // To create our D3 Visualizer
-export default Visualizer = () => {
+export const Visualizer = () => {
   const [d3Chart, setChart] = useState([]);
   const [nodes, setNodes] = useState([]);
 
@@ -281,3 +281,4 @@ for (let i = 0; i < nodes.length; i++) {
 		</div>
 	)
 };
+export default Visualizer;

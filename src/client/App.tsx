@@ -26,8 +26,6 @@ import Dashboard from './components/Dashboard';
 import Dashboard2 from './components/Dashboard2';
 import Dashboard3 from './components/Dashboard3';
 import Dashboard4 from './components/Dashboard4';
-import Dashboard5 from './components/Dashboard5';
-import Dashboard6 from './components/Dashboard4';
 import Chart from './components/Chart';
 import Chart2 from './components/Chart2';
 import Visualizer from './components/Visualizer';
@@ -175,15 +173,13 @@ function App(): ReactElement {
 							element={<Dashboard3 />} // Dashboard 2, 3, 4 ,5 vacant...
 						/>
 					
-
-					
 						<Route
 							path="/dashboard"
 							element={<Dashboard />}
 						/>
 						<Route
 							path="/visualizer"
-							element={<Dashboard />}
+							element={<Dashboard2 />}
 						/>
 						<Route
 							path="/dashboard2"
