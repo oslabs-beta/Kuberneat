@@ -19,7 +19,7 @@ import { CenterFocusStrong } from "@mui/icons-material";
 import Pod2 from './Pod2';
 
 
-function Dashboard4(): ReactElement {
+function Kluster(): ReactElement {
     
     const [nodes, setNodes]: any[] | null = useState([]);
     
@@ -69,7 +69,7 @@ function Dashboard4(): ReactElement {
         
                 <Box m="20px">
                     {/* Header passing down props for title and subtitle */}
-                    <Header title="All Ze Pods" subtitle="Cluster Data" />
+                    <Header title="Kluster Summary" subtitle="Cluster Data" />
         
                     {podProps}
 
@@ -79,4 +79,4 @@ function Dashboard4(): ReactElement {
         );
 };
 
-export default Dashboard4;
+export default Kluster;

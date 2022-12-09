@@ -13,22 +13,22 @@ import Tooltip from '@mui/material/Tooltip';
 
 // this component is reuseable for all containers, and can pass in desired props
 // for title and subtitle
-function Header({title, subtitle, pathName }: HeaderProps): ReactElement {
+function Header({title, subtitle}: HeaderProps): ReactElement {
 
     const { darkModeOn } = useContext <AppProps>(Context);
     const fontColor: string = darkModeOn ? "#fab700 !important" : "#293462 !important" 
     // sets the font color of the header -> changes here get reflected throughout
     // alt light color 344966 fab700
 
-    const navigate: any = useNavigate()
+    const navigate = useNavigate()
     function refreshPage(): void { /* TS not allowing use for refresh */
       window.location.reload();
-      // navigate() /* this won't work either */
+      // navigate('/') /* this won't work either */
     };
 
     return (
 
-      <Box mb="30px">
+      <Box mb="30px" role="header">
 
         <Box sx={{display: 'flex', justifyContent: "space-between", margin: 2}}>
         <Typography
@@ -42,7 +42,7 @@ function Header({title, subtitle, pathName }: HeaderProps): ReactElement {
         {/* <Link to={pathName && `./${pathName}`}> */}
         <Tooltip title="Refresh" arrow >
           <IconButton
-            
+            /* onclick={() => navigate('/')} */ // TS won't allow use
             className="icon" 
             size='large'
             sx={{ "&:hover": { backgroundColor: 'green' } }} 

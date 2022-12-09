@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Context } from './Context'
 
 import { Box, IconButton, Typography} from '@mui/material';
@@ -11,6 +11,9 @@ import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 import LiveHelpTwoToneIcon from '@mui/icons-material/LiveHelpTwoTone';
 import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
 import CloseFullscreenTwoToneIcon from '@mui/icons-material/CloseFullscreenTwoTone';
+import InsertChartTwoToneIcon from '@mui/icons-material/InsertChartTwoTone';
+import AddchartTwoToneIcon from '@mui/icons-material/AddchartTwoTone';
+import ScatterPlotTwoToneIcon from '@mui/icons-material/ScatterPlotTwoTone';
 
 import { AppProps } from './interfaces';
 import { ReactElement } from 'react';
@@ -34,6 +37,12 @@ function Sidebar(): ReactElement {
     //    if(result.matches) {
     //        setActive(true)
     //    }
+
+    const navigate = useNavigate();
+    /* routes for collapsed icons */
+    function goToSignup() {
+        navigate('/signup')
+      }
 
     return (
 
@@ -74,36 +83,23 @@ function Sidebar(): ReactElement {
                     size='large'
                     sx={{ "&:hover": { backgroundColor: '#22A39F' } }}
                     >
-                        <BarChartTwoToneIcon></BarChartTwoToneIcon>
+                        <InsertChartTwoToneIcon onClick={() => navigate('/')}></InsertChartTwoToneIcon>
                     </IconButton>
                     </Tooltip>
-                        <Link to="/dashboard"><Typography>Dashboard</Typography></Link>
+                        <Link to="/"><Typography>Dashboard 1</Typography></Link>
                     </li>
 
                     <li>
-                    <Tooltip title="Visualizer" arrow placement="right-start">
+                    <Tooltip title="Dashboard 2" arrow placement="right-start">
                     <IconButton
                     className="icon" 
                     size='large'
                     sx={{ "&:hover": { backgroundColor: '#22A39F' } }}
                     >
-                        <HubIcon></HubIcon>
+                        <AddchartTwoToneIcon onClick={() => navigate('/grafanadash')}></AddchartTwoToneIcon>
                     </IconButton>
                     </Tooltip>
-                        <Link to="/visualizer"><Typography>Visualizer</Typography></Link>
-                    </li>
-
-                    <li>
-                    <Tooltip title="Dashboard2" arrow placement="right-start">
-                    <IconButton
-                    className="icon" 
-                    size='large'
-                    sx={{ "&:hover": { backgroundColor: '#22A39F' } }}
-                    >
-                        <BarChartTwoToneIcon></BarChartTwoToneIcon>
-                    </IconButton>
-                    </Tooltip>
-                    <Link to="/dashboard2"><Typography>Dashboard 2</Typography></Link>
+                        <Link to="/grafanadash"><Typography>Dashboard 2</Typography></Link>
                     </li>
 
                     <li>
@@ -113,36 +109,23 @@ function Sidebar(): ReactElement {
                     size='large'
                     sx={{ "&:hover": { backgroundColor: '#22A39F' } }}
                     >
-                        <HubIcon></HubIcon>
+                        <HubIcon onClick={() => navigate('/kluster')}></HubIcon>
                     </IconButton>
                     </Tooltip>
-                        <Link to="/pods"><Typography>Kluster</Typography></Link>
+                    <Link to="/kluster"><Typography>Kluster</Typography></Link>
                     </li>
 
                     <li>
-                    <Tooltip title="Chart" arrow placement="right-start">
+                    <Tooltip title="Visualizer" arrow placement="right-start">
                     <IconButton
                     className="icon" 
                     size='large'
                     sx={{ "&:hover": { backgroundColor: '#22A39F' } }}
                     >
-                        <BarChartTwoToneIcon></BarChartTwoToneIcon>
+                        <ScatterPlotTwoToneIcon onClick={() => navigate('/visualizer')}></ScatterPlotTwoToneIcon>
                     </IconButton>
                     </Tooltip>
-                        <Link to="/chart"><Typography>Chart</Typography></Link>
-                    </li>
-
-                    <li>
-                    <Tooltip title="Chart2" arrow placement="right-start">
-                    <IconButton
-                    className="icon" 
-                    size='large'
-                    sx={{ "&:hover": { backgroundColor: '#22A39F' } }}
-                    >
-                        <HubIcon></HubIcon>
-                    </IconButton>
-                    </Tooltip>
-                        <Link to="/chart2"><Typography>Chart 2</Typography></Link>
+                        <Link to="/visualizer"><Typography>Visualizer</Typography></Link>
                     </li>
 
                     <li>
@@ -152,7 +135,7 @@ function Sidebar(): ReactElement {
                     size='large'
                     sx={{ "&:hover": { backgroundColor: '#22A39F' } }}
                     >
-                        <LiveHelpTwoToneIcon></LiveHelpTwoToneIcon>
+                        <LiveHelpTwoToneIcon onClick={() => navigate('/faq')}></LiveHelpTwoToneIcon>
                     </IconButton>
                     </Tooltip>
                         <Link to="/faq"><Typography>FAQ</Typography></Link>
