@@ -13,11 +13,11 @@ const Context: any = React.createContext<null>(null);
 
 function ContextProvider({ children }: { children: ReactNode }): ReactElement {
 
-	const [user, setUser] = useState<string | null>("signed in"); // set to defined for testing, default is null
+	const [user, setUser] = useState<string | null>(null); // set to defined for testing, default is null
 
 	const [darkModeOn, setDarkModeOn] = useState<boolean>(true);
 
-	function toggleDarkMode() {
+	function toggleDarkMode(): void {
 		setDarkModeOn((old) => !old);
 		console.log('dark mode toggled');
 	};
@@ -26,12 +26,13 @@ function ContextProvider({ children }: { children: ReactNode }): ReactElement {
 
 	console.log('Encoded JWT ID token: ' + response.credential);
 	
-	setUser('signed in')
 	 	console.log('User:', user)
+
 		const userObject: any | null = jwt_decode<JwtPayload>(response.credential);
 
 		console.log('UserObject:', userObject); 
-		setUser(userObject); // later set it to the userObject */
+
+		setUser(userObject); // set user to userObject */
 	}
 	/* global google object coming from html script*/
 	useEffect(() => {

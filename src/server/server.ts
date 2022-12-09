@@ -46,6 +46,15 @@ app.get('/', (req: Request, res: Response) => {
 	res.sendFile(path.join(__dirname, '../client/index.html'));
 });
 
+app.get('/user', userController.getUser, (req: Request, res: Response) => {
+	console.log('Getting user is working...', res.locals.foundUser);
+	return res.status(200).json(res.locals.foundUser);
+});
+
+app.post('/user', userController.createUser, (req: Request, res: Response) => {
+	return res.status(200).json(res.locals.newUser);
+});
+
 app.get('/metrics', async (req: Request, res: Response) => {
 	console.log('Getting metrics is working...');
 	res.setHeader('Content-type', register.contentType);
@@ -57,22 +66,25 @@ app.get('/apis/metrics.k8s.io/v1beta1', async (req: Request, res: Response) => {
 	res.sendStatus(200);
 });
 
-// app.get(
-// 	'/apis/metrics.k8s.io/v1beta1/nodes',
-// 	async (req: Request, res: Response) => {
-// 		try {
-// 			const kubeMetrics = await fetch('http://localhost:8085/metrics');
-// 			console.log(kubeMetrics);
-// 			res.sendStatus(200).send(JSON.stringify({metrics:kubeMetrics}));
-// 		} catch (err) {
-// 			console.log(err);
-// 		}
-// 	}
-// );
-app.get('/apis/metrics.k8s.io/v1beta1/nodes/zeus ', async (req: Request, res: Response) => {
-	console.log('Getting metrics resources is working...');
-	res.sendStatus(200);
-});
+app.get(
+	'/apis/metrics.k8s.io/v1beta1/nodes',
+	async (req: Request, res: Response) => {
+		try {
+			const kubeMetrics = await fetch('http://localhost:8085/metrics');
+			console.log(kubeMetrics);
+			res.sendStatus(200).send(JSON.stringify({ metrics: kubeMetrics }));
+		} catch (err) {
+			console.log(err);
+		}
+	}
+);
+app.get(
+	'/apis/metrics.k8s.io/v1beta1/nodes/zeus ',
+	async (req: Request, res: Response) => {
+		console.log('Getting metrics resources is working...');
+		res.sendStatus(200);
+	}
+);
 
 app.get(
 	'/cluster',
@@ -82,15 +94,6 @@ app.get(
 		return res.status(200).json(res.locals.clusterInfo);
 	}
 );
-
-app.get('/user', userController.getUser, (req: Request, res: Response) => {
-	console.log('Getting user is working...', res.locals.foundUser);
-	return res.status(200).json(res.locals.foundUser);
-});
-
-app.post('/user', userController.createUser, (req: Request, res: Response) => {
-	return res.status(200).json(res.locals.newUser);
-});
 
 app.use('*', (req, res) => {
 	return res.status(404);

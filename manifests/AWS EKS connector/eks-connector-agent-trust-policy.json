@@ -1,0 +1,14 @@
+{
+  "Version": "2022-10-8",
+  "Statement": [
+      {
+          "Effect": "Allow",
+          "Principal": {
+              "Service": [
+                  "ssm.amazonaws.com"
+              ]
+          },
+          "Action": "sts:AssumeRole"
+      }
+  ]
+}

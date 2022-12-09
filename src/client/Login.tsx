@@ -12,14 +12,15 @@ import jwt_decode, { JwtPayload } from 'jwt-decode';
 import { AppProps } from './interfaces';
 import { ReactElement, ReactNode } from 'react';
 
-function Login({ onClick }: { onClick: () => void }): any { // won't take type ReactElement ??
+function Login(): ReactElement { // won't take type ReactElement ??
 
-    const { darkModeOn, toggleDarkMode, user, setUser, handleCallbackResponse } = useContext< AppProps >(Context);
+    const { darkModeOn, user, setUser } = useContext< AppProps >(Context);
 
-    // const navigate = useNavigate();
-    // function goToMain() {
-    //     navigate('/dashboard')
-    //   }
+    const navigate = useNavigate();
+    /* routes user to signup page */
+    function goToSignup() {
+        navigate('/signup')
+      }
 
     // onSubmit or Login handler function -> add Authentication logic here
     const onSubmit = async (values: any, actions: any): Promise<void> => {
@@ -80,7 +81,7 @@ function Login({ onClick }: { onClick: () => void }): any { // won't take type R
     return (
             
             <>
-                <div className={darkModeOn ? 'login-page-dark' : 'login-page-light'}>
+                <div role="login" className={darkModeOn ? 'login-page-dark' : 'login-page-light'}>
 
                         <div className={darkModeOn ? "auth-1" : "auth-2"} >
                             <div id="signInDiv" ></div>
@@ -138,13 +139,14 @@ function Login({ onClick }: { onClick: () => void }): any { // won't take type R
                             {/* Login button */}
                                 <button 
                                 id={darkModeOn ? "login-button1" : "login-button2"} 
-                                // onClick={goToMain} // disabled naviagte for now, waiting to implement actual AUTH
+                                // onClick={logout} // disabled for now, waiting to implement actual AUTH
                                 type="submit"
                                 disabled={isSubmitting} // login button disabled when submitting
                                 >Login
                                 </button>
                             {/* Signup button */}
                                 <button 
+                                onClick={goToSignup}/* routes to /signup */
                                 id={darkModeOn ? "login-button1" : "login-button2"} >
                                 Sign-up
                                 </button>
