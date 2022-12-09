@@ -17,15 +17,15 @@ const Pod = ({ info, nodeNum }) => {
 		setAnchorEl(null);
 	};
 	const open = Boolean(anchorEl);
-	const nodeName = document.querySelector(`.${info.Name}`)
-  // listen for mouseover svg text
-	nodeName.addEventListener("mouseover", function (event) {
-		handlePopoverOpen(event)
-	})
-  // listen for mouse out of svg text
-	nodeName.addEventListener("mouseout", function (event) {
-		handlePopoverClose()
-	})
+	const nodeName = document.querySelector(`.${info.Name}`);
+	// listen for mouseover svg text
+	nodeName.addEventListener('mouseover', function (event) {
+		handlePopoverOpen(event);
+	});
+	// listen for mouse out of svg text
+	nodeName.addEventListener('mouseout', function (event) {
+		handlePopoverClose();
+	});
 
 	return (
 		<div id={`pod${nodeNum}`}>
@@ -38,7 +38,7 @@ const Pod = ({ info, nodeNum }) => {
 				{info.Name}
 			</Typography> */}
 			<Popover
-				id="mouse-over-popover"
+				id='mouse-over-popover'
 				sx={{
 					pointerEvents: 'none',
 				}}

@@ -12,8 +12,7 @@ const mongoose = require('mongoose');
 //this line below is used to suppress deprecation warnings
 mongoose.set('strictQuery', true);
 
-const mongoURI =
-	'mongodb+srv://zeus:123@cluster0.ntr77xf.mongodb.net/?retryWrites=true&w=majority';
+const mongoURI = 'mongodb+srv://zeus:123@cluster0.ntr77xf.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose
 	.connect(mongoURI, {
