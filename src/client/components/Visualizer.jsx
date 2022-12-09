@@ -245,7 +245,7 @@ for (let i = 0; i < nodes.length; i++){
 }
 
 // invoke the D3 visualizer function with the arguments passed in
-const chart = ForceGraph(miserables, {
+  const chart = ForceGraph(miserables, {
       nodeId: (d)=> d.id,
       nodeGroup: (d) => d.group,
       // nodeTitle: (d) => `${d.id}\n${d.group}`,
@@ -255,10 +255,10 @@ const chart = ForceGraph(miserables, {
       width: 800,
       height: 600
     })
-    setChart(chart)
-    if (svg.current){
-      svg.current.appendChild(chart)
-    }
+  setChart(chart)
+  if (svg.current){
+    svg.current.appendChild(chart)
+  }
 }, []);
 
 // compile our array containing pod elements to display our popover on the svg
