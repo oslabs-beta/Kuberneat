@@ -15,7 +15,7 @@ module.exports = {
 	devServer: {
 		host: 'localhost',
 		//frontend
-		port: 8080 ,
+		port: 8080,
 		historyApiFallback: true,
 		//backend
 		proxy: {
@@ -42,23 +42,16 @@ module.exports = {
 			},
 
 			{
-        test: /\.css$/i,
+				test: /\.css$/i,
 				exclude: /node_modules/,
-        use: [
-          "style-loader",
-          "css-loader",
-        ],
-      },
+				use: ['style-loader', 'css-loader'],
+			},
 			{
-                test: /\.(png|jpg|gif)$/i,
+				test: /\.(png|jpg|gif)$/i,
 				exclude: /node_modules/,
 
-                use: [
-                  "url-loader",
-				  "file-loader",
-                ],
-            },
-
+				use: ['url-loader', 'file-loader'],
+			},
 		],
 	},
 	resolve: {
@@ -71,9 +64,4 @@ module.exports = {
 			fs: false,
 		},
 	},
-
 };
-
-
-
-

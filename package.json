@@ -46,6 +46,7 @@
 		"babel-loader": "^9.1.0",
 		"child_process": "^1.0.2",
 		"css-loader": "^6.7.2",
+		"d3": "^7.6.1",
 		"d3-force": "^3.0.0",
 		"electron": "^21.3.0",
 		"electron-reloader": "^1.2.3",
