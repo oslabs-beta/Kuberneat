@@ -27,190 +27,156 @@ import CustomDash from './components/CustomDash';
 import GrafanaDash from './components/GrafanaDash';
 import Kluster from './components/Kluster';
 import VisD3 from './components/VisD3';
-import Faq from './components/Faq'
+import Faq from './components/Faq';
 
 import { AppProps } from './interfaces';
 import { ReactElement, ReactNode } from 'react';
 
 function App(): ReactElement {
 	//destructuring functions from Context object
-	const { darkModeOn, toggleDarkMode, setUser, user } = useContext< AppProps >(Context);
+	const { darkModeOn, toggleDarkMode, setUser, user } = useContext<AppProps>(Context);
 
-	function logout(): void { // for now, this mocks logout from logout icon on far right of top navbar
+	function logout(): void {
+		// for now, this mocks logout from logout icon on far right of top navbar
 		// navigate('/');
-		setUser(null)
-	};
+		setUser(null);
+	}
 
 	function signup(): void {
 		// write logic for signup, reroute to login page
-		setUser(null)
+		setUser(null);
 	}
 
 	return (
 		<>
-			{/* <CssBaseline /> */} 
+			{/* <CssBaseline /> */}
 			{/* from MUI let's us reset our CSS to default automatically */}
 
 			{/* Admin & User Profile Info -> with JWT decoding can dynamically render user info*/}
-			<div
-				className="loginPage"
-				id={darkModeOn ? 'navbar1' : 'navbar2'}
-			>
-				
-			{/* on login page when no user is signed in */}	
-			{!user && <div style={{width: '200px', marginLeft: '25px' }}></div>}
+			<div className='loginPage' id={darkModeOn ? 'navbar1' : 'navbar2'}>
+				{/* on login page when no user is signed in */}
+				{!user && <div style={{ width: '200px', marginLeft: '25px' }}></div>}
 
-			{/* once user is logged in display profile data */}
-			{user && <div className={darkModeOn ? 'user-dark' : 'user-light'}> {/* profile renders user data from JWT */}
-
-				{/* 3 diff ways to show Avatar */}
-
-				<div id="avatar-id" className={darkModeOn ? "user-pic-dark" : "user-pic-light"}>Y</div> {/* can add photo later */}
-
-				{/* <img src={user ? user.picture : user.name[0]} alt="profile" style={{ borderRadius: '50px', height: '70px', width: '70px'}}></img> */}
-
-				{/* MUI Avatar solution - don't need stack for single avatar*/}
-				{/* <Stack direction="row" spacing={2}>
+				{/* once user is logged in display profile data */}
+				{user && (
+					<div className={darkModeOn ? 'user-dark' : 'user-light'}>
+						{' '}
+						{/* profile renders user data from JWT */}
+						{/* 3 diff ways to show Avatar */}
+						<div id='avatar-id' className={darkModeOn ? 'user-pic-dark' : 'user-pic-light'}>
+							Y
+						</div>{' '}
+						{/* can add photo later */}
+						{/* <img src={user ? user.picture : user.name[0]} alt="profile" style={{ borderRadius: '50px', height: '70px', width: '70px'}}></img> */}
+						{/* MUI Avatar solution - don't need stack for single avatar*/}
+						{/* <Stack direction="row" spacing={2}>
       				<Avatar alt="Yaku" src="source.png" sx={{ width: 56, height: 56 }}/>
     			</Stack> */}
-
-
-				<div className="user-info">
-					{/* <p>{user.given_name}</p> */} {/* can dynamically render user info later with JWT */}
-					<p>Yaku</p> {/* can dynamically render user info later with JWT */}
-					{/* <p>{user ? user.name : "user email in DB"}</p> */} {/* probably best to use email, since that's how we store username */}
-				</div>
-
-			</div>}
+						<div className='user-info'>
+							{/* <p>{user.given_name}</p> */}{' '}
+							{/* can dynamically render user info later with JWT */}
+							<p>Yaku</p> {/* can dynamically render user info later with JWT */}
+							{/* <p>{user ? user.name : "user email in DB"}</p> */}{' '}
+							{/* probably best to use email, since that's how we store username */}
+						</div>
+					</div>
+				)}
 
 				{/* OSP Name */}
-				<div
-					id="logo"
-					className={darkModeOn ? 'darkMode' : 'lightMode'}
-				>
+				<div id='logo' className={darkModeOn ? 'darkMode' : 'lightMode'}>
 					Zeus
 				</div>
 
-				<Box
-					id="icons-header"
-					display="flex"
-					justifyContent="space-between"
-					marginRight={5}
-				>
-					<Tooltip title={darkModeOn ? "Light Mode" : "Dark Mode"} arrow>
-					<IconButton
-						sx={{ // refactored ICON hover effect, applied to all
-							color: '#DAA520', 
-							"&:hover": { backgroundColor: '#22A39F' },
-						}}
-						size="large"
-						onClick={toggleDarkMode}
-					>
-						{darkModeOn ? <LightModeTwoToneIcon /> : <DarkModeTwoToneIcon />}
-					</IconButton>
+				<Box id='icons-header' display='flex' justifyContent='space-between' marginRight={5}>
+					<Tooltip title={darkModeOn ? 'Light Mode' : 'Dark Mode'} arrow>
+						<IconButton
+							sx={{
+								// refactored ICON hover effect, applied to all
+								color: '#DAA520',
+								'&:hover': { backgroundColor: '#22A39F' },
+							}}
+							size='large'
+							onClick={toggleDarkMode}
+						>
+							{darkModeOn ? <LightModeTwoToneIcon /> : <DarkModeTwoToneIcon />}
+						</IconButton>
 					</Tooltip>
 
-					<Link to="/">
-						<Tooltip title="Zeus" arrow>
-						<IconButton
-							sx={{ 
-								color: '#DAA520', 
-								"&:hover": { backgroundColor: '#FFE15D' } 
-							}}
-							size="large"
-						>
-							<ElectricBoltTwoToneIcon></ElectricBoltTwoToneIcon>
-						</IconButton>
+					<Link to='/'>
+						<Tooltip title='Zeus' arrow>
+							<IconButton
+								sx={{
+									color: '#DAA520',
+									'&:hover': { backgroundColor: '#FFE15D' },
+								}}
+								size='large'
+							>
+								<ElectricBoltTwoToneIcon></ElectricBoltTwoToneIcon>
+							</IconButton>
 						</Tooltip>
 					</Link>
 
-					<Link to="/faq">
-						<Tooltip title="FAQ" arrow>
-						<IconButton
-							sx={{ 
-								color: '#DAA520', 
-								"&:hover": { backgroundColor: '#22A39F' } 
-							}}
-							size="large"
-						>
-							<LiveHelpTwoToneIcon></LiveHelpTwoToneIcon>
-						</IconButton>
+					<Link to='/faq'>
+						<Tooltip title='FAQ' arrow>
+							<IconButton
+								sx={{
+									color: '#DAA520',
+									'&:hover': { backgroundColor: '#22A39F' },
+								}}
+								size='large'
+							>
+								<LiveHelpTwoToneIcon></LiveHelpTwoToneIcon>
+							</IconButton>
 						</Tooltip>
 					</Link>
 
-					<Link to="/">{/* may remove path later if ok */}
-					<Tooltip title="Logout" arrow>
-						<IconButton
-						onClick={() => setUser(null)}
-						sx={{ 
-							color: '#DAA520', 
-							"&:hover": { backgroundColor: '#fc8181' } 
-						}}
-							size="large"
-						>
-							<LogoutTwoToneIcon></LogoutTwoToneIcon>
-						</IconButton>
+					<Link to='/'>
+						{/* may remove path later if ok */}
+						<Tooltip title='Logout' arrow>
+							<IconButton
+								onClick={() => setUser(null)}
+								sx={{
+									color: '#DAA520',
+									'&:hover': { backgroundColor: '#fc8181' },
+								}}
+								size='large'
+							>
+								<LogoutTwoToneIcon></LogoutTwoToneIcon>
+							</IconButton>
 						</Tooltip>
 					</Link>
 				</Box>
 			</div>
 
-			{!user &&
-
+			{!user && (
 				<Routes>
+					<Route path='/' element={<Login />} />
 
-					<Route
-					path="/"
-					element={<Login />}
-					/>
+					<Route path='/signup' element={<Signup onClick={signup} />} />
+				</Routes>
+			)}
 
-					<Route
-					path="/signup"
-					element={<Signup onClick={signup} />}
-					/>
+			{user && (
+				<div className={darkModeOn ? 'app-dark' : 'app-light'}>
+					{/* will render depending on routes when user is defined aka logged in */}
 
-				</Routes>}
+					<div>
+						<Sidebar />
+					</div>
 
-			{user && 
-
-			<div className={darkModeOn ? "app-dark" : "app-light"}> 
-			{/* will render depending on routes when user is defined aka logged in */}
-
-				<div><Sidebar/></div>
-
-				<main className="content">
-					<Routes>
-		
-						<Route
-							path="/"
-							element={<CustomDash />}
-						/>
-						<Route
-							path="/grafanadash"
-							element={<GrafanaDash />}
-						/>
-						<Route
-							path="/kluster"
-							element={<Kluster />}
-						/>
-						<Route
-							path="/visualizer" 
-							element={<VisD3 />} 
-						/>
-						<Route
-							path="/faq"
-							element={<Faq />}
-						/>
-
-					</Routes>
-				</main>
-
-			</div>
-			
-			}
-
+					<main className='content'>
+						<Routes>
+							<Route path='/' element={<CustomDash />} />
+							<Route path='/grafanadash' element={<GrafanaDash />} />
+							<Route path='/kluster' element={<Kluster />} />
+							<Route path='/visualizer' element={<VisD3 />} />
+							<Route path='/faq' element={<Faq />} />
+						</Routes>
+					</main>
+				</div>
+			)}
 		</>
 	);
-};
+}
 
 export default App;

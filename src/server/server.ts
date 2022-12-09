@@ -1,10 +1,4 @@
-import express, {
-	Express,
-	Request,
-	Response,
-	ErrorRequestHandler,
-	NextFunction,
-} from 'express';
+import express, { Express, Request, Response, ErrorRequestHandler, NextFunction } from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
 import { RequestHandler } from 'express';
@@ -66,62 +60,41 @@ app.get('/apis/metrics.k8s.io/v1beta1', async (req: Request, res: Response) => {
 	res.sendStatus(200);
 });
 
-app.get(
-	'/apis/metrics.k8s.io/v1beta1/nodes',
-	async (req: Request, res: Response) => {
-		try {
-			const kubeMetrics = await fetch('http://localhost:8085/metrics');
-			console.log(kubeMetrics);
-			res.sendStatus(200).send(JSON.stringify({ metrics: kubeMetrics }));
-		} catch (err) {
-			console.log(err);
-		}
+app.get('/apis/metrics.k8s.io/v1beta1/nodes', async (req: Request, res: Response) => {
+	try {
+		const kubeMetrics = await fetch('http://localhost:8085/metrics');
+		console.log(kubeMetrics);
+		res.sendStatus(200).send(JSON.stringify({ metrics: kubeMetrics }));
+	} catch (err) {
+		console.log(err);
 	}
-);
-app.get(
-	'/apis/metrics.k8s.io/v1beta1/nodes/zeus ',
-	async (req: Request, res: Response) => {
-		console.log('Getting metrics resources is working...');
-		res.sendStatus(200);
-	}
-);
+});
+app.get('/apis/metrics.k8s.io/v1beta1/nodes/zeus ', async (req: Request, res: Response) => {
+	console.log('Getting metrics resources is working...');
+	res.sendStatus(200);
+});
 
-app.get(
-	'/cluster',
-	middleware.getClusterInfo,
-	(req: Request, res: Response) => {
-		console.log('Getting cluster is working...', res.locals.clusterInfo);
-		return res.status(200).json(res.locals.clusterInfo);
-	}
-);
+app.get('/cluster', middleware.getClusterInfo, (req: Request, res: Response) => {
+	console.log('Getting cluster is working...', res.locals.clusterInfo);
+	return res.status(200).json(res.locals.clusterInfo);
+});
 
 app.use('*', (req, res) => {
 	return res.status(404);
 });
 
-app.use(
-	(
-		err: ErrorRequestHandler,
-		req: Request,
-		res: Response,
-		next: NextFunction
-	) => {
-		const defaultError = {
-			log: 'express error handler triggered',
-			status: 500,
-			message: { err: `${err}: An error occurred` },
-		};
-		const errorObj = Object.assign({}, defaultError, err);
-		console.log(errorObj.log);
-		return res.status(errorObj.status).json(errorObj.message);
-	}
-);
+app.use((err: ErrorRequestHandler, req: Request, res: Response, next: NextFunction) => {
+	const defaultError = {
+		log: 'express error handler triggered',
+		status: 500,
+		message: { err: `${err}: An error occurred` },
+	};
+	const errorObj = Object.assign({}, defaultError, err);
+	console.log(errorObj.log);
+	return res.status(errorObj.status).json(errorObj.message);
+});
 
 app.listen(PORT, () => {
-	console.log(
-		`************************* EXPRESS server is listening on http://localhost:${PORT}/`
-	);
-	console.log(
-		`************************* Frontend listening on  http://localhost:${8080}/`
-	);
+	console.log(`************************* EXPRESS server is listening on http://localhost:${PORT}/`);
+	console.log(`************************* Frontend listening on  http://localhost:${8080}/`);
 });
