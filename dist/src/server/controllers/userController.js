@@ -5,13 +5,29 @@ const User = require('../database/db');
 const userController = {
     //create User
     createUser(req, res, next) {
-        const { username, password } = req.body;
-        //check if the if the user does not exist
-        Users.findOne({ username, password })
+        const { email, username, password } = req.body;
+        User.create({ email: email, username: username, password: password })
+            .then((existingUser) => {
+            res.locals.foundUser = existingUser;
+            next();
+        })
+            .catch((err) => {
+            next({
+                log: `ERROR: ${err}`,
+                message: { err: 'An error occurred in create user middleware' },
+            });
+        });
+    },
+    //get User
+    getUser(req, res, next) {
+        const { email, username, password } = req.body;
+        User.find({ email: email, username: username, password: password })
             .then((createdUser) => {
-            if (!username || !password) {
+            if (!username || !password || !email) {
                 res.locals.newUser = createdUser;
+                return next();
             }
+            console.log('this user already exists');
         })
             .catch((err) => {
             return next({
@@ -19,21 +35,6 @@ const userController = {
                 message: {
                     err: 'Error in createUser middleware',
                 },
-            });
-        });
-    },
-    getUser(req, res, next) {
-        const { username } = req.body;
-        //if user does not exist
-        Users.findOne({ username: username })
-            .then((existingUser) => {
-            res.locals.foundUser = existingUser;
-            return next();
-        })
-            .catch((err) => {
-            return next({
-                log: `ERROR: ${err}`,
-                message: { err: 'An error occurred in get user controller' },
             });
         });
     },
