@@ -48,7 +48,7 @@ app.get('/', (req: Request, res: Response) => {
 
 app.get('/user', userController.getUser, (req: Request, res: Response) => {
 	console.log('Getting user is working...', res.locals.foundUser);
-	return res.sendStatus(200).json(res.locals.foundUser);
+	return res.status(200).json(res.locals.foundUser);
 });
 
 app.post('/user', userController.createUser, (req: Request, res: Response) => {
@@ -72,7 +72,7 @@ app.get(
 		try {
 			const kubeMetrics = await fetch('http://localhost:8085/metrics');
 			console.log(kubeMetrics);
-			res.sendStatus(200).send(JSON.stringify({metrics:kubeMetrics}));
+			res.sendStatus(200).send(JSON.stringify({ metrics: kubeMetrics }));
 		} catch (err) {
 			console.log(err);
 		}

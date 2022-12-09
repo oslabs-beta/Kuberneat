@@ -1,13 +1,13 @@
 import { Request, Response, NextFunction } from 'express';
 
-const User = require('../database/db');
+const Users = require('../database/db');
 
 //User object middleware
 const userController: object = {
 	//create User
 	createUser(req: Request, res: Response, next: NextFunction) {
 		const { email, username, password } = req.body;
-		User.create({ email: email, username: username, password: password })
+		Users.create({ email: email, username: username, password: password })
 			.then((newUser: object) => {
 				res.locals.newUser = newUser;
 				next();
@@ -22,7 +22,7 @@ const userController: object = {
 	//get User
 	getUser(req: Request, res: Response, next: any): void {
 		const { username, password } = req.params;
-		User.find({ username: username, password: password })
+		Users.find({ username: username, password: password })
 			.then((existingUser: object) => {
 				res.locals.foundUser = existingUser;
 				next();
