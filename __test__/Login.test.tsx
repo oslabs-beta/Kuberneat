@@ -7,25 +7,23 @@
     expect(element).not.toBeNull();
   });
 
-  
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import Faq from '../components/Faq';
-import Header from '../components/Header';
+import Login from '../src/client/Login';
 
 // can use DESCRIBE BLOCKS to nest mulitple tests that are similar 
 // ie: all are for a component and some functionality for it
-describe("Faq component testing", () => {
+describe("Login component testing", () => {
 
     // what we are testing
-test('Faq component should render a header title', 
+test('Login component should have the text Email', 
 async () => {
     // 1st render the component we want to test
-    render(<Header title="FAQ" subtitle="Frequently Asked Questions Page"/>);
+    render(<Login />);
     // find an element we want to interact with
-    const divElement = screen.getByRole("header");
+    const divElement = screen.getByRole("login");
     // use screen to interact with it via its methods
-    expect(divElement).toContain("FAQ");
+    expect(divElement).toContain("Email");
     //Assertion that the results are as expected
 });
 

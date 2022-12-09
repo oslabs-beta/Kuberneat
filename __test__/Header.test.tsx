@@ -9,7 +9,7 @@
 
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import Header from '../components/Header';
+import Header from '../src/client/components/Header';
 
 // can use DESCRIBE BLOCKS to nest mulitple tests that are similar 
 // ie: all are for a component and some functionality for it
