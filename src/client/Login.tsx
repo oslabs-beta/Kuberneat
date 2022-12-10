@@ -17,26 +17,39 @@ function Login(): ReactElement {
 
 	const { darkModeOn, user, setUser } = useContext<AppProps>(Context);
 
-	const navigate = useNavigate();
-	/* routes user to signup page */
-	function goToSignup() {
-		navigate('/signup');
-	}
+    const navigate = useNavigate();
+    /* routes user to signup page */
+    function goToSignup() {
+        navigate('/signup')
+      }
 
-	// onSubmit or Login handler function -> add Authentication logic here
-	const onSubmit = async (values: any, actions: any): Promise<void> => {
-		console.log('login submitted');
-		// console.log(values);
-		// console.log(actions);
-		// below is just a mock API call for testing, add logic for AUTH here later...
-		await new Promise((resolve) => {
-			setTimeout(resolve, 1000);
-		});
-		actions.resetForm(); // resets form fields
-	};
-	// console.log(errors)
-	// console.log(loginSchema)
-	/* console.log(formik) */
+    // onSubmit or Login handler function -> add Authentication logic here
+    const onSubmit = async (values: any, actions: any): Promise<void> => {
+        console.log('login submitted');
+        
+        //fetch request to backend to authorize 
+        fetch('/login', {
+            method: 'POST',
+            headers:{'content-type':'application/json'},
+            body: JSON.stringify(
+                {
+                email: values.email,
+                password: values.password,
+                }
+            ),
+            })
+            .then(res => res.json())
+            .catch(error => console.log(error))
+        
+        // below is just a mock API call for testing, add logic for AUTH here later...
+        await new Promise((resolve) => {
+            setTimeout(resolve, 1000);
+        });
+        actions.resetForm(); // resets form fields 
+    };
+    // console.log(errors)
+    // console.log(loginSchema)
+    /* console.log(formik) */
 
 	const {
 		// destructured props from the object returned from useFormik hook
