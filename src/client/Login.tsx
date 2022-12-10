@@ -11,6 +11,7 @@ import jwt_decode, { JwtPayload } from 'jwt-decode';
 
 import { AppProps } from './interfaces';
 import { ReactElement, ReactNode } from 'react';
+import { string } from 'yup/lib/locale';
 
 function Login(): ReactElement {
 	// won't take type ReactElement ??
@@ -27,22 +28,36 @@ function Login(): ReactElement {
     const onSubmit = async (values: any, actions: any): Promise<void> => {
         console.log('login submitted');
         
-        //fetch request to backend to authorize 
-        fetch('/login', {
-            method: 'POST',
-            headers:{'content-type':'application/json'},
-            body: JSON.stringify(
-                {
-                email: values.email,
-                password: values.password,
-                }
-            ),
-            })
-            .then(res => res.json())
-            .catch(error => console.log(error))
-        
         // below is just a mock API call for testing, add logic for AUTH here later...
         await new Promise((resolve) => {
+            //fetch request to backend to authorize 
+            fetch('/login', {
+                method: 'POST',
+                headers:{'content-type':'application/json'},
+                body: JSON.stringify(
+                    {
+                    email: values.email,
+                    password: values.password,
+                    }
+                ),
+                })
+                .then(res => res.json())
+				.then(res => {
+					const { email } = res;
+					if (email){
+					const userObj = { name: email, email: email}
+					setUser(userObj)
+					} else {
+						alert('Login Unsuccessful')
+						return;
+					}
+				})
+                .catch(error => {
+					alert('Error logging in')
+					console.log(error)
+				})
+				
+            //once we get object back, set the user to the object
             setTimeout(resolve, 1000);
         });
         actions.resetForm(); // resets form fields 

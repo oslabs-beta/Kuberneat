@@ -9,7 +9,7 @@ import { ReactElement, ReactNode } from 'react';
 function Signup({ onClick }: { onClick: () => void }): any {
 	// won't take type ReactElement ??
 
-	const { darkModeOn } = useContext<AppProps>(Context);
+	const { darkModeOn, setUser, user } = useContext<AppProps>(Context);
 
 	// onSubmit or Login handler function -> add Authentication logic here
 	const onSubmit = async (values: any, actions: any): Promise<void> => {
@@ -18,6 +18,31 @@ function Signup({ onClick }: { onClick: () => void }): any {
 		// console.log(actions);
 		// below is just a mock API call for testing, add logic for AUTH here later...
 		await new Promise((resolve) => {
+				//fetch request to backend to authorize email & password
+				fetch('/register', {
+					method: 'POST',
+					headers:{'content-type':'application/json'},
+					body: JSON.stringify(
+						{
+						email: values.email,
+						password: values.password,
+						}
+					),
+					})
+					.then(res => res.json())
+					.then(res => {
+						const { email } = res;
+						if (email){
+							const userObj = { name: email, email: email}
+							alert('User Created')
+							setUser(userObj)
+							} else {
+								alert('Username Unavailable')
+								return;
+							}
+					})
+					.catch(error => console.log(error))
+
 			setTimeout(resolve, 1000);
 		});
 		actions.resetForm(); // resets form fields

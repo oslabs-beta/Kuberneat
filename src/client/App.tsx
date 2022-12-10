@@ -67,7 +67,7 @@ function App(): ReactElement {
 							Y
 						</div>{' '}
 						{/* can add photo later */}
-						{/* <img src={user ? user.picture : user.name[0]} alt="profile" style={{ borderRadius: '50px', height: '70px', width: '70px'}}></img> */}
+						{/* <img src={user ? user.picture : user.name.split('')[0]} alt="profile" style={{ borderRadius: '50px', height: '70px', width: '70px'}}></img> */}
 						{/* MUI Avatar solution - don't need stack for single avatar*/}
 						{/* <Stack direction="row" spacing={2}>
       				<Avatar alt="Yaku" src="source.png" sx={{ width: 56, height: 56 }}/>

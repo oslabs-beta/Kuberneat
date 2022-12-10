@@ -42,12 +42,14 @@ app.get('/', (req: Request, res: Response) => {
 
 app.post('/login', userController.getUser, (req: Request, res: Response) => {
 	console.log('Getting user is working...', res.locals.foundUser);
+	//res.redirect to route, 
 	return res.status(200).json(res.locals.foundUser);
 });
 
-app.post('/register', userController.createUser, (req: Request, res: Response) => {
+app.post('/register', userController.checkForUser, userController.createUser, (req: Request, res: Response) => {
 	return res.status(200).json(res.locals.newUser);
 });
+
 
 app.get('/metrics', async (req: Request, res: Response) => {
 	console.log('Getting metrics is working...');
