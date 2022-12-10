@@ -114,8 +114,7 @@ export const Visualizer = () => {
 			.attr('class', function (d) {
 				return d.id;
 			})
-			// .attr("id", d.id)
-			.attr('fill', 'white')
+			.attr('fill', 'black')
 			.attr('x', -20)
 			.attr('y', 30)
 			.attr('font-size', '15px')
@@ -321,7 +320,7 @@ export const Visualizer = () => {
 			linkStrokeWidth: (l) => Math.sqrt(l.value),
 			// colors: ['red', 'blue', 'green'],
 			linkStrength: 0.1,
-			width: 1000,
+			width: 900,
 			height: 600,
 		});
 		setChart(chart);
