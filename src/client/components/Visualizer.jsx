@@ -321,8 +321,8 @@ export const Visualizer = () => {
 			linkStrokeWidth: (l) => Math.sqrt(l.value),
 			// colors: ['red', 'blue', 'green'],
 			linkStrength: 0.1,
-			width: 800,
-			height: 600,
+			width: 1200,
+			height: 800,
 		});
 		setChart(chart);
 		if (svg.current) {
