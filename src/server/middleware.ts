@@ -54,10 +54,10 @@ const middleware: Object = {};
 			for (let i = 2; i < newArr.length; i++) {
 				obj.Namespace.push(newArr[i][1]);
 				obj.Name.push(newArr[i][2]);
-				obj.CPU_Requests.push(newArr[i][3].concat(newArr[i][4]));
-				obj.CPU_Limits.push(newArr[i][5].concat(newArr[i][6]));
-				obj.Memory_Requests.push(newArr[i][7].concat(newArr[i][8]));
-				obj.Memory_Limits.push(newArr[i][9].concat(newArr[i][10]));
+				obj.CPU_Requests.push(newArr[i][3].concat(' ' + newArr[i][4]));
+				obj.CPU_Limits.push(newArr[i][5].concat(' ' + newArr[i][6]));
+				obj.Memory_Requests.push(newArr[i][7].concat(' ' + newArr[i][8]));
+				obj.Memory_Limits.push(newArr[i][9].concat(' ' + newArr[i][10]));
 				obj.Age.push(newArr[i][11]);
 			}
 			// store our cluster info in res.locals object
@@ -74,19 +74,12 @@ const middleware: Object = {};
 };
 
 //fetching health metrics from terminal
-(middleware as any).getHealth = async (
-	req: Request,
-	res: Response,
-	next: any
-) => {
+(middleware as any).getHealth = async (req: Request, res: Response, next: any) => {
 	try {
 		const health = (cmd: string, callback: any) => {
-			child_process.exec(
-				cmd,
-				(err: ErrorCallback, stdout: any, stderr: any) => {
-					callback(stdout);
-				}
-			);
+			child_process.exec(cmd, (err: ErrorCallback, stdout: any, stderr: any) => {
+				callback(stdout);
+			});
 		};
 		//health of each node can be found by this command line
 		health('kubectl get componentstatuses', (output: string) => {
