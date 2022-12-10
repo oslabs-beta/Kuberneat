@@ -17,12 +17,8 @@ function VisD3(): ReactElement {
 			{' '}
 			{/* removed className chart from div, replaced it below, not sure what it was for? */}
 			<div className={darkModeOn ? 'dash-dark' : 'dash-light'}>
-				<Header
-					title='D3 Visualizer goes here'
-					subtitle='Just another way to visualize your cluster'
-				/>
+				<Header title='Kubernetes Cluster Visualizer' subtitle='' />
 				<Visualizer></Visualizer>
-				<div style={{ color: 'purple' }}>charts go here...</div>
 			</div>
 		</Box>
 	);

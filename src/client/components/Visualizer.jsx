@@ -321,8 +321,8 @@ export const Visualizer = () => {
 			linkStrokeWidth: (l) => Math.sqrt(l.value),
 			// colors: ['red', 'blue', 'green'],
 			linkStrength: 0.1,
-			width: 1200,
-			height: 800,
+			width: 1000,
+			height: 600,
 		});
 		setChart(chart);
 		if (svg.current) {
@@ -338,7 +338,7 @@ export const Visualizer = () => {
 	// if (d3Chart.simulation && d3Chart.simulation.restart) {d3Chart.simulation.restart();}
 	return (
 		<div>
-			<div ref={svg} id='visContainer'></div>
+			<div ref={svg}></div>
 			<div>{podProps}</div>
 		</div>
 	);
