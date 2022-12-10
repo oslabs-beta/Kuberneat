@@ -28,7 +28,7 @@ const Pod = ({ info, nodeNum }) => {
 	});
 
 	return (
-		<div id={`pod${nodeNum}`}>
+		<div id={`pod${nodeNum}`} class='mouse-over-popover'>
 			<Popover
 				id='mouse-over-popover'
 				sx={{
@@ -50,12 +50,12 @@ const Pod = ({ info, nodeNum }) => {
 				<Typography sx={{ p: 1 }}>
 					<div className='pod-popOver'>
 						<ul>
-							<li>Name: {info.Name} </li>
-							<li>CPU Requests: {info.CPU_Requests} </li>
-							<li>CPU Limits: {info.CPU_Limits} </li>
-							<li>Memory Requests: {info.Memory_Requests}</li>
-							<li>Memory Limits: {info.Memory_Limits}</li>
-							<li>Age: {info.Age}</li>
+							<li id='popOver'>Name: {info.Name} </li>
+							<li id='popOver'>CPU Requests: {info.CPU_Requests} </li>
+							<li id='popOver'>CPU Limits: {info.CPU_Limits} </li>
+							<li id='popOver'>Memory Requests: {info.Memory_Requests}</li>
+							<li id='popOver'>Memory Limits: {info.Memory_Limits}</li>
+							<li id='popOver'>Age: {info.Age}</li>
 						</ul>
 					</div>
 				</Typography>

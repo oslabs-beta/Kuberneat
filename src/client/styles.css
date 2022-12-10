@@ -675,3 +675,18 @@ nav .ul-item li:hover {
 		font-size: 48px;
 	}
 }
+
+#D3Graph {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border-style: solid;
+	border-color: rgb(0, 199, 209);
+	border-radius: 25px;
+	background-color: white;
+	width: 85%;
+}
+
+#popOver {
+	color: black;
+}
