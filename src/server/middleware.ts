@@ -50,7 +50,7 @@ const middleware: Object = {};
 			for (let i = 0; i < newArr.length; i++) {
 				newArr[i] = newArr[i].split(/[ ,]+/);
 			}
-			// populate our object
+			// populate our object to send to fetch req in frontend
 			for (let i = 2; i < newArr.length; i++) {
 				obj.Namespace.push(newArr[i][1]);
 				obj.Name.push(newArr[i][2]);
