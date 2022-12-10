@@ -338,7 +338,7 @@ export const Visualizer = () => {
 	// if (d3Chart.simulation && d3Chart.simulation.restart) {d3Chart.simulation.restart();}
 	return (
 		<div>
-			<div ref={svg}></div>
+			<div ref={svg} id='visContainer'></div>
 			<div>{podProps}</div>
 		</div>
 	);

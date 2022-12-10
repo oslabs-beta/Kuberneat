@@ -675,3 +675,8 @@ nav .ul-item li:hover {
 		font-size: 48px;
 	}
 }
+
+#D3Graph {
+	border-style: solid;
+	border-radius: 25px;
+}
