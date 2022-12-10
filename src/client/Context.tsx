@@ -20,17 +20,18 @@ function ContextProvider({ children }: { children: ReactNode }): ReactElement {
 		setDarkModeOn((old) => !old);
 		console.log('dark mode toggled');
 	}
-
+	//John's comment: function handling Oauth, when we get user object back
 	function handleCallbackResponse(response: any) {
 		console.log('Encoded JWT ID token: ' + response.credential);
 
 		console.log('User:', user);
-
+		
 		const userObject: any | null = jwt_decode<JwtPayload>(response.credential);
-
-		console.log('UserObject:', userObject);
-
-		setUser(userObject); // set user to userObject */
+		//create a new object from user object, make the shape match the shape of the object we get from own oauth
+		//console.log('UserObject:', userObject);
+		const { name, email } = userObject;
+		const newUser: any | null = { name: name, email: email }
+		setUser(newUser); // set user to userObject */ going from null to defined and allows routes to display 
 	}
 	/* global google object coming from html script*/
 	useEffect(() => {
