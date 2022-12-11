@@ -1,5 +1,14 @@
+/**
+ * @jest-environment node
+ */
+
 //The purpose of this file is to test the creation, reading, updating and
 //deletion of a user from the database. The tests are run using Jest.
+const { response } = require('express');
+const request = require('supertest');
+const User = require ('../server/controllers/userController');
+
+
 
 describe('CreateUser', () => {
 	test('should create a new user', async () => {
@@ -14,7 +23,7 @@ describe('CreateUser', () => {
 			body: JSON.stringify(newUser),
 		});
 		const data = await response.json();
-		expect(data).toEqual(newUser);
+		expect(data).toEqual(User);
 	});
 });
 
@@ -39,7 +48,7 @@ describe('UpdateUser', () => {
 			body: JSON.stringify(updatedUser),
 		});
 		const data = await response.json();
-		expect(data).toEqual(updatedUser);
+		expect(data).toEqual(User);
 	});
 
 	test("Should update a user's username", async () => {
@@ -50,10 +59,10 @@ describe('UpdateUser', () => {
 		const response = await fetch('http://localhost:3000/users', {
 			method: 'PUT',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify(updatedUser),
+			body: JSON.stringify(User),
 		});
 		const data = await response.json();
-		expect(data).toEqual(updatedUser);
+		expect(data).toEqual(User);
 	});
 });
 
@@ -69,6 +78,6 @@ describe('DeleteUser', () => {
 			body: JSON.stringify(deleteUser),
 		});
 		const data = await response.json();
-		expect(data).toEqual(deleteUser);
+		expect(data).toEqual(User);
 	});
 });

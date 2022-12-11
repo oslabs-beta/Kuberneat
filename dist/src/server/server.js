@@ -23,7 +23,6 @@ const app = (0, express_1.default)();
 const cors = require('cors');
 const PORT = 3000;
 //  const fetch = require('node-fetch');
-// const child_process = require('child_process');
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use(cors());
@@ -40,28 +39,36 @@ collectDefaultMetrics({ register });
 register.setDefaultLabels({
     app: 'zeus-api',
 });
+//server the frontend
 app.get('/', (req, res) => {
     console.log('Backend & Frontend speaking...');
     res.sendFile(path_1.default.join(__dirname, '../client/index.html'));
 });
-app.get('/user', userController.getUser, (req, res) => {
+//login page
+app.post('/login', userController.getUser, (req, res) => {
     console.log('Getting user is working...', res.locals.foundUser);
+    //res.redirect to route, 
     return res.status(200).json(res.locals.foundUser);
 });
-app.post('/user', userController.createUser, (req, res) => {
+//register page
+app.post('/register', userController.checkForUser, userController.createUser, (req, res) => {
     return res.status(200).json(res.locals.newUser);
 });
+//this route handler works to get the metrics
 app.get('/metrics', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     console.log('Getting metrics is working...');
     res.setHeader('Content-type', register.contentType);
     res.end(yield register.metrics());
 }));
+//this route handler is to get more metrics not shown on grafana -Need more refining
 app.get('/apis/metrics.k8s.io/v1beta1', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     console.log('Getting metrics resources is working...');
     res.sendStatus(200);
 }));
+//this route handler is to get more metrics not shown on grafana -Need more refining
 app.get('/apis/metrics.k8s.io/v1beta1/nodes', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        //fetching data from local host 8085 (look into kubectl proxy)
         const kubeMetrics = yield fetch('http://localhost:8085/metrics');
         console.log(kubeMetrics);
         res.sendStatus(200).send(JSON.stringify({ metrics: kubeMetrics }));
@@ -70,17 +77,20 @@ app.get('/apis/metrics.k8s.io/v1beta1/nodes', (req, res) => __awaiter(void 0, vo
         console.log(err);
     }
 }));
-app.get('/apis/metrics.k8s.io/v1beta1/nodes/zeus ', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log('Getting metrics resources is working...');
-    res.sendStatus(200);
-}));
+//this route handler is to get metrics via CLI
 app.get('/cluster', middleware.getClusterInfo, (req, res) => {
     console.log('Getting cluster is working...', res.locals.clusterInfo);
     return res.status(200).json(res.locals.clusterInfo);
 });
+//this route handler is to get metrics via CLI for health metrics
+app.get('/health', middleware.getHeath, (req, res) => {
+    return res.status(200).json(res.locals.health);
+});
+//catch all
 app.use('*', (req, res) => {
     return res.status(404);
 });
+//global error handler 
 app.use((err, req, res, next) => {
     const defaultError = {
         log: 'express error handler triggered',

@@ -11,20 +11,22 @@ const Context = react_1.default.createContext(null);
 exports.Context = Context;
 // const google: any;
 function ContextProvider({ children }) {
-    const [user, setUser] = (0, react_2.useState)("signed in"); // set to defined for testing, default is null
+    const [user, setUser] = (0, react_2.useState)(null); // set to defined for testing, default is null
     const [darkModeOn, setDarkModeOn] = (0, react_2.useState)(true);
     function toggleDarkMode() {
         setDarkModeOn((old) => !old);
         console.log('dark mode toggled');
     }
-    ;
+    //John's comment: function handling Oauth, when we get user object back
     function handleCallbackResponse(response) {
         console.log('Encoded JWT ID token: ' + response.credential);
-        setUser('signed in');
         console.log('User:', user);
         const userObject = (0, jwt_decode_1.default)(response.credential);
-        console.log('UserObject:', userObject);
-        setUser(userObject); // later set it to the userObject */
+        //create a new object from user object, make the shape match the shape of the object we get from own oauth
+        //console.log('UserObject:', userObject);
+        const { name, email } = userObject;
+        const newUser = { name: name, email: email };
+        setUser(newUser); // set user to userObject */ going from null to defined and allows routes to display 
     }
     /* global google object coming from html script*/
     (0, react_2.useEffect)(() => {
