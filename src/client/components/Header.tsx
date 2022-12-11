@@ -19,13 +19,6 @@ function Header({ title, subtitle, path }: HeaderProps): ReactElement {
 	// sets the font color of the header -> changes here get reflected throughout
 	// alt light color 344966 fab700
 
-	const navigate = useNavigate();
-	function refreshPage(): void {
-		/* TS not allowing use for refresh */
-		window.location.reload();
-		// navigate('/') /* this won't work either */
-	}
-
 	return (
 		<Box mb='30px' role='header'>
 			<Box sx={{ display: 'flex', justifyContent: 'space-between', margin: 2 }}>
