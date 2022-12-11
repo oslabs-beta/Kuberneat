@@ -1,10 +1,35 @@
 /* @import url('https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap');
  */
-
 /* LOGO font: Zeus */
 @import url('https://fonts.googleapis.com/css2?family=Nabla&display=swap');
 /* Global font: Poppins */
 @import url('https://fonts.googleapis.com/css2?family=GFS+Didot&family=Poppins&display=swap');
+
+/* parameterized color scheme: not the best solution but it helps */
+:root{
+	--dark-color: black;
+	--dark2-color: #2c3639;
+	--dark3-color: #161414;
+	--grey-accent: #3f4e4f;
+	--sidebar-dark:#1E2022;
+
+	--light-color: #344966;
+	--light2-color: #a6b6c9;
+	--light3-color: floralwhite;
+	--sidebar-light:#5F6F94;
+
+	--offwht-accent: #eeeeee;
+	--offwht2-accent: #dcd7c9;
+	--offwht3-accent: #968c83;
+
+	--root-yellow: #fab700;
+	--yellow-accent: #FFE15D;
+
+	--blue-accent: #22A39F;
+	--blue2-accent: #4ecca3;
+
+	--red-accent:#fc8181;
+}
 
 * {
 	/*  font-family: 'Courier New', Courier, monospace; */
@@ -12,9 +37,8 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	color: #fab700;
+	color: var(--root-yellow);
 }
-
 *::after,
 *::before {
 	box-sizing: border-box; /* padding and border included in width & height */
@@ -24,15 +48,14 @@
 	display: flex;
 	height: 100vh;
 	width: 100%;
-	background-color: #161414;
+	background-color: var(--dark3-color);
 }
 .app-light {
 	display: flex;
 	height: 100vh;
 	width: 100%;
-	background-color: #a6b6c9;
+	background-color:var(--light2-color);
 }
-
 .content {
 	height: 100vh;
 	width: 100%;
@@ -40,9 +63,10 @@
 	flex-direction: column;
 }
 
-.auth-1 {
+
 	/* This is first half of background */
-	background-color: #161414;
+.auth-1 {
+	background-color: var(--dark3-color);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -50,18 +74,18 @@
 }
 /* First 1/2 of lightmode background color */
 .auth-2 {
-	background-color: #a6b6c9;
+	background-color: var(--light2-color);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 50px;
 }
-button:disabled {
 	/* styling for a disabled login button state */
+button:disabled {
 	opacity: 0.35;
 }
-.custom-chart {
 	/* custom dash container */
+.custom-chart {
 	margin: 20px;
 	height: 100vh;
 	overflow-x: auto; /* hidden gives scroll bar */
@@ -70,84 +94,65 @@ button:disabled {
 .darkMode {
 	font-size: 70px;
 	text-shadow: 2px 2px 5px black;
-	/* padding-bottom: 25px;
-	 padding-top: 25px; */
 	text-align: center;
-	background-color: #2c3639; /* #2C3639 */
-	color: #4ecca3; /* 22A39F 68B984 4E9F3D 346751 29C7AC 03C4A1 */
-	/* margin-right: auto; */
+	background-color: var(--dark2-color);
+	color: var(--blue2-accent);
 }
 .lightMode {
 	font-size: 70px;
 	text-shadow: 2px 2px 5px black;
-	/* padding-bottom: 25px;
-	 padding-top: 25px; */
 	text-align: center;
-	background-color: #968c83;
-	color: #eeeeee; /* F7DAD9  DBCBBD */
-	/* margin-right: auto; */
+	background-color: var(--offwht3-accent);
+	color: var(--offwht-accent);
 }
-.dash-dark {
 	/* container class */
+.dash-dark {
 	height: 100vh;
-	background-color: #161414;
+	background-color: var(--dark3-color);
 	width: 100%;
 }
-.dash-light {
 	/* container class */
+.dash-light {
 	height: 100vh;
-	background-color: #a6b6c9;
+	background-color: var(--light2-color);
 	width: 100%;
 }
 .iframe-dark {
 	height: 100vh;
-	background-color: #3f4e4f;
+	background-color: var(--grey-accent);
 	width: 100%;
 }
 .iframe-light {
 	height: 100vh;
-	background-color: #fff5ea;
+	background-color: var(--offwht-accent);
 	width: 100%;
 }
-
 /* form validation styling */
 .error {
-	color: #fc8181;
+	color: var(--red-accent);
 }
 input.input-error,
 select.input-error {
-	border-color: #fc8181;
+	border-color: var(--red-accent);
 }
 .faq-dark {
 	height: 100vh;
-	background-color: #161414;
+	background-color: var(--dark3-color);
 	width: 100%;
 	overflow-x: hidden; /* gives scroll bar vertically */
 	overflow-y: auto;
 }
 .faq-light {
 	height: 100vh;
-	background-color: #a6b6c9;
-	/* color: #344966; */
+	background-color: var(--light2-color);
 	width: 100%;
 	overflow-x: hidden; /* gives scroll bar vertically */
 	overflow-y: auto;
 }
-
-/* pods container? */
-/* .pods{
-	height: 100%;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: flex-start;
-} */
-
 link1 {
 	border-radius: 10px;
-	background-color: #2c3639;
-	color: floralwhite;
+	background-color: var(--dark2-color);
+	color: var(--light3-color);
 	cursor: pointer;
 	width: 100px;
 	height: 50px;
@@ -158,8 +163,8 @@ link1 {
 }
 link2 {
 	border-radius: 10px;
-	background-color: #dcd7c9;
-	color: black;
+	background-color: var(--offwht2-accent);
+	color: var(--dark-color);
 	cursor: pointer;
 	width: 100px;
 	height: 50px;
@@ -183,8 +188,8 @@ link2 {
 	font-weight: 500;
 	box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.75);
 	border: 1px solid black;
-	background-color: #0a090c;
-	color: floralwhite;
+	background-color: var(--dark-color);
+	color: var(--light3-color);
 	margin-bottom: 150px;
 }
 .login1 > label {
@@ -200,8 +205,8 @@ link2 {
 	margin-top: 5px;
 	margin-bottom: 5px;
 	text-align: center;
-	background-color: #2c3639;
-	color: white;
+	background-color: var(--dark2-color);
+	color: var(--light3-color);
 }
 /* Light Mode Login Box */
 .login2 > label {
@@ -217,8 +222,8 @@ link2 {
 	margin-top: 5px;
 	margin-bottom: 5px;
 	text-align: center;
-	background-color: #a6b6c9; /* lightmode input bgcolor */
-	color: black;
+	background-color:var(--light2-color); /* lightmode input bgcolor */
+	color: var(--dark-color);
 }
 /* Light Mode Login Box */
 .login2 {
@@ -233,15 +238,15 @@ link2 {
 	font-weight: 500;
 	box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.75);
 	border: 1px solid black;
-	background-color: #344966; /* #f4f5f5 => #344966 */
-	color: floralwhite;
+	background-color:var(--light-color);
+	color: var(--light3-color);
 	margin-bottom: 150px;
 }
 /* Dark Mode Login Box */
 #login-button1 {
 	border-radius: 5px;
-	background-color: #3f4e4f;
-	color: #dcd7c9;
+	background-color: var(--grey-accent);
+	color: var(--offwht2-accent);
 	cursor: pointer;
 	width: 300px;
 	height: 35px;
@@ -256,21 +261,21 @@ link2 {
 /* Dark Mode Login Box */
 #login-button1:focus {
 	outline: none;
-	background-color: #22a39f;
+	background-color: var(--blue-accent);
 }
 #login-button1:hover {
-	background-color: #22a39f;
+	background-color: var(--blue-accent);
 }
 /* Dark Mode Login Box */
 #login-button1:active {
 	box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
-	background-color: #22a39f;
+	background-color: var(--blue-accent);
 }
 /* Light Mode Login Box */
 #login-button2 {
 	border-radius: 5px;
-	background-color: #dcd7c9;
-	color: black; /* can chnage button text color here */
+	background-color: var(--offwht2-accent);
+	color: var(--dark-color); /* can change button text color here */
 	cursor: pointer;
 	width: 300px;
 	height: 35px;
@@ -287,12 +292,12 @@ link2 {
 	outline: none;
 }
 #login-button2:hover {
-	background-color: #ffe15d; /* light mode hover color */
+	background-color: var(--yellow-accent); /* light mode hover color */
 }
 /* Light Mode Login Box */
 #login-button2:active {
 	box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
-	background-color: #ffe15d;
+	background-color: var(--yellow-accent);
 }
 /* Logo */
 #logo {
@@ -300,15 +305,12 @@ link2 {
 	font-size: 75px; /* 120 => 75 */
 	background: none;
 }
-.loginPage p {
-	color: '#DAA520';
-}
 .login-page-dark {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: #161414;
+	background-color: var(--dark3-color);
 	height: 100vh;
 	width: 100%;
 }
@@ -317,16 +319,17 @@ link2 {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: #a6b6c9;
+	background-color:var(--light2-color);
 	height: 100vh;
 	width: 100%;
 }
 /* NAVBAR Stying */
+
 /* Nav bar dark mode */
 #navbar1 {
 	height: 175px;
-	background-color: #0a090c;
-	color: #2c3639;
+	background-color:var(--dark-color);
+	color: var(--dark2-color);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -334,8 +337,8 @@ link2 {
 /* Nav bar light mode */
 #navbar2 {
 	height: 175px;
-	background-color: #344966;
-	color: #968c83;
+	background-color:var(--light-color);
+	color: var(--offwht3-accent);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -347,15 +350,15 @@ link2 {
 	justify-content: space-between;
 }
 .navlink-butt1 {
-	background-color: #3f4e4f;
-	color: floralwhite;
+	background-color: var(--grey-accent);
+	color: var(--light3-color);
 	height: 25px;
 	width: 100px;
 	border-radius: 5px;
 }
 .navlink-butt2 {
-	background-color: #d6d2c4;
-	color: black;
+	background-color: var(--offwht2-accent);
+	color: var(--dark-color);
 	height: 25px;
 	width: 100px;
 	border-radius: 5px;
@@ -372,7 +375,6 @@ link2 {
 	font-family: 'Source Sans Pro, sans-serif';
 	border-radius: 5px;
 }
-
 .user {
 	display: flex;
 	flex-direction: column;
@@ -391,20 +393,20 @@ link2 {
 /* VISUALIZER */
 #vis-dark {
 	height: 100vh;
-	background-color: #161414;
+	background-color: var(--dark3-color);
 	width: 100%;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: 250px 250px 250px 250px;
 	grid-gap: 10px;
 	/* position: absolute; */
-	color: white;
+	color: var(--light3-color);
 	/* overflow-x: auto; */ /* gives scroll bar vertically */
 	/* overflow-y: hidden; */
 }
 #vis-light {
 	height: 100vh;
-	background-color: #a6b6c9;
+	background-color: var(--light2-color);
 	background-image: none !important;
 	width: 100%;
 	display: grid;
@@ -412,7 +414,7 @@ link2 {
 	grid-template-rows: 250px 250px 250px 250px;
 	grid-gap: 10px;
 	/* position: absolute; */
-	color: black;
+	color: var(--dark-color);
 }
 .pod-box {
 	display: flex;
@@ -461,7 +463,7 @@ img {
 	height: 100vh;
 	width: 75px;
 	inset: 0 95% 0 0; /* top, rt, bott, lt */
-	/* background-color: hsla(0,2%,10%,0.558); */ /* (0,2%,10%,0.558) */
+	/* background-color: hsla(0,2%,10%,0.558); */
 	display: flex;
 	/* position: fixed; */
 	flex-direction: column;
@@ -470,15 +472,15 @@ img {
 	backdrop-filter: blur(1rem);
 	gap: 20px;
 }
-#sidebar-dark {
 	/* sidebar bgcolor */
-	background-color: #1e2022; /* #3F4E4F */
+#sidebar-dark {
+	background-color: var(--sidebar-dark); /* #3F4E4F */
 }
 #sidebar-light {
-	background-color: #5f6f94; /* #6B728E */
+	background-color: var(--sidebar-light); /* #6B728E */
 }
-.ul-item-icon .icon {
 	/* in-active icons styling */
+.ul-item-icon .icon {
 	margin-top: 25px;
 	border-radius: 50%;
 	/* padding-block: -10px; */
@@ -496,7 +498,7 @@ nav .ul-item {
 	font-size: 18px; /* sidebar text size */
 }
 nav #logout-icon :hover {
-	background-color: #fc8181;
+	background-color: var(--red-accent);
 }
 nav .ul-item-icon a {
 	display: none;
@@ -506,7 +508,6 @@ nav .ul-item-icon li::after {
 	position: absolute;
 	width: 1%;
 	height: 4%;
-	/* background-color: #fff; */
 	right: 0;
 }
 nav .ul-item li {
@@ -524,7 +525,7 @@ li {
 	/* width: 100%; */
 }
 nav .ul-item li:hover {
-	background-color: #22a39f;
+	background-color: var(--blue-accent);
 }
 /* li #logout:hover{
 	background-color: #fc8181;
@@ -537,8 +538,8 @@ nav .ul-item li .icon {
 nav .ul-item li a {
 	text-transform: uppercase;
 	text-decoration: none;
-	color: #fab700;
-	border-left: 1px solid #fab700; /* fab700  */
+	color: var(--root-yellow);
+	border-left: 1px solid var(--root-yellow); /* fab700  */
 	padding-left: 2rem;
 }
 .menu-icon {
@@ -546,13 +547,13 @@ nav .ul-item li a {
 	margin-top: 25px;
 }
 .menu-icon .menu {
-	color: #22a39f;
+	color: var(--blue-accent);
 	/* margin-block: 1 rem; */
 	cursor: pointer;
 	font-size: 36px; /* hamburger icon */
 }
 .menu-icon .close-icon {
-	color: #22a39f;
+	color: var(--blue-accent);
 	/* margin-block: 1 rem; */
 	cursor: pointer;
 	font-size: 36px; /* collapse icon */
@@ -567,7 +568,7 @@ nav .ul-item li:hover {
 .user-dark {
 	width: 200px;
 	height: 100px;
-	color: #22a39f;
+	color: var(--blue-accent);
 	font-size: 24px;
 	background-color: none;
 	display: flex;
@@ -578,37 +579,35 @@ nav .ul-item li:hover {
 .user-light {
 	width: 200px;
 	height: 100px;
-	color: #22a39f;
+	color: var(--blue-accent);
 	font-size: 24px;
-	background-color: #344966;
+	background-color:var(--light-color);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-left: 25px;
 }
-
 .user-pic-active {
 	border-radius: 50%;
-	border: 3px solid #22a39f;
+	border: 3px solid var(--blue-accent);
 	height: 100px;
 	width: 100px;
-	color: #22a39f;
+	color: var(--blue-accent);
 	font-size: 69px;
-	background-color: black;
+	background-color: var(--dark-color);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 25px;
 }
-
 .user-pic-dark {
 	border-radius: 50%;
-	border: 3px solid #22a39f;
+	border: 3px solid var(--blue-accent);
 	height: 80px; /* default 65px */
 	width: 80px; /* default 65px */
-	color: #22a39f;
+	color: var(--blue-accent);
 	font-size: 48px;
-	background-color: black;
+	background-color:var(--dark-color);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -619,9 +618,9 @@ nav .ul-item li:hover {
 	border: 3px solid white;
 	height: 80px; /* default 65px */
 	width: 80px; /* default 65px */
-	color: white;
+	color: var(--light3-color);
 	font-size: 48px;
-	background-color: #344966;
+	background-color: var(--light-color);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -636,7 +635,7 @@ nav .ul-item li:hover {
 }
 
 /* mobile settings */
-/* Not complete: 100% may not be feasible bc of charts and visualizer, etc... */
+/* Not complete: may not be feasible bc of charts and visualizer, etc... */
 /* almost there just need to find a way to deactivate sidebar when below 750px */
 @media (max-width: 750px) {
 	.sidebar-mobile {
@@ -676,6 +675,8 @@ nav .ul-item li:hover {
 	}
 }
 
+
+/* D3 Visualizer */
 #D3Graph {
 	display: block;
 	margin-left: auto;
@@ -683,10 +684,10 @@ nav .ul-item li:hover {
 	border-style: solid;
 	border-color: rgb(0, 199, 209);
 	border-radius: 25px;
-	background-color: white;
+	background-color: var(--light3-color);
 	width: 85%;
 }
 
 #popOver {
-	color: black;
+	color: var(--dark-color);
 }

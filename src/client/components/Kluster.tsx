@@ -131,7 +131,11 @@ function Kluster(): ReactElement {
 		<div className={darkModeOn ? 'faq-dark' : 'faq-light'}>
 			<Box m='20px'>
 				{/* Header passing down props for title and subtitle */}
-				<Header title='Kluster Summary' subtitle='Cluster Data' />
+				<Header 
+					path='/kluster'
+					title='Kluster Summary' 
+					subtitle='Cluster Data' 
+				/>
 
 				{podProps}
 			</Box>
