@@ -168,8 +168,8 @@ function App(): ReactElement {
 						<Routes>
 							<Route path='/' element={<CustomDash />} />
 							<Route path='/grafanadash' element={<GrafanaDash />} />
-							<Route path='/kluster' element={<Kluster />} />
 							<Route path='/visualizer' element={<VisD3 />} />
+							<Route path='/kluster' element={<Kluster />} />
 							<Route path='/faq' element={<Faq />} />
 						</Routes>
 					</main>

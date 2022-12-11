@@ -24,7 +24,11 @@ function FAQ(): ReactElement {
 		<div className={darkModeOn ? 'faq-dark' : 'faq-light'}>
 			<Box m='20px'>
 				{/* Header passing down props for title and subtitle */}
-				<Header title='FAQ' subtitle='Frequently Asked Questions Page' />
+				<Header 
+					path='/faq'
+					title='FAQ' 
+					subtitle='Frequently Asked Questions Page' 
+				/>
 
 				{/* Can replace placeholder questions with real ones later */}
 				<Accordion

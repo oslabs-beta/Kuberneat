@@ -15,6 +15,7 @@ function GrafanaDash(): ReactElement {
 		<Box m='20px'>
 			<div className={darkModeOn ? 'dash-dark' : 'dash-light'}>
 				<Header
+					path='/grafanadash'
 					title='OG Grafana Dashboard goes here'
 					subtitle='Just one of the many ways to visualize your cluster'
 				/>

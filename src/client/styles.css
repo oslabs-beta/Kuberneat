@@ -6,6 +6,27 @@
 /* Global font: Poppins */
 @import url('https://fonts.googleapis.com/css2?family=GFS+Didot&family=Poppins&display=swap');
 
+/* parameterized color scheme: not the best solution but it helps */
+:root{
+	--dark-color: #161414;
+	--dark2-color: #2c3639;
+	--dark3-color: black;
+	--grey-accent: #3f4e4f;
+	--light-color: #a6b6c9;
+	--light2-color: #968c83;
+	--light3-color: #344966;
+	--light4-color: floralwhite;
+	--offwht-accent: #eeeeee;
+	--offwht2-accent: #dcd7c9;
+	--blue-accent: #22A39F;
+	--blue2-accent: #4ecca3;
+	--root-yellow: #fab700;
+	--yellow-accent: #FFE15D;
+	--red-accent:#fc8181;
+	--sidebar-dark:#1E2022;
+	--sidebar-light:#5F6F94;
+}
+
 * {
 	/*  font-family: 'Courier New', Courier, monospace; */
 	font-family: 'Poppins', sans-serif;

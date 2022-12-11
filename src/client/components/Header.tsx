@@ -13,7 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 
 // this component is reuseable for all containers, and can pass in desired props
 // for title and subtitle
-function Header({ title, subtitle }: HeaderProps): ReactElement {
+function Header({ title, subtitle, path }: HeaderProps): ReactElement {
 	const { darkModeOn } = useContext<AppProps>(Context);
 	const fontColor: string = darkModeOn ? '#fab700 !important' : '#293462 !important';
 	// sets the font color of the header -> changes here get reflected throughout
@@ -37,19 +37,19 @@ function Header({ title, subtitle }: HeaderProps): ReactElement {
 					{title}
 				</Typography>
 
-				{/* <Link to={pathName && `./${pathName}`}> */}
+				<Link to={path}>
+
 				<Tooltip title='Refresh' arrow>
 					<IconButton
-						/* onclick={() => navigate('/')} */ // TS won't allow use
 						className='icon'
 						size='large'
 						sx={{ '&:hover': { backgroundColor: 'green' } }}
-						/*  onclick={refreshPage} */ // TS won't allow use
 					>
 						<SyncIcon></SyncIcon>
 					</IconButton>
 				</Tooltip>
-				{/* </Link> */}
+
+				</Link>
 			</Box>
 
 			<Typography variant='h6' sx={{ textAlign: 'left', color: fontColor, margin: 2 }}>
