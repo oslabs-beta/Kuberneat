@@ -83,23 +83,46 @@ const middleware: Object = {};
 		};
 		//health of each node can be found by this command line
 		health('kubectl get componentstatuses', (output: string) => {
+
 			//splitting the output into an array and filtering out the empty spaces
-			let terminal = output.split(' ').filter((element) => element !== '');
+			let terminal = output.split(' ').filter(element => (element !== '' && element !== 'ERROR'));
+
 			//declaring an object to store the health metrics
-			const healthObject: any = {};
-			//declaring a variable to store the health metrics of the nodes
-			let pods;
-			//iterating through the array and storing the health metrics in the object
-			for (let i = 0; i < terminal.length; i++) {
-				//slicing specific metrics from the terminal output
-				pods = terminal.slice(4, i);
-				//slicing every three elements the array: node, health, message
-				pods = pods.slice(0, 3);
-				//storing the health metrics in the object
-				healthObject['Name'] = terminal.slice(0, 3);
-				healthObject['Pods'] = pods;
-			}
-		});
+			const healthObject: any = {}
+
+			//filtering out the components from CLI (NAME, STATUS, MESSAGE, ERROR)
+			healthObject['outputKind'] = terminal.slice(0,3);
+
+	   //obtaining the rest of the string from terminal 
+			terminal = terminal.slice(3,terminal.length);
+
+			//getting pods
+			const getPods = terminal.filter(element => (element !== 'ok' && element !== 'Healthy' && element !== 'Unhealthy')).filter(element => !element.includes('{'));
+			healthObject['pods'] = getPods;
+
+			//get health status
+			const getHealth = terminal.filter(element => (element === 'Healthy' || element === 'Unhealthy'));
+			healthObject['stateOfHealth'] = getHealth;
+
+			//getting message 
+			const getMessage = terminal.filter(element => element.includes('ok') || element.includes('down'));
+			healthObject['message'] = getMessage;
+
+			//putting all info into an array
+			const arrayOfInfo: Array<string> = Object.values(healthObject);
+
+			//declaring an array to store the working pods
+			const workingPods: Array<any> = [];
+
+			//iterating through the array of info and pushing the working pods into the workingPods array
+			for (let i = 0; i < arrayOfInfo.length; i++) {
+				if (arrayOfInfo[0][i] === undefined) continue;
+				const Pod = arrayOfInfo[1][i];
+				const Status = arrayOfInfo[2][i];
+				const Message = arrayOfInfo[3][i];
+				workingPods.push({Pod, Status, Message});
+						}
+				});
 	} catch (err) {
 		next({
 			log: 'error',
