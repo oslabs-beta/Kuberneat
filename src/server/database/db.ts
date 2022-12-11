@@ -3,19 +3,18 @@ import { ErrorRequestHandler } from 'express';
 //acquiring mongoose framework
 const mongoose = require('mongoose');
 
-// export interface UserData {
-// 	email: string;
-// 	username: string;
-// 	password: string;
-// }
-
 //this line below is used to suppress deprecation warnings
 mongoose.set('strictQuery', true);
 
+//Data can be accessed anywhere -Look at env file to find username and password
 const mongoURI = 'mongodb+srv://zeus:123@cluster0.ntr77xf.mongodb.net/?retryWrites=true&w=majority';
 
+//to hid server from public 
+const URI = process.env.MONGO_URI || mongoURI;
+
+//establishing connection to mongo
 mongoose
-	.connect(mongoURI, {
+	.connect(URI, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		dbName: 'zeus',
@@ -27,7 +26,7 @@ mongoose
 
 //user schema
 const userSchema = new mongoose.Schema({
-	email: { type: String, required: true },
+	email: { type: String, required: true , unique: true},
 	password: { type: String, required: true },
 });
 

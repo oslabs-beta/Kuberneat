@@ -85,11 +85,40 @@ const userController: object = {
 
 	},
 
+	//middleware for updating user document in db
+	updateUser(req: Request, res: Response, next: any) {
+		const {id} = req.params;
+		const {email, password} = req.body;
+		//finds document with id in request params and updates email and password
+		Users.findOneAndUpdate(id, {email: email, password: password})
+		.then ((updatedUser: object) => {
+			res.locals.updatedUser = updatedUser;
+			return next();
+		})
+		.catch((err: any) => {
+			return next({
+				log: `ERROR: ${err}`,
+				message: { err: 'An error occurred in updateUser middleware' },
+			});
+		});
+	},
 
-	updateUser(req: Request, res: Response, next: any) {},
-
-
-	deleteUser(req: Request, res: Response, next: any) {},
+	//middleware for deleting user document in db
+	deleteUser(req: Request, res: Response, next: any) {
+		const {id} = req.params;
+		//finds document with id in request params and deletes it
+		Users.findOneAndDelete(id)
+		.then ((deletedUser: object) => {
+			res.locals.deletedUser = deletedUser;
+			return next();
+		})
+		.catch((err: any) => {
+			return next({
+				log: `ERROR: ${err}`,
+				message: { err: 'An error occurred in deleteUser middleware' },
+			});
+		});
+	},
 
  
 }
