@@ -9,7 +9,7 @@ export interface AppProps {
 export interface HeaderProps {
 	title: string;
 	subtitle: string;
-	pathName?: string;
+	path?: string;
 }
 
 export interface valProps {

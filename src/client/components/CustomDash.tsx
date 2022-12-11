@@ -46,7 +46,11 @@ function CustomDash(): ReactElement {
 
 	return (
 		<div className='custom-chart'>
-			<Header title='Custom Dashboard goes here' subtitle='Welcome to your custom dashboard' />
+			<Header 
+				path='/'
+				title='Custom Dashboard goes here' 
+				subtitle='Welcome to your custom dashboard' 
+			/>
 
 			<Box
 				display='grid' // style

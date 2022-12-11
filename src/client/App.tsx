@@ -102,7 +102,7 @@ function App(): ReactElement {
 						</IconButton>
 					</Tooltip>
 
-					<Link to='/'>
+					<Link to={`${user ? '/' : ''}`}>{/* disables link when user not logged in */}
 						<Tooltip title='Zeus' arrow>
 							<IconButton
 								sx={{
@@ -116,7 +116,7 @@ function App(): ReactElement {
 						</Tooltip>
 					</Link>
 
-					<Link to='/faq'>
+					 <Link to={`${user ? '/faq' : ''}`}>
 						<Tooltip title='FAQ' arrow>
 							<IconButton
 								sx={{
@@ -130,7 +130,7 @@ function App(): ReactElement {
 						</Tooltip>
 					</Link>
 
-					<Link to='/'>
+					<Link to={`${user ? '/' : ''}`}>
 						{/* may remove path later if ok */}
 						<Tooltip title='Logout' arrow>
 							<IconButton
@@ -168,8 +168,8 @@ function App(): ReactElement {
 						<Routes>
 							<Route path='/' element={<CustomDash />} />
 							<Route path='/grafanadash' element={<GrafanaDash />} />
-							<Route path='/kluster' element={<Kluster />} />
 							<Route path='/visualizer' element={<VisD3 />} />
+							<Route path='/kluster' element={<Kluster />} />
 							<Route path='/faq' element={<Faq />} />
 						</Routes>
 					</main>

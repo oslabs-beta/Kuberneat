@@ -17,7 +17,11 @@ function VisD3(): ReactElement {
 			{' '}
 			{/* removed className chart from div, replaced it below, not sure what it was for? */}
 			<div className={darkModeOn ? 'dash-dark' : 'dash-light'}>
-				<Header title='Kubernetes Cluster Visualizer' subtitle='' />
+				<Header 
+					path='/visualizer'
+					title='Kubernetes Cluster Visualizer' 
+					subtitle='' 
+				/>
 				<Visualizer></Visualizer>
 			</div>
 		</Box>
