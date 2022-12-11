@@ -84,7 +84,7 @@ app.get('/cluster', middleware.getClusterInfo, (req: Request, res: Response) => 
 });
 
 //this route handler is to get metrics via CLI for health metrics
-app.get('/health', middleware.getHeath,  (req: Request, res: Response) => {
+app.get('/health', middleware.getHeath, (req: Request, res: Response) => {
  return res.status(200).json(res.locals.health);
 });
 
