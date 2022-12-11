@@ -59,13 +59,13 @@ app.get('/metrics', async (req: Request, res: Response) => {
 	res.end(await register.metrics());
 });
 
-//this route handler works to get more metrics not shown on grafana -Need more refining
+//this route handler is to get more metrics not shown on grafana -Need more refining
 app.get('/apis/metrics.k8s.io/v1beta1', async (req: Request, res: Response) => {
 	console.log('Getting metrics resources is working...');
 	res.sendStatus(200);
 });
 
-//this route handler works to get more metrics not shown on grafana -Need more refining
+//this route handler is to get more metrics not shown on grafana -Need more refining
 app.get('/apis/metrics.k8s.io/v1beta1/nodes', async (req: Request, res: Response) => {
 	try {
 		//fetching data from local host 8085 (look into kubectl proxy)
@@ -77,10 +77,15 @@ app.get('/apis/metrics.k8s.io/v1beta1/nodes', async (req: Request, res: Response
 	}
 });
 
-//this route handler works to get metrics via CLI
+//this route handler is to get metrics via CLI
 app.get('/cluster', middleware.getClusterInfo, (req: Request, res: Response) => {
 	console.log('Getting cluster is working...', res.locals.clusterInfo);
 	return res.status(200).json(res.locals.clusterInfo);
+});
+
+//this route handler is to get metrics via CLI for health metrics
+app.get('/health', (req: Request, res: Response) => {
+ return res.status(200).json(res.locals.health);
 });
 
 //catch all

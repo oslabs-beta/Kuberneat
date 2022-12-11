@@ -1,9 +1,10 @@
+import express, { Request, Response, NextFunction } from 'express';
 const child_process = require('child_process');
 //created middleware called middleware
 const middleware: Object = {};
 
 // applying getClusterInfo method
-(middleware as any).getClusterInfo = async (req: any, res: any, next: any) => {
+(middleware as any).getClusterInfo = async (req: any, res: any, next: NextFunction) => {
 	try {
 		// declared a function
 		function system(cmd: string, callback: any) {
@@ -74,7 +75,7 @@ const middleware: Object = {};
 };
 
 //fetching health metrics from terminal
-(middleware as any).getHealth = async (req: Request, res: Response, next: any) => {
+(middleware as any).getHealth = async (req: Request, res: Response, next: NextFunction) => {
 	try {
 		const health = (cmd: string, callback: any) => {
 			child_process.exec(cmd, (err: ErrorCallback, stdout: any, stderr: any) => {
@@ -121,7 +122,11 @@ const middleware: Object = {};
 				const Status = arrayOfInfo[2][i];
 				const Message = arrayOfInfo[3][i];
 				workingPods.push({Pod, Status, Message});
-						}
+				}
+
+				res.locals.health = workingPods;
+				return next();
+
 				});
 	} catch (err) {
 		next({
