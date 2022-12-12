@@ -40,76 +40,77 @@ const ElectricBoltTwoTone_1 = __importDefault(require("@mui/icons-material/Elect
 const Tooltip_1 = __importDefault(require("@mui/material/Tooltip"));
 const Sidebar_1 = __importDefault(require("./Sidebar"));
 const Login_1 = __importDefault(require("./Login"));
+const Signup_1 = __importDefault(require("./Signup"));
+const CustomDash_1 = __importDefault(require("./components/CustomDash"));
+const GrafanaDash_1 = __importDefault(require("./components/GrafanaDash"));
+const Kluster_1 = __importDefault(require("./components/Kluster"));
+const VisD3_1 = __importDefault(require("./components/VisD3"));
 const Faq_1 = __importDefault(require("./components/Faq"));
-const Dashboard_1 = __importDefault(require("./components/Dashboard"));
-const Dashboard3_1 = __importDefault(require("./components/Dashboard3"));
-const Dashboard4_1 = __importDefault(require("./components/Dashboard4"));
-const Chart_1 = __importDefault(require("./components/Chart"));
-const Chart2_1 = __importDefault(require("./components/Chart2"));
 function App() {
     //destructuring functions from Context object
     const { darkModeOn, toggleDarkMode, setUser, user } = (0, react_1.useContext)(Context_1.Context);
     function logout() {
+        // for now, this mocks logout from logout icon on far right of top navbar
         // navigate('/');
         setUser(null);
     }
+    function signup() {
+        // write logic for signup, reroute to login page
+        setUser(null);
+    }
     return (React.createElement(React.Fragment, null,
-        React.createElement("div", { className: "loginPage", id: darkModeOn ? 'navbar1' : 'navbar2' },
+        React.createElement("div", { className: 'loginPage', id: darkModeOn ? 'navbar1' : 'navbar2' },
             !user && React.createElement("div", { style: { width: '200px', marginLeft: '25px' } }),
-            user && React.createElement("div", { className: darkModeOn ? 'user-dark' : 'user-light' },
-                " ",
-                React.createElement("div", { id: "avatar-id", className: darkModeOn ? "user-pic-dark" : "user-pic-light" }, "Y"),
-                " ",
-                React.createElement("div", { className: "user-info" },
-                    " ",
+            user && (React.createElement("div", { className: darkModeOn ? 'user-dark' : 'user-light' },
+                ' ',
+                React.createElement("div", { id: 'avatar-id', className: darkModeOn ? 'user-pic-dark' : 'user-pic-light' }, "Y"),
+                ' ',
+                React.createElement("div", { className: 'user-info' },
+                    ' ',
                     React.createElement("p", null, "Yaku"),
                     " ",
-                    React.createElement("p", null, "Admin"))),
-            React.createElement("div", { id: "logo", className: darkModeOn ? 'darkMode' : 'lightMode' }, "Zeus"),
-            React.createElement(material_1.Box, { id: "icons-header", display: "flex", justifyContent: "space-between", marginRight: 5 },
-                React.createElement(Tooltip_1.default, { title: darkModeOn ? "Light Mode" : "Dark Mode", arrow: true },
+                    ' '))),
+            React.createElement("div", { id: 'logo', className: darkModeOn ? 'darkMode' : 'lightMode' }, "Zeus"),
+            React.createElement(material_1.Box, { id: 'icons-header', display: 'flex', justifyContent: 'space-between', marginRight: 5 },
+                React.createElement(Tooltip_1.default, { title: darkModeOn ? 'Light Mode' : 'Dark Mode', arrow: true },
                     React.createElement(material_1.IconButton, { sx: {
+                            // refactored ICON hover effect, applied to all
                             color: '#DAA520',
-                            "&:hover": { backgroundColor: '#22A39F' },
-                        }, size: "large", onClick: toggleDarkMode }, darkModeOn ? React.createElement(LightModeTwoTone_1.default, null) : React.createElement(DarkModeTwoTone_1.default, null))),
-                React.createElement(react_router_dom_1.Link, { to: "/" },
-                    React.createElement(Tooltip_1.default, { title: "Zeus", arrow: true },
+                            '&:hover': { backgroundColor: '#22A39F' },
+                        }, size: 'large', onClick: toggleDarkMode }, darkModeOn ? React.createElement(LightModeTwoTone_1.default, null) : React.createElement(DarkModeTwoTone_1.default, null))),
+                React.createElement(react_router_dom_1.Link, { to: '/' },
+                    React.createElement(Tooltip_1.default, { title: 'Zeus', arrow: true },
                         React.createElement(material_1.IconButton, { sx: {
                                 color: '#DAA520',
-                                "&:hover": { backgroundColor: '#FFE15D' }
-                            }, size: "large" },
+                                '&:hover': { backgroundColor: '#FFE15D' },
+                            }, size: 'large' },
                             React.createElement(ElectricBoltTwoTone_1.default, null)))),
-                React.createElement(react_router_dom_1.Link, { to: "/faq" },
-                    React.createElement(Tooltip_1.default, { title: "FAQ", arrow: true },
+                React.createElement(react_router_dom_1.Link, { to: '/faq' },
+                    React.createElement(Tooltip_1.default, { title: 'FAQ', arrow: true },
                         React.createElement(material_1.IconButton, { sx: {
                                 color: '#DAA520',
-                                "&:hover": { backgroundColor: '#22A39F' }
-                            }, size: "large" },
+                                '&:hover': { backgroundColor: '#22A39F' },
+                            }, size: 'large' },
                             React.createElement(LiveHelpTwoTone_1.default, null)))),
-                React.createElement(react_router_dom_1.Link, { to: "/" },
-                    React.createElement(Tooltip_1.default, { title: "Logout", arrow: true },
+                React.createElement(react_router_dom_1.Link, { to: '/' },
+                    React.createElement(Tooltip_1.default, { title: 'Logout', arrow: true },
                         React.createElement(material_1.IconButton, { onClick: () => setUser(null), sx: {
                                 color: '#DAA520',
-                                "&:hover": { backgroundColor: '#fc8181' }
-                            }, size: "large" },
+                                '&:hover': { backgroundColor: '#fc8181' },
+                            }, size: 'large' },
                             React.createElement(LogoutTwoTone_1.default, null)))))),
-        !user &&
-            React.createElement(Login_1.default, { onClick: logout }),
-        " ",
-        user &&
-            React.createElement("div", { className: darkModeOn ? "app-dark" : "app-light" },
-                React.createElement("div", null,
-                    React.createElement(Sidebar_1.default, null)),
-                React.createElement("main", { className: "content" },
-                    React.createElement(react_router_dom_1.Routes, null,
-                        React.createElement(react_router_dom_1.Route, { path: "/", element: React.createElement(Dashboard3_1.default, null) }),
-                        React.createElement(react_router_dom_1.Route, { path: "/dashboard", element: React.createElement(Dashboard_1.default, null) }),
-                        React.createElement(react_router_dom_1.Route, { path: "/visualizer", element: React.createElement(Dashboard_1.default, null) }),
-                        React.createElement(react_router_dom_1.Route, { path: "/dashboard2", element: React.createElement(Dashboard3_1.default, null) }),
-                        React.createElement(react_router_dom_1.Route, { path: "/pods", element: React.createElement(Dashboard4_1.default, null) }),
-                        React.createElement(react_router_dom_1.Route, { path: "/chart", element: React.createElement(Chart_1.default, null) }),
-                        React.createElement(react_router_dom_1.Route, { path: "/chart2", element: React.createElement(Chart2_1.default, null) }),
-                        React.createElement(react_router_dom_1.Route, { path: "/faq", element: React.createElement(Faq_1.default, null) }))))));
+        !user && (React.createElement(react_router_dom_1.Routes, null,
+            React.createElement(react_router_dom_1.Route, { path: '/', element: React.createElement(Login_1.default, null) }),
+            React.createElement(react_router_dom_1.Route, { path: '/signup', element: React.createElement(Signup_1.default, { onClick: signup }) }))),
+        user && (React.createElement("div", { className: darkModeOn ? 'app-dark' : 'app-light' },
+            React.createElement("div", null,
+                React.createElement(Sidebar_1.default, null)),
+            React.createElement("main", { className: 'content' },
+                React.createElement(react_router_dom_1.Routes, null,
+                    React.createElement(react_router_dom_1.Route, { path: '/', element: React.createElement(CustomDash_1.default, null) }),
+                    React.createElement(react_router_dom_1.Route, { path: '/grafanadash', element: React.createElement(GrafanaDash_1.default, null) }),
+                    React.createElement(react_router_dom_1.Route, { path: '/kluster', element: React.createElement(Kluster_1.default, null) }),
+                    React.createElement(react_router_dom_1.Route, { path: '/visualizer', element: React.createElement(VisD3_1.default, null) }),
+                    React.createElement(react_router_dom_1.Route, { path: '/faq', element: React.createElement(Faq_1.default, null) })))))));
 }
-;
 exports.default = App;
