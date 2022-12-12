@@ -8,7 +8,7 @@
 		"electron": "electron .",
 		"server": "nodemon src/server/server.ts",
 		"dev": "concurrently \"npm run server\" \"npm start\"",
-		"test": "jest --testTimeout=100000",
+		"test": "jest --testTimeout=5000",
 		"build": "webpack"
 	},
 	"repository": {
