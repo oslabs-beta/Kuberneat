@@ -1,20 +1,20 @@
 
-// describe('CreateUser', () => {
-// 	test('should create a new user', async () => {
-// 		const newUser = {
-// 			username: 'testUser',
-// 			password: 'testPassword',
-// 		};
+describe('CreateUser', () => {
+	test('should create a new user', async () => {
+		const newUser = {
+			username: 'testUser',
+			password: 'testPassword',
+		};
 
-// 		const response = await fetch('http://localhost:3000/register', {
-// 			method: 'POST',
-// 			headers: { 'Content-Type': 'application/json' },
-// 			body: JSON.stringify(newUser),
-// 		});
-// 		const data = await response.json();
-// 		expect(data).toEqual(User);
-// 	});
-// });
+		const response = await fetch('http://localhost:3000/register', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(newUser),
+		});
+		const data = await response.json();
+		expect(data).toEqual(newUser);
+	});
+});
 
 // describe('GetUser', () => {
 // 	test('Should get all user signed up for Zeus in database', async () => {

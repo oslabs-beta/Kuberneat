@@ -91,6 +91,7 @@
 		"bcrypt": "^5.1.0",
 		"bcryptjs": "^2.4.3",
 		"concurrently": "^7.6.0",
+		"cookie-parser": "^1.4.6",
 		"cors": "^2.8.5",
 		"css-loader": "^6.7.2",
 		"eslint-config-airbnb": "^19.0.4",
