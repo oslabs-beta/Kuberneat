@@ -6,7 +6,7 @@ import { valProps, InitVals, FormProps, LoginProps } from './interfaces';
 import { AppProps } from './interfaces';
 import { ReactElement, ReactNode } from 'react';
 
-function Signup({ onClick }: { onClick: () => void }): any {
+function Signup(): any {
 	// won't take type ReactElement ??
 
 	const { darkModeOn, setUser, user } = useContext<AppProps>(Context);
@@ -75,7 +75,7 @@ function Signup({ onClick }: { onClick: () => void }): any {
 
 	return (
 		<>
-			<div className={darkModeOn ? 'login-page-dark' : 'login-page-light'}>
+			<div role='signup' className={darkModeOn ? 'login-page-dark' : 'login-page-light'}>
 				<div className={darkModeOn ? 'auth-1' : 'auth-2'}>
 					<div id='signInDiv'></div>
 				</div>

@@ -10,19 +10,18 @@ test('use jsdom in this test file', () => {
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Faq from '../src/client/components/Faq';
-import Header from '../src/client/components/Header';
 
 // can use DESCRIBE BLOCKS to nest mulitple tests that are similar
 // ie: all are for a component and some functionality for it
 describe('Faq component testing', () => {
 	// what we are testing
-	test('Faq component should render a header title', async () => {
+	test('Faq component should render a header title', () => {
 		// 1st render the component we want to test
-		render(<Header title='FAQ' subtitle='Frequently Asked Questions Page' />);
+		render(<Faq />);
 		// find an element we want to interact with
-		const divElement = screen.getByRole('header');
+		const divElement = screen.getByRole('faq');
 		// use screen to interact with it via its methods
-		expect(divElement).toContain('FAQ');
+		expect(divElement).toHaveProperty('role', 'faq');
 		//Assertion that the results are as expected
 	});
 });

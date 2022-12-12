@@ -25,7 +25,7 @@ import Signup from './Signup';
 
 import CustomDash from './components/CustomDash';
 import GrafanaDash from './components/GrafanaDash';
-import Kluster from './components/Kluster';
+import Cluster from './components/Cluster';
 import VisD3 from './components/VisD3';
 import Faq from './components/Faq';
 
@@ -152,7 +152,7 @@ function App(): ReactElement {
 				<Routes>
 					<Route path='/' element={<Login />} />
 
-					<Route path='/signup' element={<Signup onClick={signup} />} />
+					<Route path='/signup' element={<Signup />} />
 				</Routes>
 			)}
 
@@ -169,7 +169,7 @@ function App(): ReactElement {
 							<Route path='/' element={<CustomDash />} />
 							<Route path='/grafanadash' element={<GrafanaDash />} />
 							<Route path='/visualizer' element={<VisD3 />} />
-							<Route path='/kluster' element={<Kluster />} />
+							<Route path='/cluster' element={<Cluster />} />
 							<Route path='/faq' element={<Faq />} />
 						</Routes>
 					</main>

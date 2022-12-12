@@ -36,7 +36,7 @@ function CustomDash(): ReactElement {
 	// const gryColor: string = 'grey !important'
 
 	const Item = styled(Paper)(({ theme }) => ({
-		backgroundColor: darkModeOn ? 'black' : '#344966',
+		backgroundColor: darkModeOn ? 'black' : '#344966', /* 5b6b7a 344966 */
 		...theme.typography.body2,
 		padding: theme.spacing(1),
 		textAlign: 'center',

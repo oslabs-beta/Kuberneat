@@ -122,17 +122,17 @@ function Sidebar(): ReactElement {
 					</li>
 
 					<li>
-						<Tooltip title='Kluster' arrow placement='right-start'>
+						<Tooltip title='Cluster' arrow placement='right-start'>
 							<IconButton
 								className='icon'
 								size='large'
 								sx={{ '&:hover': { backgroundColor: '#22A39F' } }}
 							>
-								<HubIcon onClick={() => navigate('/kluster')}></HubIcon>
+								<HubIcon onClick={() => navigate('/cluster')}></HubIcon>
 							</IconButton>
 						</Tooltip>
-						<Link to='/kluster'>
-							<Typography>Kluster</Typography>
+						<Link to='/cluster'>
+							<Typography>Cluster</Typography>
 						</Link>
 					</li>
 

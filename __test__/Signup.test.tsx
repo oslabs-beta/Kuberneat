@@ -9,19 +9,19 @@ test('use jsdom in this test file', () => {
 
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import Login from '../src/client/Login';
+import Signup from '../src/client/Signup';
 
 // can use DESCRIBE BLOCKS to nest mulitple tests that are similar
 // ie: all are for a component and some functionality for it
-describe('Login component testing', () => {
+describe('Signup component testing', () => {
 	// what we are testing
-	test('Login component should have the text Email', async () => {
+	test('Signup component should have the text Email', () => {
 		// 1st render the component we want to test
-		render(<Login />);
+		render(<Signup />);
 		// find an element we want to interact with
-		const divElement = screen.getByRole('login');
+		const divElement = screen.getByRole('signup');
 		// use screen to interact with it via its methods
-		expect(divElement).toContain('Email');
+		expect(divElement).toHaveProperty('role', 'signup');
 		//Assertion that the results are as expected
 	});
 });

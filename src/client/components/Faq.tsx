@@ -14,6 +14,7 @@ import { AppProps } from '../interfaces';
 import { ReactNode, ReactElement } from 'react';
 
 function FAQ(): ReactElement {
+	
 	const { darkModeOn } = useContext<AppProps>(Context);
 
 	const accordianColor: string = darkModeOn ? '#2c3639 !important' : '#344966 !important';
@@ -21,7 +22,7 @@ function FAQ(): ReactElement {
 	// sets the color of the FAQ containers, chnages here get reflected to all
 
 	return (
-		<div className={darkModeOn ? 'faq-dark' : 'faq-light'}>
+		<div role='faq' className={darkModeOn ? 'faq-dark' : 'faq-light'}>
 			<Box m='20px'>
 				{/* Header passing down props for title and subtitle */}
 				<Header 
