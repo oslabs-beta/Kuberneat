@@ -3,7 +3,7 @@ import path from 'path';
 import dotenv from 'dotenv';
 import { RequestHandler } from 'express';
 
-const middleware = require('./middleware');
+const middleware = require('./controllers/middleware');
 const userController = require('./controllers/userController');
 
 import client from 'prom-client';
@@ -84,9 +84,9 @@ app.get('/cluster', middleware.getClusterInfo, (req: Request, res: Response) => 
 });
 
 //this route handler is to get metrics via CLI for health metrics
-app.get('/health', middleware.getHeath, (req: Request, res: Response) => {
- return res.status(200).json(res.locals.health);
-});
+// app.get('/health', middleware.getHeath, (req: Request, res: Response) => {
+//  return res.status(200).json(res.locals.health);
+// });
 
 //catch all
 app.use('*', (req, res) => {
