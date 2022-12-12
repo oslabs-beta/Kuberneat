@@ -4,7 +4,7 @@
 import request from 'supertest';
 import mongoose from 'mongoose';
 
-const db = require('../src/server/database/db');
+const mongoDB = require('../src/server/database/db');
 
 require('dotenv').config();
 
@@ -18,7 +18,7 @@ afterEach(async () => {
 
 describe('DB connection', () => {
 	it('Should connect to the database', async () => {
-		const response = await request(db).get(
+		const response = await request(mongoDB).get(
 			'mongodb+srv://zeus:123@cluster0.ntr77xf.mongodb.net/?retryWrites=true&w=majority'
 		);
 		expect(response.status).toBe(200);
