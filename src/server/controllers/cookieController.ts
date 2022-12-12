@@ -9,6 +9,12 @@ const cookieController: object = {
 		res.cookie('secret', Math.floor(Math.random() * 100));
 		return next();
 	},
+	setSessionCookie(res: Response<any>, req: Request<any>, next: NextFunction) {
+		//setting session
+		const { _id } = res.locals.fondUser;
+		res.cookie('Session', _id, { httpOnly: true });
+		return next();
+	}
 };
 
 module.exports = cookieController;
