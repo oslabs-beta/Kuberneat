@@ -8,7 +8,7 @@
 		"electron": "electron .",
 		"server": "nodemon src/server/server.ts",
 		"dev": "concurrently \"npm run server\" \"npm start\"",
-		"test": "jest --testTimeout=5000",
+		"test": "jest --testTimeout=100000",
 		"build": "webpack"
 	},
 	"repository": {
@@ -42,12 +42,13 @@
 		"@types/mongoose": "^5.11.97",
 		"@types/node": "^18.11.9",
 		"@types/react": "^18.0.25",
+		"@types/supertest": "^2.0.12",
 		"@typescript-eslint/eslint-plugin": "^5.46.0",
 		"babel-jest": "^29.3.1",
 		"babel-loader": "^9.1.0",
 		"child_process": "^1.0.2",
-		"cross-env": "^7.0.3",
 		"cookie-parser": "^1.4.6",
+		"cross-env": "^7.0.3",
 		"css-loader": "^6.7.2",
 		"cypress": "^12.0.2",
 		"d3": "^7.6.1",

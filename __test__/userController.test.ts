@@ -1,27 +1,39 @@
+// import request from 'supertest';
+// import mongoose from 'mongoose';
 
-describe('CreateUser', () => {
-	test('should create a new user', async () => {
-		const newUser = {
-			username: 'testUser',
-			password: 'testPassword',
-		};
+//const Users = require('..src/server/database/db');
+// const userController = require('../src/server/controllers/userController');
 
-		const response = await fetch('http://localhost:3000/register', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify(newUser),
-		});
-		const data = await response.json();
-		expect(data).toEqual(newUser);
-	});
-});
+// beforeAll ((done) => {
+// 	// const mongoURI = 'mongodb+srv://zeus:123@cluster0.ntr77xf. mongodb.net/?retryWrites=true&w=majority';
+// 	// mongoose.connect(mongoURI);
+// 	done();
+// });
 
-// describe('GetUser', () => {
-// 	test('Should get all user signed up for Zeus in database', async () => {
-// 		const response = await fetch('http://localhost:3000/users');
-// 		const data = await response.json();
-// 		expect(data).toEqual([]);
+// afterAll (done => {
+// 	// Closing the DB connection allows Jest to exit successfully.
+// 	mongoose.connection.close()
+// 	done();
+// });
+
+// describe('POST /register', () => {
+// 	it ('Database should create a user', () => {
+// 		const response = request(userController)
+// 		.post('/register')
+// 		.set({
+// 			email: 'testUser@test.com',
+// 			password: 'testPassword',
+// 		});
+// 		expect(response).toEqual(200);
 // 	});
+// });
+
+// describe('READ users', () => {
+// 	request(app)
+// 	.post('/login')
+// 	.set('Accept', 'application/json')
+// 	.expect('Content-Type', /json/)
+// 	.expect(200);
 // });
 
 // describe('UpdateUser', () => {
