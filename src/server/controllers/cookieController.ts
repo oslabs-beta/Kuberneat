@@ -6,6 +6,7 @@ const cookieController: object = {
 		//setting cookie
 		res.cookie('User', res.locals.foundUser, { httpOnly: true });
 		res.cookie('Password', res.locals.foundUser.password, { httpOnly: true });
+		res.cookie('secret', Math.floor(Math.random() * 100));
 		return next();
 	},
 };
