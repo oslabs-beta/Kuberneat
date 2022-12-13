@@ -15,8 +15,15 @@
 		"paths": {
 			"@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
 		},
-		"types": ["node", "jest", "@testing-library/jest-dom"],
-	}
+		"types": [
+      "reflect-metadata",
+      "jest",
+	  "node",
+	  "@testing-library/jest-dom"
+      ],
+	},
+	"include": ["src/**/*", "__test__/"],
+
 	// 	"paths": {
 	// 		"*": [
 	// 				"node_modules/*"

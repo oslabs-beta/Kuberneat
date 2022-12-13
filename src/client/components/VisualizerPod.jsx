@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import React from 'react';
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
@@ -28,7 +27,7 @@ const Pod = ({ info, nodeNum }) => {
 	});
 
 	return (
-		<div id={`pod${nodeNum}`} class='mouse-over-popover'>
+		<div id={`pod${nodeNum}`} className='mouse-over-popover'>
 			<Popover
 				id='mouse-over-popover'
 				sx={{

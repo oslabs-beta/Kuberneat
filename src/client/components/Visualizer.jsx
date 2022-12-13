@@ -5,7 +5,6 @@ import Pod from './VisualizerPod';
 
 // To create our D3 Visualizer
 export const Visualizer = () => {
-	const [d3Chart, setChart] = useState([]);
 	const [nodes, setNodes] = useState([]);
 
 	// Copyright 2021 Observable, Inc.
@@ -106,7 +105,7 @@ export const Visualizer = () => {
 			.call(drag(simulation));
 
 		// displays text in svg element for the name of the pods
-		var texts = svg
+		const texts = svg
 			.selectAll('text.label')
 			.data(nodes)
 			.enter()
@@ -175,162 +174,73 @@ export const Visualizer = () => {
 	// console.log('svg', svg.current)
 	useEffect(() => {
 		// fetch our cluster info from the backend through http request
-		// fetch('/cluster', { headers: { 'Content-Type': 'application/json' } }) //{headers: { 'Content-Type': 'application/json' },}
-		// .then((data) => data.json())
-		// .then((data) => {
-		//   console.log('this is fetching from the  backend:', data);
-		//   // iterate through our array response from the server
-		//   for (let i = 0; i < data.Name.length; i++) {
-		//   // setting state containing our array of objects containing our cluster info
-		//     setNodes((oldArray: any) => [
-		//       ...oldArray,
-		//       {
-		//         Namespace: data.Namespace[i],
-		//         Name: data.Name[i],
-		//         CPU_Requests: data.CPU_Requests[i],
-		//         CPU_Limits: data.CPU_Limits[i],
-		//         Memory_Requests: data.Memory_Requests[i],
-		//         Memory_Limits: data.Memory_Limits[i],
-		//         Age: data.Age[i],
-		//       },
-		//     ]);
-		//   }
-		// })
-		// .catch((err) => console.log('Fetch Error: ', err));
-
-		const nodes = [
-			{
-				Namespace: 'default',
-				Name: 'alertmanager-prometheus',
-				CPU_Requests: '200m (5%)',
-				CPU_Limits: '200m (5%)',
-				Memory_Requests: '250Mi (6%)',
-			},
-			{
-				Namespace: 'default',
-				Name: 'prometheus-grafana',
-				CPU_Requests: '0 (0%)',
-				CPU_Limits: '0 (0%)',
-				Memory_Requests: '0 (0%)',
-			},
-			{
-				Namespace: 'default',
-				Name: 'prometheus-operator',
-				CPU_Requests: '0 (0%)',
-				CPU_Limits: '0 (0%)',
-				Memory_Requests: '0 (0%)',
-			},
-			{
-				Namespace: 'default',
-				Name: 'prometheus-kube-state-metrics',
-				CPU_Requests: '0 (0%)',
-				CPU_Limits: '0 (0%)',
-				Memory_Requests: '0 (0%)',
-			},
-			{
-				Namespace: 'default',
-				Name: 'prometheus-kube',
-				CPU_Requests: '200m (5%)',
-				CPU_Limits: '200m (5%)',
-				Memory_Requests: '50Mi (1%)',
-			},
-			{
-				Namespace: 'default',
-				Name: 'prometheus-node-exporter',
-				CPU_Requests: '0 (0%)',
-				CPU_Limits: '0 (0%)',
-				Memory_Requests: '0 (0%)',
-			},
-			{
-				Namespace: 'kube-system',
-				Name: 'coredns',
-				CPU_Requests: '100m (2%)',
-				CPU_Limits: '0 (0%)',
-				Memory_Requests: '70Mi (1%)',
-			},
-			{
-				Namespace: 'kube-system',
-				Name: 'etcd',
-				CPU_Requests: '100m (2%)',
-				CPU_Limits: '0 (0%)',
-				Memory_Requests: '100Mi (2%)',
-			},
-			{
-				Namespace: 'kube-system',
-				Name: 'kube-apiserver',
-				CPU_Requests: '250m (6%)',
-				CPU_Limits: '0 (0%)',
-				Memory_Requests: '0 (0%)',
-			},
-			{
-				Namespace: 'kube-system',
-				Name: 'kube-controller-manager',
-				CPU_Requests: '200m (5%)',
-				CPU_Limits: '0 (0%)',
-				Memory_Requests: '0 (0%)',
-			},
-			{
-				Namespace: 'kube-system',
-				Name: 'kube-proxy',
-				CPU_Requests: '0 (0%)',
-				CPU_Limits: '0 (0%)',
-				Memory_Requests: '0 (0%)',
-			},
-			{
-				Namespace: 'kube-system',
-				Name: 'kube-scheduler',
-				CPU_Requests: '100m (2%)',
-				CPU_Limits: '0 (0%)',
-				Memory_Requests: '0 (0%)',
-			},
-			{
-				Namespace: 'kube-system',
-				Name: 'storage-provisioner',
-				CPU_Requests: '0 (0%)',
-				CPU_Limits: '0 (0%)',
-				Memory_Requests: '0 (0%)',
-			},
-		];
-		setNodes(nodes);
-		// arguments that will be passed into the D3 visualizer functions
-		let miserables = { nodes: [{ id: 'alpha', group: 1 }], links: [] };
-		console.log(nodes);
-		let namespaces = [];
-		let groups = {};
-		// find namespaces in data obtained
-		for (let i = 0; i < nodes.length; i++) {
-			if (!namespaces.includes(nodes[i].Namespace)) namespaces.push(nodes[i].Namespace);
-		}
-		// add namespaces
-		for (let i = 0; i < namespaces.length; i++) {
-			miserables.nodes.push({ id: `${namespaces[i]}`, group: i + 2 });
-			groups[namespaces[i]] = i + 2;
-			miserables.links.push({ source: `${namespaces[i]}`, target: 'alpha', value: 24 });
-		}
-		for (let i = 0; i < nodes.length; i++) {
-			miserables.nodes.push({ id: `${nodes[i].Name}`, group: groups[nodes[i].Namespace] });
-			miserables.links.push({ source: `${nodes[i].Name}`, target: nodes[i].Namespace, value: 24 });
-		}
-
-		// invoke the D3 visualizer function with the arguments passed in
-		const chart = ForceGraph(miserables, {
-			nodeId: (d) => d.id,
-			nodeGroup: (d) => d.group,
-			// nodeTitle: (d) => `${d.id}\n${d.group}`,
-			linkStrokeWidth: (l) => Math.sqrt(l.value),
-			// colors: ['red', 'blue', 'green'],
-			linkStrength: 0.1,
-			width: 900,
-			height: 600,
-		});
-		setChart(chart);
-		if (svg.current) {
-			svg.current.appendChild(chart);
-		}
+		// {headers: { 'Content-Type': 'application/json' },}
+		fetch('/cluster', { headers: { 'Content-Type': 'application/json' } })
+			.then((data) => data.json())
+			.then((data) => {
+				console.log('this is fetching from the  backend:', data);
+				// iterate through our array response from the server
+				for (let i = 0; i < data.Name.length; i++) {
+					// setting state containing our array of objects containing our cluster info
+					setNodes((oldArray) => [
+						...oldArray,
+						{
+							Namespace: data.Namespace[i],
+							Name: data.Name[i],
+							CPU_Requests: data.CPU_Requests[i],
+							CPU_Limits: data.CPU_Limits[i],
+							Memory_Requests: data.Memory_Requests[i],
+							Memory_Limits: data.Memory_Limits[i],
+							Age: data.Age[i],
+						},
+					]);
+				}
+			})
+			.catch((err) => console.log('Fetch Error: ', err));
 	}, []);
+
+	// arguments that will be passed into the D3 visualizer functions
+	const miserables = { nodes: [{ id: 'cluster', group: 1 }], links: [] };
+
+	const namespaces = [];
+	const groups = {};
+	// find namespaces in data obtained
+	for (let i = 0; i < nodes.length; i++) {
+		if (!namespaces.includes(nodes[i].Namespace)) namespaces.push(nodes[i].Namespace);
+	}
+	// add namespaces
+	for (let i = 0; i < namespaces.length; i++) {
+		miserables.nodes.push({ id: `${namespaces[i]}`, group: i + 2 });
+		groups[namespaces[i]] = i + 2;
+		miserables.links.push({ source: `${namespaces[i]}`, target: 'cluster', value: 24 });
+	}
+	for (let i = 0; i < nodes.length; i++) {
+		miserables.nodes.push({ id: `${nodes[i].Name}`, group: groups[nodes[i].Namespace] });
+		miserables.links.push({
+			source: `${nodes[i].Name}`,
+			target: nodes[i].Namespace,
+			value: 24,
+		});
+	}
+
+	// invoke the D3 visualizer function with the arguments passed in
+	const chart = ForceGraph(miserables, {
+		nodeId: (d) => d.id,
+		nodeGroup: (d) => d.group,
+		// nodeTitle: (d) => `${d.id}\n${d.group}`,
+		linkStrokeWidth: (l) => Math.sqrt(l.value),
+		// colors: ['red', 'blue', 'green'],
+		linkStrength: 0.1,
+		width: 900,
+		height: 600,
+	});
+	if (svg.current) {
+		svg.current.appendChild(chart);
+	}
 
 	// compile our array containing pod elements to display our popover on the svg
 	const podProps = [];
+	console.log('podProps', podProps);
 	for (let i = 0; i < nodes.length; i++) {
 		podProps.push(<Pod info={nodes[i]} key={i} nodeNum={i}></Pod>);
 	}
