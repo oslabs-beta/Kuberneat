@@ -1,8 +1,13 @@
-import React, { useState, useEffect, useContext } from 'react';
+/*
+The purpose of this component is to render out all pods from the nodes inside
+the current cluster. For iteration: The pods should be updated dynamically for
+the user. 
+ */
+import React, { useContext } from 'react'; //removed  useState, useEffect,
 import { Context } from '../Context';
 
 import { AppProps, Pod2Props } from '../interfaces';
-import { ReactNode, ReactElement } from 'react';
+import { ReactElement } from 'react'; //removed  ReactNode,
 
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
@@ -10,8 +15,8 @@ import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
 import MuiAccordionSummary, { AccordionSummaryProps } from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
-import { CenterFocusStrong } from '@mui/icons-material';
 
+//props are id, info, nodeNum, key
 function Pod2({ id, info, nodeNum, key }: Pod2Props): ReactElement {
 	console.log('nodeNum', nodeNum);
 
@@ -27,7 +32,7 @@ function Pod2({ id, info, nodeNum, key }: Pod2Props): ReactElement {
 			display: 'none',
 		},
 	}));
-
+/* Accordian functionality logic */
 	const AccordionSummary = styled((props: AccordionSummaryProps) => (
 		<MuiAccordionSummary
 			expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
@@ -44,7 +49,7 @@ function Pod2({ id, info, nodeNum, key }: Pod2Props): ReactElement {
 			marginLeft: theme.spacing(1),
 		},
 	}));
-
+/* Accordian functionality logic */
 	const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 		padding: theme.spacing(2),
 		borderTop: '1px solid rgba(0, 0, 0, .125)',
