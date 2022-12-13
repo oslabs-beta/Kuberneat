@@ -27,3 +27,4 @@ describe('DB connection', () => {
   });
  });
 
+ export {};
