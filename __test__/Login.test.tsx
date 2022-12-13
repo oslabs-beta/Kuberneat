@@ -13,46 +13,37 @@
  // userEvent library simulates user interactions by dispatching events that would occur in the browser
  import userEvent from '@testing-library/user-event';
  // add custom jest matchers from jest-dowm
-//  import '@testing-library/jest-dom';
+ // import '@testing-library/jest-dom';
  // import the component to test
- import Signup from '../src/client/Signup';
+ import Login from '../src/client/Login';
 
-
-test('change values via the fireEvent.change method', () => {
-	const handleChange = jest.fn()
-	const {container} = render(<input type="text" onChange={handleChange} />)
-	const input = container.firstChild
-	fireEvent.change(input, {target: {value: 'a'}})
-	expect(handleChange).toHaveBeenCalledTimes(1)
-  });
-
-// describe('Signup component testing', () => {
-// 	it('Should render input element', async () => {
-//         render(<Signup />);
+//  describe('Login component testing', () => {
+//     it('Should render input element', async () => {
+//         render(<Login />);
 //         const inputElement = screen.getByPlaceholderText(/enter your email/i);
 //         expect(inputElement).toBeInTheDocument;
-// 	});
-// 	it('Should be able to enter text in input element', async () => {
-//         render(<Signup />);
+//     });
+//     it('Should be able to enter text in input element', async () => {
+//         render(<Login />);
 //         const inputElement = screen.getByPlaceholderText(/enter your email/i);
 //         fireEvent.change(inputElement, { target: { value: 'ed@gmail.com' }});
 //         expect(inputElement).toHaveTextContent('ed@gmail.com');
-// 	});
+//     });
 //     it('Should have an empty input field when login button clicked', async () => {
-//         render(<Signup />);
+//         render(<Login />);
 //         const inputElement = screen.getByPlaceholderText(/enter your email/i);
-//         const buttonElement = screen.getByRole('signup-button');
+//         const buttonElement = screen.getByRole('login-button');
 //         fireEvent.change(inputElement, { target: { value: 'ed@gmail.com' }});
 //         fireEvent.click(buttonElement);
 //         expect(inputElement).toHaveTextContent('');
-// 	});
-//     test('Signup component should load', () => {
-// 		// render the component bring tested
-// 		render(<Signup />);
-// 		// grab the element we want to interact with
-// 		// use screen and its mehods to do so
-// 		const divElement = screen.getByRole('signup');
-// 		// assert the expected results
-// 		expect(divElement).toBeInTheDocument();
-// 	});
+//     });
+//     test('Login component should load', () => {
+//         // render the component bring tested
+//         render(<Login />);
+//         // grab the element we want to interact with
+//         // use screen and its mehods to do so
+//         const divElement = screen.getByRole('login');
+//         // assert the expected results
+//         expect(divElement).toBeInTheDocument();
+//     });
 //  });

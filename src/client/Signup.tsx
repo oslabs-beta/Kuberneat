@@ -132,6 +132,7 @@ function Signup(): any {
 					<div className='login-box'>
 						{/* Signup button */}
 						<button
+							role='signup-button'
 							id={darkModeOn ? 'login-button1' : 'login-button2'}
 							type='submit'
 							disabled={isSubmitting} // signup button disabled when submitting

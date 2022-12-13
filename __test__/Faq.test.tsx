@@ -8,7 +8,7 @@ test('use jsdom in this test file', () => {
 });
 
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Faq from '../src/client/components/Faq';
 
 

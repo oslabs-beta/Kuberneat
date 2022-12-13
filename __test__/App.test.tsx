@@ -7,9 +7,6 @@
 	expect(element).not.toBeNull();
 });
 
-
-import App from '../src/client/App';
-
 import * as React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, screen, waitFor, RenderResult } from '@testing-library/react';
@@ -17,6 +14,7 @@ import fetchMock from 'jest-fetch-mock';
 import { act } from 'react-dom/test-utils';
 // import renderer from 'react-test-renderer';
 import { BrowserRouter, MemoryRouter } from 'react-router-dom';
+import App from '../src/client/App';
 
 // const renderWithRouter = (ui: JSX.Element, { route = '/' } = {}) => {
 //   window.history.pushState({}, 'Test page', route);
@@ -37,21 +35,17 @@ import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 //             email: 'ed@gmail.com',
 //             password: '12345',
 //             confirmPassword: '12345',
-//           })
+//           });
 //         );
 //       });
 //     });
-//     it('Renders landing page on start', () => {
-//       // Page content for default route
-//       const { user } = renderWithRouter(<App />);
-//       expect(screen.getByText(/Zeus/i)).toBeInTheDocument();
-//     });
 
-//     it('Renders Login component when on /login', () => {
-//       const route = '/login';
+//     it('Renders Login component when on /', () => {
+//       const route = '/';
 //       const { user } = renderWithRouter(<App />, { route });
 //       expect(screen.getByLabelText(/Email/i)).toBeInTheDocument();
 //       expect(screen.getByLabelText(/Password/i)).toBeInTheDocument();
+//       expect(screen.getByLabelText(/Confirm Password/i)).toBeInTheDocument();
 //     });
 
 //     it('Renders Register component when on /signup', () => {
@@ -59,6 +53,7 @@ import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 //       const { user } = renderWithRouter(<App />, { route });
 //       expect(screen.getByLabelText(/Email/i)).toBeInTheDocument();
 //       expect(screen.getByLabelText(/Password/i)).toBeInTheDocument();
+//       expect(screen.getByLabelText(/Confirm Password/i)).toBeInTheDocument();
 //     });
 //   });
 // });
