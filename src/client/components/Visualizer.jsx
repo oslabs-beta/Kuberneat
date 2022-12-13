@@ -200,6 +200,7 @@ export const Visualizer = () => {
 	}, []);
 
 	// arguments that will be passed into the D3 visualizer functions
+	console.log('nodes', nodes);
 	const miserables = { nodes: [{ id: 'cluster', group: 1 }], links: [] };
 
 	const namespaces = [];

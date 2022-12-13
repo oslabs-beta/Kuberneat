@@ -53,8 +53,8 @@ const middleware: Object = {};
 			}
 			// populate our object to send to fetch req in frontend
 			for (let i = 2; i < newArr.length; i++) {
-				obj.Namespace.push(newArr[i][1]);
-				obj.Name.push(newArr[i][2]);
+				obj.Namespace.push(newArr[i][1].replace(/\./g, ''));
+				obj.Name.push(newArr[i][2].replace(/\./g, ''));
 				obj.CPU_Requests.push(newArr[i][3].concat(' ' + newArr[i][4]));
 				obj.CPU_Limits.push(newArr[i][5].concat(' ' + newArr[i][6]));
 				obj.Memory_Requests.push(newArr[i][7].concat(' ' + newArr[i][8]));
