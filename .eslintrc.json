@@ -11,8 +11,13 @@
 	},
 	"plugins": ["react"],
 	"rules": {
-		"indent": ["error", 2],
+		"no-tabs": 0,
+		"indent": [2, "tab"],
 		"quotes": ["error", "single"],
-		"semi": ["error", "always"]
+		"semi": ["error", "always"],
+		"comma-dangle": "off",
+		"@typescript-eslint/comma-dangle": "off",
+		"react/prop-types": "off",
+		"space-before-function-paren": "off"
 	}
 }
