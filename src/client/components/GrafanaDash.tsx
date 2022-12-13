@@ -13,15 +13,8 @@ function GrafanaDash(): ReactElement {
 	const { darkModeOn } = useContext<AppProps>(Context);
 
 	return (
-		<Box m="20px">
-		{/* <div> */}
-			<div className={darkModeOn ? 'dash-dark' : 'dash-light'}>
-				<Header
-					path="/grafanadash"
-					title="Grafana Dashboard"
-					subtitle="Just one of the many ways to visualize your cluster"
-				/>
-
+			<div>
+				<div className={darkModeOn ? 'dash-dark' : 'dash-light'}>
 				<iframe
 					src="http://localhost:3001/d/I1MUxS54k/final-dashboard?orgId=1&from=1670948876446&to=1670949776446"
 					frameBorder="0"
@@ -30,8 +23,7 @@ function GrafanaDash(): ReactElement {
 					className={darkModeOn ? 'iframe-dark' : 'iframe-light'}
 				></iframe>
 			</div>
-		</Box>
-		// </div>
+			</div>
 	);
 }
 
