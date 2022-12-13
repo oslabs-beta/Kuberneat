@@ -19,12 +19,12 @@ function GrafanaDash(): ReactElement {
 					title="Grafana Dashboard"
 					subtitle="Just one of the many ways to visualize your cluster"
 				/>
-
+				{/* http://localhost:3001/d/0dsovdF4z/zeus?orgId=1&refresh=5s&kiosk=&from=1669924943773&to=1669925243773  */}
 				<iframe
-					src="http://localhost:3001/d/I1MUxS54k/final-dashboard?orgId=1&from=1670948876446&to=1670949776446"
-					frameBorder="0"
-					loading="eager"
-					title="Grafana Chart"
+					src='http://localhost:3001/d/I1MUxS54k/final-dashboard?orgId=1&refresh=5s&kiosk=&from=1670905355669&to=1670906255669'
+					frameBorder='0'
+					loading='eager'
+					title='Grafana Chart'
 					className={darkModeOn ? 'iframe-dark' : 'iframe-light'}
 				></iframe>
 			</div>
