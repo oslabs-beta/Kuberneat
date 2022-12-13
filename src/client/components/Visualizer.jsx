@@ -200,8 +200,7 @@ export const Visualizer = () => {
 	}, []);
 
 	// arguments that will be passed into the D3 visualizer functions
-	const miserables = { nodes: [{ id: 'alpha', group: 1 }], links: [] };
-	console.log('nodes', nodes);
+	const miserables = { nodes: [{ id: 'cluster', group: 1 }], links: [] };
 
 	const namespaces = [];
 	const groups = {};
@@ -213,7 +212,7 @@ export const Visualizer = () => {
 	for (let i = 0; i < namespaces.length; i++) {
 		miserables.nodes.push({ id: `${namespaces[i]}`, group: i + 2 });
 		groups[namespaces[i]] = i + 2;
-		miserables.links.push({ source: `${namespaces[i]}`, target: 'alpha', value: 24 });
+		miserables.links.push({ source: `${namespaces[i]}`, target: 'cluster', value: 24 });
 	}
 	for (let i = 0; i < nodes.length; i++) {
 		miserables.nodes.push({ id: `${nodes[i].Name}`, group: groups[nodes[i].Namespace] });
@@ -223,9 +222,7 @@ export const Visualizer = () => {
 			value: 24,
 		});
 	}
-	console.log('miserables', miserables);
-	console.log('namespaces', namespaces);
-	console.log('groups', groups);
+
 	// invoke the D3 visualizer function with the arguments passed in
 	const chart = ForceGraph(miserables, {
 		nodeId: (d) => d.id,
