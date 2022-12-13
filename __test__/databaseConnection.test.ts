@@ -1,29 +1,26 @@
-//The purpose of this file is to test the connection to the database 
+//The purpose of this file is to test the connection to the database
 //		"test:db": "cross-env NODE_ENV=test jest --testTimeout=5000",
-const request = require('supertest');
 
-const app = require('../server');
+import request from 'supertest';
+import mongoose from 'mongoose';
 
-const Users = require('../database/db');
-const mongoose = require('mongoose');
-require("dotenv").config();
+const mongoDB = require('../src/server/database/db');
 
-const mongoURI = 'mongodb+srv://zeus:123@cluster0.ntr77xf.mongodb.net/?retryWrites=true&w=majority';
+require('dotenv').config();
 
 beforeAll(async () => {
-  await mongoose.createConnection(mongoURI);
+	await mongoose.createConnection();
 });
 afterEach(async () => {
-  // Closing the DB connection allows Jest to exit successfully.
-  await mongoose.connection.close();
+	// Closing the DB connection allows Jest to exit successfully.
+	await mongoose.connection.close();
 });
 
 describe('DB connection', () => {
-  it('should connect to the database', async () => {
-    const response = await request(mongoose)
-    .get(mongoURI)
-    expect(response.status).toBe(200);
-    expect(response.body.length).toBeGreaterThan(0);
-  });
- });
-
+	it('Should connect to the database', async () => {
+		const response = await request(mongoDB).get(
+			'mongodb+srv://zeus:123@cluster0.ntr77xf.mongodb.net/?retryWrites=true&w=majority'
+		);
+		expect(response.status).toBe(200);
+	});
+});

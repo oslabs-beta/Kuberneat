@@ -19,7 +19,7 @@ function GrafanaDash(): ReactElement {
 					title="OG Grafana Dashboard goes here"
 					subtitle="Just one of the many ways to visualize your cluster"
 				/>
-
+				{/* http://localhost:3001/d/0dsovdF4z/zeus?orgId=1&refresh=5s&kiosk=&from=1669924943773&to=1669925243773  */}
 				<iframe
 					src="http://localhost:3001/d/I1MUxS54k/final-dashboard?orgId=1&from=1670906241175&to=1670907141175"
 					frameBorder="0"
