@@ -2,26 +2,36 @@
  * @jest-environment jsdom
  */
 
-test('use jsdom in this test file', () => {
+ test('use jsdom in this test file', () => {
 	const element = document.createElement('div');
 	expect(element).not.toBeNull();
 });
 
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import Signup from '../src/client/Signup';
+ import React from 'react';
+ // import react testing methods
+ import { render, screen, fireEvent } from '@testing-library/react';
+ // userEvent library simulates user interactions by dispatching events that would occur in the browser
+ import userEvent from '@testing-library/user-event';
+ // add custom jest matchers from jest-dowm
+//  import '@testing-library/jest-dom';
+ // import the component to test
+ import Signup from '../src/client/Signup';
 
-// can use DESCRIBE BLOCKS to nest mulitple tests that are similar
-// ie: all are for a component and some functionality for it
-describe('Signup component testing', () => {
-	// what we are testing
-	test('Signup component should have the text Email', () => {
-		// 1st render the component we want to test
-		render(<Signup />);
-		// find an element we want to interact with
-		const divElement = screen.getByRole('signup');
-		// use screen to interact with it via its methods
-		expect(divElement).toHaveProperty('role', 'signup');
-		//Assertion that the results are as expected
-	});
-});
+
+test('change values via the fireEvent.change method', () => {
+	const handleChange = jest.fn()
+	const {container} = render(<input type="text" onChange={handleChange} />)
+	const input = container.firstChild
+	fireEvent.change(input, {target: {value: 'a'}})
+	expect(handleChange).toHaveBeenCalledTimes(1)
+  });
+
+//   test('Signup should load', () => {
+// 	// render the component bring tested
+// 	render(<Signup />);
+// 	// grab the element we want to interact with
+// 	// use screen and its mehods to do so
+// 	const divElement = screen.getByRole('signup');
+// 	// assert the expected results
+// 	expect(divElement).toBeInTheDocument();
+// });
