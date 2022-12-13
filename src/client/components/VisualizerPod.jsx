@@ -1,3 +1,7 @@
+/*
+The purpose of this file is to  obtain the props that are passed down from
+visualizer
+*/
 import React from 'react';
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';

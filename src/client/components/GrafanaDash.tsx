@@ -1,10 +1,13 @@
+/*
+The purpose of this component is to render out the Grafana Dashboard. All
+information of metrics is displayed here under this component. The source link
+will need to be changed to the link of the dashboard that is being used e.g.
+under your account. For iteration: The link should be updated dynamically for
+the specific user. 
+*/
 import * as React from 'react';
 import { useContext } from 'react';
 import { Context } from '../Context';
-import Header from './Header';
-
-import { Box } from '@mui/material';
-// import { Box } from '@mui/material';
 
 import { AppProps } from '../interfaces';
 import {ReactElement } from 'react';

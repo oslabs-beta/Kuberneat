@@ -1,21 +1,12 @@
-import { Box, Container } from '@mui/material';
+/**
+ * The purpose of this component is to render out the Kluster page.
+ */
+import { Box } from '@mui/material'; //removed , Container
 import Header from './Header';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import { Context } from '../Context';
-
 import { AppProps } from '../interfaces';
-import { ReactNode, ReactElement } from 'react';
-
-import { styled } from '@mui/material/styles';
-import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
-import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
-import MuiAccordionSummary, { AccordionSummaryProps } from '@mui/material/AccordionSummary';
-import MuiAccordionDetails from '@mui/material/AccordionDetails';
-import { CenterFocusStrong } from '@mui/icons-material';
-
+import { ReactElement } from 'react'; //ReactNode,
 import Pod2 from './Pod2';
 
 function Kluster(): ReactElement {
@@ -23,6 +14,7 @@ function Kluster(): ReactElement {
 
 	//fetching to the backend
 	useEffect(() => {
+		//Hard coded data of the nodes from K8s -Need to dynamically render this out 
 		setNodes([
 			{
 				Namespace: 'default',
@@ -119,12 +111,14 @@ function Kluster(): ReactElement {
 		///create variable to store the values from the
 	}, []);
 
+	//creating an array to store the props for the Pod2 component
 	const podProps: any[] = [];
 
+	//looping through the nodes and passing down props to the Pod2 component
 	for (let i = 0; i < nodes.length; i++) {
 		podProps.push(<Pod2 id={i} info={nodes[i]} key={i} nodeNum={i} />);
 	}
-
+	//use context for light and dark mode
 	const { darkModeOn } = useContext<AppProps>(Context);
 
 	return (

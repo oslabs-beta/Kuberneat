@@ -1,12 +1,15 @@
+/**
+ * The purpose of this component is render out the the paths of the app
+ */
 import React, { useContext } from 'react';
 import { Typography, Box, IconButton } from '@mui/material';
 
-import { Link, useNavigate } from 'react-router-dom'; // for refresh button
+import { Link} from 'react-router-dom'; // for refresh button, took out useNavigate 
 
 import { Context } from '../Context';
 
 import { AppProps, HeaderProps } from '../interfaces';
-import { ReactNode, ReactElement } from 'react';
+import { ReactElement } from 'react'; // took out  ReactNode
 
 import SyncIcon from '@mui/icons-material/Sync'; // refresh icon
 import Tooltip from '@mui/material/Tooltip';
@@ -16,10 +19,9 @@ import Tooltip from '@mui/material/Tooltip';
 function Header({ title, subtitle, path }: HeaderProps): ReactElement {
 	const { darkModeOn } = useContext<AppProps>(Context);
 	const fontColor: string = darkModeOn ? '#fab700 !important' : '#293462 !important';
-	// sets the font color of the header -> changes here get reflected throughout
-	// alt light color 344966 fab700
 
 	return (
+		// Styling of the header 
 		<Box mb='30px' role='header'>
 			<Box sx={{ display: 'flex', justifyContent: 'space-between', margin: 2 }}>
 				<Typography
@@ -31,7 +33,7 @@ function Header({ title, subtitle, path }: HeaderProps): ReactElement {
 				</Typography>
 
 				<Link to={path}>
-
+					{/* This is the refresh button */}
 				<Tooltip title='Refresh' arrow>
 					<IconButton
 						className='icon'
