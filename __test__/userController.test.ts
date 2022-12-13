@@ -1,32 +1,42 @@
-// import request from 'supertest';
-// import mongoose from 'mongoose';
+import request from 'supertest';
+import mongoose from 'mongoose';
+import { response } from 'express';
 
-//const Users = require('..src/server/database/db');
-// const userController = require('../src/server/controllers/userController');
+const Users = require('..src/server/database/db');
+const userController = require('../src/server/controllers/userController');
+const app = require('../src/server/app');
 
-// beforeAll ((done) => {
-// 	// const mongoURI = 'mongodb+srv://zeus:123@cluster0.ntr77xf. mongodb.net/?retryWrites=true&w=majority';
-// 	// mongoose.connect(mongoURI);
-// 	done();
-// });
+jest.mock(userController);
+jest.mock(Users);
 
-// afterAll (done => {
-// 	// Closing the DB connection allows Jest to exit successfully.
-// 	mongoose.connection.close()
-// 	done();
-// });
+const mockRequest = () => {
+	const request: Object = {
+		username:'testUser',
+		password:'testPassword',
+	}
+	return request;
+}
 
-// describe('POST /register', () => {
-// 	it ('Database should create a user', () => {
-// 		const response = request(userController)
-// 		.post('/register')
-// 		.set({
-// 			email: 'testUser@test.com',
-// 			password: 'testPassword',
-// 		});
-// 		expect(response).toEqual(200);
-// 	});
-// });
+const mockResponse = () => {
+	const response: any = {};
+	response.status = jest.fn().mockReturnValue(response);
+	response.json = jest.fn().mockReturnValue(response);
+	return response;
+}
+
+describe('User Controller', () => {
+	const mockedNext = jest.fn();
+	const mockedRequest = mockRequest();
+	const mockedResponse = mockResponse();
+	const mockedEntries = {
+		data: {}	
+	}
+	// request.get.mockedResolvedValue(mockedEntries);
+	// const result = get(mockedRequest, mockedResponse, mockedNext);
+	// expect(result).toEqual(mockedEntries);
+
+
+});
 
 // describe('READ users', () => {
 // 	request(app)
