@@ -173,7 +173,6 @@ export const Visualizer = () => {
 	const svg = useRef(null);
 	// console.log('svg', svg.current)
 	useEffect(() => {
-		const nodes = [];
 		// fetch our cluster info from the backend through http request
 		// {headers: { 'Content-Type': 'application/json' },}
 		fetch('/cluster', { headers: { 'Content-Type': 'application/json' } })
@@ -183,15 +182,6 @@ export const Visualizer = () => {
 				// iterate through our array response from the server
 				for (let i = 0; i < data.Name.length; i++) {
 					// setting state containing our array of objects containing our cluster info
-					nodes.push({
-						Namespace: data.Namespace[i],
-						Name: data.Name[i],
-						CPU_Requests: data.CPU_Requests[i],
-						CPU_Limits: data.CPU_Limits[i],
-						Memory_Requests: data.Memory_Requests[i],
-						Memory_Limits: data.Memory_Limits[i],
-						Age: data.Age[i],
-					});
 					setNodes((oldArray) => [
 						...oldArray,
 						{
@@ -207,136 +197,49 @@ export const Visualizer = () => {
 				}
 			})
 			.catch((err) => console.log('Fetch Error: ', err));
-
-		// const nodes = [
-		// 	{
-		// 		Namespace: 'default',
-		// 		Name: 'alertmanager-prometheus',
-		// 		CPU_Requests: '200m (5%)',
-		// 		CPU_Limits: '200m (5%)',
-		// 		Memory_Requests: '250Mi (6%)',
-		// 	},
-		// 	{
-		// 		Namespace: 'default',
-		// 		Name: 'prometheus-grafana',
-		// 		CPU_Requests: '0 (0%)',
-		// 		CPU_Limits: '0 (0%)',
-		// 		Memory_Requests: '0 (0%)',
-		// 	},
-		// 	{
-		// 		Namespace: 'default',
-		// 		Name: 'prometheus-operator',
-		// 		CPU_Requests: '0 (0%)',
-		// 		CPU_Limits: '0 (0%)',
-		// 		Memory_Requests: '0 (0%)',
-		// 	},
-		// 	{
-		// 		Namespace: 'default',
-		// 		Name: 'prometheus-kube-state-metrics',
-		// 		CPU_Requests: '0 (0%)',
-		// 		CPU_Limits: '0 (0%)',
-		// 		Memory_Requests: '0 (0%)',
-		// 	},
-		// 	{
-		// 		Namespace: 'default',
-		// 		Name: 'prometheus-kube',
-		// 		CPU_Requests: '200m (5%)',
-		// 		CPU_Limits: '200m (5%)',
-		// 		Memory_Requests: '50Mi (1%)',
-		// 	},
-		// 	{
-		// 		Namespace: 'default',
-		// 		Name: 'prometheus-node-exporter',
-		// 		CPU_Requests: '0 (0%)',
-		// 		CPU_Limits: '0 (0%)',
-		// 		Memory_Requests: '0 (0%)',
-		// 	},
-		// 	{
-		// 		Namespace: 'kube-system',
-		// 		Name: 'coredns',
-		// 		CPU_Requests: '100m (2%)',
-		// 		CPU_Limits: '0 (0%)',
-		// 		Memory_Requests: '70Mi (1%)',
-		// 	},
-		// 	{
-		// 		Namespace: 'kube-system',
-		// 		Name: 'etcd',
-		// 		CPU_Requests: '100m (2%)',
-		// 		CPU_Limits: '0 (0%)',
-		// 		Memory_Requests: '100Mi (2%)',
-		// 	},
-		// 	{
-		// 		Namespace: 'kube-system',
-		// 		Name: 'kube-apiserver',
-		// 		CPU_Requests: '250m (6%)',
-		// 		CPU_Limits: '0 (0%)',
-		// 		Memory_Requests: '0 (0%)',
-		// 	},
-		// 	{
-		// 		Namespace: 'kube-system',
-		// 		Name: 'kube-controller-manager',
-		// 		CPU_Requests: '200m (5%)',
-		// 		CPU_Limits: '0 (0%)',
-		// 		Memory_Requests: '0 (0%)',
-		// 	},
-		// 	{
-		// 		Namespace: 'kube-system',
-		// 		Name: 'kube-proxy',
-		// 		CPU_Requests: '0 (0%)',
-		// 		CPU_Limits: '0 (0%)',
-		// 		Memory_Requests: '0 (0%)',
-		// 	},
-		// 	{
-		// 		Namespace: 'kube-system',
-		// 		Name: 'kube-scheduler',
-		// 		CPU_Requests: '100m (2%)',
-		// 		CPU_Limits: '0 (0%)',
-		// 		Memory_Requests: '0 (0%)',
-		// 	},
-		// 	{
-		// 		Namespace: 'kube-system',
-		// 		Name: 'storage-provisioner',
-		// 		CPU_Requests: '0 (0%)',
-		// 		CPU_Limits: '0 (0%)',
-		// 		Memory_Requests: '0 (0%)',
-		// 	},
-		// ];
-		// setNodes(nodes);
-		// arguments that will be passed into the D3 visualizer functions
-		const miserables = { nodes: [{ id: 'alpha', group: 1 }], links: [] };
-		console.log('nodes', nodes);
-		const namespaces = [];
-		const groups = {};
-		// find namespaces in data obtained
-		for (let i = 0; i < nodes.length; i++) {
-			if (!namespaces.includes(nodes[i].Namespace)) namespaces.push(nodes[i].Namespace);
-		}
-		// add namespaces
-		for (let i = 0; i < namespaces.length; i++) {
-			miserables.nodes.push({ id: `${namespaces[i]}`, group: i + 2 });
-			groups[namespaces[i]] = i + 2;
-			miserables.links.push({ source: `${namespaces[i]}`, target: 'alpha', value: 24 });
-		}
-		for (let i = 0; i < nodes.length; i++) {
-			miserables.nodes.push({ id: `${nodes[i].Name}`, group: groups[nodes[i].Namespace] });
-			miserables.links.push({ source: `${nodes[i].Name}`, target: nodes[i].Namespace, value: 24 });
-		}
-
-		// invoke the D3 visualizer function with the arguments passed in
-		const chart = ForceGraph(miserables, {
-			nodeId: (d) => d.id,
-			nodeGroup: (d) => d.group,
-			// nodeTitle: (d) => `${d.id}\n${d.group}`,
-			linkStrokeWidth: (l) => Math.sqrt(l.value),
-			// colors: ['red', 'blue', 'green'],
-			linkStrength: 0.1,
-			width: 900,
-			height: 600,
-		});
-		if (svg.current) {
-			svg.current.appendChild(chart);
-		}
 	}, []);
+
+	// arguments that will be passed into the D3 visualizer functions
+	const miserables = { nodes: [{ id: 'alpha', group: 1 }], links: [] };
+	console.log('nodes', nodes);
+
+	const namespaces = [];
+	const groups = {};
+	// find namespaces in data obtained
+	for (let i = 0; i < nodes.length; i++) {
+		if (!namespaces.includes(nodes[i].Namespace)) namespaces.push(nodes[i].Namespace);
+	}
+	// add namespaces
+	for (let i = 0; i < namespaces.length; i++) {
+		miserables.nodes.push({ id: `${namespaces[i]}`, group: i + 2 });
+		groups[namespaces[i]] = i + 2;
+		miserables.links.push({ source: `${namespaces[i]}`, target: 'alpha', value: 24 });
+	}
+	for (let i = 0; i < nodes.length; i++) {
+		miserables.nodes.push({ id: `${nodes[i].Name}`, group: groups[nodes[i].Namespace] });
+		miserables.links.push({
+			source: `${nodes[i].Name}`,
+			target: nodes[i].Namespace,
+			value: 24,
+		});
+	}
+	console.log('miserables', miserables);
+	console.log('namespaces', namespaces);
+	console.log('groups', groups);
+	// invoke the D3 visualizer function with the arguments passed in
+	const chart = ForceGraph(miserables, {
+		nodeId: (d) => d.id,
+		nodeGroup: (d) => d.group,
+		// nodeTitle: (d) => `${d.id}\n${d.group}`,
+		linkStrokeWidth: (l) => Math.sqrt(l.value),
+		// colors: ['red', 'blue', 'green'],
+		linkStrength: 0.1,
+		width: 900,
+		height: 600,
+	});
+	if (svg.current) {
+		svg.current.appendChild(chart);
+	}
 
 	// compile our array containing pod elements to display our popover on the svg
 	const podProps = [];
