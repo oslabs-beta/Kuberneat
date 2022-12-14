@@ -19,7 +19,7 @@
       "reflect-metadata",
       "jest",
 	  "node",
-	  "@testing-library/jest-dom"
+	  // "@testing-library/jest-dom"
       ],
 	},
 	"include": ["src/**/*", "__test__/"],
