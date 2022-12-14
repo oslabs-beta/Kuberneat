@@ -1,5 +1,6 @@
-# ⚡⚡ Zeus ⚡⚡
-<center><img src="./logo/Logo.png" width="650" height="450"> </center>
+# ⚡ Zeus ⚡
+
+<center><img src="./logo/Logo.png" width="200" height="150"> </center>
 
 ![osLabs](https://badgen.net/badge/license/MIT)
 
@@ -10,15 +11,14 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/oslabs-beta/Zeus)
 ![GitHub top language](https://img.shields.io/github/languages/top/oslabs-beta/Zeus?color=yellow)
 
-
 ![GitHub forks](https://img.shields.io/github/forks/oslabs-beta/Zeus?color=green)
 ![GitHub Repo stars](https://img.shields.io/github/stars/oslabs-beta/Zeus?color=green)
 [![GitHub watchers](https://badgen.net/github/watchers/oslabs-beta/Zeus?color=green)](https://GitHub.com/Naereen/StrapDown.js/watchers/)
 
-
 <br/>
 
 # Supported OS
+
 ![mac](https://badgen.net/badge/OS/mac)
 <br/>
 
@@ -227,39 +227,36 @@
 ![Grafana](https://img.shields.io/badge/grafana-%23F46800.svg?style=for-the-badge&logo=grafana&logoColor=white)
 ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=Prometheus&logoColor=white)
 
-
 </br>
 <br/>
 <br/>
 <br/>
 
-# Contributions 
+# Contributions
 
-For more information regarding how to contribute, please refer to the 
+For more information regarding how to contribute, please refer to the
 [CONTRIBUTING.md](https://github.com/oslabs-beta/Zeus/blob/dev/CONTRIBUTING.md)
-guidelines from this repo. 
+guidelines from this repo.
 
-1. Fork and clone the  ``dev`` branch onto your local branch. 
+1. Fork and clone the `dev` branch onto your local branch.
 2. Create a new a feature branch
    ```
    [your-name]/AWESOME-FEATURES
    ```
 3. Please ensure you are following eslint conventions.
-4. Please ensure to create tests for your feature and that it passes your   test suite.
-5. Please be detailed in your pull request. 
+4. Please ensure to create tests for your feature and that it passes your test suite.
+5. Please be detailed in your pull request.
    ![img](./Demo%20Shots/PR-guide.png)
-
-
 
 </br>
 <br/>
 <br/>
 <br/>
 
-   # Founders
+# Founders
 
 - Ed Cho [LinkedIn](https://www.linkedin.com/in/edcho720/)| [GitHub](https://github.com/edcho720)
 - John Wroge [LinkedIn](https://www.linkedin.com/in/john-wroge/) | [GitHub](https://github.com/johnwroge)
 - Harvey Li [LinkedIn](https://www.linkedin.com/in/harvey-li/) | [GitHub](https://github.com/harvli)
 - Amy (Aimée) Nguyen [LinkedIn](https://www.linkedin.com/in/aqn/) |
-[GitHub](https://github.com/DoctorCodeine)
+  [GitHub](https://github.com/DoctorCodeine)
