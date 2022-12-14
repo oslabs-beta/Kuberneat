@@ -63,9 +63,9 @@ function App(): ReactElement {
 						{' '}
 						{/* profile renders user data from JWT */}
 						{/* 3 diff ways to show Avatar */}
-						<div id='avatar-id' className={darkModeOn ? 'user-pic-dark' : 'user-pic-light'}>
+						{/* <div id='avatar-id' className={darkModeOn ? 'user-pic-dark' : 'user-pic-light'}>
 							Y
-						</div>{' '}
+						</div>{' '} */}
 						{/* can add photo later */}
 						{/* <img src={user ? user.picture : user.name.split('')[0]} alt="profile" style={{ borderRadius: '50px', height: '70px', width: '70px'}}></img> */}
 						{/* MUI Avatar solution - don't need stack for single avatar*/}
@@ -75,7 +75,7 @@ function App(): ReactElement {
 						<div className='user-info'>
 							{/* <p>{user.given_name}</p> */}{' '}
 							{/* can dynamically render user info later with JWT */}
-							<p>Yaku</p> {/* can dynamically render user info later with JWT */}
+							{/* <p>Yaku</p> can dynamically render user info later with JWT */}
 							{/* <p>{user ? user.name : "user email in DB"}</p> */}{' '}
 							{/* probably best to use email, since that's how we store username */}
 						</div>
@@ -166,8 +166,8 @@ function App(): ReactElement {
 
 					<main className='content'>
 						<Routes>
-							{/* <Route path='/' element={<CustomDash />} /> */}
-							<Route path='/grafanadash' element={<GrafanaDash />} />
+							<Route path='/' element={<GrafanaDash />} />
+							<Route path='/grafranaDash' element={<GrafanaDash />} />
 							<Route path='/visualizer' element={<VisD3 />} />
 							<Route path='/kluster' element={<Kluster />} />
 							<Route path='/faq' element={<Faq />} />

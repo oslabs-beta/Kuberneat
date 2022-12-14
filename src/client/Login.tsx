@@ -149,8 +149,8 @@ function Login(): ReactElement {
 					{/* shows error message */}
 					{errors.password && touched.password && <p className='error'>{errors.password}</p>}
 
-					<label htmlFor='confirmPassword'>Confirm Password</label>
-					<input
+					{/* <label htmlFor='confirmPassword'>Confirm Password</label> */}
+					{/* <input
 						value={values.confirmPassword}
 						onChange={handleChange}
 						id='confirmPassword'
@@ -159,11 +159,11 @@ function Login(): ReactElement {
 						onBlur={handleBlur}
 						className={errors.confirmPassword && touched.confirmPassword ? 'input-error' : ''}
 						// what actually shows the errors on form validation
-					/>
+					/> */}
 					{/* shows error message */}
-					{errors.confirmPassword && touched.confirmPassword && (
+					{/* {errors.confirmPassword && touched.confirmPassword && (
 						<p className='error'>{errors.confirmPassword}</p>
-					)}
+					)} */}
 
 					<div className='login-box'>
 						{/* Login button */}

@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Context } from './Context';
 
-import {IconButton, Typography } from '@mui/material'; //took out Box
+import { IconButton, Typography } from '@mui/material'; //took out Box
 import Tooltip from '@mui/material/Tooltip';
 
 import HubIcon from '@mui/icons-material/Hub';
@@ -74,12 +74,12 @@ function Sidebar(): ReactElement {
 								sx={{ '&:hover': { backgroundColor: '#22A39F' } }}
 							>
 								<AddchartTwoToneIcon
-									onClick={() => navigate('/grafanadash')}
+									onClick={() => navigate('/')}
 								></AddchartTwoToneIcon>
 							</IconButton>
 						</Tooltip>
-						<Link to="/grafanadash">
-							<Typography>Dashboard 2</Typography>
+						<Link to="/">
+							<Typography>Dashboard</Typography>
 						</Link>
 					</li>
 
@@ -184,4 +184,3 @@ function Sidebar(): ReactElement {
 }
 
 export default Sidebar;
-
