@@ -5,8 +5,6 @@
 
 ![version](https://badgen.net/badge/version/v1.0.0)
 
-![GitHub all releases](https://img.shields.io/github/downloads/oslabs-beta/Zeus)
-
 ![GitHub language count](https://img.shields.io/github/languages/count/oslabs-beta/Zeus)
 ![GitHub top language](https://img.shields.io/github/languages/top/oslabs-beta/Zeus?color=yellow)
 
