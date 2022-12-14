@@ -1,6 +1,12 @@
+/*
+The purpose of this component is to render out the FAQ page with the build in
+accordion tool from MUI. When a user clicks on a question, the answer will
+appear as a dropdown box. 
+ */
+
+//Importing framework to use for FAQ page
 import { Box } from '@mui/material';
 import Header from './Header';
-// can refer to MUI docs for Accordian
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -11,19 +17,19 @@ import React, { useContext } from 'react';
 import { Context } from '../Context';
 
 import { AppProps } from '../interfaces';
-import { ReactNode, ReactElement } from 'react';
+import { ReactElement } from 'react'; //took out ReactNode,
 
 function FAQ(): ReactElement {
 	
 	const { darkModeOn } = useContext<AppProps>(Context);
 
+	// sets the color of the FAQ containers, changes here get reflected to all
 	const accordianColor: string = darkModeOn
 		? '#2c3639 !important'
 		: '#344966 !important';
 	const textColor: string = darkModeOn
 		? '#22A39F !important'
 		: 'white !important';
-	// sets the color of the FAQ containers, chnages here get reflected to all
 
 	return (
 		<div role='faq' className={darkModeOn ? 'faq-dark' : 'faq-light'}>
@@ -34,8 +40,7 @@ function FAQ(): ReactElement {
 					title="FAQ"
 					subtitle="Frequently Asked Questions Page"
 				/>
-
-				{/* Can replace placeholder questions with real ones later */}
+				{/* Accordion for FAQ */}
 				<Accordion
 					defaultExpanded={false}
 					sx={{
@@ -54,7 +59,7 @@ function FAQ(): ReactElement {
 					</AccordionSummary>
 					<AccordionDetails>
 						<Typography>
-							Zeus is an intuitive and interactive visualiztion tool for
+							Zeus is an intuitive and interactive visualization tool for
 							monitoring a Kubernetes cluster.
 						</Typography>
 					</AccordionDetails>
@@ -150,7 +155,7 @@ function FAQ(): ReactElement {
 					</AccordionSummary>
 					<AccordionDetails>
 						<Typography>
-							Zeus is an open source platform and welcomes collaboraton from the
+							Zeus is an open source platform and welcomes collaboration from the
 							developer community.
 						</Typography>
 					</AccordionDetails>

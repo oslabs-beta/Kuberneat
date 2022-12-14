@@ -1,3 +1,6 @@
+/*
+TS interfaces
+*/
 export interface AppProps {
 	darkModeOn?: boolean;
 	toggleDarkMode?: React.FC;

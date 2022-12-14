@@ -1,3 +1,4 @@
+
 import * as yup from 'yup'; // yup is what formik uses for form vaildation
 
 const passwordRules: any = /^(?=.*\d)(?=.*[A-Z]).{5,}$/; // Regex for password rules

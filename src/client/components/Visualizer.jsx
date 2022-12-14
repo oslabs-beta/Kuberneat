@@ -1,3 +1,7 @@
+/*
+The purpose of this file is to create a D3 Visualizer. It contains all the logic
+that is needed to render out the D3 visualizer dynamically
+ */
 import * as React from 'react';
 import * as d3 from 'd3';
 import { useState, useEffect, useRef } from 'react';
@@ -200,6 +204,7 @@ export const Visualizer = () => {
 	}, []);
 
 	// arguments that will be passed into the D3 visualizer functions
+	console.log('nodes', nodes);
 	const miserables = { nodes: [{ id: 'cluster', group: 1 }], links: [] };
 
 	const namespaces = [];
