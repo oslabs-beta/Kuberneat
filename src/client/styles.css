@@ -602,10 +602,10 @@ nav .ul-item li:hover {
 }
 .user-pic-dark {
 	border-radius: 50%;
-	border: 3px solid var(--blue-accent);
+	/* border: 3px solid var(white); */
 	height: 80px; /* default 65px */
 	width: 80px; /* default 65px */
-	color: var(--blue-accent);
+	color: none;
 	font-size: 48px;
 	background-color:var(--dark-color);
 	display: flex;
@@ -615,10 +615,10 @@ nav .ul-item li:hover {
 }
 .user-pic-light {
 	border-radius: 50%;
-	border: 3px solid white;
+	/* border: 3px solid white; */
 	height: 80px; /* default 65px */
 	width: 80px; /* default 65px */
-	color: var(--light3-color);
+	color: none;
 	font-size: 48px;
 	background-color: var(--light-color);
 	display: flex;

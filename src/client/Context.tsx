@@ -29,8 +29,9 @@ function ContextProvider({ children }: { children: ReactNode }): ReactElement {
 		const userObject: any | null = jwt_decode<JwtPayload>(response.credential);
 		//create a new object from user object, make the shape match the shape of the object we get from own oauth
 		//console.log('UserObject:', userObject);
-		const { name, email } = userObject;
-		const newUser: any | null = { name: name, email: email }
+		console.log(userObject)
+		const { name, email, picture } = userObject;
+		const newUser: any | null = { name: name, email: email, picture: picture }
 		setUser(newUser); // set user to userObject */ going from null to defined and allows routes to display 
 	}
 	/* global google object coming from html script*/
