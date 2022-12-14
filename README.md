@@ -77,7 +77,7 @@
     kubectl get po -A
     ```
 
-  - Ensure sufficient computational resources to build and user clusters 🖥️ <br /></br>
+  - Ensure sufficient computational resources are available to build and user clusters 🖥️ <br /></br>
 
 ### If you are new to Kubernetes, keep this in mind:
 
@@ -244,7 +244,7 @@ guidelines from this repo.
    [your-name]/AWESOME-FEATURES
    ```
 3. Please ensure you are following eslint conventions.
-4. Please ensure to crete tests for your feature and that it passes your   test suite.
+4. Please ensure to create tests for your feature and that it passes your   test suite.
 5. Please be detailed in your pull request. 
    ![img](./Demo%20Shots/PR-guide.png)
 
