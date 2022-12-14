@@ -10,6 +10,7 @@ import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
 import LiveHelpTwoToneIcon from '@mui/icons-material/LiveHelpTwoTone';
 import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
 import CloseFullscreenTwoToneIcon from '@mui/icons-material/CloseFullscreenTwoTone';
+import InsertChartTwoToneIcon from '@mui/icons-material/InsertChartTwoTone';
 import AddchartTwoToneIcon from '@mui/icons-material/AddchartTwoTone';
 import ScatterPlotTwoToneIcon from '@mui/icons-material/ScatterPlotTwoTone';
 
@@ -63,11 +64,26 @@ function Sidebar(): ReactElement {
 			<nav>
 				<ul className={active ? 'ul-item' : 'ul-item-icon'}>
 					<li>
-						<Tooltip
-							title="Dashboard"
-							arrow
-							placement="right-start"
-						>
+						<Tooltip 
+							title='Dashboard' 
+							arrow placement='right-start'>
+							<IconButton
+								className='icon'
+								size='large'
+								sx={{ '&:hover': { backgroundColor: '#22A39F' } }}
+							>
+								<InsertChartTwoToneIcon onClick={() => navigate('/')}></InsertChartTwoToneIcon>
+							</IconButton>
+						</Tooltip>
+						<Link to='/'>
+							<Typography>Dashboard 1</Typography>
+						</Link>
+					</li>
+
+					<li>
+						<Tooltip 
+							title='Dashboard 2' 
+							arrow placement='right-start'>
 							<IconButton
 								className="icon"
 								size="large"
@@ -86,8 +102,7 @@ function Sidebar(): ReactElement {
 					<li>
 						<Tooltip
 							title="Visualizer"
-							arrow
-							placement="right-start"
+							arrow placement="right-start"
 						>
 							<IconButton
 								className="icon"
@@ -106,28 +121,26 @@ function Sidebar(): ReactElement {
 
 					<li>
 						<Tooltip
-							title="Kluster"
-							arrow
-							placement="right-start"
+							title="Cluster"
+							arrow placement="right-start"
 						>
 							<IconButton
 								className="icon"
 								size="large"
 								sx={{ '&:hover': { backgroundColor: '#22A39F' } }}
 							>
-								<HubIcon onClick={() => navigate('/kluster')}></HubIcon>
+								<HubIcon onClick={() => navigate('/cluster')}></HubIcon>
 							</IconButton>
 						</Tooltip>
-						<Link to="/kluster">
-							<Typography>Kluster</Typography>
+						<Link to='/cluster'>
+							<Typography>Cluster</Typography>
 						</Link>
 					</li>
 
 					<li>
 						<Tooltip
 							title="FAQ"
-							arrow
-							placement="right-start"
+							arrow placement="right-start"
 						>
 							<IconButton
 								className="icon"
@@ -153,8 +166,7 @@ function Sidebar(): ReactElement {
 						<li>
 							<Tooltip
 								title="Logout"
-								arrow
-								placement="right-start"
+								arrow placement="right-start"
 							>
 								<IconButton
 									/* onClick={() => setUser(null)} */

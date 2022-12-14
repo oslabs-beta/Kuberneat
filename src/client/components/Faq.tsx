@@ -20,6 +20,7 @@ import { AppProps } from '../interfaces';
 import { ReactElement } from 'react'; //took out ReactNode,
 
 function FAQ(): ReactElement {
+	
 	const { darkModeOn } = useContext<AppProps>(Context);
 
 	// sets the color of the FAQ containers, changes here get reflected to all
@@ -31,8 +32,8 @@ function FAQ(): ReactElement {
 		: 'white !important';
 
 	return (
-		<div className={darkModeOn ? 'faq-dark' : 'faq-light'}>
-			<Box m="20px">
+		<div role='faq' className={darkModeOn ? 'faq-dark' : 'faq-light'}>
+			<Box m='20px'>
 				{/* Header passing down props for title and subtitle */}
 				<Header
 					path="/faq"

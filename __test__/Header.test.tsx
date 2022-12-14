@@ -2,26 +2,60 @@
  * @jest-environment jsdom
  */
 
-test('use jsdom in this test file', () => {
+ test('use jsdom in this test file', () => {
 	const element = document.createElement('div');
 	expect(element).not.toBeNull();
 });
 
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import Header from '../src/client/components/Header';
+ import React from 'react';
+ // import react testing methods
+ import { render, screen } from '@testing-library/react';
+ // userEvent library simulates user interactions by dispatching events that would occur in the browser
+ import userEvent from '@testing-library/user-event';
+ // add custom jest matchers from jest-dowm
+//  import '@testing-library/jest-dom';
+ // import the component to test
+ import Header from '../src/client/components/Header';
 
-// can use DESCRIBE BLOCKS to nest mulitple tests that are similar
-// ie: all are for a component and some functionality for it
-describe('Header component testing', () => {
-	// what we are testing
-	test('Header component should have a title', async () => {
-		// 1st render the component we want to test
-		render(<Header title='I am the Header' subtitle="I am the Header's subtile" />);
-		// find an element we want to interact with
-		const divElement = screen.getByRole('header');
-		// use screen to interact with it via its methods
-		expect(divElement).toContain('I am the Header');
-		//Assertion that the results are as expected
-	});
-});
+// describe('Header component testing', () => {
+// 	test('Header should have title test header', async () => {
+// 		// render the component bring tested
+// 		render(<Header title='test header' subtitle='test subtitle' path='/' />);
+// 		// grab the element we want to interact with
+// 		// use screen and its mehods to do so
+// 		const headingElement = screen.getByRole('header');
+// 		// assert the expected results
+// 		expect(headingElement).toHaveTextContent('test header');
+// 	});
+	
+// 	test('Header should have an attribute called title', async () => {
+// 		// render the component bring tested
+// 		render(<Header title='test header' subtitle='test subtitle' path='/' />);
+// 		// grab the element we want to interact with
+// 		// use screen and its mehods to do so
+// 		const headingElement = screen.getByRole('header');
+// 		// assert the expected results
+// 		expect(headingElement).toHaveAttribute('title');
+// 	});
+	
+// 	test('Header should have an attribute called subtitle', async () => {
+// 		// render the component bring tested
+// 		render(<Header title='test header' subtitle='test subtitle' path='/' />);
+// 		// grab the element we want to interact with
+// 		// use screen and its mehods to do so
+// 		const headingElement = screen.getByRole('header');
+// 		// assert the expected results
+// 		expect(headingElement).toHaveAttribute('subtitle');
+// 	});
+	
+// 	test('Header should have an attribute called path', async () => {
+// 		// render the component bring tested
+// 		render(<Header title='test header' subtitle='test subtitle' path='/' />);
+// 		// grab the element we want to interact with
+// 		// use screen and its mehods to do so
+// 		const headingElement = screen.getByRole('header');
+// 		// assert the expected results
+// 		expect(headingElement).toHaveAttribute('path');
+// 	});
+// });
+

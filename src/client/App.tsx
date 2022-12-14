@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { useContext, useState } from 'react';
 import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 import { Context } from './Context';
@@ -25,7 +25,7 @@ import Signup from './Signup';
 
 // import CustomDash from './components/CustomDash';
 import GrafanaDash from './components/GrafanaDash';
-import Kluster from './components/Kluster';
+import Cluster from './components/Cluster';
 import VisD3 from './components/VisD3';
 import Faq from './components/Faq';
 
@@ -40,13 +40,14 @@ function App(): ReactElement {
 		// for now, this mocks logout from logout icon on far right of top navbar
 		// navigate('/');
 		setUser(null);
-	}
+	};
 
 	function signup(): void {
 		// write logic for signup, reroute to login page
 		setUser(null);
-	}
-	console.log('user', user)
+	};
+
+	console.log('from App - User info:', user)
 	return (
 		<>
 			{/* <CssBaseline /> */}
@@ -158,7 +159,7 @@ function App(): ReactElement {
 				<Routes>
 					<Route path='/' element={<Login />} />
 
-					<Route path='/signup' element={<Signup onClick={signup} />} />
+					<Route path='/signup' element={<Signup />} />
 				</Routes>
 			)}
 
@@ -175,7 +176,7 @@ function App(): ReactElement {
 							<Route path='/' element={<GrafanaDash />} />
 							<Route path='/grafranaDash' element={<GrafanaDash />} />
 							<Route path='/visualizer' element={<VisD3 />} />
-							<Route path='/kluster' element={<Kluster />} />
+							<Route path='/cluster' element={<Cluster />} />
 							<Route path='/faq' element={<Faq />} />
 						</Routes>
 					</main>

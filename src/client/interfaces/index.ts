@@ -11,7 +11,7 @@ export interface AppProps {
 
 export interface HeaderProps {
 	title: string;
-	subtitle: string;
+	subtitle?: string;
 	path?: string;
 }
 
