@@ -34,18 +34,16 @@ const userController: object = {
 			});
 		}
 	})},
-	//middleware for verifying login credentials
+	// middleware for verifying login credentials
 	getUser(req: Request, res: Response, next: any): void {
 		const { email, password } = req.body;
 		//finds document with email in request body
 		Users.findOne({email: email})
 			.then((existingUser: object) => {
-				//console.log({existingUser})
 				res.locals.foundUser = existingUser;
-				//console.log(res.locals.foundUser)
-				//pulls hashed password from db
+				// pulls hashed password from db
 				const hash = res.locals.foundUser.password;
-				//comparing attempted login password with hash password from db, will return boolean signifying match (result)
+				// comparing attempted login password with hash password from db, will return boolean signifying match (result)
 				 bcrypt.compare(password, hash, (error: any, result: string) => {
 					if (result){
 						console.log('login success')

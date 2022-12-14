@@ -18,7 +18,6 @@ import MuiAccordionDetails from '@mui/material/AccordionDetails';
 
 //props are id, info, nodeNum, key
 function Pod2({ id, info, nodeNum, key }: Pod2Props): ReactElement {
-	console.log('nodeNum', nodeNum);
 
 	/* Accordian functionality logic */
 	const Accordion = styled((props: AccordionProps) => (

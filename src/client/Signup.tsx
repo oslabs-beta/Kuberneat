@@ -13,9 +13,6 @@ function Signup(): any {
 
 	// onSubmit or Login handler function -> add Authentication logic here
 	const onSubmit = async (values: any, actions: any): Promise<void> => {
-		console.log('login submitted');
-		// console.log(values);
-		// console.log(actions);
 		// below is just a mock API call for testing, add logic for AUTH here later...
 		await new Promise((resolve) => {
 				//fetch request to backend to authorize email & password
@@ -47,9 +44,6 @@ function Signup(): any {
 		});
 		actions.resetForm(); // resets form fields
 	};
-	// console.log(errors)
-	// console.log(loginSchema)
-	/* console.log(formik) */
 
 	const {
 		// destructured props from the object returned from useFormik hook

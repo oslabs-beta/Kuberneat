@@ -63,11 +63,9 @@ const middleware: Object = {};
 			}
 			// store our cluster info in res.locals object
 			res.locals.clusterInfo = obj;
-			console.log('middleware: ', res.locals.clusterInfo);
-			// console.log('Your cluster info: ', obj)
+			console.log('Successful ClusterInfo from middleware');
 			return next();
 		});
-		//console.log('from middleware', res.locals.clusterInfo);
 	} catch (err) {
 		console.log(err);
 		return next(err);

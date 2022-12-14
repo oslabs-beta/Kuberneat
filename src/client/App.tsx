@@ -47,7 +47,6 @@ function App(): ReactElement {
 		setUser(null);
 	};
 
-	console.log('from App - User info:', user)
 	return (
 		<>
 			{/* <CssBaseline /> */}

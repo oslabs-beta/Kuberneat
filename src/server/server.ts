@@ -79,7 +79,7 @@ app.get('/apis/metrics.k8s.io/v1beta1/nodes', async (req: Request, res: Response
 
 //this route handler is to get metrics via CLI
 app.get('/cluster', middleware.getClusterInfo, (req: Request, res: Response) => {
-	console.log('Getting cluster is working...', res.locals.clusterInfo);
+	console.log('Getting cluster is working...');
 	return res.status(200).json(res.locals.clusterInfo);
 });
 

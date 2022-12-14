@@ -65,23 +65,6 @@ function Sidebar(): ReactElement {
 				<ul className={active ? 'ul-item' : 'ul-item-icon'}>
 					<li>
 						<Tooltip 
-							title='Dashboard' 
-							arrow placement='right-start'>
-							<IconButton
-								className='icon'
-								size='large'
-								sx={{ '&:hover': { backgroundColor: '#22A39F' } }}
-							>
-								<InsertChartTwoToneIcon onClick={() => navigate('/')}></InsertChartTwoToneIcon>
-							</IconButton>
-						</Tooltip>
-						<Link to='/'>
-							<Typography>Dashboard 1</Typography>
-						</Link>
-					</li>
-
-					<li>
-						<Tooltip 
 							title='Dashboard 2' 
 							arrow placement='right-start'>
 							<IconButton
