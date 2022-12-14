@@ -40,12 +40,14 @@ function App(): ReactElement {
 		// for now, this mocks logout from logout icon on far right of top navbar
 		// navigate('/');
 		setUser(null);
-	}
+	};
 
 	function signup(): void {
 		// write logic for signup, reroute to login page
 		setUser(null);
-	}
+	};
+
+	console.log('from App - User info:', user)
 
 	return (
 		<>
