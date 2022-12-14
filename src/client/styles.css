@@ -1,0 +1,693 @@
+/* @import url('https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap');
+ */
+/* LOGO font: Zeus */
+@import url('https://fonts.googleapis.com/css2?family=Nabla&display=swap');
+/* Global font: Poppins */
+@import url('https://fonts.googleapis.com/css2?family=GFS+Didot&family=Poppins&display=swap');
+
+/* parameterized color scheme: not the best solution but it helps */
+:root{
+	--dark-color: black;
+	--dark2-color: #2c3639;
+	--dark3-color: #161414;
+	--grey-accent: #3f4e4f;
+	--sidebar-dark:#1E2022;
+
+	--light-color: #344966;/* 344966 5b6b7a */
+	--light2-color: #a6b6c9;/* a6b6c9 7c8ca6 */
+	--light3-color: floralwhite;
+	--sidebar-light:#5F6F94;/* 5F6F94 9baecc */
+
+	--offwht-accent: #eeeeee;
+	--offwht2-accent: #dcd7c9;
+	--offwht3-accent: #968c83;
+
+	--root-yellow: #fab700;
+	--yellow-accent: #FFE15D;
+
+	--blue-accent: #22A39F;
+	--blue2-accent: #4ecca3;
+
+	--red-accent:#fc8181;
+}
+
+* {
+	/*  font-family: 'Courier New', Courier, monospace; */
+	font-family: 'Poppins', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: var(--root-yellow);
+}
+*::after,
+*::before {
+	box-sizing: border-box; /* padding and border included in width & height */
+}
+
+.app-dark {
+	display: flex;
+	height: 100vh;
+	width: 100%;
+	background-color: var(--dark3-color);
+}
+.app-light {
+	display: flex;
+	height: 100vh;
+	width: 100%;
+	background-color:var(--light2-color);
+}
+.content {
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+
+	/* This is first half of background */
+.auth-1 {
+	background-color: var(--dark3-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 50px;
+}
+/* First 1/2 of lightmode background color */
+.auth-2 {
+	background-color: var(--light2-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 50px;
+}
+	/* styling for a disabled login button state */
+button:disabled {
+	opacity: 0.35;
+}
+	/* custom dash container */
+.custom-chart {
+	margin: 20px;
+	height: 100vh;
+	overflow-x: auto; /* hidden gives scroll bar */
+	overflow-y: auto;
+}
+.darkMode {
+	font-size: 70px;
+	text-shadow: 2px 2px 5px black;
+	text-align: center;
+	background-color: var(--dark2-color);
+	color: var(--blue2-accent);
+}
+.lightMode {
+	font-size: 70px;
+	text-shadow: 2px 2px 5px black;
+	text-align: center;
+	background-color: var(--offwht3-accent);
+	color: var(--offwht-accent);
+}
+	/* container class */
+.dash-dark {
+	height: 100vh;
+	background-color: var(--dark3-color);
+	width: 100%;
+}
+	/* container class */
+.dash-light {
+	height: 100vh;
+	background-color: var(--light2-color);
+	width: 100%;
+}
+.iframe-dark {
+	height: 100vh;
+	background-color: var(--grey-accent);
+	width: 100%;
+}
+.iframe-light {
+	height: 100vh;
+	background-color: var(--offwht-accent);
+	width: 100%;
+}
+/* form validation styling */
+.error {
+	color: var(--red-accent);
+}
+input.input-error,
+select.input-error {
+	border-color: var(--red-accent);
+}
+.faq-dark {
+	height: 100vh;
+	background-color: var(--dark3-color);
+	width: 100%;
+	overflow-x: hidden; /* gives scroll bar vertically */
+	overflow-y: auto;
+}
+.faq-light {
+	height: 100vh;
+	background-color: var(--light2-color);
+	width: 100%;
+	overflow-x: hidden; /* gives scroll bar vertically */
+	overflow-y: auto;
+}
+link1 {
+	border-radius: 10px;
+	background-color: var(--dark2-color);
+	color: var(--light3-color);
+	cursor: pointer;
+	width: 100px;
+	height: 50px;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 16px;
+}
+link2 {
+	border-radius: 10px;
+	background-color: var(--offwht2-accent);
+	color: var(--dark-color);
+	cursor: pointer;
+	width: 100px;
+	height: 50px;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 16px;
+}
+.login-box {
+	padding-top: 25px;
+}
+.login1 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 500px;
+	width: 500px;
+	padding: 10px;
+	border-radius: 5px;
+	font-weight: 500;
+	box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.75);
+	border: 1px solid black;
+	background-color: var(--dark-color);
+	color: var(--light3-color);
+	margin-bottom: 150px;
+}
+.login1 > label {
+	width: 60%;
+	text-align: left;
+	margin-top: 20px;
+}
+.login1 > input {
+	height: 35px;
+	/* width: 200px; */
+	width: 300px;
+	border-radius: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	text-align: center;
+	background-color: var(--dark2-color);
+	color: var(--light3-color);
+}
+/* Light Mode Login Box */
+.login2 > label {
+	width: 60%;
+	text-align: left;
+	margin-top: 20px;
+}
+.login2 > input {
+	height: 35px;
+	/* width: 200px; */
+	width: 300px;
+	border-radius: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	text-align: center;
+	background-color:var(--light2-color); /* lightmode input bgcolor */
+	color: var(--dark-color);
+}
+/* Light Mode Login Box */
+.login2 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 500px;
+	width: 500px;
+	padding: 10px;
+	border-radius: 5px;
+	font-weight: 500;
+	box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.75);
+	border: 1px solid black;
+	background-color:var(--light-color);
+	color: var(--light3-color);
+	margin-bottom: 150px;
+}
+/* Dark Mode Login Box */
+#login-button1 {
+	border-radius: 5px;
+	background-color: var(--grey-accent);
+	color: var(--offwht2-accent);
+	cursor: pointer;
+	width: 300px;
+	height: 35px;
+	margin: 10px 5px;
+	font-size: 16px;
+	border: 1px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+/* Dark Mode Login Box */
+#login-button1:focus {
+	outline: none;
+	background-color: var(--blue-accent);
+}
+#login-button1:hover {
+	background-color: var(--blue-accent);
+}
+/* Dark Mode Login Box */
+#login-button1:active {
+	box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+	background-color: var(--blue-accent);
+}
+/* Light Mode Login Box */
+#login-button2 {
+	border-radius: 5px;
+	background-color: var(--offwht2-accent);
+	color: var(--dark-color); /* can change button text color here */
+	cursor: pointer;
+	width: 300px;
+	height: 35px;
+	margin: 10px 5px;
+	font-size: 16px;
+	border: 1px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+/* Light Mode Login Box */
+#login-button2:focus {
+	outline: none;
+}
+#login-button2:hover {
+	background-color: var(--yellow-accent); /* light mode hover color */
+}
+/* Light Mode Login Box */
+#login-button2:active {
+	box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+	background-color: var(--yellow-accent);
+}
+/* Logo */
+#logo {
+	font-family: 'Nabla', cursive;
+	font-size: 75px; /* 120 => 75 */
+	background: none;
+}
+.login-page-dark {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--dark3-color);
+	height: 100vh;
+	width: 100%;
+}
+.login-page-light {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color:var(--light2-color);
+	height: 100vh;
+	width: 100%;
+}
+/* NAVBAR Stying */
+
+/* Nav bar dark mode */
+#navbar1 {
+	height: 175px;
+	background-color:var(--dark-color);
+	color: var(--dark2-color);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+/* Nav bar light mode */
+#navbar2 {
+	height: 175px;
+	background-color:var(--light-color);
+	color: var(--offwht3-accent);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.nav-links {
+	width: 225px;
+	margin-right: 50px;
+	display: flex;
+	justify-content: space-between;
+}
+.navlink-butt1 {
+	background-color: var(--grey-accent);
+	color: var(--light3-color);
+	height: 25px;
+	width: 100px;
+	border-radius: 5px;
+}
+.navlink-butt2 {
+	background-color: var(--offwht2-accent);
+	color: var(--dark-color);
+	height: 25px;
+	width: 100px;
+	border-radius: 5px;
+}
+
+/* O-AUTH bar styling*/
+#signInDiv {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: none;
+	height: 45px;
+	/* width: 204px; */
+	font-family: 'Source Sans Pro, sans-serif';
+	border-radius: 5px;
+}
+.user {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 24px;
+}
+.user-active {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 18px;
+}
+
+/* VISUALIZER */
+#vis-dark {
+	height: 100vh;
+	background-color: var(--dark3-color);
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: 250px 250px 250px 250px;
+	grid-gap: 10px;
+	/* position: absolute; */
+	color: var(--light3-color);
+	/* overflow-x: auto; */ /* gives scroll bar vertically */
+	/* overflow-y: hidden; */
+}
+#vis-light {
+	height: 100vh;
+	background-color: var(--light2-color);
+	background-image: none !important;
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: 250px 250px 250px 250px;
+	grid-gap: 10px;
+	/* position: absolute; */
+	color: var(--dark-color);
+}
+.pod-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#pod0,
+#pod1,
+#pod2,
+#pod3,
+#pod4,
+#pod5,
+#pod6,
+#pod7,
+#pod8,
+#pod9,
+#pod10,
+#pod11,
+#pod12 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 8px;
+	text-align: center;
+}
+img {
+	background: none;
+}
+
+/* Sidebar Styling */
+.sidebar-reg {
+	height: 100vh;
+	width: 300px;
+	inset: 0 75% 0 0; /* top, rt, bott, lt */
+	/* background-color: hsla(0,40%,98%,0.092); */
+	display: flex;
+	/* position: fixed; */
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	backdrop-filter: blur(0.2rem); /* blurs bg aka opacity */
+	gap: 25px;
+}
+.sidebar-mobile {
+	height: 100vh;
+	width: 75px;
+	inset: 0 95% 0 0; /* top, rt, bott, lt */
+	/* background-color: hsla(0,2%,10%,0.558); */
+	display: flex;
+	/* position: fixed; */
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	backdrop-filter: blur(1rem);
+	gap: 20px;
+}
+	/* sidebar bgcolor */
+#sidebar-dark {
+	background-color: var(--sidebar-dark); /* #3F4E4F */
+}
+#sidebar-light {
+	background-color: var(--sidebar-light); /* #6B728E */
+}
+	/* in-active icons styling */
+.ul-item-icon .icon {
+	margin-top: 25px;
+	border-radius: 50%;
+	/* padding-block: -10px; */
+	/* height: 50px;
+	width: 50px; */
+}
+.ul-item {
+	width: 300px;
+}
+nav .ul-item {
+	display: flex;
+	flex-direction: column;
+	margin-block: 0.5rem;
+	list-style: none;
+	font-size: 18px; /* sidebar text size */
+}
+nav #logout-icon :hover {
+	background-color: var(--red-accent);
+}
+nav .ul-item-icon a {
+	display: none;
+}
+nav .ul-item-icon li::after {
+	content: '';
+	position: absolute;
+	width: 1%;
+	height: 4%;
+	right: 0;
+}
+nav .ul-item li {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	cursor: pointer;
+	padding-block: 1.2rem; /* just means equal space all around */
+	margin-block: 0.1rem;
+	/* width: 100%; */
+}
+/* no bullets */
+li {
+	list-style: none;
+	/* width: 100%; */
+}
+nav .ul-item li:hover {
+	background-color: var(--blue-accent);
+}
+/* li #logout:hover{
+	background-color: #fc8181;
+} */
+nav .ul-item li .icon {
+	background-color: none;
+	margin-inline: 1rem;
+	font-size: 24px; /* icon size */
+}
+nav .ul-item li a {
+	text-transform: uppercase;
+	text-decoration: none;
+	color: var(--root-yellow);
+	border-left: 1px solid var(--root-yellow); /* fab700  */
+	padding-left: 2rem;
+}
+.menu-icon {
+	/* margin-inline: 1rem; */
+	margin-top: 25px;
+}
+.menu-icon .menu {
+	color: var(--blue-accent);
+	/* margin-block: 1 rem; */
+	cursor: pointer;
+	font-size: 36px; /* hamburger icon */
+}
+.menu-icon .close-icon {
+	color: var(--blue-accent);
+	/* margin-block: 1 rem; */
+	cursor: pointer;
+	font-size: 36px; /* collapse icon */
+	margin-top: 10px;
+}
+.menu-icon .close-icon:hover {
+	background-color: none; /* #5F6F94 */
+}
+nav .ul-item li:hover {
+	transition: 1s ease;
+}
+.user-dark {
+	width: 200px;
+	height: 100px;
+	color: var(--blue-accent);
+	font-size: 24px;
+	background-color: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 25px;
+}
+.user-light {
+	width: 200px;
+	height: 100px;
+	color: var(--blue-accent);
+	font-size: 24px;
+	background-color:var(--light-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 25px;
+}
+.user-pic-active {
+	border-radius: 50%;
+	border: 3px solid var(--blue-accent);
+	height: 100px;
+	width: 100px;
+	color: var(--blue-accent);
+	font-size: 69px;
+	background-color: var(--dark-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 25px;
+}
+.user-pic-dark {
+	border-radius: 50%;
+	/* border: 3px solid var(white); */
+	height: 80px; /* default 65px */
+	width: 80px; /* default 65px */
+	color: none;
+	font-size: 48px;
+	background-color:var(--dark-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.user-pic-light {
+	border-radius: 50%;
+	/* border: 3px solid white; */
+	height: 80px; /* default 65px */
+	width: 80px; /* default 65px */
+	color: none;
+	font-size: 48px;
+	background-color: var(--light-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.user-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-left: 10px;
+}
+
+/* mobile settings */
+/* Not complete: may not be feasible bc of charts and visualizer, etc... */
+/* almost there just need to find a way to deactivate sidebar when below 750px */
+@media (max-width: 750px) {
+	.sidebar-mobile {
+		inset: 0 90% 0 0;
+		/* justify-content: center; */
+	}
+	/* .sidbar-reg{
+		display: none;
+	} */
+	/* nav .ul-item{
+		display: none;
+	} */
+	nav .ul-item-icon {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+	menu-icon {
+		display: none;
+	}
+	/* .user-info{
+		display: none;
+	} */
+	#icons-header {
+		display: none;
+	}
+	/* #avatar-id{
+		display: none;
+		background: none;
+	} */
+	#logo {
+		display: none;
+		background: none;
+		justify-content: center;
+		align-items: center;
+		font-size: 48px;
+	}
+}
+
+
+/* D3 Visualizer */
+#D3Graph {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border-style: solid;
+	border-color: rgb(0, 199, 209);
+	border-radius: 25px;
+	background-color: var(--light3-color);
+	width: 85%;
+}
+
+#popOver {
+	color: var(--dark-color);
+}
