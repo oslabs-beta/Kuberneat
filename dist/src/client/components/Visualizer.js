@@ -39,7 +39,7 @@ const Visualizer = () => {
     // Released under the ISC license.
     // https://observablehq.com/@d3/force-directed-graph
     function ForceGraph({ nodes, // an iterable of node objects (typically [{id}, …])
-    links, // an iterable of link objects (typically [{source, target}, …])
+    links // an iterable of link objects (typically [{source, target}, …])
      }, { nodeId = (d) => d.id, // given d in nodes, returns a unique identifier (string)
     nodeGroup, // given d in nodes, returns an (ordinal) value for color
     nodeGroups, // an array of ordinal values representing the node groups
@@ -58,7 +58,7 @@ const Visualizer = () => {
     linkStrength, colors = d3.schemeTableau10, // an array of color strings, for the node groups
     width = 640, // outer width, in pixels
     height = 400, // outer height, in pixels
-    invalidation, // when this promise resolves, stop the simulation
+    invalidation // when this promise resolves, stop the simulation
      } = {}) {
         // Compute values.
         const N = d3.map(nodes, nodeId).map(intern);
@@ -120,7 +120,7 @@ const Visualizer = () => {
             .attr('r', nodeRadius)
             .call(drag(simulation));
         // displays text in svg element for the name of the pods
-        var texts = svg
+        const texts = svg
             .selectAll('text.label')
             .data(nodes)
             .enter()
@@ -213,99 +213,99 @@ const Visualizer = () => {
                 Name: 'alertmanager-prometheus',
                 CPU_Requests: '200m (5%)',
                 CPU_Limits: '200m (5%)',
-                Memory_Requests: '250Mi (6%)',
+                Memory_Requests: '250Mi (6%)'
             },
             {
                 Namespace: 'default',
                 Name: 'prometheus-grafana',
                 CPU_Requests: '0 (0%)',
                 CPU_Limits: '0 (0%)',
-                Memory_Requests: '0 (0%)',
+                Memory_Requests: '0 (0%)'
             },
             {
                 Namespace: 'default',
                 Name: 'prometheus-operator',
                 CPU_Requests: '0 (0%)',
                 CPU_Limits: '0 (0%)',
-                Memory_Requests: '0 (0%)',
+                Memory_Requests: '0 (0%)'
             },
             {
                 Namespace: 'default',
                 Name: 'prometheus-kube-state-metrics',
                 CPU_Requests: '0 (0%)',
                 CPU_Limits: '0 (0%)',
-                Memory_Requests: '0 (0%)',
+                Memory_Requests: '0 (0%)'
             },
             {
                 Namespace: 'default',
                 Name: 'prometheus-kube',
                 CPU_Requests: '200m (5%)',
                 CPU_Limits: '200m (5%)',
-                Memory_Requests: '50Mi (1%)',
+                Memory_Requests: '50Mi (1%)'
             },
             {
                 Namespace: 'default',
                 Name: 'prometheus-node-exporter',
                 CPU_Requests: '0 (0%)',
                 CPU_Limits: '0 (0%)',
-                Memory_Requests: '0 (0%)',
+                Memory_Requests: '0 (0%)'
             },
             {
                 Namespace: 'kube-system',
                 Name: 'coredns',
                 CPU_Requests: '100m (2%)',
                 CPU_Limits: '0 (0%)',
-                Memory_Requests: '70Mi (1%)',
+                Memory_Requests: '70Mi (1%)'
             },
             {
                 Namespace: 'kube-system',
                 Name: 'etcd',
                 CPU_Requests: '100m (2%)',
                 CPU_Limits: '0 (0%)',
-                Memory_Requests: '100Mi (2%)',
+                Memory_Requests: '100Mi (2%)'
             },
             {
                 Namespace: 'kube-system',
                 Name: 'kube-apiserver',
                 CPU_Requests: '250m (6%)',
                 CPU_Limits: '0 (0%)',
-                Memory_Requests: '0 (0%)',
+                Memory_Requests: '0 (0%)'
             },
             {
                 Namespace: 'kube-system',
                 Name: 'kube-controller-manager',
                 CPU_Requests: '200m (5%)',
                 CPU_Limits: '0 (0%)',
-                Memory_Requests: '0 (0%)',
+                Memory_Requests: '0 (0%)'
             },
             {
                 Namespace: 'kube-system',
                 Name: 'kube-proxy',
                 CPU_Requests: '0 (0%)',
                 CPU_Limits: '0 (0%)',
-                Memory_Requests: '0 (0%)',
+                Memory_Requests: '0 (0%)'
             },
             {
                 Namespace: 'kube-system',
                 Name: 'kube-scheduler',
                 CPU_Requests: '100m (2%)',
                 CPU_Limits: '0 (0%)',
-                Memory_Requests: '0 (0%)',
+                Memory_Requests: '0 (0%)'
             },
             {
                 Namespace: 'kube-system',
                 Name: 'storage-provisioner',
                 CPU_Requests: '0 (0%)',
                 CPU_Limits: '0 (0%)',
-                Memory_Requests: '0 (0%)',
-            },
+                Memory_Requests: '0 (0%)'
+            }
         ];
         setNodes(nodes);
         // arguments that will be passed into the D3 visualizer functions
-        let miserables = { nodes: [{ id: 'alpha', group: 1 }], links: [] };
+        const miserables = { nodes: [{ id: 'alpha', group: 1 }], links: [] };
         console.log(nodes);
-        let namespaces = [];
-        let groups = {};
+        const namespaces = [];
+        const groups = {};
         // find namespaces in data obtained
         for (let i = 0; i < nodes.length; i++) {
             if (!namespaces.includes(nodes[i].Namespace))
@@ -330,7 +330,7 @@ const Visualizer = () => {
             // colors: ['red', 'blue', 'green'],
             linkStrength: 0.1,
             width: 900,
-            height: 600,
+            height: 600
         });
         setChart(chart);
         if (svg.current) {
