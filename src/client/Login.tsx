@@ -26,7 +26,6 @@ function Login(): ReactElement {
 
     // onSubmit or Login handler function -> add Authentication logic here
     const onSubmit = async (values: any, actions: any): Promise<void> => {
-        console.log('login submitted');
         
         // below is just a mock API call for testing, add logic for AUTH here later...
         await new Promise((resolve) => {
@@ -54,7 +53,6 @@ function Login(): ReactElement {
 				})
                 .catch(error => {
 					alert('Error logging in')
-					console.log(error)
 				})
 				
             //once we get object back, set the user to the object
@@ -62,9 +60,6 @@ function Login(): ReactElement {
         });
         actions.resetForm(); // resets form fields 
     };
-    // console.log(errors)
-    // console.log(loginSchema)
-    /* console.log(formik) */
 
 	const {
 		// destructured props from the object returned from useFormik hook
@@ -91,9 +86,7 @@ function Login(): ReactElement {
 	/* global google object coming from html script*/
 	useEffect(() => {
 		function handleCallbackResponse(response: any) {
-			// console.log('Encoded JWT ID token: ' + response.credential);
 			const userObject: any = jwt_decode<JwtPayload>(response.credential);
-			// console.log(userObject);
 			setUser(userObject);
 		}
 		/* global google */
@@ -148,23 +141,6 @@ function Login(): ReactElement {
 					/>
 					{/* shows error message */}
 					{errors.password && touched.password && <p className='error'>{errors.password}</p>}
-
-					{/* <label htmlFor='confirmPassword'>Confirm Password</label> */}
-					{/* <input
-						value={values.confirmPassword}
-						onChange={handleChange}
-						id='confirmPassword'
-						type='password'
-						placeholder='Confirm your password'
-						onBlur={handleBlur}
-						className={errors.confirmPassword && touched.confirmPassword ? 'input-error' : ''}
-						// what actually shows the errors on form validation
-					/> */}
-					{/* shows error message */}
-					{/* {errors.confirmPassword && touched.confirmPassword && (
-						<p className='error'>{errors.confirmPassword}</p>
-					)} */}
-
 					<div className='login-box'>
 						{/* Login button */}
 						<button

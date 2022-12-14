@@ -174,14 +174,11 @@ export const Visualizer = () => {
 	}
 
 	const svg = useRef(null);
-	// console.log('svg', svg.current)
 	useEffect(() => {
 		// fetch our cluster info from the backend through http request
-		// {headers: { 'Content-Type': 'application/json' },}
 		fetch('/cluster', { headers: { 'Content-Type': 'application/json' } })
 			.then((data) => data.json())
 			.then((data) => {
-				console.log('this is fetching from the  backend:', data);
 				// iterate through our array response from the server
 				for (let i = 0; i < data.Name.length; i++) {
 					// setting state containing our array of objects containing our cluster info
@@ -203,7 +200,6 @@ export const Visualizer = () => {
 	}, []);
 
 	// arguments that will be passed into the D3 visualizer functions
-	console.log('nodes', nodes);
 	const miserables = { nodes: [{ id: 'cluster', group: 1 }], links: [] };
 
 	const namespaces = [];
@@ -244,7 +240,6 @@ export const Visualizer = () => {
 
 	// compile our array containing pod elements to display our popover on the svg
 	const podProps = [];
-	console.log('podProps', podProps);
 	for (let i = 0; i < nodes.length; i++) {
 		podProps.push(<Pod info={nodes[i]} key={i} nodeNum={i}></Pod>);
 	}
