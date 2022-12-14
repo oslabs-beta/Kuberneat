@@ -10,7 +10,6 @@ import Pod from './VisualizerPod';
 // To create our D3 Visualizer
 export const Visualizer = () => {
 	const [nodes, setNodes] = useState([]);
-
 	// Copyright 2021 Observable, Inc.
 	// Released under the ISC license.
 	// https://observablehq.com/@d3/force-directed-graph

@@ -1,10 +1,9 @@
-import { Google } from '@mui/icons-material';
 
+
+import { Google } from '@mui/icons-material';
 import React from 'react';
 import { useState, useEffect } from 'react';
-
 import jwt_decode, { JwtPayload } from 'jwt-decode';
-
 import { ReactNode, ReactElement } from 'react';
 
 const Context: any = React.createContext<null>(null);

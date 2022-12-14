@@ -78,7 +78,11 @@ function App(): ReactElement {
 						<div className='user-info'>
 							{/* <p>{user.given_name}</p> */}{' '}
 							{/* can dynamically render user info later with JWT */}
+
+							{/* <p>Yaku</p> can dynamically render user info later with JWT */}
+
 							<p>{user.name}</p> {/* can dynamically render user info later with JWT */}
+
 							{/* <p>{user ? user.name : "user email in DB"}</p> */}{' '}
 							{/* probably best to use email, since that's how we store username */}
 						</div>
@@ -169,8 +173,8 @@ function App(): ReactElement {
 
 					<main className='content'>
 						<Routes>
-							{/* <Route path='/' element={<CustomDash />} /> */}
-							<Route path='/grafanadash' element={<GrafanaDash />} />
+							<Route path='/' element={<GrafanaDash />} />
+							<Route path='/grafranaDash' element={<GrafanaDash />} />
 							<Route path='/visualizer' element={<VisD3 />} />
 							<Route path='/cluster' element={<Cluster />} />
 							<Route path='/faq' element={<Faq />} />
