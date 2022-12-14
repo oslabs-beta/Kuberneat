@@ -91,9 +91,9 @@ function Login(): ReactElement {
 	/* global google object coming from html script*/
 	useEffect(() => {
 		function handleCallbackResponse(response: any) {
-			console.log('Encoded JWT ID token: ' + response.credential);
+			// console.log('Encoded JWT ID token: ' + response.credential);
 			const userObject: any = jwt_decode<JwtPayload>(response.credential);
-			console.log(userObject);
+			// console.log(userObject);
 			setUser(userObject);
 		}
 		/* global google */

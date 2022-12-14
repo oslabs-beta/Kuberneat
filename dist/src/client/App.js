@@ -78,21 +78,21 @@ function App() {
                             color: '#DAA520',
                             '&:hover': { backgroundColor: '#22A39F' },
                         }, size: 'large', onClick: toggleDarkMode }, darkModeOn ? React.createElement(LightModeTwoTone_1.default, null) : React.createElement(DarkModeTwoTone_1.default, null))),
-                React.createElement(react_router_dom_1.Link, { to: '/' },
+                React.createElement(react_router_dom_1.Link, { to: `${user ? '/' : ''}` },
                     React.createElement(Tooltip_1.default, { title: 'Zeus', arrow: true },
                         React.createElement(material_1.IconButton, { sx: {
                                 color: '#DAA520',
                                 '&:hover': { backgroundColor: '#FFE15D' },
                             }, size: 'large' },
                             React.createElement(ElectricBoltTwoTone_1.default, null)))),
-                React.createElement(react_router_dom_1.Link, { to: '/faq' },
+                React.createElement(react_router_dom_1.Link, { to: `${user ? '/faq' : ''}` },
                     React.createElement(Tooltip_1.default, { title: 'FAQ', arrow: true },
                         React.createElement(material_1.IconButton, { sx: {
                                 color: '#DAA520',
                                 '&:hover': { backgroundColor: '#22A39F' },
                             }, size: 'large' },
                             React.createElement(LiveHelpTwoTone_1.default, null)))),
-                React.createElement(react_router_dom_1.Link, { to: '/' },
+                React.createElement(react_router_dom_1.Link, { to: `${user ? '/' : ''}` },
                     React.createElement(Tooltip_1.default, { title: 'Logout', arrow: true },
                         React.createElement(material_1.IconButton, { onClick: () => setUser(null), sx: {
                                 color: '#DAA520',
@@ -109,8 +109,8 @@ function App() {
                 React.createElement(react_router_dom_1.Routes, null,
                     React.createElement(react_router_dom_1.Route, { path: '/', element: React.createElement(CustomDash_1.default, null) }),
                     React.createElement(react_router_dom_1.Route, { path: '/grafanadash', element: React.createElement(GrafanaDash_1.default, null) }),
-                    React.createElement(react_router_dom_1.Route, { path: '/kluster', element: React.createElement(Kluster_1.default, null) }),
                     React.createElement(react_router_dom_1.Route, { path: '/visualizer', element: React.createElement(VisD3_1.default, null) }),
+                    React.createElement(react_router_dom_1.Route, { path: '/kluster', element: React.createElement(Kluster_1.default, null) }),
                     React.createElement(react_router_dom_1.Route, { path: '/faq', element: React.createElement(Faq_1.default, null) })))))));
 }
 exports.default = App;
