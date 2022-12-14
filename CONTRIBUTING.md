@@ -14,7 +14,7 @@ We use github to host code, to track issues and feature requests, as well as acc
 
 ## We Use [Github Flow](https://guides.github.com/introduction/flow/index.html), So All Code Changes Happen Through Pull Requests
 
-Pull requests are the best way to propose changes to the codebase (we use [Github Flow](https://guides.github.com/introduction/flow/index.html)). We actively welcome your pull requests:
+Pull requests are the best way to propose changes to the codebase. We actively welcome your pull requests:
 
 1. Fork the repo and create your branch from `main`.
 2. If you've added code that should be tested, add tests.
@@ -26,11 +26,13 @@ Pull requests are the best way to propose changes to the codebase (we use [Githu
 
 In short, when you submit code changes, your submissions are understood to be under the same [MIT License](http://choosealicense.com/licenses/mit/) that covers the project. Feel free to contact the maintainers if that's a concern.
 
-## :bug: :bug: :bug: :bug: BUGS :bug: :bug: :bug: :bug:
+🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 
 
 ## Report bugs using Github's [issues](https://github.com/briandk/transcriptase-atom/issues)
 
-We use GitHub issues to track public bugs. Report a bug by [opening a new issue](); it's that easy!
+
+We use GitHub issues to track public bugs. Report a bug by [opening a new
+issue]();  🍋 🍋 🍋 easy peezy lemon squeezy 🍋 🍋 🍋
 
 ## Write bug reports with detail, background, and sample code
 
@@ -43,14 +45,16 @@ We use GitHub issues to track public bugs. Report a bug by [opening a new issue]
   - Be specific!
 - What you expected would happen
 - What actually happens
-- Notes (possibly including why you think this might be happening, or stuff you tried that didn't work)
+- Notes (possibly including why you think this might be happening, or stuff you
+  tried that didn't work)
 
+🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 🐛 
 ## Use a Consistent Coding Style
-
-I'm again borrowing these from [Facebook's Guidelines](https://github.com/facebook/draft-js/blob/a9316a723f9e918afde44dea68b5f9f39b7d9b00/CONTRIBUTING.md)
+We recommend using a Consistent Coding Style. For more information about the
+Consistent Coding Style, see the Airbnb [documentation](https://airbnb.io/javascript/react/).
 
 - 2 spaces for indentation rather than tabs
-- You can try running `npm run lint` for style unification
+- You can try running `npm run eslint` for style unification
 
 ## License
 

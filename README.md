@@ -1,40 +1,86 @@
 # ⚡⚡ Zeus ⚡⚡
-![GitHub all releases](https://img.shields.io/github/downloads/{username}/{repo-name}/total)
-![GitHub language count](https://img.shields.io/github/languages/count/{username}/{repo-name})
-![GitHub top language](https://img.shields.io/github/languages/top/{username}/{repo-name}?color=yellow)
-![GitHub forks](https://img.shields.io/github/forks/{username}/{repo-name}?style=social)
-![GitHub Repo stars](https://img.shields.io/github/stars/{username}/{repo-name}?style=social)
 
+![osLabs](https://badgen.net/badge/license/MIT)
+
+![version](https://badgen.net/badge/version/v1.0.0)
+
+![GitHub all releases](https://img.shields.io/github/downloads/oslabs-beta/Zeus)
+
+![GitHub language count](https://img.shields.io/github/languages/count/oslabs-beta/Zeus)
+![GitHub top language](https://img.shields.io/github/languages/top/oslabs-beta/Zeus?color=yellow)
+
+
+![GitHub forks](https://img.shields.io/github/forks/oslabs-beta/Zeus?color=green)
+![GitHub Repo stars](https://img.shields.io/github/stars/oslabs-beta/Zeus?color=green)
+[![GitHub watchers](https://badgen.net/github/watchers/oslabs-beta/Zeus?color=green)](https://GitHub.com/Naereen/StrapDown.js/watchers/)
+
+
+<br/>
+
+# Supported OS
+![mac](https://badgen.net/badge/OS/mac)
+<br/>
+
+![linux](https://badgen.net/badge/OS/linux)
+
+![Windows](https://badgen.net/badge/OS/Windows)
+
+<hr/>
+
+# Features
+
+![screen-gif](./Demo-gifs/Zeus-Dasboard.gif)
+<br/>
+
+![screen-gif](./Demo-gifs/visualizer%20demo.gif)
+<br/>
+
+![screen-gif](./Demo-gifs/Kubelet.gif)
+<br/>
+
+![screen-gif](./Demo-gifs/Kube-State-Metrics.gif)
+<br/>
+
+![img](./Demo%20Shots/K8s-API.png)
+<br/>
+
+![img](./Demo%20Shots/Computing-Resources.png)
 <br/>
 <br/>
 <br/>
 
 # Getting Started With Zeus
+
 ## Prerequisites to run Zeus
+
 - **Minikube** 🧊 [documentation](https://minikube.sigs.k8s.io/docs/start/)
-   - Run minikube with the following command: <br />
 
-   ```sh
-   minikube start - p [name of your cluster] 
-   ```
-   - Install **kubectl** [Download here](https://kubernetes.io/docs/tasks/tools/) <br />
-   - ******Docker** Desktop 🐋 [Download here](https://docs.docker.com/desktop/) <br />
-   - **Helm Charts**, to set up Prometheus Operator [Clone git repo here](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) <br />
-   - Make sure your pods are running in your cluster by entering the following
-     in your terminal: <br />
+  - Run minikube with the following command: <br />
 
-     ``` 
-     kubectl get pods 
-     ```
-      or
-      ```
-      kubectl get po -A
-      ```
+  ```sh
+  minikube start - p [name of your cluster]
+  ```
 
-   - Ensure sufficient computational resources to build and user clusters 🖥️ <br /></br>
+  - Install **kubectl** [Download here](https://kubernetes.io/docs/tasks/tools/) <br />
+  - **Docker** Desktop 🐋 [Download here](https://docs.docker.com/desktop/) <br />
+  - **Helm Charts**, to set up Prometheus Operator [Clone git repo here](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) <br />
+  - Make sure your pods are running in your cluster by entering the following
+    in your terminal: <br />
 
+    ```
+    kubectl get pods
+    ```
 
-### If you are new to Kubernetes, keep this in mind: 
+    or
+
+    ```
+    kubectl get po -A
+    ```
+
+  - Ensure sufficient computational resources to build and user clusters 🖥️ <br /></br>
+
+### If you are new to Kubernetes, keep this in mind:
+
 > 💡 In chronological order: Install minikube and kubectl ⇒ Deploy Helm ⇒
 > Deploy Prometheus & Grafana </br></br>
 
@@ -44,11 +90,12 @@
 <br/>
 <br/>
 
-# Accessing Grafana 
+# Accessing Grafana
+
 1. You will need to obtain the stateful set of your clusters. <br />
 
-   ``` 
-   kubectl get statefulset 
+   ```
+   kubectl get statefulset
    ```
 
 2. Copy the stateful set outputted from your terminal to create the yaml files.
@@ -57,7 +104,8 @@
 
    ```
    kubectl describe statefulset prometheus-prometheus-kube-prometheus-prometheus > prometheus.yaml
-   ``` 
+   ```
+
    <br />
 
    ```
@@ -105,8 +153,7 @@
    ```
 
 9. You will be prompted to login into Grafana. By default, the username and
-   password is set to ```admin``` and ```prom-operator```, respectively. <br /></br></br>
-
+   password is set to `admin` and `prom-operator`, respectively. <br /></br></br>
 
 </br>
 <br/>
@@ -120,7 +167,8 @@
 
    ```
    kubectl get po -A
-   ``` 
+   ```
+
    ```
    kubectl get pods
    ```
@@ -149,10 +197,12 @@
 <br/>
 <br/>
 
-# Made with 
+# Made with
+
 <br>
 
- ### For front-end development
+### For front-end development
+
 ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
 ![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
@@ -162,6 +212,7 @@
 <br>
 
 ### For back-end development
+
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
@@ -169,6 +220,7 @@
 <br>
 
 ### For monitoring and data visualizations
+
 ![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 ![Grafana](https://img.shields.io/badge/grafana-%23F46800.svg?style=for-the-badge&logo=grafana&logoColor=white)
@@ -180,9 +232,33 @@
 <br/>
 <br/>
 
-# Contributors
+# Contributions 
 
-* Ed Cho [LinkedIn] | [GitHub](https://github.com/edcho720)
-* John Wroge [LinkedIn](https://www.linkedin.com/in/john-wroge/) | [GitHub](https://github.com/johnwroge)
-* Harvey Li [LinkedIn](https://www.linkedin.com/in/harvey-li/) | [GitHub](https://github.com/harvli)
-* Amy (Aimée) Nguyen [LinkedIn](https://www.linkedin.com/in/aqn/) | [GitHub](https://github.com/DoctorCodeine)
+For more information regarding how to contribute, please refer to the 
+[CONTRIBUTING.md](https://github.com/oslabs-beta/Zeus/blob/dev/CONTRIBUTING.md)
+guidelines from this repo. 
+
+1. Fork and clone the  ``dev`` branch onto your local branch. 
+2. Create a new a feature branch
+   ```
+   [your-name]/AWESOME-FEATURES
+   ```
+3. Please ensure you are following eslint conventions.
+4. Please ensure to crete tests for your feature and that it passes your   test suite.
+5. Please be detailed in your pull request. 
+   ![img](./Demo%20Shots/PR-guide.png)
+
+
+
+</br>
+<br/>
+<br/>
+<br/>
+
+   # Founders
+
+- Ed Cho [LinkedIn](https://www.linkedin.com/in/edcho720/)| [GitHub](https://github.com/edcho720)
+- John Wroge [LinkedIn](https://www.linkedin.com/in/john-wroge/) | [GitHub](https://github.com/johnwroge)
+- Harvey Li [LinkedIn](https://www.linkedin.com/in/harvey-li/) | [GitHub](https://github.com/harvli)
+- Amy (Aimée) Nguyen [LinkedIn](https://www.linkedin.com/in/aqn/) |
+[GitHub](https://github.com/DoctorCodeine)
