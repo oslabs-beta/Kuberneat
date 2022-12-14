@@ -23,7 +23,7 @@ import Sidebar from './Sidebar';
 import Login from './Login';
 import Signup from './Signup';
 
-import CustomDash from './components/CustomDash';
+// import CustomDash from './components/CustomDash';
 import GrafanaDash from './components/GrafanaDash';
 import Kluster from './components/Kluster';
 import VisD3 from './components/VisD3';
@@ -168,7 +168,7 @@ function App(): ReactElement {
 
 					<main className='content'>
 						<Routes>
-							<Route path='/' element={<CustomDash />} />
+							{/* <Route path='/' element={<CustomDash />} /> */}
 							<Route path='/grafanadash' element={<GrafanaDash />} />
 							<Route path='/visualizer' element={<VisD3 />} />
 							<Route path='/kluster' element={<Kluster />} />
