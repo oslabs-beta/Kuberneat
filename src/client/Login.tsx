@@ -168,6 +168,7 @@ function Login(): ReactElement {
 					<div className='login-box'>
 						{/* Login button */}
 						<button
+							role='login-button'
 							id={darkModeOn ? 'login-button1' : 'login-button2'}
 							// onClick={logout} // disabled for now, waiting to implement actual AUTH
 							type='submit'

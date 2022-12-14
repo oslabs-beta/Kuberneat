@@ -18,9 +18,9 @@
 		"types": [
       "reflect-metadata",
       "jest",
-			"node"
-    ],
-		
+	  "node",
+	  "@testing-library/jest-dom"
+      ],
 	},
 	"include": ["src/**/*", "__test__/"],
 

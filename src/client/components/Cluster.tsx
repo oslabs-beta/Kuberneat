@@ -9,7 +9,7 @@ import { AppProps } from '../interfaces';
 import { ReactElement } from 'react'; //ReactNode,
 import Pod2 from './Pod2';
 
-function Kluster(): ReactElement {
+function Cluster(): ReactElement {
 	const [nodes, setNodes]: any[] | null = useState([]);
 
 	//fetching to the backend
@@ -126,8 +126,8 @@ function Kluster(): ReactElement {
 			<Box m='20px'>
 				{/* Header passing down props for title and subtitle */}
 				<Header 
-					path='/kluster'
-					title='Kluster Summary' 
+					path='/cluster'
+					title='Cluster Summary' 
 					subtitle='Cluster Data' 
 				/>
 
@@ -137,4 +137,4 @@ function Kluster(): ReactElement {
 	);
 }
 
-export default Kluster;
+export default Cluster;

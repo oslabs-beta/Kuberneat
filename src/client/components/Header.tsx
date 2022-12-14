@@ -17,7 +17,9 @@ import Tooltip from '@mui/material/Tooltip';
 // this component is reuseable for all containers, and can pass in desired props
 // for title and subtitle
 function Header({ title, subtitle, path }: HeaderProps): ReactElement {
+
 	const { darkModeOn } = useContext<AppProps>(Context);
+
 	const fontColor: string = darkModeOn ? '#fab700 !important' : '#293462 !important';
 
 	return (

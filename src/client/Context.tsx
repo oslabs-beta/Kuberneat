@@ -14,7 +14,7 @@ const Context: any = React.createContext<null>(null);
 function ContextProvider({ children }: { children: ReactNode }): ReactElement {
 	const [user, setUser] = useState<string | null>(null); // set to defined for testing, default is null
 
-	const [darkModeOn, setDarkModeOn] = useState<boolean>(true);
+	const [darkModeOn, setDarkModeOn] = useState(true);
 
 	function toggleDarkMode(): void {
 		setDarkModeOn((old) => !old);
