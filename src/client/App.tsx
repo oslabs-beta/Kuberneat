@@ -48,7 +48,6 @@ function App(): ReactElement {
 	};
 
 	console.log('from App - User info:', user)
-
 	return (
 		<>
 			{/* <CssBaseline /> */}
@@ -66,10 +65,12 @@ function App(): ReactElement {
 						{/* profile renders user data from JWT */}
 						{/* 3 diff ways to show Avatar */}
 						<div id='avatar-id' className={darkModeOn ? 'user-pic-dark' : 'user-pic-light'}>
-							Y
+							{/* Y */}
+							<img src={user.picture ? user.picture : user.name.split('')[0]} alt="profile" style={{ borderRadius: '50px', height: '70px', width: '70px'}}></img>
 						</div>{' '}
 						{/* can add photo later */}
-						{/* <img src={user ? user.picture : user.name.split('')[0]} alt="profile" style={{ borderRadius: '50px', height: '70px', width: '70px'}}></img> */}
+						
+						{/* <img src={user.picture ? user.picture : user.name.split('')[0]} alt="profile" style={{ borderRadius: '50px', height: '70px', width: '70px'}}></img> */}
 						{/* MUI Avatar solution - don't need stack for single avatar*/}
 						{/* <Stack direction="row" spacing={2}>
       				<Avatar alt="Yaku" src="source.png" sx={{ width: 56, height: 56 }}/>
@@ -77,7 +78,7 @@ function App(): ReactElement {
 						<div className='user-info'>
 							{/* <p>{user.given_name}</p> */}{' '}
 							{/* can dynamically render user info later with JWT */}
-							<p>Yaku</p> {/* can dynamically render user info later with JWT */}
+							<p>{user.name}</p> {/* can dynamically render user info later with JWT */}
 							{/* <p>{user ? user.name : "user email in DB"}</p> */}{' '}
 							{/* probably best to use email, since that's how we store username */}
 						</div>
