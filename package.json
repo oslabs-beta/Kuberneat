@@ -112,7 +112,6 @@
 		"jwt-simple": "^0.5.6",
 		"mongodb": "^4.12.1",
 		"mongosh": "^1.6.1",
-		"node": "^19.2.0",
 		"node-fetch": "^3.3.0",
 		"nodemon": "^2.0.20",
 		"prom-client": "^14.1.0",
@@ -130,6 +129,5 @@
 	},
 	"resolutions": {
 		"react-error-overlay": "6.0.9"
-	},
-	"type": "module"
+	}
 }
