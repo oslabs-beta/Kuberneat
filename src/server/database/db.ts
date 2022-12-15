@@ -1,16 +1,20 @@
 import { ErrorRequestHandler } from 'express';
+import path from 'path';
 
 //acquiring mongoose framework
 const mongoose = require('mongoose');
+
+require("dotenv").config({
+  path: path.resolve(__dirname, "../../../process.env"),
+});
 
 //this line below is used to suppress deprecation warnings
 mongoose.set('strictQuery', true);
 
 //Data can be accessed anywhere -Look at env file to find username and password
-const mongoURI = 'mongodb+srv://zeus:123@cluster0.ntr77xf.mongodb.net/?retryWrites=true&w=majority';
 
 //to hid server from public 
-const URI = process.env.MONGO_URI || mongoURI;
+const URI = process.env.MONGO_URI;
 
 //establishing connection to mongo
 mongoose

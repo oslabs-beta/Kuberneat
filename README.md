@@ -93,7 +93,7 @@
 
 1. You will need to obtain the stateful set of your clusters. <br />
 
-   ```
+   ``` 
    kubectl get statefulset
    ```
 
@@ -237,13 +237,34 @@ For more information regarding how to contribute, please refer to the
 guidelines from this repo.
 
 1. Fork and clone the `dev` branch onto your local branch.
-2. Create a new a feature branch
+   ``` bash
+   https://github.com/oslabs-beta/Zeus.git
    ```
+2. Create a new a feature branch
+   ``` bash
    [your-name]/AWESOME-FEATURES
    ```
-3. Please ensure you are following eslint conventions.
-4. Please ensure to create tests for your feature and that it passes your test suite.
-5. Please be detailed in your pull request.
+
+3. Install all the dependencies
+   ``` bash 
+      npm install 
+   ```
+4. Create ```.env``` file at the root directory
+   ``` bash
+   root
+      ├─ .env
+      ├─ electron
+      └─ src
+   ``` 
+5. Connect to NoSQL database in .env
+
+   ``` js
+   mongoURI = "Your NoSQL URI string"
+   ```
+6. ***Please ensure you are following eslint conventions***.
+7. ***Please ensure to create tests for your feature and that it passes your test suite***.
+8. **Please be detailed in your pull request**.
+
    ![img](./Demo%20Shots/PR-guide.png)
 
 </br>
