@@ -1,6 +1,6 @@
 # ⚡ Zeus ⚡
 
-<center><img src="./logo/Logo.png" width="200" height="150"> </center>
+<center><img src="./logo/Logo.png" width="200" height="150" id="readme-top"> </center>
 
 ![osLabs](https://badgen.net/badge/license/MIT)
 
@@ -46,7 +46,8 @@
 ![img](./Demo%20Shots/Computing-Resources.png)
 <br/>
 <br/>
-<br/>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Getting Started With Zeus
 
@@ -84,8 +85,9 @@
 > Deploy Prometheus & Grafana </br></br>
 
 </br>
-</br>
 <br/>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Accessing Grafana
 
@@ -155,6 +157,8 @@
 </br>
 <br/>
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 # Accessing Prometheus <br/></br>
 
 1. To ensure all your pods are accessible and running, enter in the following
@@ -190,6 +194,7 @@
 </br>
 <br/>
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Running Zeus
 
@@ -214,13 +219,15 @@
    ``` js
    mongoURI = "Your NoSQL URI string"
    ```
-5. Ensure your cluster is running and then you can start the application with:
+5. Ensure your cluster is running and then you can start the desktop application with:
    ``` bash
    npm run electron
    ```
 
 </br>
 <br/>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Made with
 
@@ -252,9 +259,9 @@
 ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=Prometheus&logoColor=white)
 
 </br>
-
 <br/>
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Contributions
 
@@ -270,7 +277,6 @@ guidelines from this repo.
    ``` bash
    [your-name]/AWESOME-FEATURES
    ```
-
 3. Install all the dependencies
    ``` bash 
       npm install 
@@ -296,9 +302,15 @@ guidelines from this repo.
 </br>
 <br/>
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 # Founders
 
-- Ed Cho [LinkedIn](https://www.linkedin.com/in/edcho720/) | [GitHub](https://github.com/edcho720)
-- John Wroge [LinkedIn](https://www.linkedin.com/in/john-wroge/) | [GitHub](https://github.com/johnwroge)
 - Harvey Li [LinkedIn](https://www.linkedin.com/in/harvey-li/) | [GitHub](https://github.com/harvli)
 - Amy (Aimée) Nguyen [LinkedIn](https://www.linkedin.com/in/aqn/) | [GitHub](https://github.com/DoctorCodeine)
+- John Wroge [LinkedIn](https://www.linkedin.com/in/john-wroge/) | [GitHub](https://github.com/johnwroge)
+- Ed Cho [LinkedIn](https://www.linkedin.com/in/edcho720/) | [GitHub](https://github.com/edcho720)
+
+</br>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
