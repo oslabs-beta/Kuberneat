@@ -1,6 +1,6 @@
 # ⚡ Zeus ⚡
 
-<center><img src="./logo/Logo.png" width="200" height="150"> </center>
+<center><img src="./logo/Logo.png" width="200" height="150" id="readme-top"> </center>
 
 ![osLabs](https://badgen.net/badge/license/MIT)
 
@@ -46,7 +46,8 @@
 ![img](./Demo%20Shots/Computing-Resources.png)
 <br/>
 <br/>
-<br/>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Getting Started With Zeus
 
@@ -84,16 +85,15 @@
 > Deploy Prometheus & Grafana </br></br>
 
 </br>
-</br>
 <br/>
-<br/>
-<br/>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Accessing Grafana
 
 1. You will need to obtain the stateful set of your clusters. <br />
 
-   ```
+   ``` 
    kubectl get statefulset
    ```
 
@@ -156,8 +156,8 @@
 
 </br>
 <br/>
-<br/>
-<br/>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Accessing Prometheus <br/></br>
 
@@ -193,8 +193,41 @@
 
 </br>
 <br/>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+# Running Zeus
+
+1. Fork and clone the `dev` branch onto your local branch.
+   ``` bash
+   https://github.com/oslabs-beta/Zeus.git
+   ```
+
+2. Install all the dependencies
+   ``` bash 
+      npm install 
+   ```
+3. Create ```process.env``` file at the root directory
+   ``` bash
+   root
+      ├─ process.env
+      ├─ electron
+      └─ src
+   ``` 
+4. Connect to NoSQL database in .env
+
+   ``` js
+   mongoURI = "Your NoSQL URI string"
+   ```
+5. Ensure your cluster is running and then you can start the desktop application with:
+   ``` bash
+   npm run electron
+   ```
+
+</br>
 <br/>
-<br/>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Made with
 
@@ -227,8 +260,8 @@
 
 </br>
 <br/>
-<br/>
-<br/>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Contributions
 
@@ -237,24 +270,47 @@ For more information regarding how to contribute, please refer to the
 guidelines from this repo.
 
 1. Fork and clone the `dev` branch onto your local branch.
-2. Create a new a feature branch
+   ``` bash
+   https://github.com/oslabs-beta/Zeus.git
    ```
+2. Create a new a feature branch
+   ``` bash
    [your-name]/AWESOME-FEATURES
    ```
-3. Please ensure you are following eslint conventions.
-4. Please ensure to create tests for your feature and that it passes your test suite.
-5. Please be detailed in your pull request.
+3. Install all the dependencies
+   ``` bash 
+      npm install 
+   ```
+4. Create ```process.env``` file at the root directory
+   ``` bash
+   root
+      ├─ process.env
+      ├─ electron
+      └─ src
+   ``` 
+5. Connect to NoSQL database in .env
+
+   ``` js
+   mongoURI = "Your NoSQL URI string"
+   ```
+6. ***Please ensure you are following eslint conventions***.
+7. ***Please ensure to create tests for your feature and that it passes your test suite***.
+8. **Please be detailed in your pull request**.
+
    ![img](./Demo%20Shots/PR-guide.png)
 
 </br>
 <br/>
-<br/>
-<br/>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Founders
 
-- Ed Cho [LinkedIn](https://www.linkedin.com/in/edcho720/)| [GitHub](https://github.com/edcho720)
-- John Wroge [LinkedIn](https://www.linkedin.com/in/john-wroge/) | [GitHub](https://github.com/johnwroge)
 - Harvey Li [LinkedIn](https://www.linkedin.com/in/harvey-li/) | [GitHub](https://github.com/harvli)
-- Amy (Aimée) Nguyen [LinkedIn](https://www.linkedin.com/in/aqn/) |
-  [GitHub](https://github.com/DoctorCodeine)
+- Amy (Aimée) Nguyen [LinkedIn](https://www.linkedin.com/in/aqn/) | [GitHub](https://github.com/DoctorCodeine)
+- John Wroge [LinkedIn](https://www.linkedin.com/in/john-wroge/) | [GitHub](https://github.com/johnwroge)
+- Ed Cho [LinkedIn](https://www.linkedin.com/in/edcho720/) | [GitHub](https://github.com/edcho720)
+
+</br>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
