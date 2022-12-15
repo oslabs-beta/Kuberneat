@@ -21,7 +21,7 @@ mongoose
 	.connect(URI, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
-		dbName: 'zeus',
+		// dbName: 'zeus',
 	})
 	.then(() => console.log('🦆🦆🦆🦆🦆🦆🦆🦆  Mongoose is connected'))
 	.catch((err: ErrorRequestHandler) => {
@@ -38,5 +38,3 @@ const userSchema = new mongoose.Schema({
 const Users = mongoose.model('Users', userSchema);
 // Export db
 module.exports = Users;
-
-export {};
