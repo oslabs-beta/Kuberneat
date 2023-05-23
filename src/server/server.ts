@@ -34,7 +34,7 @@ register.setDefaultLabels({
 	app: 'zeus-api',
 });
 
-//server the frontend
+//serve the frontend
 app.get('/', (req: Request, res: Response) => {
 	console.log('Backend & Frontend speaking...');
 	res.sendFile(path.join(__dirname, '../client/index.html'));
@@ -105,7 +105,11 @@ app.use((err: ErrorRequestHandler, req: Request, res: Response, next: NextFuncti
 	return res.status(errorObj.status).json(errorObj.message);
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
 	console.log(`************************* EXPRESS server is listening on http://localhost:${PORT}/`);
 	console.log(`************************* Frontend listening on  http://localhost:${8080}/`);
 });
+
+
+module.exports = server; 
+
