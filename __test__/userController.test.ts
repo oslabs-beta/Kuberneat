@@ -2,12 +2,42 @@ import request from 'supertest';
 import mongoose from 'mongoose';
 import { response } from 'express';
 
-const Users = require('..src/server/database/db');
-const userController = require('../src/server/controllers/userController');
-const app = require('../src/server/app');
 
-jest.mock(userController);
+const userController = require('../src/server/controllers/userController');
+const  Users  = require('../src/server/database/db');
+const server = require('../src/server/server.ts');
+
+
+require("dotenv").config();
+
+
+/* Connecting to the database before each test. */
+beforeEach(async () => {
+	await mongoose.connect(process.env.MONGO_URI);
+  });
+  
+  /* Closing database connection after each test. */
+  afterEach(async () => {
+	await mongoose.connection.close();
+  });
+
+describe("GetUser /login", () => {
+	it("should compare user to info in database", async () => {
+		const res = await request(server).post("/login").send({
+			email: "person@gmail.com",
+			password: "password",
+			});
+			expect(res.statusCode).toBe(200);
+		})
+	})
+
+
+
+
+
+/*
 jest.mock(Users);
+jest.mock(userController);
 
 const mockRequest = () => {
 	const request: Object = {
@@ -25,6 +55,7 @@ const mockResponse = () => {
 }
 
 describe('User Controller', () => {
+	
 	const mockedNext = jest.fn();
 	const mockedRequest = mockRequest();
 	const mockedResponse = mockResponse();
@@ -34,9 +65,8 @@ describe('User Controller', () => {
 	// request.get.mockedResolvedValue(mockedEntries);
 	// const result = get(mockedRequest, mockedResponse, mockedNext);
 	// expect(result).toEqual(mockedEntries);
-
-
 });
+*/
 
 // describe('READ users', () => {
 // 	request(app)

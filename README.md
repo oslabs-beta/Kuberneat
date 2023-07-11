@@ -51,45 +51,6 @@
 
 # Getting Started With Zeus
 
-## Prerequisites to run Zeus
-
-- **Minikube** 🧊 [documentation](https://minikube.sigs.k8s.io/docs/start/)
-
-  - Run minikube with the following command: <br />
-
-  ```sh
-  minikube start - p [name of your cluster]
-  ```
-
-  - Install **kubectl** [Download here](https://kubernetes.io/docs/tasks/tools/) <br />
-  - **Docker** Desktop 🐋 [Download here](https://docs.docker.com/desktop/) <br />
-  - **Helm Charts**, to set up Prometheus Operator [Clone git repo here](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) <br />
-  - Make sure your pods are running in your cluster by entering the following
-    in your terminal: <br />
-
-    ```
-    kubectl get pods
-    ```
-
-    or
-
-    ```
-    kubectl get po -A
-    ```
-
-  - Ensure sufficient computational resources are available to build and user clusters 🖥️ <br /></br>
-
-### If you are new to Kubernetes, keep this in mind:
-
-> 💡 In chronological order: Install minikube and kubectl ⇒ Deploy Helm ⇒
-> Deploy Prometheus & Grafana </br></br>
-
-</br>
-<br/>
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 # Running Zeus
 
 1. Fork and clone the `dev` branch onto your local branch.
@@ -127,7 +88,7 @@
 
 <br>
 
-### For front-end development
+### For Frontend Development
 
 ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
 ![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
@@ -137,7 +98,7 @@
 
 <br>
 
-### For back-end development
+### For Backend Development
 
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
@@ -145,7 +106,7 @@
 
 <br>
 
-### For monitoring and data visualizations
+### For Monitoring and Data Visualizations
 
 ![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)

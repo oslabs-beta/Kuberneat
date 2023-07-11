@@ -2,5 +2,7 @@
 
 module.exports = {
 	preset: 'ts-jest',
-	testEnvironment: ['node', 'jsdom']
+	// testEnvironment: ['node', 'jsdom']
+	testEnvironment: 'node',
+
 };
