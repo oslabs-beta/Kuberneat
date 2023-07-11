@@ -51,7 +51,6 @@
 
 # Getting Started With Zeus
 
-
 # Running Zeus
 
 1. Fork and clone the `dev` branch onto your local branch.
