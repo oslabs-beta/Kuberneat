@@ -14,10 +14,10 @@ module.exports = {
 	],
 	devServer: {
 		host: 'localhost',
-		//frontend
+		// frontend
 		port: 8080,
 		historyApiFallback: true,
-		//backend
+		// backend
 		proxy: {
 			'/': 'http://localhost:3000/',
 		},
