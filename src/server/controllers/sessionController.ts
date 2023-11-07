@@ -20,6 +20,7 @@ const sessionController: object = {
 		Session.create({ cookieId: _id })
 			.then((newSession: object) => {
 				res.locals.newSession = newSession;
+				console.log(res.locals.newSession)
 				return next();
 			})
 			.catch((err: any) => {

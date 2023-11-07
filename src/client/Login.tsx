@@ -1,21 +1,18 @@
-import { Google } from '@mui/icons-material';
-
-import React, { useContext, useEffect } from 'react'; //useState,
+import React, { useContext, useEffect, useState } from 'react'; //useState,
 import { Link, useNavigate } from 'react-router-dom';
 import { Context } from './Context';
 import { useFormik } from 'formik'; // need formik to use yup for form validation
 import { loginSchema } from './schemas'; // import validation schema
 import { valProps, InitVals, FormProps, LoginProps } from './interfaces';
-
-import jwt_decode, { JwtPayload } from 'jwt-decode';
-
 import { AppProps } from './interfaces';
 import { ReactElement, ReactNode } from 'react';
-import { string } from 'yup/lib/locale';
+
+import jwt_decode, { JwtPayload } from 'jwt-decode';
+import Cookies from 'react-cookie';
+
+
 
 function Login(): ReactElement {
-	// won't take type ReactElement ??
-
 	const { darkModeOn, user, setUser } = useContext<AppProps>(Context);
 
     const navigate = useNavigate();
@@ -45,7 +42,12 @@ function Login(): ReactElement {
 					const { email } = res;
 					if (email){
 					const userObj = { name: email, email: email}
-					setUser(userObj)
+					setUser(userObj);
+					navigate('/');
+					//setting cookie to expire after two hours 
+					const expires = new Date(Date.now() + 7200000);
+					//setting cookie to expire after two hours
+					(Cookies as any).set('user', userObj, { expires });
 					} else {
 						alert('Login Unsuccessful')
 						return;

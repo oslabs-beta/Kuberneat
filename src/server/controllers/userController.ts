@@ -1,10 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
+const Session = require('express-session');
 const bcrypt = require('bcrypt');
 const Users = require('../database/db');
 const saltRound = 10;
 
 //User object middleware
-const userController: object = {
+export const userController: object = {
 	
 	//middleware for creating new user document in db
 	createUser(req: Request, res: Response, next: NextFunction) {
@@ -39,20 +40,30 @@ const userController: object = {
 		const { email, password } = req.body;
 		//finds document with email in request body
 		Users.findOne({email: email})
-			.then((existingUser: object) => {
-				res.locals.foundUser = existingUser;
-				// pulls hashed password from db
-				const hash = res.locals.foundUser.password;
-				// comparing attempted login password with hash password from db, will return boolean signifying match (result)
-				 bcrypt.compare(password, hash, (error: any, result: string) => {
-					if (result){
-						console.log('login success')
-						return next()
-					} else {
-						return next('login unsuccessful')
-					}
-				})
+		.then((existingUser: any) => {
+			res.locals.foundUser = existingUser;
+			//if no user exists with this email -> invoke global error handler
+			if(!existingUser) {
+				return next('User not found')
+			}
+			//if user exists with this email -> compare password with hashed password
+			//in db
+			bcrypt.compare(password, existingUser.password, (error: any, result: any) => {
+				//if password doesn't match -> invoke global error handler
+				if (error){
+					return next('Password does not match')
+				}
+				//if password matches -> allow the next middleware function to execute
+				if (result){
+					// set cookie 
+					// res.cookie('User', res.locals.foundUser, { httpOnly: true });
+					// res.cookie('Password', res.locals.foundUser.password, { httpOnly: true });
+					// res.cookie('secret', Math.floor(Math.random() * 100), {httpOnly: true});
+					return next()
+				}
 			})
+			
+		})//if any residual error occurs, invoke global error handler
 			.catch((err: any) => {
 			next({
 				log: `ERROR: ${err}`,
@@ -98,7 +109,7 @@ const userController: object = {
 				log: `ERROR: ${err}`,
 				message: { err: 'An error occurred in updateUser middleware' },
 			});
-		});
+		}); 
 	},
 
 	//middleware for deleting user document in db

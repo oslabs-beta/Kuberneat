@@ -2,11 +2,12 @@ import express, { Express, Request, Response, ErrorRequestHandler, NextFunction 
 import path from 'path';
 import dotenv from 'dotenv';
 import { RequestHandler } from 'express';
-import promClient from 'prom-client';
 import { register, Counter } from 'prom-client';
 
 const middleware = require('./controllers/middleware');
 const userController = require('./controllers/userController');
+const cookieController = require('./controllers/cookieController');
+const sessionController = require('./controllers/sessionController');
 
 const app: Express = express();
 const cors = require('cors');
@@ -34,9 +35,9 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 //login page
-app.post('/login', userController.getUser, (req: Request, res: Response) => {
-	console.log('Getting user is working...', res.locals.foundUser);
-	//res.redirect to route, 
+//cookieController.setUserCookie 
+app.post('/login', userController.getUser, sessionController.setUserSession, (req: Request, res: Response) => {
+	console.log('Login is working...');
 	return res.status(200).json(res.locals.foundUser);
 });
 
