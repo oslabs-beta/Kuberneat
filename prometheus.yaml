@@ -120,7 +120,4 @@ Pod Template:
     Medium:     
     SizeLimit:  <unset>
 Volume Claims:  <none>
-Events:
-  Type    Reason            Age   From                    Message
-  ----    ------            ----  ----                    -------
-  Normal  SuccessfulCreate  17m   statefulset-controller  create Pod prometheus-prometheus-kube-prometheus-prometheus-0 in StatefulSet prometheus-prometheus-kube-prometheus-prometheus successful
+Events:         <none>

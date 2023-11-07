@@ -62,7 +62,4 @@ Conditions:
   Progressing    True    NewReplicaSetAvailable
 OldReplicaSets:  <none>
 NewReplicaSet:   prometheus-kube-prometheus-operator-757f8788d4 (1/1 replicas created)
-Events:
-  Type    Reason             Age    From                   Message
-  ----    ------             ----   ----                   -------
-  Normal  ScalingReplicaSet  7m27s  deployment-controller  Scaled up replica set prometheus-kube-prometheus-operator-757f8788d4 to 1
+Events:          <none>

@@ -6,8 +6,7 @@ import { RequestHandler } from 'express';
 const middleware = require('./controllers/middleware');
 const userController = require('./controllers/userController');
 
-import client from 'prom-client';
-// import cluster from 'cluster';
+import promClient from 'prom-client';
 
 const app: Express = express();
 const cors = require('cors');
@@ -22,9 +21,10 @@ dotenv.config();
 
 // collecting our default metrics from Prometheus
 // https://prometheus.io/docs/instrumenting/writing_clientlibs/#standard-and-runtime-collectors
-const collectDefaultMetrics = client.collectDefaultMetrics;
+const collectDefaultMetrics = promClient.collectDefaultMetrics;
 // register our metrics to another registry
-const Registry = client.Registry;
+const Registry = promClient.Registry;
+
 const register = new Registry();
 // collect our default metrics
 collectDefaultMetrics({ register });
@@ -33,7 +33,10 @@ collectDefaultMetrics({ register });
 register.setDefaultLabels({
 	app: 'zeus-api',
 });
-
+app.get('/metrics', (req, res) => {
+  res.set('Content-Type', promClient.register.contentType);
+  res.end(promClient.register.metrics());
+});
 //server the frontend
 app.get('/', (req: Request, res: Response) => {
 	console.log('Backend & Frontend speaking...');
