@@ -1,3 +1,4 @@
+import { PodcastsSharp } from '@mui/icons-material';
 import express, { Request, Response, NextFunction } from 'express';
 const child_process = require('child_process');
 //created middleware called middleware
@@ -84,7 +85,7 @@ const middleware: Object = {};
 		health('kubectl get componentstatuses', (output: string) => {
 
 			//splitting the output into an array and filtering out the empty spaces
-			let terminal = output.split(' ').filter(element => (element !== '' && element !== 'ERROR'));
+			let terminal = output.split(' ').filter(element => element !== '');
 
 			//declaring an object to store the health metrics
 			const healthObject: any = {}
@@ -97,15 +98,24 @@ const middleware: Object = {};
 
 			//getting pods
 			const getPods = terminal.filter(element => (element !== 'ok' && element !== 'Healthy' && element !== 'Unhealthy')).filter(element => !element.includes('{'));
-			healthObject['pods'] = getPods;
+			healthObject['PODS'] = getPods;
 
-			//get health status
+			//get health status get 'Healthy' or 'Unhealthy'
 			const getHealth = terminal.filter(element => (element === 'Healthy' || element === 'Unhealthy'));
-			healthObject['stateOfHealth'] = getHealth;
+			healthObject['STATUS'] = getHealth;
 
-			//getting message 
-			const getMessage = terminal.filter(element => element.includes('ok') || element.includes('down'));
-			healthObject['message'] = getMessage;
+			//getting message get 'ok' or 'down'
+			let getMessage = terminal.filter(element => element === 'ok' || element === 'down');
+			healthObject['MESSAGE'] = getMessage;
+
+			if (healthObject['MESSAGE'] === undefined) {
+				healthObject['MESSAGE'] = 'N/A';
+			}
+
+			//getting error
+			if (healthObject['ERROR'] === undefined) {
+				healthObject['ERROR'] = 'N/A';
+			}
 
 			//putting all info into an array
 			const arrayOfInfo: Array<string> = Object.values(healthObject);
@@ -118,10 +128,10 @@ const middleware: Object = {};
 				if (arrayOfInfo[0][i] === undefined) continue;
 				const Pod = arrayOfInfo[1][i];
 				const Status = arrayOfInfo[2][i];
-				const Message = arrayOfInfo[3][i];
-				workingPods.push({Pod, Status, Message});
+				const Message = (arrayOfInfo[3][i]) ? arrayOfInfo[3][i] : 'N/A';
+				const error = arrayOfInfo[4];
+				workingPods.push({Pod, Status, Message, error});
 				}
-
 				res.locals.health = workingPods;
 				return next();
 

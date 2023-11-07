@@ -8,7 +8,6 @@ import { register, Counter } from 'prom-client';
 const middleware = require('./controllers/middleware');
 const userController = require('./controllers/userController');
 
-
 const app: Express = express();
 const cors = require('cors');
 const PORT: number = 3002;
@@ -82,6 +81,7 @@ app.get('/health', middleware.getHealth, (req: Request, res: Response) => {
 	// console.log('Getting health is working...');
 	return res.status(200).json(res.locals.health);
 });
+
 //catch all
 app.use('*', (req, res) => {
 	return res.status(404);

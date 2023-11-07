@@ -28,6 +28,7 @@ import GrafanaDash from './components/GrafanaDash';
 import Cluster from './components/Cluster';
 import VisD3 from './components/VisD3';
 import Faq from './components/Faq';
+import Health	from './components/Health';
 
 import { AppProps } from './interfaces';
 import { ReactElement, ReactNode } from 'react';
@@ -176,6 +177,7 @@ function App(): ReactElement {
 							<Route path='/grafranaDash' element={<GrafanaDash />} />
 							<Route path='/visualizer' element={<VisD3 />} />
 							<Route path='/cluster' element={<Cluster />} />
+							<Route path='/health' element={<Health />} />
 							<Route path='/faq' element={<Faq />} />
 						</Routes>
 					</main>
