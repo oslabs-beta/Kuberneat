@@ -2,11 +2,12 @@ import express, { Express, Request, Response, ErrorRequestHandler, NextFunction 
 import path from 'path';
 import dotenv from 'dotenv';
 import { RequestHandler } from 'express';
+import promClient from 'prom-client';
+import { register } from 'prom-client';
 
 const middleware = require('./controllers/middleware');
 const userController = require('./controllers/userController');
 
-import promClient from 'prom-client';
 
 const app: Express = express();
 const cors = require('cors');
@@ -19,27 +20,11 @@ app.use(express.urlencoded({ extended: true }) as RequestHandler);
 app.use(cors() as RequestHandler);
 dotenv.config();
 
-// collecting our default metrics from Prometheus
-// https://prometheus.io/docs/instrumenting/writing_clientlibs/#standard-and-runtime-collectors
-const collectDefaultMetrics = promClient.collectDefaultMetrics;
-// register our metrics to another registry
-const Registry = promClient.Registry;
+//collecting our default metrics from Prometheus and call it here 
 
-const register = new Registry();
-// collect our default metrics
-collectDefaultMetrics({ register });
-
-// label our metrics
-register.setDefaultLabels({
-	app: 'zeus-api',
-});
-app.get('/metrics', (req, res) => {
-  res.set('Content-Type', promClient.register.contentType);
-  res.end(promClient.register.metrics());
-});
 //server the frontend
 app.get('/', (req: Request, res: Response) => {
-	console.log('Backend & Frontend speaking...');
+	// console.log('Backend & Frontend speaking...');
 	res.sendFile(path.join(__dirname, '../client/index.html'));
 });
 
