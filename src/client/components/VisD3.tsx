@@ -2,33 +2,38 @@
 The purpose of this component is to render the visualizer for the current cluster.
  */
 import * as React from 'react';
-import { useContext } from 'react'; //removed useState, useEffect, 
+import { useContext, useMemo } from 'react'; //removed useState, useEffect, 
 import { Context } from '../Context';
-import Header from './Header';
-
-import { Box } from '@mui/material';
-
 import { AppProps } from '../interfaces';
 import {  ReactElement } from 'react'; //removed ReactNode
+
 import Visualizer from './Visualizer';
+import Header from './Header';
+import { Box } from '@mui/material';
+
 
 function VisD3(): ReactElement {
 	const { darkModeOn } = useContext<AppProps>(Context);
+	//use memo to prevent rerendering of component
+	const memoizedValue = useMemo(() => <Visualizer />, []);
 
+	//fix bleeding frame
 	return (
-		<Box m='20px'>
-			{' '}
-			{/* removed className chart from div, replaced it below, not sure what it was for? */}
-			<div className={darkModeOn ? 'dash-dark' : 'dash-light'}>
-				        {/*  */}
-				<Header 
-					path='/visualizer'
-					title='Kubernetes Cluster Visualizer' 
-					subtitle='' 
-				/>
-				<Visualizer></Visualizer>
-			</div>
+			<>
+			<Header title='Kubernetes Cluster Chart' />
+				<Box
+					sx={{
+						backgroundColor: darkModeOn ? '#121212' : '#ffffff',
+						height: '100vh',
+						width: '70vw',
+						overflow: 'hidden',
+						boxBorder: '100px solid #000000',
+						position: 'absolute',
+					}}
+				>
+			{memoizedValue}
 		</Box>
+		</>
 	);
 }
 
