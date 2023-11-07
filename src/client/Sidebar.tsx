@@ -16,6 +16,7 @@ import ScatterPlotTwoToneIcon from '@mui/icons-material/ScatterPlotTwoTone';
 
 import { AppProps } from './interfaces';
 import { ReactElement } from 'react';
+import { HeartBroken } from '@mui/icons-material';
 
 function Sidebar(): ReactElement {
 	const [active, setActive] = useState<boolean | null>(false); // state used to toggle sidebar collapse feature
@@ -117,6 +118,25 @@ function Sidebar(): ReactElement {
 						</Tooltip>
 						<Link to='/cluster'>
 							<Typography>Cluster</Typography>
+						</Link>
+					</li>
+
+					<li>
+						<Tooltip 
+						title="Health"
+						arrow placement="right-start"
+						>
+							<IconButton
+								className="icon"
+								size="large"
+								sx={{ '&:hover': { backgroundColor: '#22A39F' } }}
+							>
+								<HeartBroken onClick={() => navigate('/health')}></HeartBroken>
+								</IconButton>
+
+						</Tooltip>
+						<Link to="/health">
+							<Typography>Health</Typography>
 						</Link>
 					</li>
 
