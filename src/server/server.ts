@@ -2,16 +2,16 @@ import express, { Express, Request, Response, ErrorRequestHandler, NextFunction 
 import path from 'path';
 import dotenv from 'dotenv';
 import { RequestHandler } from 'express';
+import promClient from 'prom-client';
+import { register, Counter } from 'prom-client';
 
 const middleware = require('./controllers/middleware');
 const userController = require('./controllers/userController');
 
-import promClient from 'prom-client';
 
 const app: Express = express();
 const cors = require('cors');
-const PORT: number = 3000;
-//  const fetch = require('node-fetch');
+const PORT: number = 3002;
 
 
 app.use(express.json() as RequestHandler);
@@ -19,28 +19,17 @@ app.use(express.urlencoded({ extended: true }) as RequestHandler);
 app.use(cors() as RequestHandler);
 dotenv.config();
 
-// collecting our default metrics from Prometheus
-// https://prometheus.io/docs/instrumenting/writing_clientlibs/#standard-and-runtime-collectors
-const collectDefaultMetrics = promClient.collectDefaultMetrics;
-// register our metrics to another registry
-const Registry = promClient.Registry;
-
-const register = new Registry();
-// collect our default metrics
-collectDefaultMetrics({ register });
-
-// label our metrics
-register.setDefaultLabels({
-	app: 'zeus-api',
+//collecting our default metrics from Prometheus and call it here 
+const zeusCounter = new Counter({
+	name: 'zeus_counter',
+	help: 'Counter for zeus',
+	labelNames: ['zeus'],
 });
+zeusCounter.inc();
 
-app.get('/metrics', (req, res) => {
-  res.set('Content-Type', promClient.register.contentType);
-  res.end(promClient.register.metrics());
-});
 
 app.get('/', (req: Request, res: Response) => {
-	console.log('Backend & Frontend speaking...');
+	// console.log('Backend & Frontend speaking...');
 	res.sendFile(path.join(__dirname, '../client/index.html'));
 });
 
@@ -66,13 +55,14 @@ app.get('/metrics', async (req: Request, res: Response) => {
 //this route handler is to get more metrics not shown on grafana -Need more refining
 app.get('/apis/metrics.k8s.io/v1beta1', async (req: Request, res: Response) => {
 	console.log('Getting metrics resources is working...');
-	res.sendStatus(200);
+	res.sendStatus(200).send(JSON.stringify({ metrics: 'metrics' }));
 });
 
-//this route handler is to get more metrics not shown on grafana -Need more refining
+//this route handler is to get more metrics not shown on grafana
 app.get('/apis/metrics.k8s.io/v1beta1/nodes', async (req: Request, res: Response) => {
 	try {
 		//fetching data from local host 8085 (look into kubectl proxy)
+		//kubectl port-forward svc/prometheus-kube-state-metrics 8085:8080 
 		const kubeMetrics = await fetch('http://localhost:8085/metrics');
 		console.log(kubeMetrics);
 		res.sendStatus(200).send(JSON.stringify({ metrics: kubeMetrics }));
@@ -83,15 +73,15 @@ app.get('/apis/metrics.k8s.io/v1beta1/nodes', async (req: Request, res: Response
 
 //this route handler is to get metrics via CLI
 app.get('/cluster', middleware.getClusterInfo, (req: Request, res: Response) => {
-	console.log('Getting cluster is working...');
+	// console.log('Getting cluster is working...');
 	return res.status(200).json(res.locals.clusterInfo);
 });
 
 //this route handler is to get metrics via CLI for health metrics
-// app.get('/health', middleware.getHeath, (req: Request, res: Response) => {
-//  return res.status(200).json(res.locals.health);
-// });
-
+app.get('/health', middleware.getHealth, (req: Request, res: Response) => {
+	// console.log('Getting health is working...');
+	return res.status(200).json(res.locals.health);
+});
 //catch all
 app.use('*', (req, res) => {
 	return res.status(404);
