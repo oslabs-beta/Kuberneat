@@ -1,23 +1,28 @@
 import { ErrorRequestHandler } from 'express';
+import path from 'path';
+require('dotenv').config();
 
 //acquiring mongoose framework
 const mongoose = require('mongoose');
+
+// require("dotenv").config({
+//   path: path.resolve(__dirname, "../../../process.env"),
+// });
 
 //this line below is used to suppress deprecation warnings
 mongoose.set('strictQuery', true);
 
 //Data can be accessed anywhere -Look at env file to find username and password
-const mongoURI = 'mongodb+srv://zeus:123@cluster0.ntr77xf.mongodb.net/?retryWrites=true&w=majority';
 
-//to hid server from public 
-const URI = process.env.MONGO_URI || mongoURI;
+//to hide server from public 
+const URI = process.env.MONGO_URI;
+
 
 //establishing connection to mongo
-mongoose
-	.connect(URI, {
+mongoose.connect(URI, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
-		dbName: 'zeus',
+		// dbName: 'zeus',
 	})
 	.then(() => console.log('🦆🦆🦆🦆🦆🦆🦆🦆  Mongoose is connected'))
 	.catch((err: ErrorRequestHandler) => {
@@ -34,5 +39,3 @@ const userSchema = new mongoose.Schema({
 const Users = mongoose.model('Users', userSchema);
 // Export db
 module.exports = Users;
-
-export {};

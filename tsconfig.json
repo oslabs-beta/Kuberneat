@@ -23,12 +23,5 @@
       ],
 	},
 	"include": ["src/**/*", "__test__/"],
-
-	// 	"paths": {
-	// 		"*": [
-	// 				"node_modules/*"
-	// 		]
-	// },
-	// "exclude": ["node_modules"],
 }
 //"ESNext" in module
