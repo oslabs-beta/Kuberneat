@@ -1,11 +1,68 @@
+'use client'; //https://react.dev/reference/react/use-client#use-client
+
 import * as React from 'react';
 import {useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
+import router from 'next/router';
 import Image from 'next/image';
 import googleIcon from './components/ui/public/googleIcon.svg';
 import githubIcon from './components/ui/public/githubIcon.svg';
 
+import jwt_decode, { JwtPayload } from 'jwt-decode';
+import { useCookies, Cookies } from 'react-cookie';
+import { useFormik } from 'formik'; // need formik to use yup for form validation
+
+interface FormikActions {
+  resetForm: () => void;
+  setSubmitting: (isSubmitting: boolean) => void;
+}
+
 function LoginForm() {
+  const [user, setUser] = useState({});
+  const [cookies, setCookies] = useCookies(['token']);
+  let memozieLogin;
+
+  const fetchUserCredentials = async ( values:any, actions: FormikActions): Promise<void> => {
+    try {
+      const response = await fetch('http://localhost:3002/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // Authorization: `Bearer ${(Cookies as any).get('token')}`,
+        },
+        credentials: 'include',
+        body: JSON.stringify({email: values.email, password: values.password}),
+      })
+      const data = await response.json();
+
+      if (data.status === 200) {
+        //set cookies 
+        const time = new Date();
+        time.setHours(time.getHours() + 2);
+        
+
+        //set token
+        const userObject: any = jwt_decode<JwtPayload>(data.token);
+        setUser(userObject);
+
+        console.log(user);
+   
+
+        //redirect to dashboard
+        router.push('/', undefined, { shallow: true });
+      }
+      memozieLogin = useMemo(() => fetchUserCredentials(user, actions),[user]);
+      
+      setTimeout(() => {
+        actions.setSubmitting(false);
+      }, 1000);
+    }
+    catch(error) {
+      console.error(error);
+    }
+    actions.resetForm();
+  }
+
 
   return (
       // <div className="min-h-full flex item-center justify-center py-12 px-4 sm:px-6 lg:px-8">

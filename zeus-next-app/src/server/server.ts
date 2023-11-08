@@ -15,11 +15,18 @@ const app: Express = express();
 const cors = require('cors');
 const PORT: number = 3002;
 
+//using next.js to run node.js
 const dev: boolean = process.env.NODE_ENV !== 'production';
-const nextApp = next({ dev });
+const nextApp = next({ dev, dir:'./' });
 const handle = nextApp.getRequestHandler();
 
+nextApp.prepare().then(() => {
+  app.get('*', (req: Request, res: Response) => {
+    return handle(req, res);
+  });
+});
 
+app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json() as RequestHandler);
 app.use(express.urlencoded({ extended: true }) as RequestHandler);
 app.use(cors() as RequestHandler);
@@ -35,7 +42,7 @@ zeusCounter.inc();
 
 
 app.get('/', (req: Request, res: Response) => {
-	// console.log('Backend & Frontend speaking...');
+	console.log('Backend & Frontend speaking...');
 	res.sendFile(path.join(__dirname, '../client/index.html'));
 });
 
@@ -106,9 +113,10 @@ app.use((err: ErrorRequestHandler, req: Request, res: Response, next: NextFuncti
 	return res.status(errorObj.status).json(errorObj.message);
 });
 
+//const serverPort = process.env.SERVER_PORT;
 const server = app.listen(PORT, () => {
 	console.log(`************************* EXPRESS server is listening on http://localhost:${PORT}/`);
-	console.log(`************************* Frontend listening on  http://localhost:${8080}/`);
+	console.log(`************************* Frontend listening on  http://localhost:${3000}/`);
 });
 
 

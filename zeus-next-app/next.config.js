@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-		reactStrictMode: true,
-		// port: 3000,
+		// env: {
+		// 	SERVER_PORT: 3002,
+		// },
 };
 
 module.exports = nextConfig
