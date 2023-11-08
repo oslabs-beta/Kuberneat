@@ -2,60 +2,47 @@ import * as React from 'react';
 import {useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import googleIcon from './styles/assets/googleIcon.svg';
-import githubIcon from './styles/assets/githubIcon.svg';
-
+import googleIcon from './components/ui/public/googleIcon.svg';
+import githubIcon from './components/ui/public/githubIcon.svg';
 
 function LoginForm() {
 
   return (
-    <>  
-    <div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
-      <div className="w-full p-6 bg-white rounded-md shadow-md lg:max-v-xl text-2xl">
-        
-        {/* Heading */}
-      <h1 className="text-3xl font-semibold text-center text-gray-700">Login</h1>
+      // <div className="min-h-full flex item-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-8">
+      <h1 className="mt-6 text-center text-3xl font-extrabold text-gray-900">ZEUS</h1>
+      <form className="mt-6">
+        <div className="mb-4">
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+       <div className="flex items-center justify-between">
+       <button type="submit" className="btn btn-primary rounded-sm border-blue-300">Sign in</button>
+       <label id="remember-me" className="ml-2 block text-sm text-gray-900"> <input id="remember-me" type="checkbox" name="Remember-me" className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" /> Remember me</label>
+       </div>
+        <a href="#" className="text-blue-400 hover:text-blue-500">Forgot your password?</a>
+ 
 
-      {/* Begining of form */}
-        <form className="mt-6">
-          <div className="mb-4">
-            <label className="md:p-3 block mb-2 text-lg font-medium text-gray-600">Email Address</label>
-            <input type="text" className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-lg focus:outline-none" placeholder="Enter your email address" aria-label="Email address" />
+          <div className="flex flex-col items-center justify-center mb-4 p-400">
+            <p className="mt-4 text-md text-cente sm:space-x-2">
+                <span>or</span>
+                <Link href="/register">Register</Link>
+              </p>
+           <div>
+              <div className="flex items-center">
+              <button className="mr-4 !mt-2" type="button">
+                  <Image src={googleIcon} alt="Google icon" width={50} height={24} />
+                </button>
+                <button className="!mt-2" type="button">
+                  <Image src={githubIcon} alt="Github icon" width={50} height={24} />
+                </button>
 
-            <label className="block mb-2 text-lg font-medium text-gray-600">Password</label>
-            <input type="text" className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none" placeholder="Enter your Password" aria-label="Password" />
-          </div>
-          <div className="flex items-center justify-between mb-4">
-            <button className="btn btn-primary rounded-sm border-blue-300" type="submit">Login</button>
-            <a className="text-sm text-gray-600 hover:underline" href="./forgot-password.html">Forgot your password?</a>
-            </div>
-          </form>
-
-          {/* register section */}
-            <div className="flex items-center justify-center mb-4 p-400">
-            <p className="mt-4 text-md text-center">Don't have an account? <Link href="/register">Register</Link></p>
-          </div>
-
-          {/* 3rd party Oauth Login options */}
-          <div className="flex items-center justify-center mb-4 p-4">
-            <p className="mt-4 text-sm text-center text-gray-600">Or login with</p>
-            <div className="flex items-center justify-center mb-4 space-x-4">
-
-              {/* Google */}
-              <button className="btn btn-primary" type="submit">
-                  <Image src={googleIcon} alt="Google Icon" width={50} height={24} />
-              </button>
-              {/* GitHub */}
-              <button className="btn btn-primary" type="submit">
-                  <Image src={githubIcon} alt="Github Icon" width={50} height={24} />
-              </button>
-              
+              </div>
             </div>
           </div>
-            
+       </div>
+      </form>
       </div>
-    </div>
-    </>
+    // </div>
   )
 };
 
