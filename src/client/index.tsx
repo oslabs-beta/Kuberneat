@@ -6,13 +6,12 @@ import App from './App';
 import { ContextProvider } from './Context';
 import './styles.css';
 
-const container = document.getElementById('root') as HTMLElement;
-let root = createRoot(container);
-
-root.render(
-	<ContextProvider>
-		<BrowserRouter>
+//react 18
+const root = document.getElementById('root');
+createRoot(root).render(
+	<BrowserRouter>
+		<ContextProvider>
 			<App />
-		</BrowserRouter>
-	</ContextProvider>
+		</ContextProvider>
+	</BrowserRouter>
 );

@@ -1,21 +1,17 @@
-import { Google } from '@mui/icons-material';
-
-import React, { useContext, useEffect } from 'react'; //useState,
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect, useMemo } from 'react'; //useState,
+import { useNavigate } from 'react-router-dom';
 import { Context } from './Context';
 import { useFormik } from 'formik'; // need formik to use yup for form validation
 import { loginSchema } from './schemas'; // import validation schema
 import { valProps, InitVals, FormProps, LoginProps } from './interfaces';
+import { AppProps } from './interfaces';
+import { ReactElement } from 'react';
 
 import jwt_decode, { JwtPayload } from 'jwt-decode';
+import Cookies from 'react-cookie';
 
-import { AppProps } from './interfaces';
-import { ReactElement, ReactNode } from 'react';
-import { string } from 'yup/lib/locale';
 
 function Login(): ReactElement {
-	// won't take type ReactElement ??
-
 	const { darkModeOn, user, setUser } = useContext<AppProps>(Context);
 
     const navigate = useNavigate();
@@ -26,38 +22,37 @@ function Login(): ReactElement {
 
     // onSubmit or Login handler function -> add Authentication logic here
     const onSubmit = async (values: any, actions: any): Promise<void> => {
-        
-        // below is just a mock API call for testing, add logic for AUTH here later...
-        await new Promise((resolve) => {
-            //fetch request to backend to authorize 
-            fetch('/login', {
-                method: 'POST',
-                headers:{'content-type':'application/json'},
-                body: JSON.stringify(
-                    {
-                    email: values.email,
-                    password: values.password,
-                    }
-                ),
-                })
-                .then(res => res.json())
-				.then(res => {
-					const { email } = res;
-					if (email){
-					const userObj = { name: email, email: email}
-					setUser(userObj)
-					} else {
-						alert('Login Unsuccessful')
-						return;
-					}
-				})
-                .catch(error => {
-					alert('Error logging in')
-				})
-				
-            //once we get object back, set the user to the object
-            setTimeout(resolve, 1000);
-        });
+			try {
+				const response = await fetch('/login', {
+						method: 'POST',
+						body: JSON.stringify({email: values.email, password: values.password}),
+						credentials: 'include',
+						// Authorization: `Bearer ${Cookies.get('token')}`,
+						headers: {
+							'Content-Type': 'application/json',
+						}})
+					
+				const data = await response.json();
+				if (data.status === 200) {
+					//set cookkie and expire session after 2 hours
+					const time = new Date();
+					time.setHours(time.getHours() + 2);
+					(Cookies as any).set('token', data.token, { expires: time });
+
+					//set token 
+					const userObject: any = jwt_decode<JwtPayload>(data.token);
+					setUser(userObject);
+					//redirect to home page
+					navigate('/');
+
+				}
+				setTimeout(() => {
+					actions.setSubmitting(false);
+				}, 1000);
+			}
+			catch (err) {
+				console.error(err);
+			}
         actions.resetForm(); // resets form fields 
     };
 
@@ -89,6 +84,7 @@ function Login(): ReactElement {
 			const userObject: any = jwt_decode<JwtPayload>(response.credential);
 			setUser(userObject);
 		}
+
 		/* global google */
 		/* can use ( window as any ) to access google object instead of using unofficial type libraries */
 		(window as any).google.accounts.id.initialize({

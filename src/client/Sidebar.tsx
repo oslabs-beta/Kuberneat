@@ -66,7 +66,7 @@ function Sidebar(): ReactElement {
 				<ul className={active ? 'ul-item' : 'ul-item-icon'}>
 					<li>
 						<Tooltip 
-							title='Dashboard 2' 
+							title='Grafana Dashboard' 
 							arrow placement='right-start'>
 							<IconButton
 								className="icon"
@@ -85,7 +85,7 @@ function Sidebar(): ReactElement {
 
 					<li>
 						<Tooltip
-							title="Visualizer"
+							title="Graph Visualizer"
 							arrow placement="right-start"
 						>
 							<IconButton
@@ -105,7 +105,7 @@ function Sidebar(): ReactElement {
 
 					<li>
 						<Tooltip
-							title="Cluster"
+							title="Existing Pods"
 							arrow placement="right-start"
 						>
 							<IconButton
