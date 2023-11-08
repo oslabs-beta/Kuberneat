@@ -1,0 +1,43 @@
+/* ./styles/globals.css */
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+/* global.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+/* global.css */
+html, body {
+  background-color: #264348;
+  font-family: 'Arial', sans-serif;
+  color: white;
+}
+
+/* global.css */
+h1 {
+  font-size: 2rem;
+  padding: 40px
+}
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+
