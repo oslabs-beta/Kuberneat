@@ -15,7 +15,7 @@ import { Box } from '@mui/material';
 function VisD3(): ReactElement {
 	const { darkModeOn } = useContext<AppProps>(Context);
 	//use memo to prevent rerendering of component
-	const memoizedValue = useMemo(() => <Visualizer />, []);
+	const memoizedPods = useMemo(() => <Visualizer />, []);
 
 	//fix bleeding frame
 	return (
@@ -28,10 +28,9 @@ function VisD3(): ReactElement {
 						width: '70vw',
 						overflow: 'hidden',
 						boxBorder: '100px solid #000000',
-						position: 'absolute',
 					}}
 				>
-			{memoizedValue}
+			{memoizedPods}
 		</Box>
 		</>
 	);
