@@ -19,14 +19,14 @@ const PORT: number = 3002;
 const dev: boolean = process.env.NODE_ENV !== 'production';
 const nextApp = next({ dev, dir:'./' });
 const handle = nextApp.getRequestHandler();
-
 nextApp.prepare().then(() => {
   app.get('*', (req: Request, res: Response) => {
     return handle(req, res);
   });
 });
-
 app.use(cors({ origin: 'http://localhost:3000' }));
+
+
 app.use(express.json() as RequestHandler);
 app.use(express.urlencoded({ extended: true }) as RequestHandler);
 app.use(cors() as RequestHandler);

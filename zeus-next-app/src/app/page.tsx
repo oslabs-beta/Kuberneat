@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useMemo } from 'react';
-import LoginForm from '../LoginForm';
+import LoginForm from '../components/LoginForm';
 
 function Login(){
   const memoizeUser = useMemo(()  => <LoginForm />, []);

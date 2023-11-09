@@ -4,13 +4,16 @@ import * as React from 'react';
 import {useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import router from 'next/router';
+
 import Image from 'next/image';
-import googleIcon from './components/ui/public/googleIcon.svg';
-import githubIcon from './components/ui/public/githubIcon.svg';
+import googleIcon from './ui/public/googleIcon.svg';
+import githubIcon from './ui/public/githubIcon.svg';
 
 import jwt_decode, { JwtPayload } from 'jwt-decode';
 import { useCookies, Cookies } from 'react-cookie';
 import { useFormik } from 'formik'; // need formik to use yup for form validation
+import {loginSchema } from '../schemas/index'; // import validation schema
+import { valProps, InitVals, FormProps, LoginProps } from '../interfaces';
 
 interface FormikActions {
   resetForm: () => void;
@@ -18,11 +21,12 @@ interface FormikActions {
 }
 
 function LoginForm() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({email: '', password: ''});
   const [cookies, setCookies] = useCookies(['token']);
   let memozieLogin;
 
   const fetchUserCredentials = async ( values:any, actions: FormikActions): Promise<void> => {
+
     try {
       const response = await fetch('http://localhost:3002/login', {
         method: 'POST',
@@ -39,7 +43,7 @@ function LoginForm() {
         //set cookies 
         const time = new Date();
         time.setHours(time.getHours() + 2);
-        
+        (Cookies as any).set('token', data.token, {expires: time});
 
         //set token
         const userObject: any = jwt_decode<JwtPayload>(data.token);
@@ -63,7 +67,48 @@ function LoginForm() {
     actions.resetForm();
   }
 
+	const {
+		// destructured props from the object returned from useFormik hook
+		values, // value inside input fields
+		errors, // object that holds all form validation logic
+		touched, // allows for better dynamic form validation, only shows err after input has been touched
+		isSubmitting, // boolean to allow button disabling when submitting
+		handleBlur, // validates the form when clicking off the input
+		handleChange, // sets formik state whenever state chnages
+		handleSubmit, // handles form submitting
+	}: valProps = useFormik(
+		// using the useFormik hook to return an object...
+		{
+			initialValues: {
+				email: '',
+				password: '',
+				confirmPassword: '',
+			},
+			validationSchema: loginSchema, // setting the schema for form validation, imported from schemas dir
+			onSubmit: fetchUserCredentials,
+		}
+	);
 
+  /* global google object coming from html script*/
+	useEffect(() => {
+		function handleCallbackResponse(response: any) {
+			const userObject: any = jwt_decode<JwtPayload>(response.credential);
+			setUser(userObject);
+		}
+
+		/* global google */
+		/* can use ( window as any ) to access google object instead of using unofficial type libraries */
+		(window as any).google.accounts.id.initialize({
+			client_id: '833474983530-c13t85njtalij2aqacd17slt6tr8te5j.apps.googleusercontent.com',
+			callback: handleCallbackResponse,
+		});
+		(window as any).google.accounts.id.renderButton(document.getElementById('signInDiv'), {
+			them: 'outline',
+			size: 'large',
+		});
+		(window as any).google.accounts.id.prompt();
+	}, [user]);
+  
   return (
       // <div className="min-h-full flex item-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       // Login form for the landing page
@@ -71,18 +116,42 @@ function LoginForm() {
       <h1 className="mt-6 text-center text-3xl font-extrabold text-gray-900">ZEUS</h1>
 
       {/* Start of Login form */}
-      <form className="mt-6">
+      <form className="mt-6"
+        autoComplete="off"
+        onSubmit={handleSubmit}
+      >
         <div className="mb-4">
 
           {/* email input */}
-        <input type="email" placeholder="Email" />
+        <input 
+          id="email"
+          type="email" 
+          placeholder="Email" 
+          value={values.email}
+          onChange={handleChange}
+          className={errors.email && touched.email ? 'input-error' : ''}
+          />
+          {/* shows error message */}
+					{errors.email && touched.email && <p className='error'>{errors.email}</p>}
 
         {/* Password input */}
-        <input type="password" placeholder="Password" />
-
+        <input 
+          id="password"
+          type="password" 
+          placeholder="Password" 
+          value={values.password}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          className={errors.password && touched.password ? 'input-error' : ''}
+          />  
+          {/* shows error message */}
+					{errors.password && touched.password && <p className='error'>{errors.password}</p>}
+          
         {/* Buttons */}
        <div className="flex items-center justify-between">
-       <button type="submit" className="btn btn-primary rounded-sm border-blue-300">Sign in</button>
+        {/* signin button and // login button disabled when submitting */}
+       <button type="submit" className="btn btn-primary rounded-sm border-blue-300" disabled={isSubmitting}>Sign in</button> 
+
        <label id="remember-me" className="ml-2 block text-sm text-gray-900"> <input id="remember-me" type="checkbox" name="Remember-me" className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" /> Remember me</label>
        </div>
         <a href="#" className="text-blue-400 hover:text-blue-500">Forgot your password?</a>
