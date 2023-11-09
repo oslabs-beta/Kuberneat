@@ -1,7 +1,7 @@
 'use client'; //https://react.dev/reference/react/use-client#use-client
 
 import * as React from 'react';
-import {useState, useEffect, useMemo } from 'react';
+import {useState, useEffect, useMemo, ReactElement } from 'react';
 import Link from 'next/link';
 import router from 'next/router';
 
@@ -15,6 +15,7 @@ import { useFormik } from 'formik'; // need formik to use yup for form validatio
 import {loginSchema } from '../schemas/index'; // import validation schema
 import { valProps, InitVals, FormProps, LoginProps } from '../interfaces';
 
+
 interface FormikActions {
   resetForm: () => void;
   setSubmitting: (isSubmitting: boolean) => void;
@@ -23,10 +24,10 @@ interface FormikActions {
 function LoginForm() {
   const [user, setUser] = useState({email: '', password: ''});
   const [cookies, setCookies] = useCookies(['token']);
-  let memozieLogin;
-
+  
   const fetchUserCredentials = async ( values:any, actions: FormikActions): Promise<void> => {
-
+    let memozieLogin;
+    
     try {
       const response = await fetch('http://localhost:3002/login', {
         method: 'POST',
@@ -91,7 +92,7 @@ function LoginForm() {
 
   /* global google object coming from html script*/
 	useEffect(() => {
-		function handleCallbackResponse(response: any) {
+		function googleAuthResponse(response: any) {
 			const userObject: any = jwt_decode<JwtPayload>(response.credential);
 			setUser(userObject);
 		}
@@ -100,7 +101,7 @@ function LoginForm() {
 		/* can use ( window as any ) to access google object instead of using unofficial type libraries */
 		(window as any).google.accounts.id.initialize({
 			client_id: '833474983530-c13t85njtalij2aqacd17slt6tr8te5j.apps.googleusercontent.com',
-			callback: handleCallbackResponse,
+			callback: googleAuthResponse,
 		});
 		(window as any).google.accounts.id.renderButton(document.getElementById('signInDiv'), {
 			them: 'outline',
@@ -112,7 +113,7 @@ function LoginForm() {
   return (
       // <div className="min-h-full flex item-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       // Login form for the landing page
-      <div className="max-w-md w-full space-y-8">
+      <div id="signInDiv" className="max-w-md w-full space-y-8">
       <h1 className="mt-6 text-center text-3xl font-extrabold text-gray-900">ZEUS</h1>
 
       {/* Start of Login form */}
