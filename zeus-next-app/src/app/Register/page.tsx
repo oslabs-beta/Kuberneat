@@ -1,11 +1,12 @@
-import React from 'react';
-// import RegisterForm from '../../components/RegisterForm';
-function Register(){ 
-  return(
-    <div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
-      {/* <RegisterForm /> */}
-    </div>
-  )
-}
+"use client";
+/**
+ * Presenational component of register page 
+ * @param{Register} input - The user object containing email and password.
+ * @return {Promise<void>} - A promise that resolves to void.
+ */
+
+import React, { lazy } from 'react';
+// lazy load to only render this component when needed
+const Register = lazy(() => import('@/components/RegisterForm'));
 
 export default Register;

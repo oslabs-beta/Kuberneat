@@ -1,34 +1,32 @@
+"use client" //https://nextjs.org/docs/app/building-your-application/rendering/client-components
+//authorize login -functional component
+/**
+ * Handles the event of user wanting to sign in with google. Head over to
+ * app/layout.tsx and components/Providers.tsx files for more more details.
+ * @param {GoogleProvider} provider
+  @param {GoogleUser} googleOauth
+ * 
+ */
 import React from 'react';
-import { useState, useEffect } from 'react';
-import jwt_decode, { JwtPayload } from 'jwt-decode';
-import { ReactNode, ReactElement } from 'react';
+import { useSession, signOut, signIn } from 'next-auth/react';
+import Image from 'next/image';
+import googleIcon from '../ui/public/googleIcon.svg';
 
-const googleContext: any = React.createContext<null>(null);
-
-function GoogleOAuthContextProvider({children}: {children: ReactNode}): ReactElement {
-  const [user, setUser] = useState<string | null>(null); // set to defined for testing, default is null
-
-  const googleAuthResponse = (response: any) => {
-    const userObject: any | null = jwt_decode<JwtPayload>(response.credential);
-
-    //create a new object from user object, make the shape match the shape of the object we get from own oauth
-    const { name, email, picture } = userObject;
-    const newUser: any | null = { name: name, email: email, picture: picture }
-    setUser(newUser); // set user to userObject */ going from null to defined and allows routes to display 
-  };
-
-  useEffect(() =>{
-    (window as any).google.accounts.id.initialize({
-      client_id: '833474983530-c13t85njtalij2aqacd17slt6tr8te5j.apps.googleusercontent.com',
-      callback: googleAuthResponse,
-    });
-  },[user]);
-
-  return(
-    <googleContext.Provider value={{user, setUser, googleAuthResponse}}>
-      {children}
-    </googleContext.Provider>
+const GoogleOAuth = () => {
+  // const { data: session } = useSession();
+  return (
+    <>
+      <button className="mr-4 !mt-2" type="button" onClick={() => signIn('google')}>
+    {/* Google */}
+      <Image 
+      src={googleIcon} 
+      alt="Google icon" 
+      width={50} 
+      height={24} 
+      />
+      </button>
+    </>
   )
 }
 
-export{GoogleOAuthContextProvider, googleContext};
+export default GoogleOAuth; 

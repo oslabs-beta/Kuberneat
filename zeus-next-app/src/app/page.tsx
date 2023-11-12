@@ -1,9 +1,6 @@
 "use client"
-import * as React from 'react';
-import { useMemo } from 'react';
-import { useRouter } from 'next/navigation';
-import LoginForm from '../components/LoginForm';
-
+import React from 'react';
+import LoginForm from '@/components/LoginForm';
 
 function Login(){
   return(
@@ -12,5 +9,6 @@ function Login(){
       </div>
   )
 }
+
 
 export default Login;

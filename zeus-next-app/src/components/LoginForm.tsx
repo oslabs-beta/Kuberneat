@@ -1,65 +1,75 @@
-"use client"
-//cilent component 
+"use client" //https://nextjs.org/docs/app/building-your-application/rendering/client-components
+//authorize login -functional component
+/**
+ * Authenticates a user by making a POST request to the login endpoint.
+ *
+ * @param {User} input - The user object containing email and password.
+ * @return {Promise<void>} - A promise that resolves to void.
+*/
 import * as React from 'react';
-import { useState } from 'react';
-import Link from 'next/link';
-//import next/navigate 
+import { useState, useEffect, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
+import GoogleOAuth from './OAuth/googleOauth';
 import Image from 'next/image';
 import googleIcon from './ui/public/googleIcon.svg';
 import githubIcon from './ui/public/githubIcon.svg';
+import { signIn } from 'next-auth/react';
 
-
-//authorize login -functional component
 interface User {
   email: string;
   password: string;
 }
 
+//custom hook for redirecting after successful login 
+//good practice to impelment useEffect for redirect after component renders
+function useRedirectAfterLogin(data: any, router: any) {
+  useEffect(() => {
+    if (data && data?.status === 200) {
+      router
+    }
+  }, [data, router]);
+};
 function LoginForm() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [data, setData] = useState<User | null>(null);
 
-  const Auth = async (input: User): Promise<any> => {
-    
-   try {
+const Auth = async (input: User): Promise<void> => {
+  try {
       const response = await fetch('http://localhost:3002/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({email: input.email, password: input.password}),
         mode: 'cors',
       });
-  
       const data = await response.json();
-      console.log(data);
-      //redirect to dashboard if login is successful
-      if (data.status === 'success') {
-        router.push('/Home');
-      }
-   }
+      setData(data);
+      useRedirectAfterLogin(data, router.push('/Home'));
+    }
    catch (error: any) {
     console.error(error);
-    alert('Invalid email or password');
    }
    //clear form 
     setEmail('');
     setPassword('');
   };
 
+  const memoLogin = useMemo(() => Auth, [email, password]);
+
   return (
-      // <div className="min-h-full flex item-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      // Login form for the landing page
-      <div id="landing-page-signIn" className="max-w-md w-full space-y-8">
+    // Login form for the landing page
+    <div id="landing-page-signIn" className="max-w-md w-full space-y-8">
       <h1 className="mt-6 text-center text-3xl font-extrabold text-gray-900">ZEUS</h1>
 
       {/* Start of Login form */}
       <form className="mt-6"
         autoComplete="off"
-        onSubmit={e => {
+        onSubmit={async(e) => {
           e.preventDefault();
-          Auth({ email, password });
+          await memoLogin({ email, password });
         }}
       >
         <div className="mb-4">
@@ -93,7 +103,6 @@ function LoginForm() {
         type="submit" 
         className="btn btn-primary rounded-sm border-blue-300"
         //route to main dashboard if user log in is successful
-        // onClick={() => router.push('/Home')}
          >
         Sign in
         </button>
@@ -118,15 +127,7 @@ function LoginForm() {
             </p>
           <div>
             <div className="flex items-center">
-              <button className="mr-4 !mt-2" type="button">
-                {/* Google */}
-                  <Image 
-                  src={googleIcon} 
-                  alt="Google icon" 
-                  width={50} 
-                  height={24} 
-                  />
-              </button>
+              <GoogleOAuth />
               {/* GitHub */}
               <button className="!mt-2" type="button">
                   <Image 
@@ -142,8 +143,8 @@ function LoginForm() {
        </div>
       </form>
       </div>
-    // </div>
   )
 };
 
 export default LoginForm;
+

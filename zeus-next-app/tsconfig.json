@@ -23,7 +23,7 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/OAuth/googleOauth.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/OAuth/googleOauth.tsx", "src/components/ui/public/", "src/components/ui/public/"],
   "exclude": ["node_modules"]
 }
 

@@ -32,7 +32,7 @@ ExpressAppServer.prepare().then(() => {
 	});
 	zeusCounter.inc();
 
-	//connect frontend and backend
+	//connect frontend and backend with Next.js
 	server.get('/', (req: Request, res: Response) => {
 		console.log('Backend & Frontend speaking...');
 		//connect frontend and backend
@@ -40,11 +40,14 @@ ExpressAppServer.prepare().then(() => {
 		// return res.sendFile(path.join(__dirname, '/'));
 	});
 
+	//login page
 	server.post('/login', userController.getUser, sessionController.setUserSession, (req: Request, res: Response) => {
 	console.log('Login is working...');
+	console.log('This is user:', res.locals.foundUser)
 	return res.status(200).json(res.locals.foundUser);
 	});
-	// //register page
+	
+	//register page
 	server.post('/register', userController.checkForUser, userController.createUser, (req: Request, res: Response) => {
 		return res.status(200).json(res.locals.newUser);
 	});
