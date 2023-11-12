@@ -1,12 +1,14 @@
+"use client"
 import * as React from 'react';
 import { useMemo } from 'react';
+import { useRouter } from 'next/navigation';
 import LoginForm from '../components/LoginForm';
 
+
 function Login(){
-  const memoizeUser = useMemo(()  => <LoginForm />, []);
   return(
     <div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
-      {memoizeUser}
+      <LoginForm />
       </div>
   )
 }

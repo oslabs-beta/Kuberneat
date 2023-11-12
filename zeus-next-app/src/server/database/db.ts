@@ -1,5 +1,5 @@
 import { ErrorRequestHandler } from 'express';
-import path = require('path');
+import path from 'path';
 require('dotenv').config();
 
 //acquiring mongoose framework

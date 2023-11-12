@@ -1,16 +1,14 @@
+import { PodcastsSharp } from '@mui/icons-material';
 import express, { Request, Response, NextFunction } from 'express';
 const child_process = require('child_process');
 //created middleware called middleware
 const middleware: Object = {};
 
-// declaring an array index variable to iterate through the array
-let firstIndex:number;
-let lastIndex:number;
 // applying getClusterInfo method
 (middleware as any).getClusterInfo = async (req: any, res: any, next: NextFunction) => {
 	try {
 		// declared a function
-		const system = (cmd: string, callback: any) => {
+		function system(cmd: string, callback: any) {
 			// Handle the terminal output
 			child_process.exec(
 				cmd,
@@ -21,10 +19,13 @@ let lastIndex:number;
 				}
 			);
 		}
-		
+
 		system('kubectl describe nodes', function (output: string) {
 			// splitting the output into an array
 			let arr = output.split('\n');
+			// declaring an array index variable to iterate through the array
+			let firstIndex = 0;
+			let lastIndex = 0;
 			// declare a variable to store the wanted output lines (node info)
 			const newArr: any = [];
 			// declared an object to store the specific information of the node from
@@ -38,8 +39,7 @@ let lastIndex:number;
 				Memory_Limits: [],
 				Age: [],
 			};
-			// filter through command line string by searching for the range of lines
-			// that we need, starting at namespace, and ending at allocated resources
+			// filter through command line string by searching for the range of lines that we need, starting at namespace, and ending at allocated resources
 			for (let i = 0; i < arr.length; i++) {
 				if (arr[i].includes('Namespace')) firstIndex = i;
 				if (arr[i].includes('Allocated resources')) lastIndex = i;

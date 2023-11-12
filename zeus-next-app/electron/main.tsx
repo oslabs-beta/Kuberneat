@@ -13,7 +13,7 @@ function createWindow() {
 			contextIsolation: true,
 		},
 	});
-	win.loadURL('http://localhost:8080');
+	win.loadURL('http://localhost:3000');
 }
 
 app.whenReady().then(createWindow);
