@@ -2,12 +2,11 @@
 //authorize login -functional component
 /**
  * Authenticates a user by making a POST request to the login endpoint.
- *
- * @param {User} input - The user object containing email and password.
+*
+* @param {User} input - The user object containing email and password.
  * @return {Promise<void>} - A promise that resolves to void.
 */
-import * as React from 'react';
-import { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, lazy } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -15,7 +14,6 @@ import GoogleOAuth from './OAuth/googleOauth';
 import Image from 'next/image';
 import googleIcon from './ui/public/googleIcon.svg';
 import githubIcon from './ui/public/githubIcon.svg';
-import { signIn } from 'next-auth/react';
 
 interface User {
   email: string;
@@ -36,6 +34,7 @@ function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [data, setData] = useState<User | null>(null);
+
 
 const Auth = async (input: User): Promise<void> => {
   try {
@@ -127,6 +126,7 @@ const Auth = async (input: User): Promise<void> => {
             </p>
           <div>
             <div className="flex items-center">
+              {/* Google */}
               <GoogleOAuth />
               {/* GitHub */}
               <button className="!mt-2" type="button">

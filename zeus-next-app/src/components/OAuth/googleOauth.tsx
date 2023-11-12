@@ -7,26 +7,46 @@
   @param {GoogleUser} googleOauth
  * 
  */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSession, signOut, signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import googleIcon from '../ui/public/googleIcon.svg';
+import Home from '@/app/Home/page';
+
+type Status = 'loading' | 'authenticated' | 'unauthenticated';
+
+
+const useGoogleLogin = () => {
+  const {data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (session && status === 'authenticated') {
+      router.push('/Home');
+    }
+  }, [session, status, router]);
+
+  const showGoogleLoginButton = !session || !session.user;
+  return {
+    handleGoogleLogin: async () => {await signIn('google', {redirect:false})},
+    showGoogleLoginButton
+  }
+
+};
 
 const GoogleOAuth = () => {
-  // const { data: session } = useSession();
-  return (
-    <>
-      <button className="mr-4 !mt-2" type="button" onClick={() => signIn('google')}>
-    {/* Google */}
-      <Image 
-      src={googleIcon} 
-      alt="Google icon" 
-      width={50} 
-      height={24} 
-      />
+  const {handleGoogleLogin, showGoogleLoginButton} = useGoogleLogin();
+
+  if (showGoogleLoginButton) {
+    return (
+      <button onClick={handleGoogleLogin}
+      >
+        <Image src={googleIcon} alt="Google Icon" width={50} height={24} />
       </button>
-    </>
-  )
+    );
+  }
+  return null;
 }
 
 export default GoogleOAuth; 

@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-		// env: {
-		// 	SERVER_PORT: 3002,
-		// },
+  // webpack(config) {
+  //   config.infrastructureLogging = { debug: /PackFileCache/ }
+  //   return config;
+  // },
 };
 
 module.exports = nextConfig
