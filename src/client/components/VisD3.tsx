@@ -1,3 +1,4 @@
+'use client'; //https://react.dev/reference/react/use-client#use-client
 /*
 The purpose of this component is to render the visualizer for the current cluster.
  */

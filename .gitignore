@@ -3,3 +3,5 @@ process.env
 dist
 .env
 env
+manifests/alert-manager
+manifests/node-exporter

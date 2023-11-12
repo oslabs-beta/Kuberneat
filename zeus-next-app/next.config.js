@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	server: {
-		port: 3000,
-	},
+		// env: {
+		// 	SERVER_PORT: 3002,
+		// },
 };
 
-module.exports = nextConfig;
+module.exports = nextConfig
