@@ -29,10 +29,16 @@ const handler = NextAuth(
         //   }
         // }
       })
-    ]
-  },   
+    ],
+    pages: {
+      signIn: '/auth/signin',
+      signOut: '/auth/signout',
+      error: '/auth/error', // Error code passed in query string as ?error=
+      verifyRequest: '/auth/verify-request', // (used for check email message)
+      newUser: undefined // If set, new users will be directed here on first sign in
+      }, 
+  }
 );
-
 //email verification property for google Oauth
 const options = {
   callbacks: {
@@ -49,7 +55,6 @@ const options = {
     }
   }
 };
+
+
 export { handler as GET , handler as POST};
-
-
-

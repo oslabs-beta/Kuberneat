@@ -7,26 +7,72 @@
   @param {GoogleUser} googleOauth
  * 
  */
-import React from 'react';
+import React, { useEffect, Suspense, useMemo } from 'react';
 import { useSession, signOut, signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import googleIcon from '../ui/public/googleIcon.svg';
+import Home from '@/app/Home/page';
+import Loading from '@/components/ui/Loading';
 
+type Status = 'loading' | 'authenticated' | 'unauthenticated';
+type Session = {
+  user: {
+    email: string | null;
+    image: string | null;
+    name: string | null | undefined;
+  }
+}
+type UseGoogleLoginProps = {
+  session: Session | null;
+  status: Status;
+}
+
+type UseGoogleLoginResult = {
+  handleGoogleLogin: ()=> Promise<void>;
+  showGoogleLoginButton: boolean;
+}
+
+/**
+ * Generates a custom hook for Google login functionality.
+ *
+ * @return {Object} An object containing the `handleGoogleLogin` function and `showGoogleLoginButton` flag.
+ * Memoizes user login
+ */
+
+const UseGoogleLogin = (): UseGoogleLoginResult => {// props: UseGoogleLoginProps
+  const {data: session, status } = useSession();
+  const router = useRouter();
+
+  useMemo(() => {
+      if (session && status === 'authenticated') {
+          router.push('/Home');
+      }
+  }, [session, status, router]);
+
+  const showGoogleLoginButton = !session || !session.user;
+  return {
+    handleGoogleLogin: async () => {
+      await signIn('google', {redirect: true, session})},
+    showGoogleLoginButton
+  }
+
+};
+
+/**
+ * Renders the Google login button.
+ * @return {null} The function does not return any value.
+ */
 const GoogleOAuth = () => {
-  // const { data: session } = useSession();
-  return (
-    <>
-      <button className="mr-4 !mt-2" type="button" onClick={() => signIn('google')}>
-    {/* Google */}
-      <Image 
-      src={googleIcon} 
-      alt="Google icon" 
-      width={50} 
-      height={24} 
-      />
+  const { handleGoogleLogin, showGoogleLoginButton } = UseGoogleLogin();
+  if (showGoogleLoginButton) {
+    return (
+      <button onClick={handleGoogleLogin} className="!mt-2 p-4">
+        <Image src={googleIcon} alt="Google Icon" width={50} height={24} />
       </button>
-    </>
-  )
+    );
+  }
+  return null;
 }
 
 export default GoogleOAuth; 

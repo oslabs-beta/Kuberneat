@@ -1,16 +1,19 @@
+/**
+ * @param {MainNavigation} MainNavigation - The main navigation component.
+ * @param{user} user - The user object containing email and password.
+ */
 import React from 'react';
-import GoogleOAuth from './OAuth/googleOauth';
 
 const MainNavigation = () => {
+
   return (
-    <header className="flex items-center justify-between p-4">
-      <div className="flex items-center gap-4">
-        <h1 className="text-2xl font-bold">Zeus Next App</h1>
-      </div>
-      <div className="flex gap-4 ml-auto">
-        <GoogleOAuth />
-      </div>
+    <header className="w-full h-16 bg-gray-900">
+      <button className="btn btn-primary rounded-sm border-blue-300">Sign in</button>
+      <button className="btn btn-primary rounded-sm border-blue-300">Register</button>
     </header>
+    
   )
-};
+
+}
+
 export default MainNavigation;

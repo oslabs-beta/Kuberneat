@@ -2,30 +2,37 @@
 //authorize login -functional component
 /**
  * Authenticates a user by making a POST request to the login endpoint.
- *
- * @param {User} input - The user object containing email and password.
+*
+* @param {User} input - The user object containing email and password.
  * @return {Promise<void>} - A promise that resolves to void.
 */
-import * as React from 'react';
-import { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import { useRouter } from 'next/navigation';
+import { useSession, signOut, signIn } from 'next-auth/react';
 import Link from 'next/link';
-
 import GoogleOAuth from './OAuth/googleOauth';
 import Image from 'next/image';
-import googleIcon from './ui/public/googleIcon.svg';
 import githubIcon from './ui/public/githubIcon.svg';
-import { signIn } from 'next-auth/react';
+import Loading from './ui/Loading';
 
 interface User {
   email: string;
   password: string;
 }
 
+interface Session {
+  user: {
+    name?: string;
+    email?: string;
+    image?: string;
+  };
+  expires: string;
+}
+
 //custom hook for redirecting after successful login 
 //good practice to impelment useEffect for redirect after component renders
 function useRedirectAfterLogin(data: any, router: any) {
-  useEffect(() => {
+  useMemo(() => {
     if (data && data?.status === 200) {
       router
     }
@@ -36,6 +43,7 @@ function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [data, setData] = useState<User | null>(null);
+
 
 const Auth = async (input: User): Promise<void> => {
   try {
@@ -119,6 +127,8 @@ const Auth = async (input: User): Promise<void> => {
        {/* Forgot password */}
         <a href="#" className="text-blue-400 hover:text-blue-500">Forgot your password?</a>
         
+       </div>
+      </form>
             {/* Social media buttons */}
         <div className="flex flex-col items-center justify-center mb-4 p-400">
           <p className="mt-4 text-md text-cente sm:space-x-2">
@@ -127,9 +137,10 @@ const Auth = async (input: User): Promise<void> => {
             </p>
           <div>
             <div className="flex items-center">
+              {/* Google */}
               <GoogleOAuth />
               {/* GitHub */}
-              <button className="!mt-2" type="button">
+              <button className="!mt-2 p-4" type="button">
                   <Image 
                   src={githubIcon} 
                   alt="Github icon" 
@@ -140,8 +151,6 @@ const Auth = async (input: User): Promise<void> => {
             </div>
           </div>
           </div>
-       </div>
-      </form>
       </div>
   )
 };

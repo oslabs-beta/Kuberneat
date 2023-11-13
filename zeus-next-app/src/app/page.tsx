@@ -1,11 +1,16 @@
 "use client"
-import React from 'react';
+import React, { useMemo } from 'react';
 import LoginForm from '@/components/LoginForm';
+import Provider from '@/components/Providers';
+
 
 function Login(){
+  const memoLogin = useMemo(() => LoginForm, []);
   return(
     <div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
-      <LoginForm />
+     <Provider>
+      { memoLogin()}
+     </Provider>
       </div>
   )
 }
