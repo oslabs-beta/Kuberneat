@@ -31,9 +31,9 @@ interface Session {
 
 //custom hook for redirecting after successful login 
 //good practice to impelment useEffect for redirect after component renders
-function useRedirectAfterLogin(data: any, router: any) {
-  useMemo(() => {
-    if (data && data?.status === 200) {
+function useRedirectAfterLogin(data: any, session: Session, router: any) {
+  useEffect(() => {
+    if (data && data?.status === 200 || (session && session.user)) {
       router
     }
   }, [data, router]);
@@ -43,6 +43,7 @@ function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [data, setData] = useState<User | null>(null);
+  const { data: session } = useSession();
 
 
 const Auth = async (input: User): Promise<void> => {
@@ -55,7 +56,7 @@ const Auth = async (input: User): Promise<void> => {
       });
       const data = await response.json();
       setData(data);
-      useRedirectAfterLogin(data, router.push('/Home'));
+      useRedirectAfterLogin(data, (session as Session), router.push('/Home'));
     }
    catch (error: any) {
     console.error(error);
