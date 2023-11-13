@@ -1,10 +1,9 @@
 "use client";
-import React from 'react';
+import React, { ReactEventHandler } from 'react';
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
 import { signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
-const dropdownItems = ["Sign out", "Settings", "Help"];
 const shortCut = ["⌘E","⌘S", "⌘H"];
 
 const DropDown = ({name}:{name: string}) => {
@@ -16,8 +15,8 @@ const DropDown = ({name}:{name: string}) => {
       </DropdownTrigger>
       <DropdownMenu>
         <DropdownItem shortcut={shortCut[0]} onClick={()=> {
+          router.push('http://localhost:3000/api/auth/signout');
           signOut();
-          router.push('/');
         }}>Sign out</DropdownItem>
         <DropdownItem shortcut={shortCut[1]}>Settings</DropdownItem>
         <DropdownItem shortcut={shortCut[2]}>Help</DropdownItem>
@@ -26,5 +25,3 @@ const DropDown = ({name}:{name: string}) => {
   )
 }
 export default DropDown;
-
-// {dropdownItems.map((item, i) => (<DropdownItem key={i} shortcut={shortCut[i]} >{item} </DropdownItem>))}

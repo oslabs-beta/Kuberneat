@@ -13,7 +13,7 @@ import Link from 'next/link';
 import GoogleOAuth from './OAuth/googleOauth';
 import Image from 'next/image';
 import githubIcon from './ui/public/githubIcon.svg';
-import Loading from './ui/Loading';
+
 
 interface User {
   email: string;
