@@ -157,4 +157,3 @@ const Auth = async (input: User): Promise<void> => {
 };
 
 export default LoginForm;
-

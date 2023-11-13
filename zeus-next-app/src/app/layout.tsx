@@ -1,6 +1,13 @@
+/**
+ * Renders the root layout of the application.
+ *
+ * @param {React.ReactNode} children - The children components to be rendered.
+ * @return {JSX.Element} The root layout component.
+ */
+
 import type { Metadata } from 'next'
 import './globals.css'
-import Providers from '../components/Providers';
+import NextAuthProviders from '../components/NextAuthProviders';
 import { Inter } from 'next/font/google'
 
 export const metadata: Metadata = {
@@ -11,12 +18,9 @@ export const metadata: Metadata = {
 export default function RootLayout({children,}: {children: React.ReactNode}) {
   return (
     <html lang="en">
-      <body>
-         {/*Wrapping wholle app with useSession hook to be used throughout app  */}
-        <Providers>
-          {children}
-          </Providers>
-        </body>
+    <NextAuthProviders>
+      <body>{children}</body>
+      </NextAuthProviders>
     </html>
   )
 }

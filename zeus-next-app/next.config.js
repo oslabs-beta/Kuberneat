@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // webpack(config) {
-  //   config.infrastructureLogging = { debug: /PackFileCache/ }
-  //   return config;
-  // },
-  trailingSlash: true
+  trailingSlash: true,
+  autoSessionManagement: false,
+  env: {
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+    
+  }
 };
 
 module.exports = nextConfig
