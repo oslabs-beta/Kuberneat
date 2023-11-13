@@ -7,7 +7,7 @@
   @param {GoogleUser} googleOauth
  * 
  */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSession, signOut, signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
@@ -19,11 +19,29 @@ import Home from '@/app/Home/page';
  * @return {null} The function does not return any value.
  */
 const GoogleOAuth = () => {
-    return (
-      <button onClick={()=> signIn('google')} className="!mt-2 p-4">
-        <Image src={googleIcon} alt="Google Icon" width={50} height={24} />
-      </button>
-    )
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  if ((session && session.user) && status === 'authenticated'){
+    router.push('/Home');
+  }
+  
+  return (
+    <>
+      {!session && (
+        <button
+          className="flex justify-start items-center p-2 rounded-sm border-gray-300"
+          onClick={(e) => {
+            e.preventDefault();
+            router.push('http://localhost:3000/api/auth/signin');
+            signIn('google');
+          }}
+        >
+          <Image src={googleIcon} alt="google icon" width={50} height={25} />
+        </button>
+      )}
+    </>
+  );
 };
 
 export default GoogleOAuth; 

@@ -1,4 +1,4 @@
-.next
+*.next
 node_modules
  ../src/.DS_Store
  ../.DS_Store
