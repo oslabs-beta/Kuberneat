@@ -1,4 +1,75 @@
-*.next
+# File created using '.gitignore Generator' for Visual Studio Code: https://bit.ly/vscode-gig
+# Created by https://www.toptal.com/developers/gitignore/api/git,nextjs,react
+# Edit at https://www.toptal.com/developers/gitignore?templates=git,nextjs,react
+
+### Git ###
+# Created by git for backups. To disable backups in Git:
+# $ git config --global mergetool.keepBackup false
+*.orig
+
+# Created by git when using merge tools for conflicts
+*.BACKUP.*
+*.BASE.*
+*.LOCAL.*
+*.REMOTE.*
+*_BACKUP_*.txt
+*_BASE_*.txt
+*_LOCAL_*.txt
+*_REMOTE_*.txt
+
+### NextJS ###
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+.env*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+### react ###
+.DS_*
+*.log
+logs
+**/*.backup.*
+**/*.back.*
+
 node_modules
- ../src/.DS_Store
- ../.DS_Store
+bower_components
+
+*.sublime*
+
+psd
+thumb
+sketch
+
+# End of https://www.toptal.com/developers/gitignore/api/git,nextjs,react
+
+# Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
+
