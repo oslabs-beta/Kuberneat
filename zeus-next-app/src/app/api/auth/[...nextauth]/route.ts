@@ -7,8 +7,7 @@
  * @param {GoogleProvider} provider
  * 
  */
-
-import NextAuth from "next-auth/next";
+import NextAuth, { Account, NextAuthOptions, Profile } from "next-auth"
 import GoogleProvider from "next-auth/providers/google";
 import dotenv from 'dotenv';
 dotenv.config();
@@ -18,8 +17,8 @@ const handler = NextAuth(
   {
     providers: [
       GoogleProvider({
-        clientId: process.env.GOOGLE_CLIENT_ID ?? "",
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
+        clientId: process.env.GOOGLE_CLIENT_ID || "",
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
         //If access is needed to the RefreshToken or AccessToken for a Google account and you are not using a database to persist user accounts, this may be something you need to do.
         // authorization: {
         //   params: {
@@ -27,34 +26,29 @@ const handler = NextAuth(
         //     access_type: "offline",
         //     response_type: "code"
         //   }
-        // }
-      })
+        // }, 
+
+      }),
     ],
+    callbacks: {
+      async signIn({ account, profile }: any) {
+        if (account?.provider === "google" && profile.email_verified) {
+          // Do something if the user is signing in with a verified Google
+          // account
+          return true
+        }
+        return profile.email?.endsWith("@example.com")
+      }
+    },
+        // Do different verification for other providers that don't have `email_verified`
     pages: {
-      signIn: '/auth/signin',
+      signIn: '/auth/signin',  // Displays signin buttons
       signOut: '/auth/signout',
       error: '/auth/error', // Error code passed in query string as ?error=
-      verifyRequest: '/auth/verify-request', // (used for check email message)
-      newUser: undefined // If set, new users will be directed here on first sign in
-      }, 
+      // verifyRequest: '/auth/verify-request', // (used for check email message)
+      // newUser: null ?? undefined// If set, new users will be directed here on first sign in
+    }, 
   }
 );
-//email verification property for google Oauth
-const options = {
-  callbacks: {
-    //check if the user is verified
-    async signIn({account, profile}:any) {
-      if (account.provider === 'google' && profile.verified_email === true) {
-        return true
-      } else {
-        if (account.provier === 'google' && (!account.email_verified && profile.email.endsWith('@gmail.com'))) {
-          //user needs to verify email
-          return false
-        }
-      }
-    }
-  }
-};
-
 
 export { handler as GET , handler as POST};

@@ -1,4 +1,6 @@
 import type { Config } from 'tailwindcss'
+import { nextui } from '@nextui-org/react'
+
 
 const config: Config = {
   content: [
@@ -9,6 +11,8 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx}",
     "./layout/**/*.{js,ts,jsx,tsx}",
     "!./node_modules", 
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+    
   ],
   theme: {
     extend: {
@@ -20,6 +24,6 @@ const config: Config = {
     },
   },
   darkMode: "class",
-  plugins: [require("tw-elements-react/dist/plugin.cjs")],
+  plugins: [require("tw-elements-react/dist/plugin.cjs"), nextui()],
 }
 export default config
