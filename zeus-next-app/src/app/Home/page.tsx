@@ -13,7 +13,6 @@ interface Session {
   user: {
     name?: string;
     email?: string;
-    image?: string;
   };
   expires: string;
 }
@@ -33,11 +32,16 @@ function Home(){
   if (!name) return null;
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
-      <h1 className="relative flex justify-center text-bold">Dashboard</h1>
-      {name && <h1 className="relative flex justify-center text-bold">Welcome {name}!</h1>}
-    </div>
-  );
+    <header className="flex justify-between p-4 bg-gray-200">
+      {name && <h1 className="relative flex justify-right text-bold">Welcome {name}!</h1>}
+      <button
+        className="relative flex justify-left text-bold"
+        onClick={() => signOut()}
+      >
+        Sign out
+      </button>
+    </header>
+  )
 };
 
 

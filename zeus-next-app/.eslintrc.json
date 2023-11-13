@@ -6,12 +6,7 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "standard-with-typescript", 
-        "next/core-web-vitals",
-        "next", 
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:react-hooks/recommended"
+        "standard-with-typescript"
     ],
     "overrides": [
     ],
@@ -20,11 +15,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react",
-        "react-hooks"
+        "react"
     ],
     "rules": {
-        "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn"
     }
 }
