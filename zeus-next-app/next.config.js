@@ -4,6 +4,7 @@ const nextConfig = {
   //   config.infrastructureLogging = { debug: /PackFileCache/ }
   //   return config;
   // },
+  trailingSlash: true
 };
 
 module.exports = nextConfig
