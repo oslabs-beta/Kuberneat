@@ -1,0 +1,15 @@
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[12].use[3]!./src/components/ui/navigation/SidebarFeatures/Sidebar.style.css ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************/
+.sidebar {
+  /* display to the right */
+  position: fixed; /* or position: absolute; */
+  right: 0;
+  top: 0; /* Adjust the top position as needed */
+  width: 200px; /* Adjust the width as needed */
+  height: 100vh; /* Adjust the height as needed */
+  background-color: #fff; /* Adjust the background color as needed */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
+  z-index: 1000; /* Optional: Set a higher z-index if needed */
+  padding: 16px; /* Optional: Add padding */
+}

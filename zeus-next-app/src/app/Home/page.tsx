@@ -5,8 +5,7 @@
  * @param {useSession} useSession - The useSession hook -persist current user cession
  */
 import React from 'react';
-import MainNavigation from '@/components/MainNavigation';
-import Sidebar from '@/components/ui/Sidebar';
+import MainNavigation from '@/components/ui/navigation/MainNavigation';
 
 function Home(){
   return (
@@ -14,9 +13,6 @@ function Home(){
       <header>
       <MainNavigation  />
       </header>
-      <div >
-        <Sidebar />
-      </div>
     </div>
   )
 };
