@@ -30,6 +30,8 @@
 /.next/
 #ingore all files and changes under .next/ directory
 !.next
+./next/cache/webpack/*
+
 /out/
 
 # production
