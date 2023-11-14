@@ -4,6 +4,9 @@ import { NextUIProvider } from '@nextui-org/system';
 import Image from 'next/image';
 import dashboardIcon from '../../public/dashboardIcon.svg';
 import podIcon from '../../public/podIcon.svg';
+import clusterIcon from '../../public/clusterIcon.svg';
+import menuIcon from '../../public/menuIcon.svg';
+import promIcon from '../../public/promIcon.svg';
 
 import {
   Card, 
@@ -22,7 +25,7 @@ const Sidebar = () => {
     >
       <div id="sidebar" className="mb-2 p-4 !text-black text-5xl">
         <Typography variant="h5" color="blue-gray">
-          Menu
+          ⚡ Menu ⚡ 
         </Typography>
       </div>
           <Accordion>
@@ -37,14 +40,15 @@ const Sidebar = () => {
               title="Visuals"
               >
               <div className="flex flex-col justify-between p-2">
-                <Button className="p-4 m-4">
+                <Button className="p-4 m-4 bg-blue-500">
                 <Image src={dashboardIcon} alt="dashboard-icon" />
                   <a href="/Home">Graphana UI</a>
                 </Button>
-                <Button className="p-4 m-4">
+                <Button className="p-4 m-4 bg-blue-500">
+                <Image src={clusterIcon} alt="cluster-icon" />
                   <a href="/Cluster-Web-View">Cluster web view</a>
                 </Button>
-                <Button className="p-4 m-4">
+                <Button className="p-4 m-4 bg-blue-500">
                 <Image src={podIcon} alt="pod-icon" />
                   <a href="/Pod-View">Pod view</a>
                 </Button>
@@ -62,7 +66,8 @@ const Sidebar = () => {
            title="Prometheus"
         >
           <div className="flex flex-col justify-between p-2">
-            <Button className="p-4 m-4">
+            <Button className="p-4 m-4 bg-blue-500">
+              <Image src={promIcon} alt="prom-icon" />
               <a href="/Pod-View">Prometheus UI</a>
             </Button>
           </div>
@@ -78,7 +83,7 @@ const Sidebar = () => {
            title="Health"
         >
           <div className="flex flex-col justify-between p-2">
-            <Button className="p-4 m-4">
+            <Button className="p-4 m-4 bg-blue-500">
               <a href="/Pod-View"> 💙 </a>
             </Button>
           </div>

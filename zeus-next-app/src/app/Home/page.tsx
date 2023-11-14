@@ -6,10 +6,11 @@
  */
 import React from 'react';
 import MainNavigation from '@/components/ui/navigation/MainNavigation';
+import 'src/components/ui/pagesUI/HomeUI.css';
 
 function Home(){
   return (
-    <div>
+    <div id='home-dash'>
       <header>
       <MainNavigation  />
       </header>

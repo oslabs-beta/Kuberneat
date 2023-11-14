@@ -71,7 +71,7 @@ const Auth = async (input: User): Promise<void> => {
   return (
     // Login form for the landing page
     <div id="landing-page-signIn" className="max-w-md w-full space-y-8">
-      <h1 className="mt-6 text-center text-3xl font-extrabold text-gray-900">ZEUS</h1>
+      <h1 className="mt-6 text-center text-3xl font-extrabold"> ⚡ ZEUS ⚡ </h1>
 
       {/* Start of Login form */}
       <form className="mt-6"
@@ -110,7 +110,7 @@ const Auth = async (input: User): Promise<void> => {
         {/* signin button and // login button disabled when submitting */}
        <button 
         type="submit" 
-        className="btn btn-primary rounded-sm border-blue-300"
+        className="btn btn-primary rounded-sm border-blue-300 background-blue-300"
         //route to main dashboard if user log in is successful
          >
         Sign in
@@ -120,13 +120,13 @@ const Auth = async (input: User): Promise<void> => {
         {/* Remember me checkbox */} 
        <label 
        id="remember-me" 
-       className="ml-2 block text-sm text-gray-900"> <input id="remember-me" type="checkbox" name="Remember-me" className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" /> 
-       Remember me
+       className="ml-2 block"> <input id="remember-me" type="checkbox" name="Remember-me" className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" /> 
+        Remember me
        </label>
        </div>
 
        {/* Forgot password */}
-        <a href="#" className="text-blue-400 hover:text-blue-500">Forgot your password?</a>
+        <a href="#" className="hover:text-500">Forgot your password?</a>
         
        </div>
       </form>
