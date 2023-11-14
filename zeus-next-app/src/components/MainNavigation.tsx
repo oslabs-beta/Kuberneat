@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { NextUIProvider } from '@nextui-org/system';
 import DropdownFeature from './ui/DropdownFeature';
-import SidebarToggle from './ui/Sidebar-toggle';
 
 interface Session {
   user: {
@@ -11,19 +10,23 @@ interface Session {
 }
 const MainNavigation = () => {
   const { data: session } = useSession();
+  const [active, setActive] = useState(false);
+
+  useEffect(()=>{
+    setActive(!active);
+  
+  })
+
   const name = session?.user?.name|| "";
   return (
-    <div>
-
-    <header className="flex items-center justify-between p-4 !bg-black">
-          <NextUIProvider>
-            <DropdownFeature name={name}/>
-          </NextUIProvider>
+    <>  
+    <header className="flex-inline items-center justify-between p-4 !bg-black">
+      <NextUIProvider>
+        <DropdownFeature name={name}/>
+      </NextUIProvider>
+      <h2 className="fixed top-5 right-10 flex flex-col">Menu</h2>
     </header>
-    <div className="absolute-center p-4">
-    <SidebarToggle />
-    </div>
-    </div>
+    </>
   )
 };
 export default MainNavigation;

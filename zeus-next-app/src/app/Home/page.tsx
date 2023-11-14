@@ -6,10 +6,18 @@
  */
 import React from 'react';
 import MainNavigation from '@/components/MainNavigation';
+import Sidebar from '@/components/ui/Sidebar';
 
 function Home(){
   return (
-    <MainNavigation  />
+    <div>
+      <header>
+      <MainNavigation  />
+      </header>
+      <div >
+        <Sidebar />
+      </div>
+    </div>
   )
 };
 

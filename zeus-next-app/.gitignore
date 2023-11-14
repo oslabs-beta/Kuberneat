@@ -28,6 +28,8 @@
 
 # next.js
 /.next/
+#ingore all files and changes under .next/ directory
+!.next
 /out/
 
 # production
