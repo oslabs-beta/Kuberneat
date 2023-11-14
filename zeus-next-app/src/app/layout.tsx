@@ -5,13 +5,14 @@
  * @return {JSX.Element} The root layout component.
  */
 
-import type { Metadata } from 'next'
+import type { Metadata } from 'next';
 import './globals.css'
 import NextAuthProviders from '../components/NextAuthProviders';
-import { Inter } from 'next/font/google'
+
+// import { Inter } from 'next/font/google'
 
 export const metadata: Metadata = {
-  title: 'Zeus Next App',
+  title:'⭐ Zeus ⭐ ',
   description: 'Zeus Next.js version',
 }
 

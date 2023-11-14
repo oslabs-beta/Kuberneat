@@ -12,43 +12,42 @@ import GoogleProvider from "next-auth/providers/google";
 import dotenv from 'dotenv';
 dotenv.config();
 
+const GOOGLE_CLIENT_ID  = process.env.GOOGLE_CLIENT_ID ?? "";
+const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET ?? "";
 
-const handler = NextAuth(
-  {
-    providers: [
-      GoogleProvider({
-        clientId: process.env.GOOGLE_CLIENT_ID || "",
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
-        //If access is needed to the RefreshToken or AccessToken for a Google account and you are not using a database to persist user accounts, this may be something you need to do.
-        // authorization: {
-        //   params: {
-        //     prompt: "consent",
-        //     access_type: "offline",
-        //     response_type: "code"
-        //   }
-        // }, 
-
-      }),
-    ],
-    callbacks: {
-      async signIn({ account, profile }: any) {
-        if (account?.provider === "google" && profile.email_verified) {
-          // Do something if the user is signing in with a verified Google
-          // account
-          return true
-        }
-        return profile.email?.endsWith("@example.com")
+const authOptions: NextAuthOptions = {
+  providers: [
+    GoogleProvider({
+      clientId: GOOGLE_CLIENT_ID,
+      clientSecret: GOOGLE_CLIENT_SECRET,
+    }),
+  ],
+  callbacks: {
+    async signIn({account, profile}) {
+      if (account?.accessToken) {
+        console.log("signIn", account, profile);
+        return true;
       }
+      if (!profile?.email) {
+        throw new Error("No account found");
+      }
+      return true;
     },
-        // Do different verification for other providers that don't have `email_verified`
-    pages: {
-      signIn: '/auth/signin',  // Displays signin buttons
-      signOut: '/auth/signout',
-      error: '/auth/error', // Error code passed in query string as ?error=
-      // verifyRequest: '/auth/verify-request', // (used for check email message)
-      // newUser: null ?? undefined// If set, new users will be directed here on first sign in
-    }, 
-  }
-);
+    async redirect({url, baseUrl}) {
+      console.log("redirect", url, baseUrl);
+      return url.startsWith(baseUrl) ? url : baseUrl;
+    },
+    async session({session, user}) {
+      console.log("session", session, user);
+      return session;
+    },
+    // async jwt(token, user, account, profile, isNewUser) {
+    //   console.log("jwt", token, user, account, profile, isNewUser);
+    //   return token;
+    // },
+  },
 
-export { handler as GET , handler as POST};
+};
+
+const handler = NextAuth(authOptions);
+export { handler as GET, handler as POST};

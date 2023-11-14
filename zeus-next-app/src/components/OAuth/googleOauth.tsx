@@ -12,7 +12,6 @@ import { useSession, signOut, signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import googleIcon from '../ui/public/googleIcon.svg';
-import Home from '@/app/Home/page';
 
 /**
  * Renders the Google login button.
@@ -43,5 +42,4 @@ const GoogleOAuth = () => {
     </>
   );
 };
-
 export default GoogleOAuth; 
