@@ -4,18 +4,34 @@
 
 
 /* global.css */
-html,body {
+
+html {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+/* global.css */
+body {
+  background-color: #141414;
+  color: #808080;
+}
+.root-layout{
+  bakground: #141414;
+}
 
 h1, h2 {
-  @apply font-bold text-primary text-lg;
+  color: #00ffff;
+  margin-bottom: 10px;
 }
-/* global.css */
+label {
+  display: block;
+  color: #ffb7c5;
+  margin-bottom: 10px;
+}
+
+
 input {
   padding: 10px;
   border-radius: 5px;
@@ -26,11 +42,10 @@ input {
 }
 
 a {
-  color: #0070f3;
+  color: #ffb7c5;
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
 }
-

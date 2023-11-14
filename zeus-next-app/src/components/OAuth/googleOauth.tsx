@@ -29,14 +29,14 @@ const GoogleOAuth = () => {
     <>
       {!session && (
         <button
-          className="flex justify-start items-center p-2 rounded-sm border-gray-300"
-          onClick={(e) => {
-            e.preventDefault();
-            router.push('http://localhost:3000/api/auth/signin');
-            signIn('google');
-          }}
+        className="flex justify-start items-center p-2 rounded-sm border-gray-300"
+        onClick={(e) => {
+          e.preventDefault();
+          router.push('http://localhost:3000/api/auth/signin');
+          signIn('google');
+        }}
         >
-          <Image src={googleIcon} alt="google icon" width={50} height={25} />
+        <Image src={googleIcon} alt="google icon" width={50} height={25} />
         </button>
       )}
     </>

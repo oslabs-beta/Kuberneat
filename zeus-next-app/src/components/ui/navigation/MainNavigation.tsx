@@ -3,6 +3,8 @@ import { useSession } from 'next-auth/react';
 import { NextUIProvider } from '@nextui-org/system';
 import DropdownFeature from '../DropdownFeature';
 import Sidebar from './SidebarFeatures/Sidebar';
+import Image from 'next/image';
+import menuIcon from 'src/components/ui/public/menuIcon.svg';
 
 interface Session {
   user: {
@@ -20,17 +22,17 @@ const MainNavigation = () => {
   const name = session?.user?.name|| "";
   return (
     <>  
-    <header className="flex-inline items-center justify-between p-4 !bg-black">
+    <header className="flex-inline items-center justify-between p-4 !bg-black shadow-lg">
       <NextUIProvider>
         <DropdownFeature name={name}/>
       </NextUIProvider>
-      <button className="fixed top-5 right-10 flex flex-col !text-white text-2xl" onClick={handleToggle}>Menu
-
+      <button className="fixed top-5 right-10  flex flex-row-reverse items-center text-white text-xl" onClick={handleToggle}>
       {active && (
         <div className="flex flex-col !right-0">
           <Sidebar />
         </div>
       )}
+      <Image src={menuIcon} alt="menu-icon"/>
       </button>
     </header>
     </>
