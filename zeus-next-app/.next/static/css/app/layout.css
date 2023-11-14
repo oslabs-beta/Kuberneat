@@ -516,9 +516,6 @@ video {
 .static {
   position: static;
 }
-.\!fixed {
-  position: fixed !important;
-}
 .fixed {
   position: fixed;
 }
@@ -2930,9 +2927,14 @@ html {
 body {
   background-color: #141414;
   color: #808080;
+  overflow: hidden;
 }
-.root-layout{
-  bakground: #141414;
+header {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 1.0, 0, 0.1);
+  
 }
 
 h1, h2 {
@@ -2944,7 +2946,6 @@ label {
   color: #ffb7c5;
   margin-bottom: 10px;
 }
-
 
 input {
   padding: 10px;
