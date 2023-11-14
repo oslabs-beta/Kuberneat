@@ -5,8 +5,8 @@ import Image from 'next/image';
 import dashboardIcon from '../../public/dashboardIcon.svg';
 import podIcon from '../../public/podIcon.svg';
 import clusterIcon from '../../public/clusterIcon.svg';
-import menuIcon from '../../public/menuIcon.svg';
 import promIcon from '../../public/promIcon.svg';
+import './Sidebar.style.css';
 
 import {
   Card, 
@@ -20,14 +20,13 @@ const Sidebar = () => {
   
   return (
    <NextUIProvider>
-     <Card className="h-[calc(100vh-2rem)] !fixed !right-0 w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5"
+     <Card id= "sidebar" className="h-[calc(100vh-2rem)] !right-0 w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900"
     style={{ position: 'fixed', right: 0, width: '20rem' }}
     >
-      <div id="sidebar" className="mb-2 p-4 !text-black text-5xl">
+      <div className="mb-2 p-4 !text-black text-5xl">
         <Typography variant="h5" color="blue-gray">
           ⚡ Menu ⚡ 
         </Typography>
-      </div>
           <Accordion>
             <AccordionItem 
             value="dashboards"
@@ -89,6 +88,7 @@ const Sidebar = () => {
           </div>
         </AccordionItem>
       </Accordion>
+    </div>
     </Card>
    </NextUIProvider>
   )

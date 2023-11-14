@@ -6,6 +6,7 @@ import Sidebar from './SidebarFeatures/Sidebar';
 import Image from 'next/image';
 import menuIcon from 'src/components/ui/public/menuIcon.svg';
 
+
 interface Session {
   user: {
     name: string;
@@ -22,7 +23,7 @@ const MainNavigation = () => {
   const name = session?.user?.name|| "";
   return (
     <>  
-    <header className="flex-inline items-center justify-between p-4 !bg-black shadow-lg">
+    <header className="fixed flex items-center justify-between p-4 !bg-black shadow-lg">
       <NextUIProvider>
         <DropdownFeature name={name}/>
       </NextUIProvider>

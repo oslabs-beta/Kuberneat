@@ -1,7 +1,16 @@
-.home-dash{
-  body {
-    background-color: #141414;
-
-  }
-  
+#home-dash{
+  z-index: 1;
+  /* position: absolute; */
+}
+#grafana-dash{
+  z-index: 2;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 55%;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 1.0, 0, 0.1);
+  overflow: hidden;
 }
