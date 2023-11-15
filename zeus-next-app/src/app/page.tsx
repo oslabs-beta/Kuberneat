@@ -5,9 +5,8 @@
  * @return {JSX.Element} The login component.
  */
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import LoginForm from '@/components/LoginForm';
-
 function Login(){
   const memoLogin = useMemo(() => LoginForm, []);
   return(
