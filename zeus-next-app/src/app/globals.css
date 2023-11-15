@@ -53,3 +53,11 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+@media screen and (max-width: 1000px) {
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  
+}

@@ -8,12 +8,14 @@ body {
 #grafana-dash{
   z-index: 2;
   position: absolute;
-  top: 35%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 75%;
   height: 55%;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 1.0, 0, 0.1);
+  /* border-radius: 10px; */
+  border-style: outset;
+  /* gradient shadowing */
+  box-shadow: #ffffbf 0px 0px 5px 5px;
   overflow: hidden;
 }
