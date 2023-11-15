@@ -2082,10 +2082,6 @@ video {
   --tw-text-opacity: 1;
   color: rgb(59 113 202 / var(--tw-text-opacity));
 }
-.text-primary-50 {
-  --tw-text-opacity: 1;
-  color: rgb(241 245 251 / var(--tw-text-opacity));
-}
 .text-primary-foreground {
   --tw-text-opacity: 1;
   color: hsl(var(--nextui-primary-foreground) / var(--nextui-primary-foreground-opacity, var(--tw-text-opacity)));
