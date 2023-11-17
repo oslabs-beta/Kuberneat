@@ -113,7 +113,6 @@ export const Visualizer: React.FunctionComponent = () => {
 			.force('link', forceLink)
 			.force('charge', forceNode)
 			.force('center', d3.forceCenter())
-			//@ts-expect-error
 			.on('tick', ticked);
 		
 		const svg = d3
