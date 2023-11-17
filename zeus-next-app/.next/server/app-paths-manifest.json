@@ -1,7 +1,5 @@
 {
   "/not-found": "app/not-found.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/Home/page": "app/Home/page.js",
-  "/page": "app/page.js",
-  "/Home/[Cluster-Web-View]/page": "app/Home/[Cluster-Web-View]/page.js"
+  "/Home/Health/page": "app/Home/Health/page.js"
 }

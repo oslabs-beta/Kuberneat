@@ -6,16 +6,12 @@
 /* global.css */
 
 html {
-  padding: 0;
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-
-/* global.css */
 body {
   background-color: #141414;
-  color: #808080;
+  /* color: #808080; */
   overflow: hidden;
 }
 header {
@@ -54,10 +50,10 @@ a:hover {
   text-decoration: underline;
 }
 
-@media screen and (max-width: 1000px) {
+/* @media screen and (max-width: 1000px) {
   body {
     padding: 0;
     margin: 0;
   }
   
-}
+} */

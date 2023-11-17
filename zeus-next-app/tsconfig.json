@@ -24,6 +24,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/OAuth/googleOauth.tsx", "src/components/ui/public/", "src/components/ui/public/", "src/app/api/auth/[...nextauth]"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/OAuth/googleOauth.tsx", "src/components/ui/public/", "src/components/ui/public/", "src/app/api/auth/[...nextauth]", "*.css"],
   "exclude": ["node_modules"]
 }

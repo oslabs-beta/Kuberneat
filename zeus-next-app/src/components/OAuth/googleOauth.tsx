@@ -12,7 +12,7 @@ import { useSession, signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import googleIcon from '../ui/public/googleIcon.svg';
-import Loading from '@/app/Loading/Loading';
+
 
 /**
  * Renders the Google login button.
@@ -25,9 +25,7 @@ const GoogleOAuth = () => {
   if ((session && session.user) && status === 'authenticated'){
     router.push('/Home');
   }
-  if (status === 'loading' && session) {
-    return <Loading />;
-  }
+
   
   return (
     <>
