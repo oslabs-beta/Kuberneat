@@ -1,18 +1,36 @@
+"use client"
 /*
-The purpose of this file is to  obtain the props that are passed down from
-visualizer
+* D3pod.tsx is a component that creates a popover for the node names in the svg
+* (D3 visualizer)
 */
-import React from 'react';
-import Popover from '@mui/material/Popover';
-import Typography from '@mui/material/Typography';
+import React, { ReactEventHandler } from 'react';
+import {Popover, PopoverTrigger, PopoverContent, Button} from "@nextui-org/react";
 
-const Pod = ({ info, nodeNum }) => {
+interface Info {
+	Name: string;
+	CPU_Requests: string;
+	CPU_Limits: string;
+	Memory_Requests: string;
+	Memory_Limits: string;
+	Age: string;
+}
+
+interface Props {
+	info: Info;
+	nodeNum: number;
+}
+
+interface nodeName { 
+	addEventListener: (event: string, handler: ReactEventHandler) => void | null;
+}
+
+const Pod = ({ info, nodeNum }: Props) => {
 	// Pod component for creating hovering popovers for the node names in the svg (D3 visualizer)
 
 	// popover
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	// popover open at event's location
-	const handlePopoverOpen = (event) => {
+	const handlePopoverOpen = (event: any) => {
 		setAnchorEl(event.currentTarget);
 	};
 	// popover close
@@ -22,36 +40,24 @@ const Pod = ({ info, nodeNum }) => {
 	const open = Boolean(anchorEl);
 	const nodeName = document.querySelector(`.${info.Name}`);
 	// listen for mouseover svg text
-	nodeName.addEventListener('mouseover', function (event) {
+	(nodeName as nodeName).addEventListener('mouseover', function (event) {
 		handlePopoverOpen(event);
 	});
 	// listen for mouse out of svg text
-	nodeName.addEventListener('mouseout', function (event) {
+	(nodeName as nodeName).addEventListener('mouseout', function (event) {
 		handlePopoverClose();
 	});
 
 	return (
 		<div id={`pod${nodeNum}`} className='mouse-over-popover'>
 			<Popover
-				id='mouse-over-popover'
-				sx={{
-					pointerEvents: 'none',
-				}}
-				open={open}
-				anchorEl={anchorEl}
-				anchorOrigin={{
-					vertical: 'bottom',
-					horizontal: 'left',
-				}}
-				transformOrigin={{
-					vertical: 'top',
-					horizontal: 'left',
-				}}
-				onClose={handlePopoverClose}
-				disableRestoreFocus
+				placement='right'
 			>
-				<Typography sx={{ p: 1 }}>
-					<div className='pod-popOver'>
+				<PopoverTrigger>
+					<Button>Pod info</Button>
+				</PopoverTrigger>
+				<PopoverContent>
+				<div className='px-1 py-2'>
 						<ul>
 							<li id='popOver'>Name: {info.Name} </li>
 							<li id='popOver'>CPU Requests: {info.CPU_Requests} </li>
@@ -61,7 +67,7 @@ const Pod = ({ info, nodeNum }) => {
 							<li id='popOver'>Age: {info.Age}</li>
 						</ul>
 					</div>
-				</Typography>
+				</PopoverContent>
 			</Popover>
 		</div>
 	);

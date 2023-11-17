@@ -12,11 +12,11 @@ import '@/components/ui/navigation/SidebarFeatures/Sidebar.style.css';
 
 function Home(){
   return (
-    <div id='home-dash' className="flex flex-col h-screen">
+    <div id='home-dash' className="flex flex-col h-screen overflow-auto">
     <header>
       <MainNavigation  />
     </header>
-    <div className="flex items-center justify-center h-full">
+    <div className="flex items-center justify-center h-full overflow-auto">
 				<iframe
         id="grafana-dash"
 					src="http://localhost:3001/d/I1MUxS54k/final-dashboard?orgId=1&from=1670948876446&to=1670949776446"

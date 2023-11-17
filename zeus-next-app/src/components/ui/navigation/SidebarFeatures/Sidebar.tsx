@@ -54,9 +54,9 @@ const Sidebar = () => {
                 </Button>
                 {/* 3D Visual */}
 
-                <Button className="p-4 m-4 bg-blue-500" onClick={() => router.push('/Home/ClusterWebView/')}>
+                <Button className="p-4 m-4 bg-blue-500" onClick={() => router.push('/Home/Cluster-Web-View/')}>
                 <Image src={clusterIcon} alt="cluster-icon" />
-                  <a href="/Cluster-Web-View">Cluster web view</a>
+                  <a>Cluster web view</a>
                 </Button>
 
                 {/* Individual Pod View */}

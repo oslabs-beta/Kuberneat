@@ -1,13 +1,8 @@
-body { 
-  grid-column: auto;
-}
-#home-dash{
-  z-index: 1;
-  /* position: absolute; */
-}
 #grafana-dash{
-  z-index: 2;
-  position: absolute;
+  /* z-index: 2; */
+  display: flex;
+  flex-direction: row;
+  position: fixed;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);

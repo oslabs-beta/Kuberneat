@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { NextUIProvider } from '@nextui-org/system';
@@ -7,12 +8,6 @@ import Image from 'next/image';
 import menuIcon from 'src/components/ui/public/menuIcon.svg';
 import './MainNavigation.style.css';
 
-
-interface Session {
-  user: {
-    name: string;
-  };
-}
 const MainNavigation = () => {
   const { data: session } = useSession();
   const [active, setActive] = useState(false);
