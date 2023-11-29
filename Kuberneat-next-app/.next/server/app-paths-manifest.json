@@ -1,0 +1,9 @@
+{
+  "/_not-found": "app/_not-found.js",
+  "/Home/[Cluster-Web-View]/page": "app/Home/[Cluster-Web-View]/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/Home/Health/page": "app/Home/Health/page.js",
+  "/Register/page": "app/Register/page.js",
+  "/Home/page": "app/Home/page.js",
+  "/page": "app/page.js"
+}
