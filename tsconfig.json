@@ -17,7 +17,7 @@
 		},
 		"types": [
       "reflect-metadata",
-      "jest",
+      // "jest",
 	  "node",
 	  // "@testing-library/jest-dom"
       ],
