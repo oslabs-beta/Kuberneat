@@ -1,4 +1,4 @@
-# ⚡ Zeus ⚡
+# ⚡ Kuberneat ⚡
 
 <center><img src="./logo/Logo.png" width="200" height="150" id="readme-top"> </center>
 
