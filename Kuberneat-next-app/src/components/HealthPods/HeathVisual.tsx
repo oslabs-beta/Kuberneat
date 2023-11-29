@@ -1,10 +1,4 @@
 "use client";
-/**
- * Renders a visual representation of the health data.
- *
- * @return {void}
- */
-
 import React, { useEffect, useState } from "react";
 import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Pagination, Spinner, getKeyValue} from "@nextui-org/react";
 import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
