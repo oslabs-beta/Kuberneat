@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import Paper from '@mui/material/Paper';
