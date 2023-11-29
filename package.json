@@ -18,9 +18,9 @@
 	"author": "",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/oslabs-beta/Zeus/issues"
+		"url": "https://github.com/oslabs-beta/Kuberneat/issues"
 	},
-	"homepage": "https://github.com/oslabs-beta/Zeus#readme",
+	"homepage": "https://github.com/oslabs-beta/Kuberneat#readme",
 	"devDependencies": {
 		"@babel/core": "^7.20.5",
 		"@babel/preset-env": "^7.20.2",
