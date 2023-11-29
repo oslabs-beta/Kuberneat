@@ -15,6 +15,7 @@ import Image from 'next/image';
 import githubIcon from './ui/public/githubIcon.svg';
 
 
+
 interface User {
   email: string;
   password: string;
@@ -44,10 +45,10 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   const [data, setData] = useState<User | null>(null);
   const { data: session } = useSession();
-
-
-const Auth = async (input: User): Promise<void> => {
-  try {
+  
+  const Auth = async (input: User): Promise<void> => {
+    try {
+    // setIsLoading(true);
       const response = await fetch('http://localhost:3002/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -57,13 +58,13 @@ const Auth = async (input: User): Promise<void> => {
       const data = await response.json();
       setData(data);
       useRedirectAfterLogin(data, (session as Session), router.push('/Home'));
+      //clear form 
+       setEmail('');
+       setPassword('');
     }
    catch (error: any) {
     console.error(error);
    }
-   //clear form 
-    setEmail('');
-    setPassword('');
   };
 
   const memoLogin = useMemo(() => Auth, [email, password]);
@@ -71,7 +72,7 @@ const Auth = async (input: User): Promise<void> => {
   return (
     // Login form for the landing page
     <div id="landing-page-signIn" className="max-w-md w-full space-y-8">
-      <h1 className="mt-6 text-center text-3xl font-extrabold"> ⚡ ZEUS ⚡ </h1>
+      <h1 className="mt-6 text-center text-3xl font-extrabold"> ⚡ Kuberneat ⚡ </h1>
 
       {/* Start of Login form */}
       <form className="mt-6"

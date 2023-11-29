@@ -1,0 +1,56 @@
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[12].use[3]!./src/components/ui/navigation/SidebarFeatures/Sidebar.style.css ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************/
+#sidebar {
+  z-index: 1000 !important;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 1.0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[12].use[3]!./src/components/ui/navigation/MainNavigation.style.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************/
+header { 
+  z-index: 9999;
+  /* 3 cols equally space out for profile, title, menu */
+  grid-column: 2 / 3;
+  cursor: pointer;
+}
+#sidebar { 
+  z-index: 9998;
+}
+
+#Kuberneat{
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+  text-shadow: 0 0 1px var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[12].use[3]!./src/components/ui/pagesUI/HomeUI.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************/
+#grafana-dash{
+  /* z-index: 2; */
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 55%;
+  /* border-radius: 10px; */
+  border-style: outset;
+  /* gradient shadowing */
+  box-shadow: #ffffbf 0px 0px 5px 5px;
+  overflow: hidden;
+}
+

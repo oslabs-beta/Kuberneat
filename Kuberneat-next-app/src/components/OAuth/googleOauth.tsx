@@ -7,11 +7,13 @@
   @param {GoogleUser} googleOauth
  * 
  */
-import React from 'react';
+import React, { useState } from 'react';
 import { useSession, signIn } from 'next-auth/react';
+import {Spinner} from "@nextui-org/react";
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import googleIcon from '../ui/public/googleIcon.svg';
+
 
 
 /**
@@ -22,18 +24,17 @@ const GoogleOAuth = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  if ((session && session.user) && status === 'authenticated'){
-    router.push('/Home');
+  if ((session && session.user) && status === 'authenticated' ){
+    // router.push('/Home');
+    console.log('Authenticated');
   }
-
   
   return (
     <>
       {!session && (
         <button
         className="flex justify-start items-center p-2 rounded-sm border-gray-300"
-        onClick={(e) => {
-          e.preventDefault();
+        onClick={() => {
           router.push('http://localhost:3000/api/auth/signin');
           signIn('google');
         }}

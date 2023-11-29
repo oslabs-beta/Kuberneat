@@ -5,15 +5,16 @@
 
 /* global.css */
 
-html {
+html, body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    width: 100%;
+    height: 100%;
+    background-color: #141414;
+    /* color: #808080; */
+    overflow: hidden;
 }
-body {
-  background-color: #141414;
-  /* color: #808080; */
-  overflow: hidden;
-}
+
 header {
   display: flex;
   position: fixed;
