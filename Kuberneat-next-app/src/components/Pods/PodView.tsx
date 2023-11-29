@@ -40,8 +40,6 @@ const PodsView = () => {
 		podProps.push(<AllPods id={i} info={nodes[i]} key={i}/>);
 	}
 	//use context for light and dark mode
-
-
 	return (
 		<div>
 				{podProps}
