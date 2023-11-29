@@ -79,9 +79,9 @@ const Sidebar = () => {
            title="Prometheus"
         >
           <div className="flex flex-col justify-between p-2">
-            <Button className="p-4 m-4 bg-blue-500">
+            <Button className="p-4 m-4 bg-blue-500" onClick={() => router.push('Views/Promethus')}>
               <Image src={promIcon} alt="prom-icon" />
-              <a href="/Pod-View">Prometheus UI</a>
+              <a>Prometheus UI</a>
             </Button>
           </div>
         </AccordionItem>
