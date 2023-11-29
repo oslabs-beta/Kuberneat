@@ -1,10 +1,17 @@
+//@ts-nocheck
 import React from 'react';
-
+import MainNavigation from '@/components/ui/navigation/MainNavigation';
+import AllPods from '@/components/Pods/AllPods';
 function Pods (){
 
   return (
     <>
-    <h1>Pods</h1>
+    <MainNavigation />
+
+    <div>
+      <AllPods />
+    </div>
+  
     </>
   )
 

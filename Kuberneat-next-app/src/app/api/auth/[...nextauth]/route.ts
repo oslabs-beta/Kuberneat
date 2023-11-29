@@ -7,6 +7,7 @@
  * @param {GoogleProvider} provider
  * 
  */
+//@ts-nocheck
 import NextAuth, { Account, NextAuthOptions, Profile } from "next-auth"
 import GoogleProvider from "next-auth/providers/google";
 import dotenv from 'dotenv';
@@ -35,16 +36,16 @@ const authOptions: NextAuthOptions = {
     },
     async redirect({url, baseUrl}) {
       console.log("redirect", url, baseUrl);
-      return url.startsWith(baseUrl) ? url : baseUrl;
+      return url.startsWith(baseUrl) ? '/Home' : baseUrl;
     },
     async session({session, user}) {
       console.log("session", session, user);
       return session;
     },
-    // async jwt(token, user, account, profile, isNewUser) {
-    //   console.log("jwt", token, user, account, profile, isNewUser);
-    //   return token;
-    // },
+    async jwt(token, user, account, profile, isNewUser) {
+      console.log("jwt", token, user, account, profile, isNewUser);
+      return token;
+    },
   },
 
 };

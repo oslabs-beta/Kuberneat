@@ -8,9 +8,7 @@ function D3visualizer (){
   return (
     <div>
       <MainNavigation />
-      <div className="cluster-web-container">
-        {memoWeb}
-    </div>
+      {memoWeb}
     </div>
 
   )
