@@ -60,7 +60,8 @@ const HealthVisual = () => {
   const [loaderRef, scrollerRef] = useInfiniteScroll({hasMore, onLoadMore: () => list.loadMore});
 
   return (
-    <div className="flex flex-row justify-center vw-100 vh-100">
+    <>
+    <div id="table" className="flex flex-row justify-center vw-100 vh-100">
       <Table
       isHeaderSticky
       aria-label="Pod Health"
@@ -95,6 +96,7 @@ const HealthVisual = () => {
       </TableBody>
   </Table>
     </div>
+  </>
   ) 
 };
 

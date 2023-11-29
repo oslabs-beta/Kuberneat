@@ -35,17 +35,21 @@ const authOptions: NextAuthOptions = {
       return true;
     },
     async redirect({url, baseUrl}) {
-      console.log("redirect", url, baseUrl);
-      return url.startsWith(baseUrl) ? '/Home' : baseUrl;
+      console.log(` ⛳  redirect ⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵⤵ \n URL:${url} \n baseURL ${url}`);
+      return url.startsWith(baseUrl) ? url : baseUrl;
     },
-    async session({session, user}) {
-      console.log("session", session, user);
+    async sessionsession({ session, user}) {
+      // Add user information to session
+      console.log('Sessionsession', session, user);
+      session.user.email = user.email;
+      session.user.name = user.name;
+    
       return session;
     },
-    async jwt(token, user, account, profile, isNewUser) {
-      console.log("jwt", token, user, account, profile, isNewUser);
-      return token;
-    },
+    // async jwt(token, user, account, profile, isNewUser) {
+    //   console.log("jwt", token, user, account, profile, isNewUser);
+    //   return token;
+    // },
   },
 
 };

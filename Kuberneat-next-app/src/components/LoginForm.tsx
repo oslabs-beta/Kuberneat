@@ -13,8 +13,7 @@ import Link from 'next/link';
 import GoogleOAuth from './OAuth/googleOauth';
 import Image from 'next/image';
 import githubIcon from './ui/public/githubIcon.svg';
-
-
+import '@/components/ui/pagesUI/LoginPageUI.css';
 
 interface User {
   email: string;
@@ -44,8 +43,8 @@ function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [data, setData] = useState<User | null>(null);
-  const { data: session } = useSession();
-  
+  const { data: session, update } = useSession();
+
   const Auth = async (input: User): Promise<void> => {
     try {
     // setIsLoading(true);
@@ -67,11 +66,11 @@ function LoginForm() {
    }
   };
 
-  const memoLogin = useMemo(() => Auth, [email, password]);
+  const memoLogin = useMemo(() => Auth, [email, password, session]);
 
   return (
     // Login form for the landing page
-    <div id="landing-page-signIn" className="max-w-md w-full space-y-8">
+    <div id="landing-page-signIn" className="max-w-md w-full space-y-8 ">
       <h1 className="mt-6 text-center text-3xl font-extrabold"> ⚡ Kuberneat ⚡ </h1>
 
       {/* Start of Login form */}
@@ -110,8 +109,9 @@ function LoginForm() {
 
         {/* signin button and // login button disabled when submitting */}
        <button 
+       id="sign-button"
         type="submit" 
-        className="btn btn-primary rounded-sm border-blue-300 background-blue-300"
+        className="btn rounded-sm"
         //route to main dashboard if user log in is successful
          >
         Sign in

@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@material-tailwind/react": "^2.1.4",
+    "@next/bundle-analyzer": "^14.0.3",
     "@next/eslint-plugin-next": "^14.0.2",
     "@nextui-org/button": "^2.0.26",
     "@nextui-org/react": "^2.2.9",
