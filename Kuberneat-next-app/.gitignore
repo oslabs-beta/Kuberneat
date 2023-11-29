@@ -31,6 +31,9 @@
 #ingore all files and changes under .next/ directory
 !.next
 ./next/cache/webpack/*
+./next/server/*
+./next/server/chunks/*
+./next/static/*
 
 /out/
 

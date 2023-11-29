@@ -5,9 +5,9 @@
  * @return {JSX.Element} The root layout component.
  */
 
+import NextAuthProviders from '../components/NextAuthProviders';
 import type { Metadata } from 'next';
 import './globals.css'
-import NextAuthProviders from '../components/NextAuthProviders';
 
 // import { Inter } from 'next/font/google'
 
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description: 'Kuberneat Next.js version',
 }
 
-export default function RootLayout({children,}: {children: React.ReactNode}) {
+export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
       <body>

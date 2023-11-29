@@ -7,41 +7,37 @@
   @param {GoogleUser} googleOauth
  * 
  */
-import React, { useState } from 'react';
+import React from 'react';
 import { useSession, signIn } from 'next-auth/react';
-import {Spinner} from "@nextui-org/react";
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import googleIcon from '../ui/public/googleIcon.svg';
-
 
 
 /**
  * Renders the Google login button.
  * @return {null} The function does not return any value.
  */
-const GoogleOAuth = () => {
-  const { data: session, status } = useSession();
+const GoogleOAuth: React.FC = (): JSX.Element => {
+  const { data: session } = useSession();
   const router = useRouter();
 
-  if ((session && session.user) && status === 'authenticated' ){
-    // router.push('/Home');
-    console.log('Authenticated');
+  if (session){ //(session && session.user) && status === 'authenticated'
+    router.push('/Home');
   }
-  
+  const handleButtonClick = (): void => {
+    router.push('http://localhost:3000/api/auth/signin');
+    signIn();
+  };
+
   return (
     <>
-      {!session && (
-        <button
-        className="flex justify-start items-center p-2 rounded-sm border-gray-300"
-        onClick={() => {
-          router.push('http://localhost:3000/api/auth/signin');
-          signIn('google');
-        }}
-        >
-        <Image src={googleIcon} alt="google icon" width={50} height={25} />
-        </button>
-      )}
+      <button
+      className="flex justify-start items-center p-2 rounded-sm border-gray-300"
+      onClick={() => handleButtonClick()}
+      >
+      <Image src={googleIcon} alt="google icon" width={50} height={25} />
+      </button>
     </>
   );
 };

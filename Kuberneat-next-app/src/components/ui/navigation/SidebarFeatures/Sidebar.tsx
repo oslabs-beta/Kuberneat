@@ -54,13 +54,13 @@ const Sidebar = () => {
                 </Button>
                 {/* 3D Visual */}
 
-                <Button className="p-4 m-4 bg-blue-500" onClick={() => router.push('Views/Cluster-Web-View')}>
+                <Button className="p-4 m-4 bg-blue-500" onClick={() => router.push('Home/Views/Cluster-Web-View')}>
                 <Image src={clusterIcon} alt="cluster-icon" />
                   <a>Cluster web view</a>
                 </Button>
 
                 {/* Individual Pod View */}
-                <Button className="p-4 m-4 bg-blue-500"  onClick={() => router.push('Views/Pods')}>
+                <Button className="p-4 m-4 bg-blue-500"  onClick={() => router.push('Home/Views/Pods')}>
                 <Image src={podIcon} alt="pod-icon" />
                   <a>Pod view</a>
                 </Button>
@@ -79,7 +79,7 @@ const Sidebar = () => {
            title="Prometheus"
         >
           <div className="flex flex-col justify-between p-2">
-            <Button className="p-4 m-4 bg-blue-500" onClick={() => router.push('Views/Promethus')}>
+            <Button className="p-4 m-4 bg-blue-500" onClick={() => router.push('Home/Views/Promethus')}>
               <Image src={promIcon} alt="prom-icon" />
               <a>Prometheus UI</a>
             </Button>
@@ -98,8 +98,8 @@ const Sidebar = () => {
            title="Health"
         >
           <div className="flex flex-col justify-between p-2">
-            <Button className="p-4 m-4 bg-blue-500" onClick={()=> router.push('Views/Health/')}>
-              <a href="/Pod-View"> 💙 </a>
+            <Button className="p-4 m-4 bg-blue-500" onClick={()=> router.push('Home/Views/Health/')}>
+              <a> 💙 </a>
             </Button>
           </div>
         </AccordionItem>
