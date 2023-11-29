@@ -1,3 +1,4 @@
+
 "use client"
 /**
  * Fetches data from the backend and sets the state with the fetched data.
@@ -51,7 +52,6 @@ const PodData = () => {
 				{podProps}
 		</div>
 	);
-
 };
 
 export default PodData;
