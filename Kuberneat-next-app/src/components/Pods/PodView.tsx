@@ -1,3 +1,4 @@
+
 "use client"
 import React, { useState, useEffect } from 'react';
 import AllPods from './AllPods';
@@ -45,7 +46,5 @@ const PodsView = () => {
 				{podProps}
 		</div>
 	);
-
-};
 
 export default PodsView;
