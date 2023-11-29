@@ -12,8 +12,8 @@ import NextAuthProviders from '../components/NextAuthProviders';
 // import { Inter } from 'next/font/google'
 
 export const metadata: Metadata = {
-  title:'⭐ Zeus ⭐ ',
-  description: 'Zeus Next.js version',
+  title:'⭐ Kuberneat ⭐ ',
+  description: 'Kuberneat Next.js version',
 }
 
 export default function RootLayout({children,}: {children: React.ReactNode}) {

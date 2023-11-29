@@ -1,4 +1,10 @@
 "use client"
+/**
+ * Renders the main navigation component.
+ *
+ * @return {JSX.Element} The main navigation component.
+ */
+
 import React, { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { NextUIProvider } from '@nextui-org/system';
@@ -27,8 +33,8 @@ const MainNavigation = () => {
       </NextUIProvider>
       </div>
       {/* Z E U S */}
-      <div id="zeus" className="flex-grow">
-        <h1 className="text-2xl font-bold">Zeus</h1>
+      <div id="Kuberneat" className="flex-grow">
+        <h1 className="text-2xl font-bold justify-center">Kuberneat</h1>
       </div>
 
       {/* Menu */}

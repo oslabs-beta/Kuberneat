@@ -1,74 +1,43 @@
 {
   "pages": {
-    "/_not-found": [
-      "static/chunks/webpack-7006a298446d1a9a.js",
-      "static/chunks/fd9d1056-09be847c1d9baef5.js",
-      "static/chunks/472-aacfd2acff1ab873.js",
-      "static/chunks/main-app-b86e1b7029d511c5.js",
-      "static/chunks/app/_not-found-475d27d3d11112df.js"
-    ],
     "/layout": [
-      "static/chunks/webpack-7006a298446d1a9a.js",
-      "static/chunks/fd9d1056-09be847c1d9baef5.js",
-      "static/chunks/472-aacfd2acff1ab873.js",
-      "static/chunks/main-app-b86e1b7029d511c5.js",
-      "static/chunks/749-e10bd060221b2405.js",
-      "static/css/6aea30db9ddb85e9.css",
-      "static/chunks/app/layout-e7ae10cb873dcd6e.js"
-    ],
-    "/Home/[Cluster-Web-View]/page": [
-      "static/chunks/webpack-7006a298446d1a9a.js",
-      "static/chunks/fd9d1056-09be847c1d9baef5.js",
-      "static/chunks/472-aacfd2acff1ab873.js",
-      "static/chunks/main-app-b86e1b7029d511c5.js",
-      "static/chunks/9761e08b-c06141cf8b808896.js",
-      "static/chunks/749-e10bd060221b2405.js",
-      "static/chunks/639-ea1a079717555594.js",
-      "static/chunks/758-84c9fe1168c2b356.js",
-      "static/chunks/339-ed13c05ed46d9664.js",
-      "static/chunks/641-f1b1632999e923f5.js",
-      "static/css/c4699f5bc0302b3c.css",
-      "static/chunks/app/Home/[Cluster-Web-View]/page-9240a23fb3a7d1a3.js"
-    ],
-    "/Home/Health/page": [
-      "static/chunks/webpack-7006a298446d1a9a.js",
-      "static/chunks/fd9d1056-09be847c1d9baef5.js",
-      "static/chunks/472-aacfd2acff1ab873.js",
-      "static/chunks/main-app-b86e1b7029d511c5.js",
-      "static/chunks/639-ea1a079717555594.js",
-      "static/chunks/441-aa9aa08a70e6527b.js",
-      "static/css/616a8efd57079644.css",
-      "static/chunks/app/Home/Health/page-6b91bf662a42501c.js"
-    ],
-    "/Register/page": [
-      "static/chunks/webpack-7006a298446d1a9a.js",
-      "static/chunks/fd9d1056-09be847c1d9baef5.js",
-      "static/chunks/472-aacfd2acff1ab873.js",
-      "static/chunks/main-app-b86e1b7029d511c5.js",
-      "static/chunks/app/Register/page-711186dfac8b58c6.js"
-    ],
-    "/Home/page": [
-      "static/chunks/webpack-7006a298446d1a9a.js",
-      "static/chunks/fd9d1056-09be847c1d9baef5.js",
-      "static/chunks/472-aacfd2acff1ab873.js",
-      "static/chunks/main-app-b86e1b7029d511c5.js",
-      "static/chunks/9761e08b-c06141cf8b808896.js",
-      "static/chunks/749-e10bd060221b2405.js",
-      "static/chunks/639-ea1a079717555594.js",
-      "static/chunks/758-84c9fe1168c2b356.js",
-      "static/chunks/339-ed13c05ed46d9664.js",
-      "static/css/78ce6abdf60b4ca6.css",
-      "static/chunks/app/Home/page-34d50b4dbaf18e5e.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
     ],
     "/page": [
-      "static/chunks/webpack-7006a298446d1a9a.js",
-      "static/chunks/fd9d1056-09be847c1d9baef5.js",
-      "static/chunks/472-aacfd2acff1ab873.js",
-      "static/chunks/main-app-b86e1b7029d511c5.js",
-      "static/chunks/749-e10bd060221b2405.js",
-      "static/chunks/758-84c9fe1168c2b356.js",
-      "static/chunks/396-603c64d6df6143e3.js",
-      "static/chunks/app/page-75697903cb7eacfc.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
+    ],
+    "/Home/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/Home/page.css",
+      "static/chunks/app/Home/page.js"
+    ],
+    "/Home/[Views]/Pods/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/Home/[Views]/Pods/page.js"
+    ],
+    "/Home/[Views]/Cluster-Web-View/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/Home/[Views]/Cluster-Web-View/page.css",
+      "static/chunks/app/Home/[Views]/Cluster-Web-View/page.js"
+    ],
+    "/Home/[Views]/Health/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/Home/[Views]/Health/page.css",
+      "static/chunks/app/Home/[Views]/Health/page.js"
+    ],
+    "/not-found": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/not-found.js"
     ]
   }
 }

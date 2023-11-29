@@ -54,15 +54,15 @@ const Sidebar = () => {
                 </Button>
                 {/* 3D Visual */}
 
-                <Button className="p-4 m-4 bg-blue-500" onClick={() => router.push('Home/Cluster-Web-View/')}>
+                <Button className="p-4 m-4 bg-blue-500" onClick={() => router.push('Views/Cluster-Web-View')}>
                 <Image src={clusterIcon} alt="cluster-icon" />
                   <a>Cluster web view</a>
                 </Button>
 
                 {/* Individual Pod View */}
-                <Button className="p-4 m-4 bg-blue-500">
+                <Button className="p-4 m-4 bg-blue-500"  onClick={() => router.push('Views/Pods')}>
                 <Image src={podIcon} alt="pod-icon" />
-                  <a href="/Pod-View">Pod view</a>
+                  <a>Pod view</a>
                 </Button>
              </div>
         </AccordionItem>
@@ -98,7 +98,7 @@ const Sidebar = () => {
            title="Health"
         >
           <div className="flex flex-col justify-between p-2">
-            <Button className="p-4 m-4 bg-blue-500" onClick={()=> router.push('Home/Health/')}>
+            <Button className="p-4 m-4 bg-blue-500" onClick={()=> router.push('Views/Health/')}>
               <a href="/Pod-View"> 💙 </a>
             </Button>
           </div>
