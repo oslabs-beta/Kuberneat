@@ -32,7 +32,7 @@ const MainNavigation = () => {
         <DropdownFeature name={name}/>
       </NextUIProvider>
       </div>
-      {/* Z E U S */}
+      {/* K U B E R N E A T */}
       <div id="Kuberneat" className="flex-grow">
         <h1 className="text-2xl font-bold justify-center">Kuberneat</h1>
       </div>

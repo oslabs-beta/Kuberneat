@@ -1,8 +1,5 @@
 {
-  "/not-found": "app/not-found.js",
-  "/Home/[Views]/Pods/page": "app/Home/[Views]/Pods/page.js",
-  "/Home/[Views]/Cluster-Web-View/page": "app/Home/[Views]/Cluster-Web-View/page.js",
-  "/Home/[Views]/Health/page": "app/Home/[Views]/Health/page.js",
   "/Home/page": "app/Home/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
+  "/Home/[Views]/Cluster-Web-View/page": "app/Home/[Views]/Cluster-Web-View/page.js",
+  "/Home/[Views]/Pods/page": "app/Home/[Views]/Pods/page.js"
 }

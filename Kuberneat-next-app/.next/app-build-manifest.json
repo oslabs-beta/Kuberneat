@@ -1,15 +1,15 @@
 {
   "pages": {
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
+    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
-    ],
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
     ],
     "/Home/page": [
       "static/chunks/webpack.js",
@@ -17,10 +17,10 @@
       "static/css/app/Home/page.css",
       "static/chunks/app/Home/page.js"
     ],
-    "/Home/[Views]/Pods/page": [
+    "/Home/[Views]/Promethus/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/Home/[Views]/Pods/page.js"
+      "static/chunks/app/Home/[Views]/Promethus/page.js"
     ],
     "/Home/[Views]/Cluster-Web-View/page": [
       "static/chunks/webpack.js",
@@ -28,16 +28,11 @@
       "static/css/app/Home/[Views]/Cluster-Web-View/page.css",
       "static/chunks/app/Home/[Views]/Cluster-Web-View/page.js"
     ],
-    "/Home/[Views]/Health/page": [
+    "/Home/[Views]/Pods/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/Home/[Views]/Health/page.css",
-      "static/chunks/app/Home/[Views]/Health/page.js"
-    ],
-    "/not-found": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/not-found.js"
+      "static/css/app/Home/[Views]/Pods/page.css",
+      "static/chunks/app/Home/[Views]/Pods/page.js"
     ]
   }
 }
