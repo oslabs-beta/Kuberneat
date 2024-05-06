@@ -51,13 +51,13 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# Getting Started With Zeus
+# Getting Started With Kuberneat
 
-# Running Zeus
+# Running Kuberneat
 
 1. Fork and clone the `dev` branch onto your local branch.
    ``` bash
-   https://github.com/oslabs-beta/Zeus.git
+   https://github.com/oslabs-beta/Kuberneat.git
    ```
 
 2. Install all the dependencies
@@ -123,12 +123,12 @@
 # Contributions
 
 For more information regarding how to contribute, please refer to the
-[CONTRIBUTING.md](https://github.com/oslabs-beta/Zeus/blob/dev/CONTRIBUTING.md)
+[CONTRIBUTING.md](https://github.com/oslabs-beta/Kuberneat/blob/dev/CONTRIBUTING.md)
 guidelines from this repo.
 
 1. Fork and clone the `dev` branch onto your local branch.
    ``` bash
-   https://github.com/oslabs-beta/Zeus.git
+   https://github.com/oslabs-beta/Kuberneat.git
    ```
 2. Create a new a feature branch
    ``` bash
