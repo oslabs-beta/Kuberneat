@@ -2,6 +2,8 @@
 
 <center><img src="./logo/Logo.png" width="200" height="150" id="readme-top"> </center>
 
+<center> <img src ="./logo/logo_site.png" width="200" height ="180" id="readme-top"></center>
+
 ![osLabs](https://badgen.net/badge/license/MIT)
 
 ![version](https://badgen.net/badge/version/v1.0.0)
