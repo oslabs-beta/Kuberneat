@@ -89,9 +89,8 @@ function App(): ReactElement {
 					</div>
 				)}
 
-				{/* OSP Name */}
 				<div id='logo' className={darkModeOn ? 'darkMode' : 'lightMode'}>
-					Zeus
+					Kuberneat
 				</div>
 
 				<Box id='icons-header' display='flex' justifyContent='space-between' marginRight={5}>

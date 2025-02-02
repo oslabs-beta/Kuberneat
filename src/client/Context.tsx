@@ -4,7 +4,7 @@
 import { Google } from '@mui/icons-material';
 import React from 'react';
 import { useState, useEffect } from 'react';
-import jwt_decode, { JwtPayload } from 'jwt-decode';
+import { JwtPayload, jwtDecode } from 'jwt-decode';
 import { ReactNode, ReactElement } from 'react';
 
 const Context: any = React.createContext<null>(null);
@@ -22,7 +22,7 @@ function ContextProvider({ children }: { children: ReactNode }): ReactElement {
 	//John's comment: function handling Oauth, when we get user object back
 	function handleCallbackResponse(response: any) {
 		
-		const userObject: any | null = jwt_decode<JwtPayload>(response.credential);
+		const userObject: any | null = jwtDecode<JwtPayload>(response.credential);
 		//create a new object from user object, make the shape match the shape of the object we get from own oauth
 		const { name, email, picture } = userObject;
 		const newUser: any | null = { name: name, email: email, picture: picture }

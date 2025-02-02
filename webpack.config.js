@@ -14,14 +14,15 @@ module.exports = {
 	],
 	devServer: {
 		host: 'localhost',
-		// frontend
 		port: 8080,
 		historyApiFallback: true,
-		// backend
-		proxy: {
-			'/': 'http://localhost:3002/',
-		},
-	},
+		proxy: [{
+		  context: ['/'],
+		  target: 'http://localhost:3002',
+		}],
+		hot: true,
+		open: true,
+	  },
 	module: {
 		rules: [
 			{

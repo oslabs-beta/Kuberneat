@@ -24,7 +24,7 @@ function Header({ title, subtitle, path }: HeaderProps): ReactElement {
 
 	return (
 		// Styling of the header 
-		<Box mb='30px' role='header'>
+		<Box mb='30px' role='header' data-testid="header">
 			<Box sx={{ display: 'flex', justifyContent: 'space-between', margin: 2 }}>
 				<Typography
 					variant='h4'

@@ -1,20 +1,16 @@
-//The purpose of this file is to test route handlers. The tests are run using Jest and Supertest.
 
-const request = require('supertest');
-
+import request from 'supertest';
 import  express, { Response, Request } from 'express';
 import mongoose from 'mongoose';
 
 const app = express();
 
-// const server = 'http://localhost:3000';
 
 beforeAll (done => {
 	done();
 });
 
 afterAll (done => {
-	// Closing the DB connection allows Jest to exit successfully.
 	mongoose.connection.close()
 	done();
 });

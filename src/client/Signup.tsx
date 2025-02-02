@@ -7,15 +7,12 @@ import { AppProps } from './interfaces';
 import { ReactElement, ReactNode } from 'react';
 
 function Signup(): any {
-	// won't take type ReactElement ??
 
 	const { darkModeOn, setUser, user } = useContext<AppProps>(Context);
 
-	// onSubmit or Login handler function -> add Authentication logic here
 	const onSubmit = async (values: any, actions: any): Promise<void> => {
-		// below is just a mock API call for testing, add logic for AUTH here later...
+	
 		await new Promise((resolve) => {
-				//fetch request to backend to authorize email & password
 				fetch('/register', {
 					method: 'POST',
 					headers:{'content-type':'application/json'},
@@ -42,27 +39,25 @@ function Signup(): any {
 
 			setTimeout(resolve, 1000);
 		});
-		actions.resetForm(); // resets form fields
+		actions.resetForm(); 
 	};
 
 	const {
-		// destructured props from the object returned from useFormik hook
-		values, // value inside input fields
-		errors, // object that holds all form validation logic
-		touched, // allows for better dynamic form validation, only shows err after input has been touched
-		isSubmitting, // boolean to allow button disabling when submitting
-		handleBlur, // validates the form when clicking off the input
-		handleChange, // sets formik state whenever state chnages
-		handleSubmit, // handles form submitting
+		values, 
+		errors,
+		touched, 
+		isSubmitting, 
+		handleBlur, 
+		handleChange, 
+		handleSubmit, 
 	}: valProps = useFormik(
-		// using the useFormik hook to return an object...
 		{
 			initialValues: {
 				email: '',
 				password: '',
 				confirmPassword: '',
 			},
-			validationSchema: loginSchema, // setting the schema for form validation, imported from schemas dir
+			validationSchema: loginSchema,
 			onSubmit: onSubmit,
 		}
 	);
@@ -75,9 +70,10 @@ function Signup(): any {
 				</div>
 
 				<form
-					autoComplete='off' // turns off auto-complete of inputs
+					role="form"
+					autoComplete='off'
 					className={darkModeOn ? 'login1' : 'login2'}
-					onSubmit={handleSubmit} // formik method to handle submits of login form
+					onSubmit={handleSubmit} 
 				>
 					<label htmlFor='email'>Email</label>
 					<input
@@ -88,9 +84,7 @@ function Signup(): any {
 						placeholder='Enter your email'
 						onBlur={handleBlur}
 						className={errors.email && touched.email ? 'input-error' : ''}
-						// what actually shows the errors on form validation
 					/>
-					{/* shows error message */}
 					{errors.email && touched.email && <p className='error'>{errors.email}</p>}
 
 					<label htmlFor='password'>Password</label>
@@ -102,9 +96,7 @@ function Signup(): any {
 						placeholder='Enter your password'
 						onBlur={handleBlur}
 						className={errors.password && touched.password ? 'input-error' : ''}
-						// what actually shows the errors on form validation
 					/>
-					{/* shows error message */}
 					{errors.password && touched.password && <p className='error'>{errors.password}</p>}
 
 					<label htmlFor='confirmPassword'>Confirm Password</label>
@@ -116,21 +108,17 @@ function Signup(): any {
 						placeholder='Confirm your password'
 						onBlur={handleBlur}
 						className={errors.confirmPassword && touched.confirmPassword ? 'input-error' : ''}
-						// what actually shows the errors on form validation
 					/>
-					{/* shows error message */}
 					{errors.confirmPassword && touched.confirmPassword && (
 						<p className='error'>{errors.confirmPassword}</p>
 					)}
 
 					<div className='login-box'>
-						{/* Signup button */}
 						<button
 							role='signup-button'
 							id={darkModeOn ? 'login-button1' : 'login-button2'}
 							type='submit'
-							disabled={isSubmitting} // signup button disabled when submitting
-							/* make sure to route back to login page in server router logic  */
+							disabled={isSubmitting}
 						>
 							Sign-up
 						</button>

@@ -1,8 +1,8 @@
 # ⚡ Kuberneat ⚡
 
-<center><img src="./logo/Logo.png" width="200" height="150" id="readme-top"> </center>
+<!-- <center><img src="./logo/Logo.png" width="200" height="150" id="readme-top"> </center>
 
-<center> <img src ="./logo/logo_site.png" width="200" height ="180" id="readme-top"></center>
+<center> <img src ="./logo/logo_site.png" width="200" height ="180" id="readme-top"></center> -->
 
 ![osLabs](https://badgen.net/badge/license/MIT)
 
@@ -148,7 +148,7 @@ guidelines from this repo.
 5. Connect to NoSQL database in .env
 
    ``` js
-   mongoURI = "Your NoSQL URI string"
+   MONGO_URI = "Your NoSQL URI string"
    ```
 6. ***Please ensure you are following eslint conventions***.
 7. ***Please ensure to create tests for your feature and that it passes your test suite***.
