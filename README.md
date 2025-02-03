@@ -73,10 +73,17 @@
    ``` 
 4. Connect to NoSQL database in .env
 
-   ``` js
-   mongoURI = "Your NoSQL URI string"
+   ```bash
+   MONGO_URI=mongodb+srv://<username>:<password>@your-cluster.mongodb.net/your-database
    ```
-5. Ensure your cluster is running and then you can start the desktop application with:
+   
+5. Start the Webpack dev server and backend
+
+```bash
+npm run dev
+```
+
+6. Ensure your cluster is running and then you can start the desktop application with:
    ``` bash
    npm run electron
    ```
