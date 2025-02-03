@@ -47,7 +47,6 @@ app.post('/register',
 );
 
 app.get('/metrics', async (req: Request, res: Response) => {
-    console.log('Getting metrics is working...');
     res.setHeader('Content-Type', register.contentType);
     res.end(await register.metrics());
 });
