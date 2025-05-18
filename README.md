@@ -184,7 +184,7 @@ Please review our [Contribution Guidelines](https://github.com/oslabs-beta/Kuber
   <table>
     <tr>
       <td align="center"><a href="https://github.com/harvli"><img src="https://github.com/harvli.png" width="100px;" alt="Harvey Li"/><br /><sub><b>Harvey Li</b></sub></a><br /><a href="https://www.linkedin.com/in/harvey-li/">LinkedIn</a></td>
-      <td align="center"><a href="https://github.com/DoctorCodeine"><img src="https://github.com/DoctorCodeine.png" width="100px;" alt="Amy (Aimée) Nguyen"/><br /><sub><b>Amy Nguyen</b></sub></a><br /><a href="https://www.linkedin.com/in/aqn/">LinkedIn</a></td>
+      <td align="center"><a href="https://github.com/TheNirmata"><img src="https://github.com/TheNirmata.png" width="100px;" alt="Amy (Aimée) Nguyen"/><br /><sub><b>Amy Nguyen</b></sub></a><br /><a href="https://www.linkedin.com/in/aqn/">LinkedIn</a></td>
       <td align="center"><a href="https://github.com/johnwroge"><img src="https://github.com/johnwroge.png" width="100px;" alt="John Wroge"/><br /><sub><b>John Wroge</b></sub></a><br /><a href="https://www.linkedin.com/in/john-wroge/">LinkedIn</a></td>
       <td align="center"><a href="https://github.com/edcho720"><img src="https://github.com/edcho720.png" width="100px;" alt="Ed Cho"/><br /><sub><b>Ed Cho</b></sub></a><br /><a href="https://www.linkedin.com/in/edcho720/">LinkedIn</a></td>
     </tr>
