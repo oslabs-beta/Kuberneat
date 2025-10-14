@@ -1,4 +1,4 @@
-# Contributing to Kuberneat
+# Contributing to Zeus
 
 😄 All feedback is welcomed! 😄
 
