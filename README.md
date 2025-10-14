@@ -34,6 +34,7 @@ Kuberneat provides insights into Kubernetes environments through interactive vis
 </div>
 
 ## Features
+
 > **Note:** Kuberneat is under active development. The features shown below represent both current capabilities and development goals. Community contributions are welcome to help enhance these features.
 
 <div align="center">
